@@ -27,7 +27,7 @@
                     "build/css/style.css": { "media": "screen" }
             }
         },
-        "skin.neverland.js": {
+        "skin.wikitolearn.js": {
             "scripts": [
                 "build/js/app.js"
             ],
