@@ -1,0 +1,22 @@
+{
+  "name": "wikitolearnskin",
+  "version": "1.0.0",
+  "description": "Skin for WikiToLearn",
+  "main": "build/js/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WikiToLearn/WikiToLearnSkin.git"
+  },
+  "keywords": [
+    "mediawiki"
+  ],
+  "author": "Gianluca Rigoletti, Cristian Baldi",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/WikiToLearn/WikiToLearnSkin/issues"
+  },
+  "homepage": "https://github.com/WikiToLearn/WikiToLearnSkin#readme"
+}
