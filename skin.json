@@ -1,0 +1,42 @@
+{
+    "name": "WikiToLearnSkin",
+    "author": [
+        "Cristian Baldi",
+        "Gianluca Rigoletti"
+    ],
+    "url": "https://github.com/WikiToLearn/WikiToLearnSkin",
+    "descriptionmsg": "wikitolearnskin-desc",
+    "namemsg": "skinname-wikitolearnskin",
+    "license-name": "GPL-3.0",
+    "type": "skin",
+    "ValidSkinNames": {
+        "wikitolearnskin": "WikiToLearnSkin"
+    },
+    "MessagesDirs": {
+        "WikiToLearnSkin": [
+            "i18n"
+        ]
+    },
+    "AutoloadClasses": {
+        "SkinWikiToLearnSkin": "WikiToLearnSkin.php"
+    },
+    "ResourceModules": {
+        "skin.wikitolearn": {
+            "position": "top",
+            "styles": {
+                    "build/css/style.css": { "media": "screen" }
+            }
+        },
+        "skin.neverland.js": {
+            "scripts": [
+                "build/js/app.js"
+            ],
+            "position": "bottom"
+        }
+    },
+    "ResourceFileModulePaths": {
+        "localBasePath": "",
+        "remoteSkinPath": "WikiToLearnSkin"
+    },
+    "manifest_version": 1
+}
