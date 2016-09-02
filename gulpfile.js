@@ -12,9 +12,15 @@ var build = {
 }
 
 gulp.task('sass', function() {
+    var paths = require('node-neat').includePaths;
+    paths.push("/home/gianluca/mediawiki-1.26.2-1/apps/mediawiki/htdocs/skins/WikiToLearnSkin/bower_components/bootstrap/scss");
 	return gulp.src(src.sass)
 		.pipe(sass({
-            includePaths: require('node-neat').includePaths
+            includePaths: paths
         }))
         .pipe( gulp.dest(build.sass) );
 });
+
+gulp.task('watch', function () {
+    gulp.watch('styles/**/*.scss', ['sass'])
+})
