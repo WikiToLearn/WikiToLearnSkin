@@ -1,0 +1,25 @@
+{
+  "name": "wikitolearnskin",
+  "description": "Skin for WikiToLearn",
+  "main": "build/js/app.js",
+  "authors": [
+    "Gianluca Rigoletti",
+    "Cristian Baldi"
+  ],
+  "license": "GPL-3.0",
+  "keywords": [
+    "mediawiki"
+  ],
+  "homepage": "https://github.com/WikiToLearn/WikiToLearnSkin",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "v4.0.0-alpha.3",
+    "font-awesome": "fontawesome#^4.6.3"
+  }
+}
