@@ -24,12 +24,14 @@
         "skin.wikitolearn": {
             "position": "top",
             "styles": {
-                    "build/css/style.css": { "media": "screen" }
+                    "bower_components/font-awesome/css/font-awesome.css": { "media": "screen" },
+                    "build/styles/skin.css": { "media": "screen" }
             }
         },
         "skin.wikitolearn.js": {
             "scripts": [
-                "build/js/app.js"
+                "bower_components/tether/dist/js/tether.js",
+                "bower_components/bootstrap/dist/js/bootstrap.js"
             ],
             "position": "bottom"
         }
