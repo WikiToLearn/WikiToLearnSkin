@@ -82,34 +82,22 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           </div>
         <?php } ?>
 
-        <?php $this->text( 'sitename' ); ?>
-
-        <a
-            href="<?php 
-                echo htmlspecialchars( $this->data['nav_urls']['mainpage']['href'] );
-                // This outputs your wiki's main page URL to the browser.
-                ?>"
-            <?php echo $this->getAttributesFromString('p-logo'); ?>
-        >
-            <img src="<?php 
-                    $this->text( 'logopath' );  
-                    // This outputs the path to your logo's image
-                    // You can also use $this->data['logopath'] to output the raw URL of the image. Remember to HTML-escape
-                    // if you're using this method, because the text() method does it automatically.
-                ?>"
-                alt="<?php $this->text( 'sitename' ) ?>"
-            >
-        </a>
-
-        <nav>
-            <ul>
-            <?php
-                foreach ( $this->getPersonalTools() as $key => $item ) {
-                    echo $this->makeListItem( $key, $item );
-                }
-            ?>
-            </ul>
-        </nav>
+        <header>
+          <nav>
+              <ul>
+                <li class="menu-left">
+                  <a href="#menu">
+                    <i class="fa fa-bars"></i>
+                  </a>
+                </li>
+                <?php
+                    foreach ( $this->getPersonalTools() as $key => $item ) {
+                        echo $this->makeListItem( $key, $item );
+                    }
+                ?>
+              </ul>
+          </nav>
+        </header>
 
         <h1> <?php $this->html( 'title' ); ?> </h1>
 
