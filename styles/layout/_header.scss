@@ -6,31 +6,35 @@ nav {
     max-width: 75em;
     @include make-container();
     padding: 0;
-    ul {
-        list-style-type: none;
-        margin-bottom: 0;
-        padding: 0;
-        overflow: hidden;
-        li {
-            display: inline-block;
-            padding: 1rem, 0.5rem;
-            a {
-                display: inline;
-                color: white;
-                text-decoration: none;
-                &:hover {
-                    background-color: #555;
-                }
-            }
-
+    a {
+        text-decoration: none;
+        text-align: center;
+        padding: 1rem 0.5rem;
+        height: 5rem;
+        &:hover {
+            background-color: #f3a;
         }
-        #pt-createaccount {
-            @extend li;
-            background-color: black;
+        &.menu-left {
+            float: left;
         }
-        #pt-createaccount, #pt-login {
+        &.menu-right {
             float: right;
         }
+        span {
+            margin: 0;
+            padding: 0;
+            vertical-align: middle;
+        }
     }
-    @include debug;
+    #pt-createaccount {
+        @extend li;
+        background-color: black;
+    }
+    #pt-createaccount, #pt-login {
+        float: right;
+    }
+}
+
+.img-logo {
+    height: 3rem;
 }

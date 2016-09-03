@@ -38,6 +38,7 @@ class SkinWikiToLearnSkin extends SkinTemplate
     function setupSkinUserCss( OutputPage $out ) 
     {
         parent::setupSkinUserCss( $out );
+        $out->addModuleStyles( 'font.wikitolearn' );
         $out->addModuleStyles( 'skin.wikitolearn' );
     }
 }
@@ -84,18 +85,25 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
 
         <header>
           <nav>
-              <ul>
-                <li class="menu-left">
-                  <a href="#menu">
-                    <i class="fa fa-bars"></i>
-                  </a>
-                </li>
-                <?php
-                    foreach ( $this->getPersonalTools() as $key => $item ) {
-                        echo $this->makeListItem( $key, $item );
-                    }
-                ?>
-              </ul>
+            <a href="#mainpage" class="menu-left logo">
+              <img class="img-logo" src="/skins/WikiToLearnSkin/images/wikitolearn-logo.png">
+              <span class="wtlorange">wiki</span><span class="wtlyellow">to</span><span class="wtlgreen">learn</span>
+            </a>
+            <a href="#" class="menu-left">
+              {{ Cos'è }}    
+            </a>
+            <a href="#"  class="menu-left">
+              {{ Collabora }}
+            </a>
+            <a href="#"  class="menu-left">
+              {{ Libri }}
+            </a>
+            <a href="#" class="menu-right">
+              {{ User: Grigoletti }}
+            </a>
+            <a href="#" class="menu-right">
+              <i class="fa fa-bell"></i>
+            </a>
           </nav>
         </header>
 
