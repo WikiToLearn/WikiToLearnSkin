@@ -1,14 +1,36 @@
-nav {
-    background-color: black;
-    padding: 0.5rem;
-    ul {
-        list-style-type: none;
-        li {
-            display: block;
-        }
-    }
+header {
+    @include debug;
 }
 
-nav ul {
-    
+nav {
+    max-width: 75em;
+    @include make-container();
+    padding: 0;
+    ul {
+        list-style-type: none;
+        margin-bottom: 0;
+        padding: 0;
+        overflow: hidden;
+        li {
+            display: inline-block;
+            padding: 1rem, 0.5rem;
+            a {
+                display: inline;
+                color: white;
+                text-decoration: none;
+                &:hover {
+                    background-color: #555;
+                }
+            }
+
+        }
+        #pt-createaccount {
+            @extend li;
+            background-color: black;
+        }
+        #pt-createaccount, #pt-login {
+            float: right;
+        }
+    }
+    @include debug;
 }

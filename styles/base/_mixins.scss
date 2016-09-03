@@ -1,0 +1,18 @@
+
+@mixin make-random-color {
+   $red: random(256)-1; 
+   $green: random(256)-1; 
+   $blue: random(256)-1;
+   $alpha: random(100)/100;
+   color: rgb($red, $green, $blue); 
+   background-color: rgba($red, $green, $blue, $alpha);
+   border: 2px solid $red;  
+
+}
+
+
+
+@mixin debug {
+    @include make-random-color;
+    box-sizing: border-box;
+}
