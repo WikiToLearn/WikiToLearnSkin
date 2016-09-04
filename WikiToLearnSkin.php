@@ -96,25 +96,75 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                     </a>
                 </div>
                 <nav class="nav-right col-md-6">    
-                    <a href="#" class="menu-left hover-red">
-                      Cos'è    
-                    </a>
-                    <a href="#"  class="menu-left hover-yellow">
-                      Collabora
-                    </a>
-                    <a href="#"  class="menu-left hover-green">
-                      Libri
-                    </a>
-                    <span class="separator"></span>
-                    <a class="fa fa-search" href=""></a>
-                    <span class="separator"></span>
-                    <a href="#" class="menu-right">
-                        crisbal 
-                    </a>
-                    <a href="#" class="menu-right">
+                  <a href="#" class="menu-left hover-red">
+                    Cos'è    
+                  </a>
+                  <a href="#"  class="menu-left hover-yellow">
+                    Collabora
+                  </a>
+                  <a href="#"  class="menu-left hover-green">
+                    Libri
+                  </a>
+                  <span class="separator"></span>
+                  <a class="fa fa-search" href=""></a>
+                  <span class="separator"></span>
+                  <a href="#" class="menu-right">
+                      crisbal 
+                  </a>
+                  <div class="dropdown">
+                    <a id="notifications" class="menu-right dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fa fa-bell"></i>
                     </a>
-
+                    <div class="dropdown-menu" aria-labelledby="notifications">
+                      <div class="dropdown-header">
+                        <span class="notifications-count">{{ Notifications (1) }}</span>
+                        <span class="mark-read-notifications">{{ Mark all as read }}</span>
+                      </div>
+                      <div class="dropdown-divider"></div>
+                        <div class="dropdown-item">
+                          <div class="media">
+                            <a class="media-left" href="google.com">
+                              <i class="fa fa-quote-left "></i>
+                            </a>
+                            <div class="media-body">
+                              <h5 class="media-heading">{{notifications.title}}</h5>
+                              <span class="notifications-message"> {{ notifications.message }} </span>
+                              <div class="notifications-details">
+                                <span> <i class="fa fa-user"></i> {{ Author }} </span>
+                                <span> <i class="fa fa-comment"></i> {{ File }} </span>
+                                <span>
+                                  <a href="#something" class="notifications-check" title="{{ Segna come già letto }}">
+                                    <i class="fa fa-check"></i>
+                                  </a>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-item">
+                          <div class="media">
+                            <a class="media-left" href="google.com">
+                              <i class="fa fa-quote-left "></i>
+                            </a>
+                            <div class="media-body">
+                              <h5 class="media-heading">{{notifications.title}}</h5>
+                              <span class="notifications-message"> {{ notifications.message }} </span>
+                              <div class="notifications-details">
+                                <span> <i class="fa fa-user"></i> {{ Author }} </span>
+                                <span> <i class="fa fa-comment"></i> {{ File }} </span>
+                                <span>
+                                  <a href="#something" class="notifications-check" title="{{ Segna come già letto }}">
+                                    <i class="fa fa-check"></i>
+                                  </a>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="dropdown-footer"> {{ View All }} </div>
+                    </div>
+                  </div> 
                 </nav>
             </div>
         </header>

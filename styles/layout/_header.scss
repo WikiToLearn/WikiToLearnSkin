@@ -66,6 +66,10 @@ header {
                     border-bottom: 1px solid $green;
                     transition: 0.1s linear all;
                 }
+            
+               &:hover:not(.notifications-check){
+                   background-color: whitesmoke;
+               }
 
                 &.hover-yellow:hover{
                     border-bottom: 1px solid $yellow;
@@ -85,6 +89,88 @@ header {
 
             &:after{
                 @include clearfix();
+            }
+
+            .dropdown {
+                display: inline-block;
+            }
+
+            .dropdown-menu {
+                left: inherit;
+                right: 1rem;
+                top: 2.8rem;
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+                padding-bottom: 0;
+                border: 1px solid $dark-green;
+            }
+
+            .dropdown-item {
+                padding: 0.75rem 0.5rem;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: $lighter-green;
+                }
+
+                .notifications-message {
+                    @extend .text-muted;
+                }
+
+                .notifications-details {
+                    span {
+                        font-size: 0.8rem;
+                    }
+                }
+
+                .media-left {
+                    vertical-align: middle;
+                    padding-left: 1rem;
+                    padding-right: 1.5rem;
+                    &:hover {
+                        @extend .media-left
+                    }
+                }
+
+                .notifications-check:hover {
+                    color: $green;
+                    .fa-check:hover {
+                        font-size: 1.3rem;
+                    }
+                }
+
+                &::before {
+                    position: absolute;
+                      top: -7px;
+                      right: 9px;
+                      display: inline-block;
+                      border-right: 7px solid transparent;
+                      border-bottom: 7px solid #CCC;
+                      border-left: 7px solid transparent;
+                      border-bottom-color: $dark-green;
+                      content: '';
+                }
+
+                &::after {
+                    position: absolute;
+                      top: -6px;
+                      right: 10px;
+                      display: inline-block;
+                      border-right: 6px solid transparent;
+                      border-bottom: 6px solid white;
+                      border-left: 6px solid transparent;
+                      content: '';
+                }
+            }
+
+            .dropdown-footer {
+                padding: 0.5rem;
+                border-top: 0.1rem solid $dark-green;
+                text-align: center;
+                background-color: $lighter-green;
+            }
+
+            .dropdown-divider {
+                margin: 0;
             }
         }
     }
