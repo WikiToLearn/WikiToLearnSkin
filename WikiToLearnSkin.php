@@ -83,7 +83,6 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             <?php $this->html( 'sitenotice' ); ?>
           </div>
         <?php } ?>
-
         <header>
             <div id="header-wrapper" >
                 <div href="/" class="logo col-md-6">
@@ -96,79 +95,38 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                     </a>
                 </div>
                 <nav class="nav-right col-md-6">    
-                  <a href="#" class="menu-left hover-red">
-                    Cos'è    
-                  </a>
-                  <a href="#"  class="menu-left hover-yellow">
-                    Collabora
-                  </a>
-                  <a href="#"  class="menu-left hover-green">
-                    Libri
-                  </a>
-                  <span class="separator"></span>
-                  <a class="fa fa-search" href=""></a>
-                  <span class="separator"></span>
-                  <a href="#" class="menu-right">
-                      crisbal 
-                  </a>
-                  <div class="dropdown">
-                    <a id="notifications" class="menu-right dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a href="#" class="menu-left hover-red">
+                      Cos'è    
+                    </a>
+                    <a href="#"  class="menu-left hover-yellow">
+                      Collabora
+                    </a>
+                    <a href="#"  class="menu-left hover-green">
+                      Libri
+                    </a>
+                    <span class="separator"></span>
+                    <a class="fa fa-search" href=""></a>
+                    <span class="separator"></span>
+                    <a href="#" class="menu-right">
+                        crisbal 
+                    </a>
+                    <a href="#" class="menu-right">
                       <i class="fa fa-bell"></i>
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="notifications">
-                      <div class="dropdown-header">
-                        <span class="notifications-count">{{ Notifications (1) }}</span>
-                        <span class="mark-read-notifications">{{ Mark all as read }}</span>
-                      </div>
-                      <div class="dropdown-divider"></div>
-                        <div class="dropdown-item">
-                          <div class="media">
-                            <a class="media-left" href="google.com">
-                              <i class="fa fa-quote-left "></i>
-                            </a>
-                            <div class="media-body">
-                              <h5 class="media-heading">{{notifications.title}}</h5>
-                              <span class="notifications-message"> {{ notifications.message }} </span>
-                              <div class="notifications-details">
-                                <span> <i class="fa fa-user"></i> {{ Author }} </span>
-                                <span> <i class="fa fa-comment"></i> {{ File }} </span>
-                                <span>
-                                  <a href="#something" class="notifications-check" title="{{ Segna come già letto }}">
-                                    <i class="fa fa-check"></i>
-                                  </a>
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="dropdown-divider"></div>
-                        <div class="dropdown-item">
-                          <div class="media">
-                            <a class="media-left" href="google.com">
-                              <i class="fa fa-quote-left "></i>
-                            </a>
-                            <div class="media-body">
-                              <h5 class="media-heading">{{notifications.title}}</h5>
-                              <span class="notifications-message"> {{ notifications.message }} </span>
-                              <div class="notifications-details">
-                                <span> <i class="fa fa-user"></i> {{ Author }} </span>
-                                <span> <i class="fa fa-comment"></i> {{ File }} </span>
-                                <span>
-                                  <a href="#something" class="notifications-check" title="{{ Segna come già letto }}">
-                                    <i class="fa fa-check"></i>
-                                  </a>
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="dropdown-footer"> {{ View All }} </div>
-                    </div>
-                  </div> 
+
                 </nav>
             </div>
         </header>
         <main id="page">
+        <?php if ($this->getSkin()->getTitle()->isMainPage()) { ?>
+                <div id="hero">
+                    <img id="biglogo" src="/skins/WikiToLearnSkin/images/wikitolearn-logo.png" alt="">
+                    <div id="claim">
+                        <h1><span>Wiki</span><span>To</span><span>Learn</span></h1>
+                        <h2>collaborative textbooks</h2>    
+                    </div>
+                </div>    
+        <?php } else { ?>    
             <h1> <?php $this->html( 'title' ); ?> </h1>
             <?php echo $this->getIndicators(); ?>
             <section id="content" class="mw-body">
@@ -190,6 +148,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
 
                 <?php $this->html( 'dataAfterContent' ); ?>
             </section>            
+        <?php } ?>
         </main>
 
         <script type="text/javascript">

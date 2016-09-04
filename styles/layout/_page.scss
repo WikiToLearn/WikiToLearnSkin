@@ -1,0 +1,6 @@
+#page{
+    max-width: $max-width;
+    padding-top: 4.5rem;
+
+    @include make-container();
+}
