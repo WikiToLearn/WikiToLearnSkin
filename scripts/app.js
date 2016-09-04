@@ -10,20 +10,21 @@
             notificationsItems;
 
 
-        var parameters = {
+        var queryParameters = {
             action: 'query',
             format: 'json',
             meta: 'notifications'
         }
 
         $notificationsButton.click(function () {
-            $.getJSON('/api.php', parameters, function (data) {
+            $.getJSON('/api.php', queryParameters, function (data) {
                 notificationsItems = data.query.notifications.list;
-                $.each(function ( index, element ) {
-                    console.log(index);
-                    console.log(element);
-                });
-            })
+                console.log(notificationsItems);
+                for (var prop in notificationsItems) {
+                    console.log(prop);
+                    console.log(notificationsItems[prop]);
+                }
+            });
         });
     } );
 } )( jQuery, mediaWiki );
