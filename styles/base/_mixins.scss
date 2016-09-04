@@ -10,6 +10,27 @@
 
 }
 
+@mixin animate-bottom-border($color) {
+    display: inline-block;
+
+    &:hover {
+        &:after {
+            width: 100%;
+            background-color: $color;
+        }
+    }
+
+    &:after {
+        content: '';
+        width: 0;
+        display: block;
+        height: 0.2rem;
+        background-color: transparent;
+        transition: width .5s ease, background-color .5s ease;
+    }
+
+}
+
 
 
 @mixin debug {
