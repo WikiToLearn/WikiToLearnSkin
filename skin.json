@@ -31,7 +31,8 @@
         "skin.wikitolearn.js": {
             "scripts": [
                 "bower_components/tether/dist/js/tether.js",
-                "bower_components/bootstrap/dist/js/bootstrap.js"
+                "bower_components/bootstrap/dist/js/bootstrap.js",
+                "scripts/app.js"
             ],
             "position": "bottom"
         }
