@@ -84,27 +84,29 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         <?php } ?>
 
         <header>
-          <nav>
-            <a href="#mainpage" class="menu-left logo">
-              <img class="img-logo" src="/skins/WikiToLearnSkin/images/wikitolearn-logo.png">
-              <span class="wtlorange">wiki</span><span class="wtlyellow">to</span><span class="wtlgreen">learn</span>
-            </a>
-            <a href="#" class="menu-left">
-              {{ Cos'è }}    
-            </a>
-            <a href="#"  class="menu-left">
-              {{ Collabora }}
-            </a>
-            <a href="#"  class="menu-left">
-              {{ Libri }}
-            </a>
-            <a href="#" class="menu-right">
-              {{ User: Grigoletti }}
-            </a>
-            <a href="#" class="menu-right">
-              <i class="fa fa-bell"></i>
-            </a>
-          </nav>
+            <div id="header-wrapper">
+                <a href="/" class="logo">
+                    <img id="logo-img" src="/skins/WikiToLearnSkin/images/wikitolearn-logo.png">
+                    <h1 id="logo-title"><span class="text-wtl-red">wiki</span><span class="text-wtl-yellow">to</span><span class="text-wtl-green">learn</span></h1>
+                </a>
+                <nav class="nav-right">    
+                    <a href="#" class="menu-left">
+                      Cos'è    
+                    </a>
+                    <a href="#"  class="menu-left">
+                      Collabora
+                    </a>
+                    <a href="#"  class="menu-left">
+                      Libri
+                    </a>
+                    <a href="#" class="menu-right">
+                      {{ User: Grigoletti }}
+                    </a>
+                    <a href="#" class="menu-right">
+                      <i class="fa fa-bell"></i>
+                    </a>
+                </nav>
+            </div>
         </header>
 
         <h1> <?php $this->html( 'title' ); ?> </h1>

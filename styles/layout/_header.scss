@@ -1,40 +1,63 @@
 header {
-    @include debug;
-}
+    
+    border-bottom: 1px solid #d7d7d7;
+    padding: 0.5rem 0; 
+    
+    #header-wrapper{
+        @include make-container(); 
+        max-width: 75rem;     
+        a{
+            text-decoration: none;
+            text-align: center;
+            &:hover{
+                text-decoration: none;
+            }
+        }
 
-nav {
-    max-width: 75em;
-    @include make-container();
-    padding: 0;
-    a {
-        text-decoration: none;
-        text-align: center;
-        padding: 1rem 0.5rem;
-        height: 5rem;
-        &:hover {
-            background-color: #f3a;
-        }
-        &.menu-left {
-            float: left;
-        }
-        &.menu-right {
-            float: right;
-        }
-        span {
-            margin: 0;
-            padding: 0;
-            vertical-align: middle;
-        }
-    }
-    #pt-createaccount {
-        @extend li;
-        background-color: black;
-    }
-    #pt-createaccount, #pt-login {
-        float: right;
-    }
-}
+        .logo{
+            #logo-img{
+                height: 2.5rem;
+                margin-right: 0.5rem;
+                vertical-align: middle;
+            }
 
-.img-logo {
-    height: 3rem;
+            #logo-title{
+                font-size: 2.5em;
+                vertical-align: middle;
+            }
+        } 
+        
+        #logo-title{
+            display: inline-block;
+        }
+
+        nav {
+            display: inline-block;
+            
+            color: $black;
+
+            a, a:hover {
+                padding: 1rem 0.5rem;
+                color: $black;    
+                span {
+                    margin: 0;
+                    padding: 0;
+                    vertical-align: middle;
+                }
+            }
+            
+           a:hover{
+               background-color: whitesmoke;
+           }
+
+            &.nav-right{
+                float: right;
+                margin-top: 0.85rem;
+            }
+
+            &:after{
+                @include clearfix();
+            }
+        }
+    }
 }
