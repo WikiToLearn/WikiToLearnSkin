@@ -118,33 +118,30 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 </nav>
             </div>
         </header>
+        <main id="page">
+            <h1> <?php $this->html( 'title' ); ?> </h1>
+            <?php echo $this->getIndicators(); ?>
+            <section id="content" class="mw-body">
+                <?php $this->msg( 'tagline' ); ?>
+                <?php if ( $this->data['subtitle'] ) { ?>
+                      <div id="contentSub"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
+                      <?php $this->html( 'subtitle' ); ?>
+                      </div>
+                <?php } ?>
+                      <?php if ( $this->data['undelete'] ) { ?>
+                      <div id="contentSub2"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
+                      <?php $this->html( 'undelete' ); ?>
+                      </div>
+                <?php } ?>
 
-        <h1> <?php $this->html( 'title' ); ?> </h1>
+                <?php $this->html( 'bodytext' ) ?>
 
-        <?php echo $this->getIndicators(); ?>
+                <?php $this->html( 'catlinks' ); ?>
 
+                <?php $this->html( 'dataAfterContent' ); ?>
+            </section>            
+        </main>
 
-        <section id="content" class="mw-body">
-            <?php $this->msg( 'tagline' ); ?>
-            <?php if ( $this->data['subtitle'] ) { ?>
-                  <div id="contentSub"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
-                  <?php $this->html( 'subtitle' ); ?>
-                  </div>
-            <?php } ?>
-                  <?php if ( $this->data['undelete'] ) { ?>
-                  <div id="contentSub2"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
-                  <?php $this->html( 'undelete' ); ?>
-                  </div>
-            <?php } ?>
-
-            <?php $this->html( 'bodytext' ) ?>
-
-            <?php $this->html( 'catlinks' ); ?>
-
-            <?php $this->html( 'dataAfterContent' ); ?>
-
-
-        </section>
         <script type="text/javascript">
         (function(w, d, s, u) {
               w.RocketChat = function(c) { w.RocketChat._.push(c) }; w.RocketChat._ = []; w.RocketChat.url = u;
