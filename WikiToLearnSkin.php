@@ -86,31 +86,38 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         <header>
             <div id="header-wrapper" >
                 <div href="/" class="logo col-md-6">
-                    <a href="/">
-                        <img id="logo-img" src="/skins/WikiToLearnSkin/images/wikitolearn-logo.png">
-                        
-                        <div id="logo-title">
-                            <span class="text-wtl-red">wiki</span><span class="text-wtl-yellow">to</span><span class="text-wtl-green">learn</span>
-                        </div>
-                    </a>
+                  <a href="/">
+                    <img id="logo-img" src="/skins/WikiToLearnSkin/images/wikitolearn-logo.png">
+                    
+                    <div id="logo-title">
+                      <span class="text-wtl-red">wiki</span><span class="text-wtl-yellow">to</span><span class="text-wtl-green">learn</span>
+                    </div>
+                  </a>
                 </div>
                 <nav class="nav-right col-md-6">    
-                    <a href="#" class="menu-left hover-red">
-                      Cos'è    
-                    </a>
-                    <a href="#"  class="menu-left hover-yellow">
-                      Collabora
-                    </a>
-                    <a href="#"  class="menu-left hover-green">
-                      Libri
-                    </a>
-                    <span class="separator"></span>
-                    <a class="fa fa-search" href=""></a>
-                    <span class="separator"></span>
-                    <a href="#" class="menu-right">
-                        crisbal 
-                    </a>
-                    <a href="#" class="menu-right">
+                  <a href="#" class="menu-left hover-red">
+                    Cos'è    
+                  </a>
+                  <a href="#"  class="menu-left hover-yellow">
+                    Collabora
+                  </a>
+                  <a href="#"  class="menu-left hover-green">
+                    Libri
+                  </a>
+                  <span class="menu-left search-box">
+                  <form action="<?php $this->text( 'wgScript' ); ?>">
+                    <input type="hidden" name="title" value="<?php $this->text( 'searchtitle' ) ?>" />
+                    <input type="search" id="search"  placeholder="{{ search }}">
+                    <button type="submit" class="search-button">
+                      <i class="fa fa-search"></i>
+                    </button>
+                  </form>
+                  </span>
+                  <a href="#" class="menu-right hover-dark-green">
+                      crisbal 
+                  </a>
+                  <div class="dropdown">
+                    <a id="notifications" class="menu-right dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fa fa-bell"></i>
                     </a>
 
@@ -143,6 +150,45 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 <?php } ?>
 
                 <?php $this->html( 'bodytext' ) ?>
+        <h1> <?php $this->html( 'title' ); ?> </h1>
+
+        <?php echo $this->getIndicators(); ?>
+
+
+        <section id="content" class="mw-body">
+        <div class="media">
+          <a class="media-left" href="google.com">
+            <i class="fa fa-quote-left "></i>
+          </a>
+          <div class="media-body">
+            <h5 class="media-heading">{{notifications.title}}</h5>
+            <span class="notifications-message"> {{ notifications.message }} </span>
+            <div class="notifications-details">
+              <span> <i class="fa fa-user"></i> {{ Author }} </span>
+              <span> <i class="fa fa-comment"></i> {{ File }} </span>
+              <span>
+                <a href="#something" class="notifications-check" title="{{ Segna come già letto }}">
+                  <i class="fa fa-check"></i>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+            <?php $this->msg( 'tagline' ); ?>
+            <?php if ( $this->data['subtitle'] ) { ?>
+                  <div id="contentSub"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
+                  <?php $this->html( 'subtitle' ); ?>
+                  </div>
+            <?php } ?>
+                  <?php if ( $this->data['undelete'] ) { ?>
+                  <div id="contentSub2"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
+                  <?php $this->html( 'undelete' ); ?>
+                  </div>
+            <?php } ?>
+
+            <?php $this->html( 'bodytext' ) ?>
+
+            <?php $this->html( 'catlinks' ); ?>
 
                 <?php $this->html( 'catlinks' ); ?>
 
@@ -150,15 +196,6 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             </section>            
         <?php } ?>
         </main>
-
-        <script type="text/javascript">
-        (function(w, d, s, u) {
-              w.RocketChat = function(c) { w.RocketChat._.push(c) }; w.RocketChat._ = []; w.RocketChat.url = u;
-                var h = d.getElementsByTagName(s)[0], j = d.createElement(s);
-                j.async = true; j.src = 'https://chat.wikitolearn.org/packages/rocketchat_livechat/assets/rocket-livechat.js';
-                  h.parentNode.insertBefore(j, h);
-        })(window, document, 'script', 'https://chat.wikitolearn.org/livechat');
-        </script>
         <?php $this->printTrail(); ?>
         </body>
         </html><?php

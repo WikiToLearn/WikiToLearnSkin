@@ -3,6 +3,7 @@ header {
     position: fixed;
     z-index: 10;
     width: 100%;
+
     
     background-color: white;
 
@@ -12,12 +13,17 @@ header {
     #header-wrapper{
 
         @include make-container(); 
-        
+
+        @include media-breakpoint-up(xl) {
+                width: 95rem;
+        }
+
         display: table;
 
         max-width: $max-width;     
         width: 100%;        
 
+        
         .logo{
             display: table-cell;
             float:none;
@@ -37,10 +43,10 @@ header {
             }
 
             #logo-title{
+                height: 100%;
                 font-size: 2.5em;
                 vertical-align: middle;
                 display: inline-block;
-                margin-bottom: 0.4rem;
             }
         } 
         
@@ -48,36 +54,38 @@ header {
             display: table-cell;
             float:none;
             color: $black;
+            text-align: right;
             
             padding: 0;
             a {
-                padding: 0rem 1rem;
-                color: $black;
+                text-align: center;
+                min-width: 5rem;
+                height: 100%;
+                color: #333;
                 font-weight: lighter;
-                font-size: 1.2rem; 
-                
+                font-size: 1.2rem;
+                display: inline-block;
+                vertical-align: middle;
+
                 vertical-align: middle;
                 &:hover{
                     text-decoration: none;
                 }
 
-                &.hover-green:hover{
-                    border-bottom: 1px solid $green;
-                    transition: 0.1s linear all;
-                }
-            
-               &:hover:not(.notifications-check){
-                   background-color: whitesmoke;
-               }
-
-                &.hover-yellow:hover{
-                    border-bottom: 1px solid $yellow;
-                    transition: 0.1s linear border-color;
+                &.hover-green {
+                    @include animate-bottom-border($green)
                 }
 
-                &.hover-red:hover{
-                border-bottom: 1px solid $red;
-                    transition: 0.1s linear all;
+                &.hover-yellow {
+                    @include animate-bottom-border($yellow);
+                }
+
+                &.hover-red {
+                    @include animate-bottom-border($red);
+                }
+
+                &.hover-dark-green {
+                    @include animate-bottom-border($dark-green);
                 }
             }
            
@@ -96,10 +104,12 @@ header {
 
             .dropdown-menu {
                 left: inherit;
-                right: 1rem;
-                top: 2.8rem;
+                right: 0;
+                border-right: 1rem;
+                top: 3.2rem;
                 box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-                padding-bottom: 0;
+                margin-top: 0;
+                padding: 0 inherit;
                 border: 1px solid $dark-green;
             }
 
@@ -139,24 +149,24 @@ header {
 
                 &::before {
                     position: absolute;
-                      top: -7px;
-                      right: 9px;
+                      top: -0.45rem;
+                      right: 0.55rem;
                       display: inline-block;
-                      border-right: 7px solid transparent;
-                      border-bottom: 7px solid #CCC;
-                      border-left: 7px solid transparent;
+                      border-right: 0.45rem solid transparent;
+                      border-bottom: 0.45rem solid #CCC;
+                      border-left: 0.45rem solid transparent;
                       border-bottom-color: $dark-green;
                       content: '';
                 }
 
                 &::after {
                     position: absolute;
-                      top: -6px;
-                      right: 10px;
+                      top: -0.4rem;
+                      right: 0.6rem;
                       display: inline-block;
-                      border-right: 6px solid transparent;
-                      border-bottom: 6px solid white;
-                      border-left: 6px solid transparent;
+                      border-right: 0.4rem solid transparent;
+                      border-bottom: 0.4rem solid white;
+                      border-left: 0.4rem solid transparent;
                       content: '';
                 }
             }
@@ -170,6 +180,35 @@ header {
 
             .dropdown-divider {
                 margin: 0;
+            }
+
+            .search-box {
+                form {
+                    display: inline;
+                }
+
+                #search {
+                    padding: 0;
+                    border: none;
+                    width: 0;
+                    border-bottom: 0.2rem solid $dark-green;
+                    outline: none;
+
+                    &.expanded-search {
+                        transition: width 0.6s ease;
+                        width: 20%;
+                    }
+
+                    &.collapsed-search {
+                        transition: width 0.6s ease-out;
+                        width: 0%;
+                    }
+                }
+
+                button {
+                    border: none;
+                    background-color: transparent;
+                }
             }
         }
     }
