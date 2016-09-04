@@ -1,20 +1,36 @@
 header {
+
+    position: fixed;
+    z-index: 10;
+    width: 100%;
     
-    border-bottom: 1px solid #d7d7d7;
-    padding: 0.5rem 0; 
+    background-color: white;
+
+    box-shadow: 0 0 3px rgba(0,0,0,0.2);  
     
+    line-height: 2.9rem;  
     #header-wrapper{
+
         @include make-container(); 
+        
+        display: table;
+
         max-width: 75rem;     
-        a{
-            text-decoration: none;
-            text-align: center;
-            &:hover{
-                text-decoration: none;
-            }
-        }
+        
 
         .logo{
+            display: table-cell;
+            float:none;
+            
+            padding: 0;
+            a{
+                text-decoration: none;
+                &:hover{
+                    text-decoration: none;
+                }
+            }
+
+
             #logo-img{
                 height: 2.5rem;
                 margin-right: 0.5rem;
@@ -24,36 +40,52 @@ header {
             #logo-title{
                 font-size: 2.5em;
                 vertical-align: middle;
+                display: inline-block;
+                margin-bottom: 0.4rem;
             }
         } 
         
-        #logo-title{
-            display: inline-block;
-        }
-
         nav {
-            display: inline-block;
-            
+            display: table-cell;
+            float:none;
             color: $black;
+            
+            padding: 0;
+            a {
+                padding: 0rem 1rem;
+                color: $black;
+                font-weight: lighter;
+                font-size: 1.2rem; 
+                
+                vertical-align: middle;
+                &:hover{
+                    text-decoration: none;
+                }
 
-            a, a:hover {
-                padding: 1rem 0.5rem;
-                color: $black;    
-                span {
-                    margin: 0;
-                    padding: 0;
-                    vertical-align: middle;
+                &.hover-green:hover{
+                    border-bottom: 1px solid $green;
+                    transition: 0.1s linear all;
+                }
+            
+               &:hover:not(.notifications-check){
+                   background-color: whitesmoke;
+               }
+
+                &.hover-yellow:hover{
+                    border-bottom: 1px solid $yellow;
+                    transition: 0.1s linear border-color;
+                }
+
+                &.hover-red:hover{
+                border-bottom: 1px solid $red;
+                    transition: 0.1s linear all;
                 }
             }
-            
-           a:hover:not(.notifications-check){
-               background-color: whitesmoke;
-           }
-
-            &.nav-right{
-                float: right;
-                margin-top: 0.85rem;
-            }
+           
+           .separator{
+               color: gray;
+               border-left: 1px solid gray;
+           } 
 
             &:after{
                 @include clearfix();

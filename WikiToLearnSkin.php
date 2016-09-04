@@ -38,6 +38,7 @@ class SkinWikiToLearnSkin extends SkinTemplate
     function setupSkinUserCss( OutputPage $out ) 
     {
         parent::setupSkinUserCss( $out );
+        $out->addStyle("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700");
         $out->addModuleStyles( 'font.wikitolearn' );
         $out->addModuleStyles( 'skin.wikitolearn' );
     }
@@ -84,78 +85,86 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         <?php } ?>
 
         <header>
-            <div id="header-wrapper">
-                <a href="/" class="logo">
-                    <img id="logo-img" src="/skins/WikiToLearnSkin/images/wikitolearn-logo.png">
-                    <h1 id="logo-title"><span class="text-wtl-red">wiki</span><span class="text-wtl-yellow">to</span><span class="text-wtl-green">learn</span></h1>
-                </a>
-                <nav class="nav-right">    
-                    <a href="#" class="menu-left">
-                      Cos'è    
+            <div id="header-wrapper" >
+                <div href="/" class="logo col-md-6">
+                    <a href="/">
+                        <img id="logo-img" src="/skins/WikiToLearnSkin/images/wikitolearn-logo.png">
+                        
+                        <div id="logo-title">
+                            <span class="text-wtl-red">wiki</span><span class="text-wtl-yellow">to</span><span class="text-wtl-green">learn</span>
+                        </div>
                     </a>
-                    <a href="#"  class="menu-left">
-                      Collabora
+                </div>
+                <nav class="nav-right col-md-6">    
+                  <a href="#" class="menu-left hover-red">
+                    Cos'è    
+                  </a>
+                  <a href="#"  class="menu-left hover-yellow">
+                    Collabora
+                  </a>
+                  <a href="#"  class="menu-left hover-green">
+                    Libri
+                  </a>
+                  <span class="separator"></span>
+                  <a class="fa fa-search" href=""></a>
+                  <span class="separator"></span>
+                  <a href="#" class="menu-right">
+                      crisbal 
+                  </a>
+                  <div class="dropdown">
+                    <a id="notifications" class="menu-right dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fa fa-bell"></i>
                     </a>
-                    <a href="#"  class="menu-left">
-                      Libri
-                    </a>
-                    <a href="#" class="menu-right">
-                      {{ User: Grigoletti }}
-                    </a>
-                    <div class="dropdown">
-                      <a id="notifications" class="menu-right dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-bell"></i>
-                      </a>
-                      <div class="dropdown-menu" aria-labelledby="notifications">
-                        <div class="dropdown-header">
-                          <span class="notifications-count">{{ Notifications (1) }}</span>
-                          <span class="mark-read-notifications">{{ Mark all as read }}</span>
+                    <div class="dropdown-menu" aria-labelledby="notifications">
+                      <div class="dropdown-header">
+                        <span class="notifications-count">{{ Notifications (1) }}</span>
+                        <span class="mark-read-notifications">{{ Mark all as read }}</span>
+                      </div>
+                      <div class="dropdown-divider"></div>
+                        <div class="dropdown-item">
+                          <div class="media">
+                            <a class="media-left" href="google.com">
+                              <i class="fa fa-quote-left "></i>
+                            </a>
+                            <div class="media-body">
+                              <h5 class="media-heading">{{notifications.title}}</h5>
+                              <span class="notifications-message"> {{ notifications.message }} </span>
+                              <div class="notifications-details">
+                                <span> <i class="fa fa-user"></i> {{ Author }} </span>
+                                <span> <i class="fa fa-comment"></i> {{ File }} </span>
+                                <span>
+                                  <a href="#something" class="notifications-check" title="{{ Segna come già letto }}">
+                                    <i class="fa fa-check"></i>
+                                  </a>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                         <div class="dropdown-divider"></div>
-                          <div class="dropdown-item">
-                            <div class="media">
-                              <a class="media-left" href="google.com">
-                                <i class="fa fa-quote-left "></i>
-                              </a>
-                              <div class="media-body">
-                                <h5 class="media-heading">{{notifications.title}}</h5>
-                                <span class="notifications-message"> {{ notifications.message }} </span>
-                                <div class="notifications-details">
-                                  <span> <i class="fa fa-user"></i> {{ Author }} </span>
-                                  <span> <i class="fa fa-comment"></i> {{ File }} </span>
-                                  <span>
-                                    <a href="#something" class="notifications-check" title="{{ Segna come già letto }}">
-                                      <i class="fa fa-check"></i>
-                                    </a>
-                                  </span>
-                                </div>
+                        <div class="dropdown-item">
+                          <div class="media">
+                            <a class="media-left" href="google.com">
+                              <i class="fa fa-quote-left "></i>
+                            </a>
+                            <div class="media-body">
+                              <h5 class="media-heading">{{notifications.title}}</h5>
+                              <span class="notifications-message"> {{ notifications.message }} </span>
+                              <div class="notifications-details">
+                                <span> <i class="fa fa-user"></i> {{ Author }} </span>
+                                <span> <i class="fa fa-comment"></i> {{ File }} </span>
+                                <span>
+                                  <a href="#something" class="notifications-check" title="{{ Segna come già letto }}">
+                                    <i class="fa fa-check"></i>
+                                  </a>
+                                </span>
                               </div>
                             </div>
                           </div>
-                          <div class="dropdown-divider"></div>
-                          <div class="dropdown-item">
-                            <div class="media">
-                              <a class="media-left" href="google.com">
-                                <i class="fa fa-quote-left "></i>
-                              </a>
-                              <div class="media-body">
-                                <h5 class="media-heading">{{notifications.title}}</h5>
-                                <span class="notifications-message"> {{ notifications.message }} </span>
-                                <div class="notifications-details">
-                                  <span> <i class="fa fa-user"></i> {{ Author }} </span>
-                                  <span> <i class="fa fa-comment"></i> {{ File }} </span>
-                                  <span>
-                                    <a href="#something" class="notifications-check" title="{{ Segna come già letto }}">
-                                      <i class="fa fa-check"></i>
-                                    </a>
-                                  </span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="dropdown-footer"> {{ View All }} </div>
-                      </div>
-                    </div> 
+                        </div>
+                        <div class="dropdown-footer"> {{ View All }} </div>
+                    </div>
+                  </div> 
                 </nav>
             </div>
         </header>
@@ -186,7 +195,14 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
 
 
         </section>
-
+        <script type="text/javascript">
+        (function(w, d, s, u) {
+              w.RocketChat = function(c) { w.RocketChat._.push(c) }; w.RocketChat._ = []; w.RocketChat.url = u;
+                var h = d.getElementsByTagName(s)[0], j = d.createElement(s);
+                j.async = true; j.src = 'https://chat.wikitolearn.org/packages/rocketchat_livechat/assets/rocket-livechat.js';
+                  h.parentNode.insertBefore(j, h);
+        })(window, document, 'script', 'https://chat.wikitolearn.org/livechat');
+        </script>
         <?php $this->printTrail(); ?>
         </body>
         </html><?php
