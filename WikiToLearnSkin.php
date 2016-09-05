@@ -39,6 +39,7 @@ class SkinWikiToLearnSkin extends SkinTemplate
     {
         parent::setupSkinUserCss( $out );
         $out->addStyle("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700");
+        $out->addStyle("https://fonts.googleapis.com/css?family=Asap");
         $out->addModuleStyles( 'font.wikitolearn' );
         $out->addModuleStyles( 'skin.wikitolearn' );
     }
@@ -173,34 +174,42 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         </header>
         <main id="page">
         <?php if ($this->getSkin()->getTitle()->isMainPage()) { ?>
-                <div id="container-departments">
-                    <div id="departments">
-                        <div class="department col-md-3">
+          <section class="landing-title">
+            <h1> Knowledge only grows if shared </h1>
+          </section>
+                <div class="container-departments">
+                    <section class="departments">
+                        <div class="department">
                                 <img src="http://pool.wikitolearn.vodka/skins/Neverland/images/badges/it/bioscienze.png" alt="">
                         </div>
-                        <div class="department col-md-3">
+                        <div class="department">
                             <img src="http://pool.wikitolearn.vodka/skins/Neverland/images/badges/it/medicina.png" alt="">
                         </div>
-                        <div class="department col-md-3">
+                        <div class="department">
                             <img src="http://pool.wikitolearn.vodka/skins/Neverland/images/badges/it/chimica.png" alt="">
                         </div>
-                        <div class="department col-md-3">
+                        <div class="department">
                             <img src="http://pool.wikitolearn.vodka/skins/Neverland/images/badges/it/medicina.png" alt="">
                         </div>
-                        <div class="department col-md-3">
+                        <div class="department">
                             <img src="http://pool.wikitolearn.vodka/skins/Neverland/images/badges/it/economia.png" alt="">
                         </div>
-                        <div class="department col-md-3">
+                        <div class="department">
                             <img src="http://pool.wikitolearn.vodka/skins/Neverland/images/badges/it/fisica.png" alt="">
                         </div>
-                        <div class="department col-md-3">
+                        <div class="department">
                             <img src="http://pool.wikitolearn.vodka/skins/Neverland/images/badges/it/informatica.png" alt="">
                         </div>
-                        <div class="department col-md-3">
+                        <div class="department">
                             <img src="http://pool.wikitolearn.vodka/skins/Neverland/images/badges/it/ingegneria.png" alt="">
                         </div>
-                    </div>
-                </div>    
+                    </section>
+                </div>
+                <section id="join-us">
+                  <div class="join-us-button">
+                    <a href="#join-us" class="join-us-link">{{ Join Us }}</a>
+                  </div>
+                </section>    
         <?php } else { ?>    
             <h1> <?php $this->html( 'title' ); ?> </h1>
             <?php echo $this->getIndicators(); ?>

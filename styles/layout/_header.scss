@@ -12,17 +12,12 @@ header {
     line-height: 2.9rem;  
     #header-wrapper{
 
-        @include make-container(); 
-
-        @include media-breakpoint-up(xl) {
-                max-width: 80%;
-        }
+        @extend .container;
 
         @include media-breakpoint-down(md) {
             width: 90%;
         }
-
-        max-width: $max-width;     
+  
         width: 100%;        
 
         .logo{

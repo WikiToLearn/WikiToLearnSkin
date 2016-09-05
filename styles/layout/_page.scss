@@ -1,6 +1,60 @@
 #page{
-    max-width: $max-width;
-    padding-top: 4.5rem;
 
-    @include make-container();
+}
+
+.container-departments {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    background: -webkit-linear-gradient(bottom right, $green, lighten($green, 10%)); /* For Safari 5.1 to 6.0 */
+
+    .departments {
+        @extend .container;
+
+        .department {
+            @include make-col-ready(sm);
+            @include make-col(3);
+            text-align: center;
+            margin: 0.5rem 0;
+
+            img {
+                height: 100%;
+                width: 100%;
+                border-radius: 2px;
+                box-shadow: 0px 2px 4px rgba(0,0,0, 0.2)
+            }
+        }
+    }
+}
+
+#join-us {
+    display: table;
+    width: 100%;
+    text-align: center;
+    height: 16rem;
+    background: url('/');
+
+    .join-us-button {
+        display: table-cell;
+        vertical-align: middle;
+
+        .join-us-link {
+            padding: 1.5rem 5rem;
+            border-radius: 3rem;
+            background-color: $green;
+            text-decoration: none;
+            color: white;
+            font-size: $font-size-h4;
+        }
+    }
+}
+
+.landing-title {
+    padding-top: 3rem;
+    text-align: center;
+
+    h1 {
+        line-height: 10rem;
+        margin-bottom: 0;
+        font-family: 'Asap', sans-serif;
+    }
 }
