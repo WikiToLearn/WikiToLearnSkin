@@ -86,7 +86,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
 
         <header>
             <div id="header-wrapper" >
-                <div href="/" class="logo col-md-6">
+                <div href="/" class="logo">
                   <a href="/">
                     <img id="logo-img" src="/skins/WikiToLearnSkin/images/wikitolearn-logo.png">
                     
@@ -95,26 +95,26 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                     </div>
                   </a>
                 </div>
-                <nav class="nav-right col-md-6">    
-                  <a href="#" class="menu-left hover-red">
+                <nav class="nav-right">    
+                  <a href="#" class="menu hover-red">
                     Cos'è    
                   </a>
-                  <a href="#"  class="menu-left hover-yellow">
+                  <a href="#"  class="menu hover-yellow">
                     Collabora
                   </a>
-                  <a href="#"  class="menu-left hover-green">
+                  <a href="#"  class="menu hover-green">
                     Libri
                   </a>
-                  <span class="menu-left search-box">
+                  <span class="menu search-box">
                   <form action="<?php $this->text( 'wgScript' ); ?>">
                     <input type="hidden" name="title" value="<?php $this->text( 'searchtitle' ) ?>" />
-                    <input type="search" id="search"  placeholder="{{ search }}">
+                    <input type="search" id="search" placeholder="{{ search }}">
                     <button type="submit" class="search-button">
                       <i class="fa fa-search"></i>
                     </button>
                   </form>
                   </span>
-                  <a href="#" class="menu-right hover-dark-green">
+                  <a href="#" class="menu hover-dark-green">
                       crisbal 
                   </a>
                   <div class="dropdown">
@@ -127,48 +127,46 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                         <span class="mark-read-notifications">{{ Mark all as read }}</span>
                       </div>
                       <div class="dropdown-divider"></div>
-                        <div class="dropdown-item">
-                          <div class="media">
-                            <a class="media-left" href="google.com">
-                              <i class="fa fa-quote-left "></i>
-                            </a>
-                            <div class="media-body">
-                              <h5 class="media-heading">{{notifications.title}}</h5>
-                              <span class="notifications-message"> {{ notifications.message }} </span>
-                              <div class="notifications-details">
-                                <span> <i class="fa fa-user"></i> {{ Author }} </span>
-                                <span> <i class="fa fa-comment"></i> {{ File }} </span>
-                                <span>
-                                  <a href="#something" class="notifications-check" title="{{ Segna come già letto }}">
-                                    <i class="fa fa-check"></i>
-                                  </a>
-                                </span>
-                              </div>
-                            </div>
+                      <div class="dropdown-item">
+                        <div class="notifications-icon">
+                          <i class="fa fa-quote-left"></i>
+                        </div>
+                        <div class="notifications-content">
+                          <h5 class="notifications-title">{{ notifications.title }}</h5>
+                          <p class="notifications-message"> {{ notifications.message }} </p>
+                          <div class="notifications-details">
+                            <span> <i class="fa fa-user"></i> {{ Author }} </span>
+                            <span> <i class="fa fa-comment"></i> {{ File }} </span>
+                            <span>
+                              <a href="#something" class="notifications-check" title="{{ Segna come già letto }}">
+                                <i class="fa fa-check"></i>
+                              </a>
+                            </span>
                           </div>
                         </div>
-                        <div class="dropdown-divider"></div>
-                        <div class="dropdown-item">
-                          <div class="media">
-                            <a class="media-left" href="google.com">
-                              <i class="fa fa-quote-left "></i>
-                            </a>
-                            <div class="media-body">
-                              <h5 class="media-heading">{{notifications.title}}</h5>
-                              <span class="notifications-message"> {{ notifications.message }} </span>
-                              <div class="notifications-details">
-                                <span> <i class="fa fa-user"></i> {{ Author }} </span>
-                                <span> <i class="fa fa-comment"></i> {{ File }} </span>
-                                <span>
-                                  <a href="#something" class="notifications-check" title="{{ Segna come già letto }}">
-                                    <i class="fa fa-check"></i>
-                                  </a>
-                                </span>
-                              </div>
-                            </div>
+                      </div>
+                      <div class="dropdown-divider"></div>
+                      <div class="dropdown-item">
+                        <div class="notifications-icon">
+                          <i class="fa fa-quote-left"></i>
+                        </div>
+                        <div class="notifications-content">
+                          <h5 class="notifications-title">{{ notifications.title }}</h5>
+                          <p class="notifications-message"> {{ notifications.message }} </p>
+                          <div class="notifications-details">
+                            <span> <i class="fa fa-user"></i> {{ Author }} </span>
+                            <span> <i class="fa fa-comment"></i> {{ File }} </span>
+                            <span>
+                              <a href="#something" class="notifications-check" title="{{ Segna come già letto }}">
+                                <i class="fa fa-check"></i>
+                              </a>
+                            </span>
                           </div>
                         </div>
-                        <div class="dropdown-footer"> {{ View All }} </div>
+                      </div>
+                      <div class="dropdown-divider"></div>
+
+                      <div class="dropdown-footer"> {{ View All }} </div>
                     </div>
                   </div> 
                 </nav>
@@ -181,24 +179,6 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
 
 
         <section id="content" class="mw-body">
-        <div class="media">
-          <a class="media-left" href="google.com">
-            <i class="fa fa-quote-left "></i>
-          </a>
-          <div class="media-body">
-            <h5 class="media-heading">{{notifications.title}}</h5>
-            <span class="notifications-message"> {{ notifications.message }} </span>
-            <div class="notifications-details">
-              <span> <i class="fa fa-user"></i> {{ Author }} </span>
-              <span> <i class="fa fa-comment"></i> {{ File }} </span>
-              <span>
-                <a href="#something" class="notifications-check" title="{{ Segna come già letto }}">
-                  <i class="fa fa-check"></i>
-                </a>
-              </span>
-            </div>
-          </div>
-        </div>
             <?php $this->msg( 'tagline' ); ?>
             <?php if ( $this->data['subtitle'] ) { ?>
                   <div id="contentSub"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->

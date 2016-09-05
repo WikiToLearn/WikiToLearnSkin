@@ -15,16 +15,20 @@ header {
         @include make-container(); 
 
         @include media-breakpoint-up(xl) {
-                width: 95rem;
+                max-width: 80%;
         }
 
+        @include media-breakpoint-down(md) {
+            width: 90%;
+        }
+        
+        width: 80%;
         display: table;
 
-        width: 75rem;     
-        
         .logo{
-            display: table-cell;
-            float:none;
+
+            @include make-col-ready(xl);
+            @include make-col(6);
             
             padding: 0;
             a{
@@ -54,11 +58,14 @@ header {
             float:none;
             color: $black;
             text-align: right;
+
+            @include make-col-ready(xl);
+            @include make-col(6);   
             
             padding: 0;
             a {
+                padding: 0 0.2rem;
                 text-align: center;
-                min-width: 5rem;
                 height: 100%;
                 color: #333;
                 font-weight: lighter;
@@ -102,22 +109,32 @@ header {
             }
 
             .dropdown-menu {
+                padding: 0;
                 left: inherit;
                 right: 0;
                 border-right: 1rem;
                 top: 3.2rem;
                 box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
                 margin-top: 0;
-                padding: 0 inherit;
                 border: 1px solid $dark-green;
             }
 
             .dropdown-item {
                 padding: 0.75rem 0.5rem;
                 cursor: pointer;
+                display: table;
 
                 &:hover {
                     background-color: $lighter-green;
+                }
+
+                .notifications-icon {
+                    display: table-cell;
+                    padding: 0rem 0.5rem;
+                }
+
+                .notifications-content {
+                    display: table-cell;
                 }
 
                 .notifications-message {
@@ -127,15 +144,6 @@ header {
                 .notifications-details {
                     span {
                         font-size: 0.8rem;
-                    }
-                }
-
-                .media-left {
-                    vertical-align: middle;
-                    padding-left: 1rem;
-                    padding-right: 1.5rem;
-                    &:hover {
-                        @extend .media-left
                     }
                 }
 
