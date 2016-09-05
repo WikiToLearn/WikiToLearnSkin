@@ -116,6 +116,26 @@ header {
                 box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
                 margin-top: 0;
                 border: 1px solid $dark-green;
+                max-height: 28rem;
+                overflow-y: auto;
+
+                &::-webkit-scrollbar {
+                  width: 0.2rem;
+                }
+                
+                &::-webkit-scrollbar {
+                  width: 0.2rem;
+                }
+                 
+                &::-webkit-scrollbar-track {
+                  background-color:$lighter-green;
+                  border-radius: 0.2rem;
+                }
+                 
+                &::-webkit-scrollbar-thumb {
+                  border-radius: 0.2rem;
+                  background-color: $dark-green;
+                }
             }
 
             .dropdown-item {
@@ -136,8 +156,13 @@ header {
                     display: table-cell;
                 }
 
+                .notifications-title {
+                    margin-bottom: 0;
+                }
+
                 .notifications-message {
                     @extend .text-muted;
+                    margin-bottom: 0;
                 }
 
                 .notifications-details {
