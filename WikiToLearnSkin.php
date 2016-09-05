@@ -126,11 +126,32 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         </header>
         <main id="page">
         <?php if ($this->getSkin()->getTitle()->isMainPage()) { ?>
-                <div id="hero">
-                    <img id="biglogo" src="/skins/WikiToLearnSkin/images/wikitolearn-logo.png" alt="">
-                    <div id="claim">
-                        <h1><span>Wiki</span><span>To</span><span>Learn</span></h1>
-                        <h2>collaborative textbooks</h2>    
+                <div id="container-departments">
+                    <div id="departments">
+                        <div class="department col-md-3">
+                                <img src="http://pool.wikitolearn.vodka/skins/Neverland/images/badges/it/bioscienze.png" alt="">
+                        </div>
+                        <div class="department col-md-3">
+                            <img src="http://pool.wikitolearn.vodka/skins/Neverland/images/badges/it/medicina.png" alt="">
+                        </div>
+                        <div class="department col-md-3">
+                            <img src="http://pool.wikitolearn.vodka/skins/Neverland/images/badges/it/chimica.png" alt="">
+                        </div>
+                        <div class="department col-md-3">
+                            <img src="http://pool.wikitolearn.vodka/skins/Neverland/images/badges/it/medicina.png" alt="">
+                        </div>
+                        <div class="department col-md-3">
+                            <img src="http://pool.wikitolearn.vodka/skins/Neverland/images/badges/it/economia.png" alt="">
+                        </div>
+                        <div class="department col-md-3">
+                            <img src="http://pool.wikitolearn.vodka/skins/Neverland/images/badges/it/fisica.png" alt="">
+                        </div>
+                        <div class="department col-md-3">
+                            <img src="http://pool.wikitolearn.vodka/skins/Neverland/images/badges/it/informatica.png" alt="">
+                        </div>
+                        <div class="department col-md-3">
+                            <img src="http://pool.wikitolearn.vodka/skins/Neverland/images/badges/it/ingegneria.png" alt="">
+                        </div>
                     </div>
                 </div>    
         <?php } else { ?>    

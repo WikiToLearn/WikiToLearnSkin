@@ -2,9 +2,8 @@
     text-align: center;
 
     #biglogo{
-        height: 8rem;
         display: inline-block;
-
+        height: 10rem;
         vertical-align: middle;
     } 
 
@@ -13,6 +12,11 @@
 
         text-align: left;
         vertical-align: middle;
+        
+        font-size: 3rem;
+        font-weight: 500;
+
+        color: #666666;
 
         margin-left: 1rem;
 
@@ -20,4 +24,5 @@
             margin: 0;
         }
     }
+
 }
