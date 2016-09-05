@@ -91,7 +91,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                     <img id="logo-img" src="/skins/WikiToLearnSkin/images/wikitolearn-logo.png">
                     
                     <div id="logo-title">
-                      <span class="text-wtl-red">wiki</span><span class="text-wtl-yellow">to</span><span class="text-wtl-green">learn</span>
+                      wikitolearn
                     </div>
                   </a>
                 </div>
@@ -175,9 +175,77 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         <main id="page">
         <?php if ($this->getSkin()->getTitle()->isMainPage()) { ?>
           <section class="landing-title">
-            <h1> Knowledge only grows if shared </h1>
+            <h1> Learn with the best. Create books. Share knowledge. </h1>
           </section>
-                <div class="container-departments">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-3">
+                <div class="card card-inverse">
+                  <img class="card-img img-fluid" src="https://c6.staticflickr.com/4/3562/3411957501_5c2c37cf3a_o.jpg" alt="Card image">
+                  <div class="card-img-overlay">
+                    <h4 class="card-title">Card title</h4>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-3">
+                  <a href='https://500px.com/photo/158107621/hard-drive-overview-by-jason-pinaster' alt='Hard Drive Overview by Jason Pinaster on 500px.com'>
+                    <img src='https://drscdn.500px.org/photo/158107621/m%3D900/c2f764a5208d003b61aca12f66aaae3e' class="img-fluid img-rounded" alt='Hard Drive Overview by Jason Pinaster on 500px.com'>
+                  </a>
+              </div>
+              <div class="col-xs-3">
+                  <a href='https://500px.com/photo/140987083/microscope-in-laboratory-by-konstantin-kolosov' alt='Microscope in Laboratory by Konstantin Kolosov on 500px.com'>
+                    <img src='https://drscdn.500px.org/photo/140987083/m%3D900/005da9ad84e8658418adee1f2418fd6f' class="img-fluid img-rounded" alt='Microscope in Laboratory by Konstantin Kolosov on 500px.com'>
+                  </a>
+              </div>
+
+              <div class="col-xs-3">
+                <div class="card card-inverse">
+                  <img class="card-img img-fluid" src="https://drscdn.500px.org/photo/151605079/m%3D900/4bf9b0cc8ea17d4fd6dbc9c46872cb5f" alt="Card image">
+                  <div class="card-img-overlay">
+                    <h4 class="card-title">Card title</h4>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xs-3">
+                <div class="card card-inverse">
+                  <img class="card-img img-fluid" src="https://drscdn.500px.org/photo/151605079/m%3D900/4bf9b0cc8ea17d4fd6dbc9c46872cb5f" alt="Card image">
+                  <div class="card-img-overlay">
+                    <h4 class="card-title">Card title</h4>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xs-3">
+                <div class="card card-inverse">
+                  <img class="card-img img-fluid" src="https://drscdn.500px.org/photo/151605079/m%3D900/4bf9b0cc8ea17d4fd6dbc9c46872cb5f" alt="Card image">
+                  <div class="card-img-overlay">
+                    <h4 class="card-title">Card title</h4>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xs-3">
+                <div class="card card-inverse">
+                  <img class="card-img img-fluid" src="https://drscdn.500px.org/photo/88990905/m%3D900/1b0e9571bcc505fa6c0992fad3663ceb" alt="Card image">
+                  <div class="card-img-overlay">
+                    <h4 class="card-title">Card title</h4>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xs-3">
+                <div class="card card-inverse">
+                  <img class="card-img img-fluid" src="https://drscdn.500px.org/photo/106113875/m%3D900/9552290d4f9f3fd56012a2e69ac1399e" alt="Card image">
+                  <div class="card-img-overlay">
+                    <h4 class="card-title">Card title</h4>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+<!--                 <div class="container-departments">
                     <section class="departments">
                         <div class="department">
                                 <img src="http://pool.wikitolearn.vodka/skins/Neverland/images/badges/it/bioscienze.png" alt="">
@@ -204,7 +272,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                             <img src="http://pool.wikitolearn.vodka/skins/Neverland/images/badges/it/ingegneria.png" alt="">
                         </div>
                     </section>
-                </div>
+                </div> -->
                 <section id="join-us">
                   <div class="join-us-button">
                     <a href="#join-us" class="join-us-link">{{ Join Us }}</a>

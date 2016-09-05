@@ -5,7 +5,7 @@ header {
     width: 100%;
 
     
-    background-color: white;
+    background-color: #34373c;
 
     box-shadow: 0 0 3px rgba(0,0,0,0.2);  
     
@@ -44,6 +44,8 @@ header {
                 font-size: 2.5em;
                 vertical-align: middle;
                 display: inline-block;
+                color: white;
+                font-family: 'Asap', sans-serif;
             }
         } 
         
@@ -61,7 +63,7 @@ header {
                 padding: 0 0.2rem;
                 text-align: center;
                 height: 100%;
-                color: #333;
+                color: white;
                 font-weight: lighter;
                 font-size: 1.2rem;
                 display: inline-block;
@@ -211,6 +213,10 @@ header {
             .search-box {
                 form {
                     display: inline;
+                }
+
+                .fa-search {
+                    color: white;
                 }
 
                 #search {

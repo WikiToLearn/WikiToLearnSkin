@@ -5,7 +5,7 @@
 .container-departments {
     padding-top: 3rem;
     padding-bottom: 3rem;
-    background: -webkit-linear-gradient(bottom right, $green, lighten($green, 10%)); /* For Safari 5.1 to 6.0 */
+    background: white; /* For Safari 5.1 to 6.0 */
 
     .departments {
         @extend .container;
@@ -53,8 +53,17 @@
     text-align: center;
 
     h1 {
-        line-height: 10rem;
+        line-height: 16rem;
         margin-bottom: 0;
         font-family: 'Asap', sans-serif;
+        font-size: 4rem;
+        font-weight: lighter;
+    }
+}
+
+.card-img-overlay {
+    visibility: hidden;
+    &:hover {
+        visibility: visible;
     }
 }
