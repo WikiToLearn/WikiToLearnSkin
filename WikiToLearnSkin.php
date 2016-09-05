@@ -83,7 +83,6 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             <?php $this->html( 'sitenotice' ); ?>
           </div>
         <?php } ?>
-
         <header>
             <div id="header-wrapper" >
                 <div href="/" class="logo">
@@ -172,7 +171,53 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 </nav>
             </div>
         </header>
+        <main id="page">
+        <?php if ($this->getSkin()->getTitle()->isMainPage()) { ?>
+                <div id="container-departments">
+                    <div id="departments">
+                        <div class="department col-md-3">
+                                <img src="http://pool.wikitolearn.vodka/skins/Neverland/images/badges/it/bioscienze.png" alt="">
+                        </div>
+                        <div class="department col-md-3">
+                            <img src="http://pool.wikitolearn.vodka/skins/Neverland/images/badges/it/medicina.png" alt="">
+                        </div>
+                        <div class="department col-md-3">
+                            <img src="http://pool.wikitolearn.vodka/skins/Neverland/images/badges/it/chimica.png" alt="">
+                        </div>
+                        <div class="department col-md-3">
+                            <img src="http://pool.wikitolearn.vodka/skins/Neverland/images/badges/it/medicina.png" alt="">
+                        </div>
+                        <div class="department col-md-3">
+                            <img src="http://pool.wikitolearn.vodka/skins/Neverland/images/badges/it/economia.png" alt="">
+                        </div>
+                        <div class="department col-md-3">
+                            <img src="http://pool.wikitolearn.vodka/skins/Neverland/images/badges/it/fisica.png" alt="">
+                        </div>
+                        <div class="department col-md-3">
+                            <img src="http://pool.wikitolearn.vodka/skins/Neverland/images/badges/it/informatica.png" alt="">
+                        </div>
+                        <div class="department col-md-3">
+                            <img src="http://pool.wikitolearn.vodka/skins/Neverland/images/badges/it/ingegneria.png" alt="">
+                        </div>
+                    </div>
+                </div>    
+        <?php } else { ?>    
+            <h1> <?php $this->html( 'title' ); ?> </h1>
+            <?php echo $this->getIndicators(); ?>
+            <section id="content" class="mw-body">
+                <?php $this->msg( 'tagline' ); ?>
+                <?php if ( $this->data['subtitle'] ) { ?>
+                      <div id="contentSub"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
+                      <?php $this->html( 'subtitle' ); ?>
+                      </div>
+                <?php } ?>
+                      <?php if ( $this->data['undelete'] ) { ?>
+                      <div id="contentSub2"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
+                      <?php $this->html( 'undelete' ); ?>
+                      </div>
+                <?php } ?>
 
+                <?php $this->html( 'bodytext' ) ?>
         <h1> <?php $this->html( 'title' ); ?> </h1>
 
         <?php echo $this->getIndicators(); ?>
@@ -195,10 +240,12 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
 
             <?php $this->html( 'catlinks' ); ?>
 
-            <?php $this->html( 'dataAfterContent' ); ?>
+                <?php $this->html( 'catlinks' ); ?>
 
-
-        </section>
+                <?php $this->html( 'dataAfterContent' ); ?>
+            </section>            
+        <?php } ?>
+        </main>
         <?php $this->printTrail(); ?>
         </body>
         </html><?php

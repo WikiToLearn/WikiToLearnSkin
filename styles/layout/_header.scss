@@ -21,9 +21,9 @@ header {
         @include media-breakpoint-down(md) {
             width: 90%;
         }
-        
-        width: 80%;
-        display: table;
+
+        max-width: $max-width;     
+        width: 100%;        
 
         .logo{
 
@@ -37,7 +37,6 @@ header {
                     text-decoration: none;
                 }
             }
-
 
             #logo-img{
                 height: 2.5rem;
