@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var plumber = require('gulp-plumber');
+var autoprefixer = require('gulp-autoprefixer');
 
 var src = {
     sass: './styles/skin.scss',
@@ -24,7 +25,8 @@ gulp.task('sass', function() {
             includePaths: paths
         }))
         .on('error', sass.logError)
-        .pipe( gulp.dest(build.sass) );
+        .pipe(autoprefixer())
+        .pipe( gulp.dest(build.sass));
 });
 
 gulp.task('watch', ['sass'], function () {
