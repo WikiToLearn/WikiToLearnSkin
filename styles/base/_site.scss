@@ -1,0 +1,6 @@
+.wikitolearn-divider {
+    @extend .container;
+    border: 0;
+    height: .2rem;
+    background: linear-gradient(to left, $dark-red 0%, $red 20%, $yellow 40%, $green 60%, $dark-green 80%);
+}
