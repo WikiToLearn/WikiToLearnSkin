@@ -1,0 +1,19 @@
+.btn-outline-dark-red {
+    @include button-outline-variant($dark-red);
+}
+
+.btn-outline-red {
+    @include button-outline-variant($red);
+}
+
+.btn-outline-yellow {
+    @include button-outline-variant($yellow);
+}
+
+.btn-outline-green {
+    @include button-outline-variant($green);
+}
+
+.btn-outline-dark-green {
+    @include button-outline-variant($dark-green);
+}

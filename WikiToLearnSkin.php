@@ -180,34 +180,117 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 <div class="container-departments">
                     <section class="departments">
                         <div class="department">
-                                <img src="http://pool.wikitolearn.vodka/skins/Neverland/images/badges/it/bioscienze.png" alt="">
+                                <img src="http://pool.wikitolearn.org/skins/Neverland/images/badges/it/bioscienze.png" alt="">
                         </div>
                         <div class="department">
-                            <img src="http://pool.wikitolearn.vodka/skins/Neverland/images/badges/it/medicina.png" alt="">
+                            <img src="http://pool.wikitolearn.org/skins/Neverland/images/badges/it/medicina.png" alt="">
                         </div>
                         <div class="department">
-                            <img src="http://pool.wikitolearn.vodka/skins/Neverland/images/badges/it/chimica.png" alt="">
+                            <img src="http://pool.wikitolearn.org/skins/Neverland/images/badges/it/chimica.png" alt="">
                         </div>
                         <div class="department">
-                            <img src="http://pool.wikitolearn.vodka/skins/Neverland/images/badges/it/medicina.png" alt="">
+                            <img src="http://pool.wikitolearn.org/skins/Neverland/images/badges/it/medicina.png" alt="">
                         </div>
                         <div class="department">
-                            <img src="http://pool.wikitolearn.vodka/skins/Neverland/images/badges/it/economia.png" alt="">
+                            <img src="http://pool.wikitolearn.org/skins/Neverland/images/badges/it/economia.png" alt="">
                         </div>
                         <div class="department">
-                            <img src="http://pool.wikitolearn.vodka/skins/Neverland/images/badges/it/fisica.png" alt="">
+                            <img src="http://pool.wikitolearn.org/skins/Neverland/images/badges/it/fisica.png" alt="">
                         </div>
                         <div class="department">
-                            <img src="http://pool.wikitolearn.vodka/skins/Neverland/images/badges/it/informatica.png" alt="">
+                            <img src="http://pool.wikitolearn.org/skins/Neverland/images/badges/it/informatica.png" alt="">
                         </div>
                         <div class="department">
-                            <img src="http://pool.wikitolearn.vodka/skins/Neverland/images/badges/it/ingegneria.png" alt="">
+                            <img src="http://pool.wikitolearn.org/skins/Neverland/images/badges/it/ingegneria.png" alt="">
                         </div>
                     </section>
                 </div>
                 <section id="join-us">
                   <div class="join-us-button">
                     <a href="#join-us" class="join-us-link">{{ Join Us }}</a>
+                  </div>
+                </section>
+                <hr class="wikitolearn-divider">
+                <section class="videos">
+                  <div class="video">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yVclxeOLBd0"></iframe>
+                  </div>
+                  <div class="video">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yVclxeOLBd0" allowfullscreen></iframe>
+                  </div>
+                  <div class="video">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yVclxeOLBd0" allowfullscreen></iframe>
+                  </div>
+                </section>
+                <hr class="wikitolearn-divider">
+                <section class="testimonials">
+                  <div class="testimonial">
+                    <a class="media-left" href="#">
+                      <img class="media-object" src="<?php echo $this->getSkin()->getSkinStylePath( 'images/testimonials.png'); ?>" alt="Generic placeholder image">
+                    </a>
+                    <div class="media-body">
+                      <blockquote>
+                        "WikiToLearn allows me to have great and always up-to-date material for my classes"
+                      </blockquote>
+                      <footer>
+                        <cite> M. Bona</cite>
+                      </footer>
+                    </div>
+                  </div>
+                  <div class="testimonial">
+                    <a class="media-left" href="#">
+                      <img class="media-object" src="<?php echo $this->getSkin()->getSkinStylePath( 'images/testimonials.png'); ?>" alt="Generic placeholder image">
+                    </a>
+                    <div class="media-body">
+                      <blockquote>
+                        "WikiToLearn allows me to have great and always up-to-date material for my classes"
+                      </blockquote>
+                      <footer>
+                        <cite> M. Bona</cite>
+                      </footer>
+                    </div>
+                  </div>
+                  <div class="testimonial">
+                    <a class="media-left" href="#">
+                      <img class="media-object" src="<?php echo $this->getSkin()->getSkinStylePath( 'images/testimonials.png'); ?>" alt="Generic placeholder image">
+                    </a>
+                    <div class="media-body">
+                      <blockquote class="blockquote">
+                        "WikiToLearn allows me to have great and always up-to-date material for my classes"
+                      </blockquote>
+                      <footer>
+                        <cite> M. Bona</cite>
+                      </footer>
+                    </div>
+                  </div>
+                  <a href="#" class="btn read-more btn-outline-success">Read more stories about WikiToLearn</a>
+                </section>
+                <hr class="wikitolearn-divider">
+                <section class="sponsors">
+                  <div class="image">
+                    <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor1.png'); ?>"> 
+                  </div>
+                  <div class="image">
+                    <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor2.png'); ?>"> 
+                  </div>
+                  <div class="image">
+                    <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor3.png'); ?>"> 
+                  </div>
+                  <div class="image">
+                    <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor4.png'); ?>"> 
+                  </div>
+                  <div class="clearfix"></div>
+                  <div class="image">
+                    <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor1.png'); ?>"> 
+                  </div>
+                  <div class="image">
+                    <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor2.png'); ?>"> 
+                  </div>
+                  <div class="image">
+                    <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor3.png'); ?>"> 
+                  </div>
+                  <div class="image">
+                    <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor4.png'); ?>"> 
                   </div>
                 </section>    
         <?php } else { ?>    

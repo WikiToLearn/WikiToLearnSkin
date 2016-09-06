@@ -5,7 +5,6 @@
 .container-departments {
     padding-top: 3rem;
     padding-bottom: 3rem;
-    background: -webkit-linear-gradient(bottom right, $green, lighten($green, 10%)); /* For Safari 5.1 to 6.0 */
 
     .departments {
         @extend .container;
@@ -19,8 +18,8 @@
             img {
                 height: 100%;
                 width: 100%;
-                border-radius: 2px;
-                box-shadow: 0px 2px 4px rgba(0,0,0, 0.2)
+                border-radius: $border-radius;
+                border: .2rem solid $lighter-green;
             }
         }
     }
@@ -39,7 +38,7 @@
 
         .join-us-link {
             padding: 1.5rem 5rem;
-            border-radius: 3rem;
+            border-radius: $border-radius;
             background-color: $green;
             text-decoration: none;
             color: white;
@@ -55,6 +54,93 @@
     h1 {
         line-height: 10rem;
         margin-bottom: 0;
-        font-family: 'Asap', sans-serif;
+        font-family: 'Aleo', sans-serif;
+        font-weight: lighter;
     }
+}
+
+.wikitolearn-divider {
+    @extend .container;
+    border: 0;
+    height: .2rem;
+    background: -moz-linear-gradient(left, $dark-red 0%, $red 20%, $yellow 40%, $green 60%, $dark-green 80%);
+}
+
+.videos {
+    @extend .container;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+
+    .video {
+        @include make-col-ready(xl);
+        @include make-col(12);
+        @include media-breakpoint-up(md) {
+            @include make-col(4);
+        }
+        text-align: center;
+        
+        iframe {
+            width: 100%;
+        }
+    }
+}
+
+.testimonials {
+    @extend .container;
+    padding-top: 5rem;
+    text-align: center;
+
+    .testimonial {
+        margin-top: 0;
+        @include make-col-ready(xl);
+        @include make-col(12);
+        @include media-breakpoint-up(sm) {
+            @include make-col(4);
+        }
+        @extend .media;
+
+        img {
+            border-radius: $border-radius;
+            width: 5rem;
+        }
+
+        .media-body {
+            text-align: justify;
+
+            blockquote {
+                font-size: 1rem;
+                @extend .blockquote;
+            }
+            footer {
+                @extend .blockquote-footer;
+            }
+        }
+    }
+
+    .read-more {
+        margin: 5rem auto;
+        @extend .btn-outline-green;
+    }
+}
+
+.sponsors {
+    @extend .container;
+    padding-top: 5rem;
+
+    .image {
+        @include make-col-ready(xl);
+        @include make-col(6);
+        @include media-breakpoint-up(sm) {
+            @include make-col(3);
+        }
+
+        img {
+            @extend .img-fluid;
+        }
+    }
+
+    .clearfix {
+        padding-bottom: 3rem
+    }
+
 }
