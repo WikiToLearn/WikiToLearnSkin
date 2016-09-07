@@ -1,27 +1,28 @@
 ( function ( $, mw ) {
     'use strict';
 
- $( '.search-box' ).on({
-     mouseenter: function() {
-         console.log('ciao');
-         $('#search').removeClass('collapsed-search');
-         $('#search').addClass('expanded-search');
-     },
-     mouseleave: function () {
-         if (! $('#search').is(':focus')) {
-             $('#search').removeClass('expanded-search');                
-             $('#search').addClass('collapsed-search');
-         }
-     },
-     focus: function () {
-         $('#search').removeClass('collapsed-search');
-         $('#search').addClass('expanded-search');
-     },
-     focusout: function() {
-         $('#search').removeClass('expanded-search');                
-         $('#search').addClass('collapsed-search');
-     }
- });
+// Expandable search bar
+$( '.search-box' ).on({
+    mouseenter: function() {
+        console.log('ciao');
+        $('#search').removeClass('collapsed-search');
+        $('#search').addClass('expanded-search');
+    },
+    mouseleave: function () {
+        if (! $('#search').is(':focus')) {
+            $('#search').removeClass('expanded-search');                
+            $('#search').addClass('collapsed-search');
+        }
+    },
+    focus: function () {
+        $('#search').removeClass('collapsed-search');
+        $('#search').addClass('expanded-search');
+    },
+    focusout: function() {
+        $('#search').removeClass('expanded-search');                
+        $('#search').addClass('collapsed-search');
+    }
+});
 
     /*!
      * Echo Special:Notifications page initialization
