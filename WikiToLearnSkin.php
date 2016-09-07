@@ -210,7 +210,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               <a href="#join-us" class="join-us-link">{{ Join Us }}</a>
             </div>
           </section>
-          <hr class="wikitolearn-divider">
+          <hr class="wikitolearn-divider-red">
           <section class="videos">
             <div class="video">
               <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yVclxeOLBd0"></iframe>
@@ -222,7 +222,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yVclxeOLBd0" allowfullscreen></iframe>
             </div>
           </section>
-          <hr class="wikitolearn-divider">
+          <hr class="wikitolearn-divider-yellow">
           <section class="testimonials">
             <div class="testimonial">
               <a class="media-left" href="#">
@@ -265,7 +265,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             </div>
             <a href="#" class="btn read-more btn-outline-success">Read more stories about WikiToLearn</a>
           </section>
-          <hr class="wikitolearn-divider">
+          <hr class="wikitolearn-divider-green">
           <section class="sponsors">
             <div class="image">
               <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor1.png'); ?>"> 
@@ -343,15 +343,71 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             <div class="logo">
               <img src="/skins/WikiToLearnSkin/images/wikitolearn-logo.png">
             </div>
-            <div class="contacts"></div>
-            <div class="learn-more"></div>
-            <div class="social"></div>
+            <div class="contacts">
+              <h4>{{ Contacts }}</h4>
+              <ul class="contacts-list">
+                <li>
+                  <a href="mailto:info@wikitolearn.org"> info@wikitolearn.org </a>
+                </li>
+                <li>
+                  <a href="#{{mailing-list}}"> mailing list </a>
+                </li>
+                <li>
+                  <a href="#{{communications-channels}}"> communications channels </a>
+                </li>
+                <li>
+                  <a href="#{{F.A.Q}}"> F.A.Q </a>
+                </li>
+              </ul>
+            </div>
+            <div class="learn-more">
+              <h4 class="first-heading">{{Learn More}}</h4>
+              <ul class="learn-more-list">
+                <li>
+                  <a class="wikitolearn-philosophy" href="#{{wikitolearn philosophy}}">{{ WikiToLearn philosophy }}</a>
+                </li>
+              </ul>
+              <h4 class="second-heading">{{Hosted by}}</h4>
+              <ul class="sponsors">
+                <li>
+                  <a href="#GARR">Garr</a>
+                </li>
+                <li>
+                  <a href="#neodigit">Neo Digit</a>
+                </li>
+              </ul>
+            </div>
+            <div class="social">
+              <h4>{{Connect}}</h4>
+              <ul class="social-icons">
+                <li>
+                  <i class="fa fa-facebook fa-2x" aria-hidden="true"></i>
+                </li>
+                <li>
+                  <i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
+                </li>
+                <li>
+                  <i class="fa fa-linkedin fa-2x" aria-hidden="true"></i>
+                </li>
+              </ul>
+            </div>
           </div>
+          <div class="wikitolearn-divider"></div>
           <div class="last-modified">
-            
+            <?php
+            foreach ( $this->getFooterLinks() as $category => $links ) { ?>
+            <ul class="<?php echo $category; ?>">
+            <?php
+              foreach ( $links as $key ) { ?>
+              <li><?php $this->html( $key ) ?></li>
+
+            <?php
+              } ?>
+            </ul>
+            <?php
+            } ?>
           </div>
         </footer>
-        <?php $this->printTrail(); ?>
         </body>
         </html><?php
     }

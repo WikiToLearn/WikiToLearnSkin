@@ -38,6 +38,13 @@
   }
 }
 
+@mixin list-inline {
+  display: inline-block;
+  &:not(:last-child) {
+    padding-right: $list-inline-padding;
+  }
+}
+
 @mixin debug {
     @include make-random-color;
     box-sizing: border-box;
