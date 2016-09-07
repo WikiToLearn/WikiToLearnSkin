@@ -408,6 +408,8 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             } ?>
           </div>
         </footer>
+
+        <?php $this->printTrail(); ?>
         </body>
         </html><?php
     }
