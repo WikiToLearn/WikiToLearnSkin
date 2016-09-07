@@ -175,7 +175,8 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         <main id="page">
         <?php if ($this->getSkin()->getTitle()->isMainPage()) { ?>
           <section class="landing-title">
-            <h1> Knowledge only grows if shared </h1>
+            <h1> Learn with the best. </h1>
+            <h1> Create books. Share <em>knowledge</em> </h1>
           </section>
           <div class="container-departments">
               <section class="departments">
