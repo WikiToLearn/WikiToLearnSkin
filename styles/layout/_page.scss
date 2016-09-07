@@ -3,7 +3,6 @@
 }
 
 .container-departments {
-    padding-top: 3rem;
     padding-bottom: 3rem;
 
     .departments {
@@ -119,6 +118,7 @@
 .sponsors {
     @extend .container;
     padding-top: 5rem;
+    padding-bottom: 5rem;
 
     .image {
         @include make-col-ready(xl);
@@ -136,4 +136,27 @@
         padding-bottom: 3rem
     }
 
+}
+
+.footer {
+    width: 100%;
+    height: 20rem;
+    background-color: $gray;
+
+    .content {
+        & div {
+            @include make-col-ready(xl);
+            @include make-col(6);
+            @include media-breakpoint-up(md) {
+                @include make-col(4);
+            }
+        }
+
+        .logo {
+            img {
+                padding: 9rem;
+                @extend .img-fluid;
+            }
+        }
+    }
 }
