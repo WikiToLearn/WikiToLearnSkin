@@ -9,6 +9,12 @@
         @extend .container;
 
         .department {
+            &:nth-child(4n + 1) {
+                padding-left: 0;
+            }
+            &:nth-child(4n) {
+                padding-right: 0;
+            }
             @include make-col-ready(sm);
             @include make-col(3);
             text-align: center;
@@ -47,11 +53,13 @@
 }
 
 .landing-title {
-    padding-top: 3rem;
-    text-align: center;
+    padding-top: 7rem;
+    padding-bottom: 5rem;
+    text-align: left;
+    @extend .container;
 
     h1 {
-        line-height: 10rem;
+        font-size: 3.5rem;
         margin-bottom: 0;
         font-family: 'Aleo', sans-serif;
         font-weight: lighter;
@@ -134,110 +142,6 @@
 
     .clearfix {
         padding-bottom: 3rem
-    }
-
-}
-
-.footer {
-    width: 100%;
-    background-color: $gray;
-    overflow: auto;
-    background-color: $black-secondary;
-
-    .content {
-        color: whitesmoke;
-        @extend .container;
-
-        & div {
-            font-size: 1.2rem;
-            h4 {
-                padding-top: 2rem;
-                padding-bottom: 2rem;
-            }
-            padding: 2rem;
-            padding-top: 0rem;
-            @include make-col-ready(xl);
-            @include make-col(6);
-            @include media-breakpoint-up(md) {
-                @include make-col(3);
-            }
-
-            a {
-                text-decoration: none;
-                color: whitesmoke;
-            }
-
-            ul {
-                @include list-unstyled();
-                padding-top: 1rem;
-                margin-bottom: 0rem;
-            }
-
-        }
-
-        .logo {
-            img {
-                padding: 5rem;
-                @extend .img-fluid;
-            }
-        }
-
-        .contacts {
-            h4 {
-                //color: $red;
-                border-bottom: 0.1rem solid $red;
-            }
-            .contacts-list {
-                li {
-                    padding-top: 0.3rem;
-                    padding-bottom: 0.3rem;
-                }
-            }
-        }
-
-        .learn-more {
-            h4 {
-                //color: $yellow;
-                border-bottom: 0.1rem solid $yellow;
-            }
-            a {
-                &:not(:last-child) {
-                    padding-right: 1rem;
-                }
-            }
-        }
-
-        .social {
-            h4 {
-                border-bottom: 0.1rem solid $green;
-                //color: $green;
-            }
-            .social-icons {
-                li {
-                    @include list-inline();
-                    @include make-col-ready(xs);
-                    @include make-col(3);
-                }
-            }
-        }
-    }
-
-    .last-modified {
-        color: whitesmoke;
-        ul {
-            @include list-unstyled();
-            
-            &.info {
-                text-align: center;
-            }
-
-            &.places {
-                text-align: center;
-                li {
-                    @include list-inline();
-                }
-            }
-        }
     }
 
 }
