@@ -1,0 +1,171 @@
+.container-departments {
+    padding-bottom: 3rem;
+
+    .departments {
+        @extend .container;
+
+        .department {
+            &:nth-child(4n + 1) {
+                padding-left: 0;
+            }
+            &:nth-child(4n) {
+                padding-right: 0;
+            }
+            @include make-col-ready(sm);
+            @include make-col(3);
+            text-align: center;
+            margin: 0.5rem 0;
+
+            img {
+                height: 100%;
+                width: 100%;
+                border-radius: $border-radius;
+                border: .2rem solid $lighter-green;
+            }
+        }
+    }
+}
+
+#join-us {
+    display: table;
+    width: 100%;
+    text-align: center;
+    height: 16rem;
+    background: url('/');
+
+    .join-us-button {
+        display: table-cell;
+        vertical-align: middle;
+
+        .join-us-link {
+            padding: 1.5rem 5rem;
+            border-radius: $border-radius;
+            background-color: $green;
+            text-decoration: none;
+            color: white;
+            font-size: $font-size-h4;
+        }
+    }
+}
+
+.landing-title {
+    padding-top: 7rem;
+    padding-bottom: 5rem;
+    text-align: left;
+    @extend .container;
+
+    h1 {
+        font-size: 3.5rem;
+        margin-bottom: 0;
+        font-weight: lighter;
+    }
+}
+
+.videos {
+    @extend .container;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+
+    .video {
+        @include make-col-ready(xl);
+        @include make-col(12);
+        @include media-breakpoint-up(md) {
+            @include make-col(4);
+        }
+        text-align: center;
+
+        iframe {
+            width: 100%;
+        }
+    }
+}
+
+.testimonials {
+    @extend .container;
+    padding-top: 5rem;
+    text-align: center;
+
+    .testimonial {
+        margin-top: 0;
+        @include make-col-ready(xl);
+        @include make-col(12);
+        @include media-breakpoint-up(sm) {
+            @include make-col(4);
+        }
+        @extend .media;
+
+        img {
+            border-radius: $border-radius;
+            width: 5rem;
+        }
+
+        .media-body {
+            text-align: justify;
+
+            blockquote {
+                font-size: 1rem;
+                @extend .blockquote;
+            }
+            footer {
+                @extend .blockquote-footer;
+            }
+        }
+    }
+
+    .read-more {
+        margin: 5rem auto;
+        @extend .btn-outline-green;
+    }
+}
+
+.sponsors {
+    @extend .container;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+
+    .image {
+        @include make-col-ready(xl);
+        @include make-col(6);
+        @include media-breakpoint-up(sm) {
+            @include make-col(3);
+        }
+
+        img {
+            @extend .img-fluid;
+        }
+    }
+
+    .clearfix {
+        padding-bottom: 3rem
+    }
+
+}
+
+#hero{
+    text-align: center;
+
+    #biglogo{
+        display: inline-block;
+        height: 10rem;
+        vertical-align: middle;
+    }
+
+    #claim{
+        display: inline-block;
+
+        text-align: left;
+        vertical-align: middle;
+
+        font-size: 3rem;
+        font-weight: 500;
+
+        color: #666666;
+
+        margin-left: 1rem;
+
+        h1, h2, h3{
+            margin: 0;
+        }
+    }
+
+}

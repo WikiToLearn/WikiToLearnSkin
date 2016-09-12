@@ -1,6 +1,11 @@
-@import "bootstrap";
+
 @import "base/module";
 
+@import "scss/bootstrap";
+
 @import "utils/module";
+
+@import "components/module";
+
 @import "layout/module";
-@import "parts/module";
+@import "pages/module";

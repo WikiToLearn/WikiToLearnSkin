@@ -10,7 +10,7 @@
  * SkinTemplate class for Foo Bar skin
  * @ingroup Skins
  */
-class SkinWikiToLearnSkin extends SkinTemplate 
+class SkinWikiToLearnSkin extends SkinTemplate
 {
     var $skinname = 'wikitolearnskin', $stylename = 'WikiToLearnSkin',
         $template = 'WikiToLearnSkinTemplate', $useHeadElement = true;
@@ -23,8 +23,8 @@ class SkinWikiToLearnSkin extends SkinTemplate
      *
      * @param OutputPage $out
      */
-    
-    public function initPage( OutputPage $out ) 
+
+    public function initPage( OutputPage $out )
     {
         parent::initPage( $out );
         $out->addModules( 'skin.wikitolearn.js' );
@@ -35,12 +35,10 @@ class SkinWikiToLearnSkin extends SkinTemplate
      *
      * @param $out OutputPage
      */
-    function setupSkinUserCss( OutputPage $out ) 
+    function setupSkinUserCss( OutputPage $out )
     {
         parent::setupSkinUserCss( $out );
         $out->addStyle("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700");
-        $out->addStyle("https://fonts.googleapis.com/css?family=Asap");
-        $out->addModuleStyles( 'font.wikitolearn' );
         $out->addModuleStyles( 'skin.wikitolearn' );
     }
 }
@@ -54,7 +52,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
 
     /**
      * Print the attributes given the string
-     * @param  string $string 
+     * @param  string $string
      * @return string the attributes as a string
      */
     public function getAttributesFromString($string)
@@ -65,7 +63,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     /**
      * Outputs the entire contents of the page
      */
-    public function execute() 
+    public function execute()
     {
         $this->html( 'headelement' ); ?>
 
@@ -89,15 +87,15 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 <div href="/" class="logo">
                   <a href="/">
                     <img id="logo-img" src="/skins/WikiToLearnSkin/images/wikitolearn-logo.png">
-                    
+
                     <div id="logo-title">
                       <span class="text-wtl-red">wiki</span><span class="text-wtl-yellow">to</span><span class="text-wtl-green">learn</span>
                     </div>
                   </a>
                 </div>
-                <nav class="nav-right">    
+                <nav class="nav-right">
                   <a href="#" class="menu hover-red">
-                    Cos'è    
+                    Cos'è
                   </a>
                   <a href="#"  class="menu hover-yellow">
                     Collabora
@@ -115,7 +113,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                   </form>
                   </span>
                   <a href="#" class="menu hover-dark-green">
-                      crisbal 
+                      crisbal
                   </a>
                   <div class="dropdown">
                     <a id="notifications" class="menu-right dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -168,15 +166,14 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
 
                       <div class="dropdown-footer"> {{ View All }} </div>
                     </div>
-                  </div> 
+                  </div>
                 </nav>
             </div>
         </header>
         <main id="page">
         <?php if ($this->getSkin()->getTitle()->isMainPage()) { ?>
           <section class="landing-title">
-            <h1> Learn with the best. </h1>
-            <h1> Create books. Share <em>knowledge</em> </h1>
+            <h2>knowledge only grows if shared</h2>
           </section>
           <div class="container-departments">
               <section class="departments">
@@ -269,32 +266,32 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           <hr class="wikitolearn-divider-green">
           <section class="sponsors">
             <div class="image">
-              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor1.png'); ?>"> 
+              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor1.png'); ?>">
             </div>
             <div class="image">
-              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor2.png'); ?>"> 
+              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor2.png'); ?>">
             </div>
             <div class="image">
-              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor3.png'); ?>"> 
+              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor3.png'); ?>">
             </div>
             <div class="image">
-              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor4.png'); ?>"> 
+              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor4.png'); ?>">
             </div>
             <div class="clearfix"></div>
             <div class="image">
-              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor1.png'); ?>"> 
+              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor1.png'); ?>">
             </div>
             <div class="image">
-              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor2.png'); ?>"> 
+              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor2.png'); ?>">
             </div>
             <div class="image">
-              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor3.png'); ?>"> 
+              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor3.png'); ?>">
             </div>
             <div class="image">
-              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor4.png'); ?>"> 
+              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor4.png'); ?>">
             </div>
-          </section>   
-        <?php } else { ?>    
+          </section>
+        <?php } else { ?>
             <h1> <?php $this->html( 'title' ); ?> </h1>
             <?php echo $this->getIndicators(); ?>
             <section id="content" class="mw-body">
@@ -336,7 +333,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 <?php $this->html( 'catlinks' ); ?>
 
                 <?php $this->html( 'dataAfterContent' ); ?>
-            </section>            
+            </section>
         <?php } ?>
         </main>
         <footer class="footer">
