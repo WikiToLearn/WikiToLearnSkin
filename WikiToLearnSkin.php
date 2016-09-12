@@ -172,41 +172,60 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         </header>
         <main id="page">
         <?php if ($this->getSkin()->getTitle()->isMainPage()) { ?>
-          <section class="landing-title">
-            <h2>knowledge only grows if shared</h2>
+          <section class="container-departments">
+              <div class="departments">
+                <div class="wrapper-department">
+                  <div class="department">
+                    <img class="department-image" src="http://i.imgur.com/XtYKLW2.png" alt="">
+                    <span class="department-name">Fisica</span>
+                  </div>
+                </div>
+                <div class="wrapper-department">
+                  <div class="department">
+                    <img class="department-image" src="http://i.imgur.com/PEPTSKE.png" alt="">
+                    <span class="department-name">Bioscienze</span>
+                  </div>
+                </div>
+                <div class="wrapper-department">
+                  <div class="department">
+                    <img class="department-image" src="http://i.imgur.com/XtYKLW2.png" alt="">
+                    <span class="department-name">Informatica</span>
+                  </div>
+                </div>
+                <div class="wrapper-department">
+                  <div class="department">
+                    <img class="department-image" src="http://i.imgur.com/PEPTSKE.png" alt="">
+                    <span class="department-name">Matematica</span>
+                  </div>
+                </div>
+                <div class="wrapper-department">
+                  <div class="department">
+                    <img class="department-image" src="http://i.imgur.com/XtYKLW2.png" alt="">
+                    <span class="department-name">Fisica</span>
+                  </div>
+                </div>
+                <div class="wrapper-department">
+                  <div class="department">
+                    <img class="department-image" src="http://i.imgur.com/PEPTSKE.png" alt="">
+                    <span class="department-name">Bioscienze</span>
+                  </div>
+                </div>
+                <div class="wrapper-department">
+                  <div class="department">
+                    <img class="department-image" src="http://i.imgur.com/XtYKLW2.png" alt="">
+                    <span class="department-name">Informatica</span>
+                  </div>
+                </div>
+                <div class="wrapper-department">
+                  <div class="department">
+                    <img class="department-image" src="http://i.imgur.com/PEPTSKE.png" alt="">
+                    <span class="department-name">Matematica</span>
+                  </div>
+                </div>
+              </div>
           </section>
-          <div class="container-departments">
-              <section class="departments">
-                  <div class="department">
-                          <img src="http://pool.wikitolearn.org/skins/Neverland/images/badges/it/bioscienze.png" alt="">
-                  </div>
-                  <div class="department">
-                      <img src="http://pool.wikitolearn.org/skins/Neverland/images/badges/it/medicina.png" alt="">
-                  </div>
-                  <div class="department">
-                      <img src="http://pool.wikitolearn.org/skins/Neverland/images/badges/it/chimica.png" alt="">
-                  </div>
-                  <div class="department">
-                      <img src="http://pool.wikitolearn.org/skins/Neverland/images/badges/it/medicina.png" alt="">
-                  </div>
-                  <div class="department">
-                      <img src="http://pool.wikitolearn.org/skins/Neverland/images/badges/it/economia.png" alt="">
-                  </div>
-                  <div class="department">
-                      <img src="http://pool.wikitolearn.org/skins/Neverland/images/badges/it/fisica.png" alt="">
-                  </div>
-                  <div class="department">
-                      <img src="http://pool.wikitolearn.org/skins/Neverland/images/badges/it/informatica.png" alt="">
-                  </div>
-                  <div class="department">
-                      <img src="http://pool.wikitolearn.org/skins/Neverland/images/badges/it/ingegneria.png" alt="">
-                  </div>
-              </section>
-          </div>
-          <section id="join-us">
-            <div class="join-us-button">
-              <a href="#join-us" class="join-us-link">{{ Join Us }}</a>
-            </div>
+          <section id="container-join-us">
+            <a href="#" id="link-join-us">Join Us</a>
           </section>
           <hr class="wikitolearn-divider-red">
           <section class="videos">

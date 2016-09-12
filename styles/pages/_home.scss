@@ -1,50 +1,63 @@
 .container-departments {
-    padding-bottom: 3rem;
+    padding-bottom: 1rem;
 
     .departments {
         @extend .container;
 
-        .department {
-            &:nth-child(4n + 1) {
-                padding-left: 0;
-            }
-            &:nth-child(4n) {
-                padding-right: 0;
-            }
+        .wrapper-department{
             @include make-col-ready(sm);
             @include make-col(3);
-            text-align: center;
-            margin: 0.5rem 0;
 
-            img {
+            margin: 0.5rem 0;
+        }
+
+        .department {
+            background-color: white;
+            text-align: center;
+            box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
+
+            border-radius: $border-radius;
+
+            .department-image{
                 height: 100%;
                 width: 100%;
-                border-radius: $border-radius;
-                border: .2rem solid $lighter-green;
+                border-radius: 2px;
+            }
+
+            .department-name{
+                color: $black;
             }
         }
     }
 }
 
-#join-us {
-    display: table;
-    width: 100%;
+#container-join-us {
+    padding: 3rem;
+
+    background-color: white;
     text-align: center;
-    height: 16rem;
-    background: url('/');
 
-    .join-us-button {
-        display: table-cell;
-        vertical-align: middle;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
 
-        .join-us-link {
-            padding: 1.5rem 5rem;
-            border-radius: $border-radius;
-            background-color: $green;
-            text-decoration: none;
+    #link-join-us {
+        display: inline-block;
+
+        padding: 0.5rem 2.5rem;
+
+        font-size: 1.5rem;
+
+        background-color: $green;
+        color: white;
+
+        border-radius: $border-radius;
+
+        cursor: pointer;
+
+        &:hover{
             color: white;
-            font-size: $font-size-h4;
+            text-decoration: none;
         }
+
     }
 }
 
