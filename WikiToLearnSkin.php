@@ -38,7 +38,8 @@ class SkinWikiToLearnSkin extends SkinTemplate
     function setupSkinUserCss( OutputPage $out )
     {
         parent::setupSkinUserCss( $out );
-        $out->addStyle("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700");
+        $out->addStyle("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
+        $out->addStyle("https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700");
         $out->addModuleStyles( 'skin.wikitolearn' );
     }
 }
@@ -225,7 +226,13 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               </div>
           </section>
           <section id="container-join-us">
+            <div class="description">
+                Learn with the best. Create books. Share knowledge.
+            </div>
             <a href="#" id="link-join-us">Join Us</a>
+            <div class="this-week">
+                This week on WikiToLearn: 32 new edits, 6 new pages and 2 new users.
+            </div>
           </section>
           <hr class="wikitolearn-divider-red">
           <section class="videos">

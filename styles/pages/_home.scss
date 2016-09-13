@@ -25,24 +25,41 @@
             }
 
             .department-name{
+                display: inline-block;
+
+                line-height: 0;
                 color: $black;
+
+                font-size: 1.5rem;
+                font-weight: lighter;
             }
         }
     }
 }
 
 #container-join-us {
-    padding: 3rem;
+    padding: 1rem;
 
     background-color: white;
     text-align: center;
 
     box-shadow: 0 1px 3px rgba(0,0,0,0.15);
 
+    .description{
+        font-size: 1.75rem;
+        font-weight: 300;
+        font-family: "Roboto Slab";
+        margin-bottom: 1rem;
+    }
+
+    .this-week{
+        margin-top: 1rem;
+    }
+
     #link-join-us {
         display: inline-block;
 
-        padding: 0.5rem 2.5rem;
+        padding: 0.5rem 7rem;
 
         font-size: 1.5rem;
 
