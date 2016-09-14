@@ -1,23 +1,24 @@
 .footer {
     background-color: $black-secondary;
-    background-color: $gray;
-    overflow: auto;
     width: 100%;
 
     .content {
-        color: whitesmoke;
-        padding: 0 2rem 2rem 2rem;
+        color: $gray;
+
     
         @extend .container;
 
-        @include make-col-ready(xl);
-        @include make-col(6);
-        @include media-breakpoint-up(md) {
-            @include make-col(3);
-        }
+
 
         & div {
             font-size: 1.2rem;
+            padding: 0 2rem 2rem 2rem;
+            
+            @include make-col-ready(xl);
+            @include make-col(6);
+            @include media-breakpoint-up(md) {
+                @include make-col(3);
+            }
 
             h4 {
                 padding-top: 2rem;
