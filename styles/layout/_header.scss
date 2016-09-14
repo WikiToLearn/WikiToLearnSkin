@@ -132,12 +132,35 @@ header {
             }
 
             .dropdown-item {
-                padding: 0.75rem 0.5rem;
                 cursor: pointer;
                 display: table;
+                padding: 0.75rem 0.5rem;
 
                 &:hover {
                     background-color: $lighter-green;
+                }
+
+                &::before {
+                    border-bottom-color: $dark-green;
+                    border-bottom: 0.45rem solid #CCC;
+                    border-left: 0.45rem solid transparent;
+                    border-right: 0.45rem solid transparent;
+                    content: '';
+                    display: inline-block;
+                    position: absolute;
+                    right: 0.55rem;
+                    top: -0.45rem;
+                }
+
+                &::after {
+                    border-bottom: 0.4rem solid white;
+                    border-left: 0.4rem solid transparent;
+                    border-right: 0.4rem solid transparent;
+                    content: '';
+                    display: inline-block;
+                    position: absolute;
+                    right: 0.6rem;
+                    top: -0.4rem;
                 }
 
                 .notifications-icon {
@@ -154,8 +177,8 @@ header {
                 }
 
                 .notifications-message {
-                    @extend .text-muted;
                     margin-bottom: 0;
+                    @extend .text-muted;
                 }
 
                 .notifications-details {
@@ -170,36 +193,13 @@ header {
                         font-size: 1.3rem;
                     }
                 }
-
-                &::before {
-                    position: absolute;
-                      top: -0.45rem;
-                      right: 0.55rem;
-                      display: inline-block;
-                      border-right: 0.45rem solid transparent;
-                      border-bottom: 0.45rem solid #CCC;
-                      border-left: 0.45rem solid transparent;
-                      border-bottom-color: $dark-green;
-                      content: '';
-                }
-
-                &::after {
-                    position: absolute;
-                      top: -0.4rem;
-                      right: 0.6rem;
-                      display: inline-block;
-                      border-right: 0.4rem solid transparent;
-                      border-bottom: 0.4rem solid white;
-                      border-left: 0.4rem solid transparent;
-                      content: '';
-                }
             }
 
             .dropdown-footer {
-                padding: 0.5rem;
-                border-top: 0.1rem solid $dark-green;
-                text-align: center;
                 background-color: $lighter-green;
+                border-top: 0.1rem solid $dark-green;
+                padding: 0.5rem;
+                text-align: center;
             }
 
             .dropdown-divider {
@@ -212,12 +212,13 @@ header {
                 }
 
                 #search {
-                    padding: 0;
-                    border: none;
-                    width: 0;
                     border-bottom: 0.2rem solid $dark-green;
+                    border: none;
                     outline: none;
+                    padding: 0;
+                    width: 0;
 
+                    // Reduce the level of indentation here
                     &.expanded-search {
                         transition: width 0.6s ease;
                         width: 20%;
