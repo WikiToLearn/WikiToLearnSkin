@@ -1,94 +1,113 @@
-.container-departments {
+#section-departments {
+
     padding-bottom: 1rem;
 
-    .departments {
-        @extend .container;
+    .container{
 
-        .wrapper-department{
-            @include make-col-ready(sm);
-            @include make-col(3);
+        .slogan{
+            color: #5a5a5a;
 
-            margin: 0.5rem 0;
-        }
+            font-family: "Roboto Slab";
+            font-size: 2.5rem;
+            font-weight: 300;
 
-        .department {
-            background-color: white;
-            border-radius: $border-radius;
-            box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
+            margin: 1rem 0;
+
             text-align: center;
+        }
 
-            .department-image{
-                border-radius: 2px;
-                height: 100%;
-                width: 100%;
+        .departments {
+            @extend .container;
+
+            .wrapper-department{
+                @include make-col-ready(sm);
+                @include make-col(3);
+
+                margin: 0.5rem 0;
             }
 
-            .department-name{
-                color: $black;
-                display: inline-block;
-                font-size: 1.5rem;
-                font-weight: lighter;
-                line-height: 0;
+            .department {
+                background-color: white;
+                border-radius: $border-radius;
+                box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
+                text-align: center;
+
+                .department-image{
+                    border-radius: 2px;
+                    height: 100%;
+                    width: 100%;
+                }
+
+                .department-name{
+                    color: $black;
+                    display: inline-block;
+                    font-size: 1.5rem;
+                    font-weight: lighter;
+                    line-height: 0;
+                }
             }
         }
     }
+
 }
 
-#container-join-us {
+#section-join-us {
+
     background-color: white;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
-    padding: 1rem;
-    text-align: center;
+    box-shadow: 0 0px 2px rgba(0,0,0,0.15);
 
-    .description{
-        font-family: "Roboto Slab";
-        font-size: 1.75rem;
-        font-weight: 300;
-        margin-bottom: 1rem;
-    }
+    .container{
 
-    .this-week{
-        margin-top: 1rem;
-    }
+        padding: 1.5rem 0;
+        text-align: center;
 
-    #link-join-us {
-        background-color: $green;
-        border-radius: $border-radius;
-        color: white;
-        cursor: pointer;
-        display: inline-block;
-        font-size: 1.5rem;
-        padding: 0.5rem 7rem;
+        .description{
+            font-family: "Roboto Slab";
+            font-size: 1.75rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
 
-        &:hover{
+        .this-week{
+            margin-top: 1rem;
+        }
+
+        #link-join-us {
+            background-color: $green;
+            border-radius: $border-radius;
             color: white;
-            text-decoration: none;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 1.5rem;
+            padding: 0.5rem 7rem;
+
+            &:hover{
+                color: white;
+                text-decoration: none;
+            }
         }
     }
 }
 
-.landing-title {
-    padding-bottom: 5rem;
-    padding-top: 7rem;
-    text-align: left;
+#section-video {
 
-    @extend .container;
+    background-color: white;
 
-    h1 {
-        font-size: 3.5rem;
-        font-weight: lighter;
-        margin-bottom: 0;
+    .container{
+        padding: 1.5rem 0;
+
+        .video{
+            @include make-col-ready(xl);
+            @include make-col(8);
+        }
+
+        .description{
+            @include make-col-ready(xl);
+            @include make-col(4);
+        }
     }
-}
 
-.videos {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-
-    @extend .container;
-
-    .video {
-        text-align: center;
+    /*.video {
 
         @include make-col-ready(xl);
         @include make-col(12);
@@ -99,7 +118,7 @@
         iframe {
             width: 100%;
         }
-    }
+    }*/
 }
 
 .testimonials {
@@ -184,9 +203,9 @@
         margin-left: 1rem;
         text-align: left;
         vertical-align: middle;
-        
-        h1, 
-        h2, 
+
+        h1,
+        h2,
         h3{
             margin: 0;
         }

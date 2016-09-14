@@ -173,77 +173,86 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         </header>
         <main id="page">
         <?php if ($this->getSkin()->getTitle()->isMainPage()) { ?>
-          <section class="container-departments">
-              <div class="departments">
-                <div class="wrapper-department">
-                  <div class="department">
-                    <img class="department-image" src="http://i.imgur.com/XtYKLW2.png" alt="">
-                    <span class="department-name">Fisica</span>
+          <section id="section-departments">
+            <div class="container">
+              <h2 class="slogan">
+                  Learn with the best. Create books. Share knowledge.
+              </h2>
+                <div class="departments">
+                  <div class="wrapper-department">
+                    <div class="department">
+                      <img class="department-image" src="http://i.imgur.com/XtYKLW2.png" alt="">
+                      <span class="department-name">Fisica</span>
+                    </div>
                   </div>
-                </div>
-                <div class="wrapper-department">
-                  <div class="department">
-                    <img class="department-image" src="http://i.imgur.com/PEPTSKE.png" alt="">
-                    <span class="department-name">Bioscienze</span>
+                  <div class="wrapper-department">
+                    <div class="department">
+                      <img class="department-image" src="http://i.imgur.com/PEPTSKE.png" alt="">
+                      <span class="department-name">Bioscienze</span>
+                    </div>
                   </div>
-                </div>
-                <div class="wrapper-department">
-                  <div class="department">
-                    <img class="department-image" src="http://i.imgur.com/XtYKLW2.png" alt="">
-                    <span class="department-name">Informatica</span>
+                  <div class="wrapper-department">
+                    <div class="department">
+                      <img class="department-image" src="http://i.imgur.com/XtYKLW2.png" alt="">
+                      <span class="department-name">Informatica</span>
+                    </div>
                   </div>
-                </div>
-                <div class="wrapper-department">
-                  <div class="department">
-                    <img class="department-image" src="http://i.imgur.com/PEPTSKE.png" alt="">
-                    <span class="department-name">Matematica</span>
+                  <div class="wrapper-department">
+                    <div class="department">
+                      <img class="department-image" src="http://i.imgur.com/PEPTSKE.png" alt="">
+                      <span class="department-name">Matematica</span>
+                    </div>
                   </div>
-                </div>
-                <div class="wrapper-department">
-                  <div class="department">
-                    <img class="department-image" src="http://i.imgur.com/XtYKLW2.png" alt="">
-                    <span class="department-name">Fisica</span>
+                  <div class="wrapper-department">
+                    <div class="department">
+                      <img class="department-image" src="http://i.imgur.com/XtYKLW2.png" alt="">
+                      <span class="department-name">Fisica</span>
+                    </div>
                   </div>
-                </div>
-                <div class="wrapper-department">
-                  <div class="department">
-                    <img class="department-image" src="http://i.imgur.com/PEPTSKE.png" alt="">
-                    <span class="department-name">Bioscienze</span>
+                  <div class="wrapper-department">
+                    <div class="department">
+                      <img class="department-image" src="http://i.imgur.com/PEPTSKE.png" alt="">
+                      <span class="department-name">Bioscienze</span>
+                    </div>
                   </div>
-                </div>
-                <div class="wrapper-department">
-                  <div class="department">
-                    <img class="department-image" src="http://i.imgur.com/XtYKLW2.png" alt="">
-                    <span class="department-name">Informatica</span>
+                  <div class="wrapper-department">
+                    <div class="department">
+                      <img class="department-image" src="http://i.imgur.com/XtYKLW2.png" alt="">
+                      <span class="department-name">Informatica</span>
+                    </div>
                   </div>
-                </div>
-                <div class="wrapper-department">
-                  <div class="department">
-                    <img class="department-image" src="http://i.imgur.com/PEPTSKE.png" alt="">
-                    <span class="department-name">Matematica</span>
+                  <div class="wrapper-department">
+                    <div class="department">
+                      <img class="department-image" src="http://i.imgur.com/PEPTSKE.png" alt="">
+                      <span class="department-name">Matematica</span>
+                    </div>
                   </div>
                 </div>
               </div>
           </section>
-          <section id="container-join-us">
-            <div class="description">
-                Learn with the best. Create books. Share knowledge.
-            </div>
-            <a href="#" id="link-join-us">Join Us</a>
-            <div class="this-week">
-                This week on WikiToLearn: 32 new edits, 6 new pages and 2 new users.
+          <section id="section-join-us">
+            <div class="container">
+              <a href="#" id="link-join-us">Join Us</a>
+              <div class="this-week">
+                  This week on WikiToLearn: 32 new edits, 6 new pages and 2 new users.
+              </div>
             </div>
           </section>
-          <hr class="wikitolearn-divider-red">
-          <section class="videos">
-            <div class="video">
-              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yVclxeOLBd0"></iframe>
-            </div>
-            <div class="video">
-              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yVclxeOLBd0" allowfullscreen></iframe>
-            </div>
-            <div class="video">
-              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yVclxeOLBd0" allowfullscreen></iframe>
+          <section id="section-video">
+            <div class="container">
+              <div class="video">
+                <div class="embed-responsive embed-responsive-16by9">
+                  <iframe class="embed-responsive-item" src="//www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+                </div>
+              </div>
+              <div class="description">
+                <h2>collaborative textbooks</h2>
+                <div class="text">
+                  <span>&ldquo;</span>
+                  WikiToLearn vuole creare libri di testo liberi, collaborativi e facilmente accessibili.
+                  La nostra filosofia è riassunta nel motto “Il sapere si accresce solo se condiviso”. Nella nostra piattaforma l'insegnamento e l'apprendimento convergono nella stesura e nel perfezionamento cooperativo di note, appunti e libri di testo, organizzabili e ri-assemblabili secondo le esigenze specifiche degli utenti.
+                </div>
+              </div>
             </div>
           </section>
           <hr class="wikitolearn-divider-yellow">
