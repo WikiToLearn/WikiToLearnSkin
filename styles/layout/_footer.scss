@@ -56,13 +56,6 @@
         }
     }
 
-    .learn-more {
-        &__first-heading {
-            //color: $yellow;
-            border-bottom: 0.1rem solid $yellow;
-        }
-    }
-
     &__social {
         h4 {
             border-bottom: 0.1rem solid $green;
@@ -79,13 +72,20 @@
     }
 }
 
+.learn-more {
+    &__first-heading {
+        //color: $yellow;
+        border-bottom: 0.1rem solid $yellow;
+    }
+}
+
 .last-modified {
     color: whitesmoke;
     
     ul {
         @include list-unstyled();
     }
-    
+
     &__info {
         text-align: center;
     }
