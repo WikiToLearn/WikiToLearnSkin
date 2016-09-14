@@ -1,25 +1,27 @@
 .footer {
-    width: 100%;
+    background-color: $black-secondary;
     background-color: $gray;
     overflow: auto;
-    background-color: $black-secondary;
+    width: 100%;
 
     .content {
         color: whitesmoke;
+        padding: 0 2rem 2rem 2rem;
+    
         @extend .container;
+
+        @include make-col-ready(xl);
+        @include make-col(6);
+        @include media-breakpoint-up(md) {
+            @include make-col(3);
+        }
 
         & div {
             font-size: 1.2rem;
+
             h4 {
                 padding-top: 2rem;
                 padding-bottom: 2rem;
-            }
-            padding: 2rem;
-            padding-top: 0rem;
-            @include make-col-ready(xl);
-            @include make-col(6);
-            @include media-breakpoint-up(md) {
-                @include make-col(3);
             }
 
             a {
@@ -28,11 +30,10 @@
             }
 
             ul {
-                @include list-unstyled();
-                padding-top: 1rem;
                 margin-bottom: 0rem;
+                padding-top: 1rem;
+                @include list-unstyled();
             }
-
         }
 
         .logo {
@@ -47,6 +48,7 @@
                 //color: $red;
                 border-bottom: 0.1rem solid $red;
             }
+
             .contacts-list {
                 li {
                     padding-top: 0.3rem;
@@ -60,6 +62,7 @@
                 //color: $yellow;
                 border-bottom: 0.1rem solid $yellow;
             }
+
             a {
                 &:not(:last-child) {
                     padding-right: 1rem;
@@ -72,6 +75,7 @@
                 border-bottom: 0.1rem solid $green;
                 //color: $green;
             }
+
             .social-icons {
                 li {
                     @include list-inline();
@@ -84,6 +88,7 @@
 
     .last-modified {
         color: whitesmoke;
+        
         ul {
             @include list-unstyled();
             

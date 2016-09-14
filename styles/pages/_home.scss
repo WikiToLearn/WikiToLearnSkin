@@ -13,42 +13,37 @@
 
         .department {
             background-color: white;
-            text-align: center;
-            box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
-
             border-radius: $border-radius;
+            box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
+            text-align: center;
 
             .department-image{
+                border-radius: 2px;
                 height: 100%;
                 width: 100%;
-                border-radius: 2px;
             }
 
             .department-name{
-                display: inline-block;
-
-                line-height: 0;
                 color: $black;
-
+                display: inline-block;
                 font-size: 1.5rem;
                 font-weight: lighter;
+                line-height: 0;
             }
         }
     }
 }
 
 #container-join-us {
-    padding: 1rem;
-
     background-color: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+    padding: 1rem;
     text-align: center;
 
-    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
-
     .description{
+        font-family: "Roboto Slab";
         font-size: 1.75rem;
         font-weight: 300;
-        font-family: "Roboto Slab";
         margin-bottom: 1rem;
     }
 
@@ -57,52 +52,49 @@
     }
 
     #link-join-us {
-        display: inline-block;
-
-        padding: 0.5rem 7rem;
-
-        font-size: 1.5rem;
-
         background-color: $green;
-        color: white;
-
         border-radius: $border-radius;
-
+        color: white;
         cursor: pointer;
+        display: inline-block;
+        font-size: 1.5rem;
+        padding: 0.5rem 7rem;
 
         &:hover{
             color: white;
             text-decoration: none;
         }
-
     }
 }
 
 .landing-title {
-    padding-top: 7rem;
     padding-bottom: 5rem;
+    padding-top: 7rem;
     text-align: left;
+
     @extend .container;
 
     h1 {
         font-size: 3.5rem;
-        margin-bottom: 0;
         font-weight: lighter;
+        margin-bottom: 0;
     }
 }
 
 .videos {
-    @extend .container;
     padding-top: 5rem;
     padding-bottom: 5rem;
 
+    @extend .container;
+
     .video {
+        text-align: center;
+
         @include make-col-ready(xl);
         @include make-col(12);
         @include media-breakpoint-up(md) {
             @include make-col(4);
         }
-        text-align: center;
 
         iframe {
             width: 100%;
@@ -111,18 +103,21 @@
 }
 
 .testimonials {
-    @extend .container;
     padding-top: 5rem;
     text-align: center;
 
+    @extend .container;
+
     .testimonial {
         margin-top: 0;
+
+        @extend .media;
+
         @include make-col-ready(xl);
         @include make-col(12);
         @include media-breakpoint-up(sm) {
             @include make-col(4);
         }
-        @extend .media;
 
         img {
             border-radius: $border-radius;
@@ -136,6 +131,7 @@
                 font-size: 1rem;
                 @extend .blockquote;
             }
+
             footer {
                 @extend .blockquote-footer;
             }
@@ -149,9 +145,10 @@
 }
 
 .sponsors {
-    @extend .container;
-    padding-top: 5rem;
     padding-bottom: 5rem;
+    padding-top: 5rem;
+
+    @extend .container;
 
     .image {
         @include make-col-ready(xl);
@@ -168,7 +165,6 @@
     .clearfix {
         padding-bottom: 3rem
     }
-
 }
 
 #hero{
@@ -181,21 +177,18 @@
     }
 
     #claim{
+        color: #666666;
         display: inline-block;
-
-        text-align: left;
-        vertical-align: middle;
-
         font-size: 3rem;
         font-weight: 500;
-
-        color: #666666;
-
         margin-left: 1rem;
-
-        h1, h2, h3{
+        text-align: left;
+        vertical-align: middle;
+        
+        h1, 
+        h2, 
+        h3{
             margin: 0;
         }
     }
-
 }
