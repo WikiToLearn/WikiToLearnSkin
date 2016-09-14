@@ -83,37 +83,37 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             <?php $this->html( 'sitenotice' ); ?>
           </div>
         <?php } ?>
-        <header>
-            <div id="header-wrapper" >
+        <header class="header">
+            <div class="header__wrapper" >
                 <div href="/" class="logo">
                   <a href="/">
-                    <img id="logo-img" src="/skins/WikiToLearnSkin/images/wikitolearn-logo.png">
+                    <img class="logo__img" src="/skins/WikiToLearnSkin/images/wikitolearn-logo.png">
 
-                    <div id="logo-title">
-                      <span class="text-wtl-red">wiki</span><span class="text-wtl-yellow">to</span><span class="text-wtl-green">learn</span>
+                    <div class="logo__title">
+                      <span class="text-wtl--red">wiki</span><span class="text-wtl--yellow">to</span><span class="text-wtl--green">learn</span>
                     </div>
                   </a>
                 </div>
-                <nav class="nav-right">
-                  <a href="#" class="menu hover-red">
+                <nav class="nav">
+                  <a href="#" class="nav__link nav--hover-red">
                     Cos'è
                   </a>
-                  <a href="#"  class="menu hover-yellow">
+                  <a href="#"  class="nav__link nav--hover-yellow">
                     Collabora
                   </a>
-                  <a href="#"  class="menu hover-green">
+                  <a href="#"  class="nav__link nav--hover-green">
                     Libri
                   </a>
-                  <span class="menu search-box">
+                  <span class="nav__search">
                   <form action="<?php $this->text( 'wgScript' ); ?>">
                     <input type="hidden" name="title" value="<?php $this->text( 'searchtitle' ) ?>" />
                     <input type="search" id="search" placeholder="{{ search }}">
-                    <button type="submit" class="search-button">
+                    <button type="submit" class="nav__search-button">
                       <i class="fa fa-search"></i>
                     </button>
                   </form>
                   </span>
-                  <a href="#" class="menu hover-dark-green">
+                  <a href="#" class="nav__link hover-dark-green">
                       crisbal
                   </a>
                   <div class="dropdown">
@@ -175,66 +175,66 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         <?php if ($this->getSkin()->getTitle()->isMainPage()) { ?>
           <section class="container-departments">
               <div class="departments">
-                <div class="wrapper-department">
-                  <div class="department">
-                    <img class="department-image" src="http://i.imgur.com/XtYKLW2.png" alt="">
-                    <span class="department-name">Fisica</span>
+                <div class="departments--wrapper">
+                  <div class="departments--wrapper__item">
+                    <img class="item__image" src="http://i.imgur.com/XtYKLW2.png" alt="">
+                    <span class="item__name">Fisica</span>
                   </div>
                 </div>
-                <div class="wrapper-department">
-                  <div class="department">
-                    <img class="department-image" src="http://i.imgur.com/PEPTSKE.png" alt="">
-                    <span class="department-name">Bioscienze</span>
+                <div class="departments--wrapper">
+                  <div class="departments--wrapper__item">
+                    <img class="item__image" src="http://i.imgur.com/PEPTSKE.png" alt="">
+                    <span class="item__name">Bioscienze</span>
                   </div>
                 </div>
-                <div class="wrapper-department">
-                  <div class="department">
-                    <img class="department-image" src="http://i.imgur.com/XtYKLW2.png" alt="">
-                    <span class="department-name">Informatica</span>
+                <div class="departments--wrapper">
+                  <div class="departments--wrapper__item">
+                    <img class="item__image" src="http://i.imgur.com/XtYKLW2.png" alt="">
+                    <span class="item__name">Informatica</span>
                   </div>
                 </div>
-                <div class="wrapper-department">
-                  <div class="department">
-                    <img class="department-image" src="http://i.imgur.com/PEPTSKE.png" alt="">
-                    <span class="department-name">Matematica</span>
+                <div class="departments--wrapper">
+                  <div class="departments--wrapper__item">
+                    <img class="item__image" src="http://i.imgur.com/PEPTSKE.png" alt="">
+                    <span class="item__name">Matematica</span>
                   </div>
                 </div>
-                <div class="wrapper-department">
-                  <div class="department">
-                    <img class="department-image" src="http://i.imgur.com/XtYKLW2.png" alt="">
-                    <span class="department-name">Fisica</span>
+                <div class="departments--wrapper">
+                  <div class="departments--wrapper__item">
+                    <img class="item__image" src="http://i.imgur.com/XtYKLW2.png" alt="">
+                    <span class="item__name">Fisica</span>
                   </div>
                 </div>
-                <div class="wrapper-department">
-                  <div class="department">
-                    <img class="department-image" src="http://i.imgur.com/PEPTSKE.png" alt="">
-                    <span class="department-name">Bioscienze</span>
+                <div class="departments--wrapper">
+                  <div class="departments--wrapper__item">
+                    <img class="item__image" src="http://i.imgur.com/PEPTSKE.png" alt="">
+                    <span class="item__name">Bioscienze</span>
                   </div>
                 </div>
-                <div class="wrapper-department">
-                  <div class="department">
-                    <img class="department-image" src="http://i.imgur.com/XtYKLW2.png" alt="">
-                    <span class="department-name">Informatica</span>
+                <div class="departments--wrapper">
+                  <div class="departments--wrapper__item">
+                    <img class="item__image" src="http://i.imgur.com/XtYKLW2.png" alt="">
+                    <span class="item__name">Informatica</span>
                   </div>
                 </div>
-                <div class="wrapper-department">
-                  <div class="department">
-                    <img class="department-image" src="http://i.imgur.com/PEPTSKE.png" alt="">
-                    <span class="department-name">Matematica</span>
+                <div class="departments--wrapper">
+                  <div class="departments--wrapper__item">
+                    <img class="item__image" src="http://i.imgur.com/PEPTSKE.png" alt="">
+                    <span class="item__name">Matematica</span>
                   </div>
                 </div>
               </div>
           </section>
-          <section id="container-join-us">
-            <div class="description">
+          <section class="join-us">
+            <div class="join-us__description">
                 Learn with the best. Create books. Share knowledge.
             </div>
-            <a href="#" id="link-join-us">Join Us</a>
-            <div class="this-week">
+            <a href="#" id="join-us__link">Join Us</a>
+            <div class="join-us__this-week">
                 This week on WikiToLearn: 32 new edits, 6 new pages and 2 new users.
             </div>
           </section>
-          <hr class="wikitolearn-divider-red">
+          <hr class="wikitolearn-divider--red">
           <section class="videos">
             <div class="video">
               <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yVclxeOLBd0"></iframe>
@@ -246,7 +246,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yVclxeOLBd0" allowfullscreen></iframe>
             </div>
           </section>
-          <hr class="wikitolearn-divider-yellow">
+          <hr class="wikitolearn-divider--yellow">
           <section class="testimonials">
             <div class="testimonial">
               <a class="media-left" href="#">
@@ -289,7 +289,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             </div>
             <a href="#" class="btn read-more btn-outline-success">Read more stories about WikiToLearn</a>
           </section>
-          <hr class="wikitolearn-divider-green">
+          <hr class="wikitolearn-divider--green">
           <section class="sponsors">
             <div class="image">
               <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor1.png'); ?>">

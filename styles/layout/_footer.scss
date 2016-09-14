@@ -4,16 +4,13 @@
 
     .content {
         color: $gray;
-
-    
+ 
         @extend .container;
-
-
 
         & div {
             font-size: 1.2rem;
             padding: 0 2rem 2rem 2rem;
-            
+
             @include make-col-ready(xl);
             @include make-col(6);
             @include media-breakpoint-up(md) {
@@ -98,6 +95,7 @@
             }
 
             &.places {
+                margin-bottom: 0;
                 text-align: center;
                 li {
                     @include list-inline();

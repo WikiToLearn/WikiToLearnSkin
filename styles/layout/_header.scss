@@ -1,4 +1,4 @@
-header {
+.header {
     background-color: white;
     box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
     line-height: 2.9rem;
@@ -7,7 +7,7 @@ header {
     width: 100%;
     z-index: 10;
 
-    #header-wrapper{
+    &__wrapper{
         width: 100%;
 
         @extend .container;
@@ -30,13 +30,13 @@ header {
                 }
             }
 
-            #logo-img{
+            &__img{
                 height: 2.5rem;
                 margin-right: 0.25rem;
                 vertical-align: middle;
             }
 
-            #logo-title{
+            &__title{
                 display: inline-block;
                 font-size: 2.5em;
                 font-family: "Aleo";
@@ -46,7 +46,7 @@ header {
             }
         }
 
-        nav {
+        .nav {
             color: $black;
             display: table-cell;
             float:none;
@@ -60,7 +60,7 @@ header {
                 @include clearfix();
             }
 
-            a {
+            &__link {
                 color: #333;
                 display: inline-block;
                 font-size: 1.2rem;
@@ -73,21 +73,51 @@ header {
                 &:hover{
                     text-decoration: none;
                 }
+            }
 
-                &.hover-green {
-                    @include animate-bottom-border($green)
+            &--hover-green {
+                @include animate-bottom-border($green)
+            }
+
+            &--hover-yellow {
+                @include animate-bottom-border($yellow);
+            }
+
+            &--hover-red {
+                @include animate-bottom-border($red);
+            }
+
+            &--hover-dark-green {
+                @include animate-bottom-border($dark-green);
+            }
+
+            &__search {
+                form {
+                    display: inline;
                 }
 
-                &.hover-yellow {
-                    @include animate-bottom-border($yellow);
+                #search {
+                    border-bottom: 0.2rem solid $dark-green;
+                    border: none;
+                    outline: none;
+                    padding: 0;
+                    width: 0;
+
+                    // Reduce the level of indentation here
+                    &.expanded-search {
+                        transition: width 0.6s ease;
+                        width: 20%;
+                    }
+
+                    &.collapsed-search {
+                        transition: width 0.6s ease-out;
+                        width: 0%;
+                    }
                 }
 
-                &.hover-red {
-                    @include animate-bottom-border($red);
-                }
-
-                &.hover-dark-green {
-                    @include animate-bottom-border($dark-green);
+                button {
+                    border: none;
+                    background-color: transparent;
                 }
             }
 
@@ -96,6 +126,8 @@ header {
                color: gray;
             }
 
+            // Until we implement our bootstrap free version of dropdown
+            // this has to keep the bootstrap class naming conventions.
             .dropdown {
                 display: inline-block;
             }
@@ -205,36 +237,6 @@ header {
 
             .dropdown-divider {
                 margin: 0;
-            }
-
-            .search-box {
-                form {
-                    display: inline;
-                }
-
-                #search {
-                    border-bottom: 0.2rem solid $dark-green;
-                    border: none;
-                    outline: none;
-                    padding: 0;
-                    width: 0;
-
-                    // Reduce the level of indentation here
-                    &.expanded-search {
-                        transition: width 0.6s ease;
-                        width: 20%;
-                    }
-
-                    &.collapsed-search {
-                        transition: width 0.6s ease-out;
-                        width: 0%;
-                    }
-                }
-
-                button {
-                    border: none;
-                    background-color: transparent;
-                }
             }
         }
     }

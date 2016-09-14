@@ -2,7 +2,7 @@
     'use strict';
 
 // Expandable search bar
-$( '.search-box' ).on({
+$( '.nav__search' ).on({
     mouseenter: function() {
         console.log('ciao');
         $('#search').removeClass('collapsed-search');
