@@ -1,12 +1,4 @@
-$grid-breakpoints: (
-    xs: 0,
-    sm: 544px,
-    md: 768px,
-    lg: 992px,
-    xl: 1200px,
-    xxl: 1600px,
-    xxxl: 2000px    
-);
+// Overridden bootstrap's variables
 
 $container-max-widths: (
     xs: 0,
@@ -17,5 +9,17 @@ $container-max-widths: (
     xxl: 1300px,
     xxxl: 2000px
 );
+
+$grid-breakpoints: (
+    xs: 0,
+    sm: 544px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1600px,
+    xxxl: 2000px    
+);
+
+// Custom variables
 
 $border-radius: .15rem;
