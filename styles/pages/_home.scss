@@ -87,7 +87,7 @@
 
     @extend .container;
 
-    .video {
+    &__item {
         text-align: center;
 
         @include make-col-ready(xl);
@@ -108,41 +108,50 @@
 
     @extend .container;
 
-    .testimonial {
-        margin-top: 0;
-
-        @extend .media;
-
-        @include make-col-ready(xl);
-        @include make-col(12);
-        @include media-breakpoint-up(sm) {
-            @include make-col(4);
-        }
-
-        img {
-            border-radius: $border-radius;
-            width: 5rem;
-        }
-
-        .media-body {
-            text-align: justify;
-
-            blockquote {
-                font-size: 1rem;
-                @extend .blockquote;
-            }
-
-            footer {
-                @extend .blockquote-footer;
-            }
-        }
-    }
-
-    .read-more {
+    &__button--read-more {
         margin: 5rem auto;
         @extend .btn-outline-green;
     }
 }
+
+.testimonial {
+    margin-top: 0;
+
+    @extend .media;
+
+    @include make-col-ready(xl);
+    @include make-col(12);
+    @include media-breakpoint-up(sm) {
+        @include make-col(4);
+    }
+
+    &__link {
+        display: table-cell;
+        padding-right: $link-padding;
+        vertical-align: top;
+    }
+
+    &__image {
+        display: block;
+        border-radius: $border-radius;
+        width: 5rem;
+    }
+
+    &__body {
+        text-align: justify;
+        @extend .media-body;
+    }
+
+    &__quote {
+        font-size: 1rem;
+        @extend .blockquote;
+    }
+
+    &__footer {
+        @extend .blockquote-footer;
+    }
+}
+
 
 .sponsors {
     padding-bottom: 5rem;
@@ -150,7 +159,7 @@
 
     @extend .container;
 
-    .image {
+    &__item {
         @include make-col-ready(xl);
         @include make-col(6);
         @include media-breakpoint-up(sm) {

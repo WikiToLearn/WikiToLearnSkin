@@ -1,106 +1,100 @@
 .footer {
     background-color: $black-secondary;
     width: 100%;
+}
 
-    .content {
-        color: $gray;
- 
-        @extend .container;
+.footer-content {
+    color: $gray;
 
-        & div {
-            font-size: 1.2rem;
-            padding: 0 2rem 2rem 2rem;
+    @extend .container;
 
-            @include make-col-ready(xl);
-            @include make-col(6);
-            @include media-breakpoint-up(md) {
-                @include make-col(3);
-            }
+    & div {
+        font-size: 1.2rem;
+        padding: 0 2rem 2rem 2rem;
 
-            h4 {
-                padding-top: 2rem;
-                padding-bottom: 2rem;
-            }
-
-            a {
-                text-decoration: none;
-                color: whitesmoke;
-            }
-
-            ul {
-                margin-bottom: 0rem;
-                padding-top: 1rem;
-                @include list-unstyled();
-            }
+        @include make-col-ready(xl);
+        @include make-col(6);
+        @include media-breakpoint-up(md) {
+            @include make-col(3);
         }
 
-        .logo {
-            img {
-                padding: 5rem;
-                @extend .img-fluid;
-            }
+        h4 {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
         }
 
-        .contacts {
-            h4 {
-                //color: $red;
-                border-bottom: 0.1rem solid $red;
-            }
-
-            .contacts-list {
-                li {
-                    padding-top: 0.3rem;
-                    padding-bottom: 0.3rem;
-                }
-            }
+        a {
+            text-decoration: none;
+            color: whitesmoke;
         }
 
-        .learn-more {
-            h4 {
-                //color: $yellow;
-                border-bottom: 0.1rem solid $yellow;
-            }
-
-            a {
-                &:not(:last-child) {
-                    padding-right: 1rem;
-                }
-            }
-        }
-
-        .social {
-            h4 {
-                border-bottom: 0.1rem solid $green;
-                //color: $green;
-            }
-
-            .social-icons {
-                li {
-                    @include list-inline();
-                    @include make-col-ready(xs);
-                    @include make-col(3);
-                }
-            }
+        ul {
+            margin-bottom: 0rem;
+            padding-top: 1rem;
+            @include list-unstyled();
         }
     }
 
-    .last-modified {
-        color: whitesmoke;
-        
-        ul {
-            @include list-unstyled();
-            
-            &.info {
-                text-align: center;
-            }
+    &__logo {
+        img {
+            padding: 5rem;
+            @extend .img-fluid;
+        }
+    }
 
-            &.places {
-                margin-bottom: 0;
-                text-align: center;
-                li {
-                    @include list-inline();
-                }
+    &__contacts {
+        h4 {
+            //color: $red;
+            border-bottom: 0.1rem solid $red;
+        }
+    }
+
+    &__contacts-list {
+        li {
+            padding-top: 0.3rem;
+            padding-bottom: 0.3rem;
+        }
+    }
+
+    .learn-more {
+        &__first-heading {
+            //color: $yellow;
+            border-bottom: 0.1rem solid $yellow;
+        }
+    }
+
+    &__social {
+        h4 {
+            border-bottom: 0.1rem solid $green;
+            //color: $green;
+        }
+
+        .social-icons {
+            li {
+                @include list-inline();
+                @include make-col-ready(xs);
+                @include make-col(3);
             }
+        }
+    }
+}
+
+.last-modified {
+    color: whitesmoke;
+    
+    ul {
+        @include list-unstyled();
+    }
+    
+    &__info {
+        text-align: center;
+    }
+
+    &__places {
+        margin-bottom: 0;
+        text-align: center;
+        li {
+            @include list-inline();
         }
     }
 }

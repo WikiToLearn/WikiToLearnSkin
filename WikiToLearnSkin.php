@@ -236,84 +236,84 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           </section>
           <hr class="wikitolearn-divider--red">
           <section class="videos">
-            <div class="video">
+            <div class="videos__item">
               <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yVclxeOLBd0"></iframe>
             </div>
-            <div class="video">
+            <div class="videos__item">
               <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yVclxeOLBd0" allowfullscreen></iframe>
             </div>
-            <div class="video">
+            <div class="videos__item">
               <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yVclxeOLBd0" allowfullscreen></iframe>
             </div>
           </section>
           <hr class="wikitolearn-divider--yellow">
           <section class="testimonials">
             <div class="testimonial">
-              <a class="media-left" href="#">
-                <img class="media-object" src="<?php echo $this->getSkin()->getSkinStylePath( 'images/testimonials.png'); ?>" alt="Generic placeholder image">
+              <a class="testimonial__link" href="#">
+                <img class="testimonial__image" src="<?php echo $this->getSkin()->getSkinStylePath( 'images/testimonials.png'); ?>" alt="Generic placeholder image">
               </a>
-              <div class="media-body">
-                <blockquote>
+              <div class="testimonial__body">
+                <blockquote class="testimonial__quote">
                   "WikiToLearn allows me to have great and always up-to-date material for my classes"
                 </blockquote>
-                <footer>
+                <footer class="testimonial__footer">
                   <cite> M. Bona</cite>
                 </footer>
               </div>
             </div>
             <div class="testimonial">
-              <a class="media-left" href="#">
-                <img class="media-object" src="<?php echo $this->getSkin()->getSkinStylePath( 'images/testimonials.png'); ?>" alt="Generic placeholder image">
+              <a class="testimonial__link" href="#">
+                <img class="testimonial__image" src="<?php echo $this->getSkin()->getSkinStylePath( 'images/testimonials.png'); ?>" alt="Generic placeholder image">
               </a>
-              <div class="media-body">
-                <blockquote>
+              <div class="testimonial__body">
+                <blockquote class="testimonial__quote">
                   "WikiToLearn allows me to have great and always up-to-date material for my classes"
                 </blockquote>
-                <footer>
+                <footer class="testimonial__footer">
                   <cite> M. Bona</cite>
                 </footer>
               </div>
             </div>
             <div class="testimonial">
-              <a class="media-left" href="#">
-                <img class="media-object" src="<?php echo $this->getSkin()->getSkinStylePath( 'images/testimonials.png'); ?>" alt="Generic placeholder image">
+              <a class="testimonial__link" href="#">
+                <img class="testimonial__image" src="<?php echo $this->getSkin()->getSkinStylePath( 'images/testimonials.png'); ?>" alt="Generic placeholder image">
               </a>
-              <div class="media-body">
-                <blockquote class="blockquote">
+              <div class="testimonial__body">
+                <blockquote class="testimonial__quote">
                   "WikiToLearn allows me to have great and always up-to-date material for my classes"
                 </blockquote>
-                <footer>
+                <footer class="testimonial__footer">
                   <cite> M. Bona</cite>
                 </footer>
               </div>
             </div>
-            <a href="#" class="btn read-more btn-outline-success">Read more stories about WikiToLearn</a>
+            <a href="#" class="testimonials__button--read-more btn">Read more stories about WikiToLearn</a>
           </section>
           <hr class="wikitolearn-divider--green">
           <section class="sponsors">
-            <div class="image">
+            <div class="sponsors__item">
               <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor1.png'); ?>">
             </div>
-            <div class="image">
+            <div class="sponsors__item">
               <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor2.png'); ?>">
             </div>
-            <div class="image">
+            <div class="sponsors__item">
               <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor3.png'); ?>">
             </div>
-            <div class="image">
+            <div class="sponsors__item">
               <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor4.png'); ?>">
             </div>
             <div class="clearfix"></div>
-            <div class="image">
+            <div class="sponsors__item">
               <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor1.png'); ?>">
             </div>
-            <div class="image">
+            <div class="sponsors__item">
               <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor2.png'); ?>">
             </div>
-            <div class="image">
+            <div class="sponsors__item">
               <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor3.png'); ?>">
             </div>
-            <div class="image">
+            <div class="sponsors__item">
               <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor4.png'); ?>">
             </div>
           </section>
@@ -363,11 +363,11 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         <?php } ?>
         </main>
         <footer class="footer">
-          <div class="content">
-            <div class="logo">
+          <div class="footer-content">
+            <div class="footer-content__logo">
               <img src="/skins/WikiToLearnSkin/images/wikitolearn-logo.png">
             </div>
-            <div class="contacts">
+            <div class="footer-content__contacts">
               <h4>{{ Contacts }}</h4>
               <ul class="contacts-list">
                 <li>
@@ -384,15 +384,15 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 </li>
               </ul>
             </div>
-            <div class="learn-more">
-              <h4 class="first-heading">{{Learn More}}</h4>
-              <ul class="learn-more-list">
+            <div class="footer-content__learn-more">
+              <h4 class="learn-more__first-heading">{{Learn More}}</h4>
+              <ul class="learn-more__list">
                 <li>
-                  <a class="wikitolearn-philosophy" href="#{{wikitolearn philosophy}}">{{ WikiToLearn philosophy }}</a>
+                  <a class="learn-more__philosophy" href="#{{wikitolearn philosophy}}">{{ WikiToLearn philosophy }}</a>
                 </li>
               </ul>
-              <h4 class="second-heading">{{Hosted by}}</h4>
-              <ul class="sponsors">
+              <h4 class="learn-more__second-heading">{{Hosted by}}</h4>
+              <ul class="learn-more__sponsors">
                 <li>
                   <a href="#GARR">Garr</a>
                 </li>
@@ -401,7 +401,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 </li>
               </ul>
             </div>
-            <div class="social">
+            <div class="footer-content__social">
               <h4>{{Connect}}</h4>
               <ul class="social-icons">
                 <li>
@@ -420,7 +420,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           <div class="last-modified">
             <?php
             foreach ( $this->getFooterLinks() as $category => $links ) { ?>
-            <ul class="<?php echo $category; ?>">
+            <ul class="last-modified__<?php echo $category; ?>">
             <?php
               foreach ( $links as $key ) { ?>
               <li><?php $this->html( $key ) ?></li>
