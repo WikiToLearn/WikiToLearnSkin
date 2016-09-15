@@ -176,53 +176,53 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           <section class="title">
             <h1> Learn with the best. Create books. Share <em>knowledge</em>. </h1>
           </section>
-          <section class="container-departments">
+          <section class="section-departments">
               <div class="departments">
-                <div class="departments--wrapper">
-                  <div class="departments--wrapper__item">
+                <div class="departments__wrapper">
+                  <div class="departments__wrapper__item">
                     <img class="item__image" src="http://i.imgur.com/XtYKLW2.png" alt="">
                     <span class="item__name">Fisica</span>
                   </div>
                 </div>
-                <div class="departments--wrapper">
-                  <div class="departments--wrapper__item">
+                <div class="departments__wrapper">
+                  <div class="departments__wrapper__item">
                     <img class="item__image" src="http://i.imgur.com/PEPTSKE.png" alt="">
                     <span class="item__name">Bioscienze</span>
                   </div>
                 </div>
-                <div class="departments--wrapper">
-                  <div class="departments--wrapper__item">
+                <div class="departments__wrapper">
+                  <div class="departments__wrapper__item">
                     <img class="item__image" src="http://i.imgur.com/XtYKLW2.png" alt="">
                     <span class="item__name">Informatica</span>
                   </div>
                 </div>
-                <div class="departments--wrapper">
-                  <div class="departments--wrapper__item">
+                <div class="departments__wrapper">
+                  <div class="departments__wrapper__item">
                     <img class="item__image" src="http://i.imgur.com/PEPTSKE.png" alt="">
                     <span class="item__name">Matematica</span>
                   </div>
                 </div>
                 <div class="clearfix"></div>
-                <div class="departments--wrapper">
-                  <div class="departments--wrapper__item">
+                <div class="departments__wrapper">
+                  <div class="departments__wrapper__item">
                     <img class="item__image" src="http://i.imgur.com/XtYKLW2.png" alt="">
                     <span class="item__name">Fisica</span>
                   </div>
                 </div>
-                <div class="departments--wrapper">
-                  <div class="departments--wrapper__item">
+                <div class="departments__wrapper">
+                  <div class="departments__wrapper__item">
                     <img class="item__image" src="http://i.imgur.com/PEPTSKE.png" alt="">
                     <span class="item__name">Bioscienze</span>
                   </div>
                 </div>
-                <div class="departments--wrapper">
-                  <div class="departments--wrapper__item">
+                <div class="departments__wrapper">
+                  <div class="departments__wrapper__item">
                     <img class="item__image" src="http://i.imgur.com/XtYKLW2.png" alt="">
                     <span class="item__name">Informatica</span>
                   </div>
                 </div>
-                <div class="departments--wrapper">
-                  <div class="departments--wrapper__item">
+                <div class="departments__wrapper">
+                  <div class="departments__wrapper__item">
                     <img class="item__image" src="http://i.imgur.com/PEPTSKE.png" alt="">
                     <span class="item__name">Matematica</span>
                   </div>
@@ -230,22 +230,29 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 <div class="clearfix"></div>
               </div>
           </section>
-          <section class="join-us">
-            <a href="#" class="join-us__link">Join Us</a>
-            <div class="join-us__this-week">
-                This week on WikiToLearn: 32 new edits, 6 new pages and 2 new users.
+          <section class="section-join-us">
+            <div class="section-join-us__content">
+              <a href="#" class="section-join-us__content__link">Join Us</a>
+              <div class="section-join-us__content__this-week">
+                  This week on WikiToLearn: 32 new edits, 6 new pages and 2 new users.
+              </div>
             </div>
           </section>
-          <hr class="wikitolearn-divider--red">
-          <section class="videos">
-            <div class="videos__item">
-              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yVclxeOLBd0"></iframe>
-            </div>
-            <div class="videos__item">
-              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yVclxeOLBd0" allowfullscreen></iframe>
-            </div>
-            <div class="videos__item">
-              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yVclxeOLBd0" allowfullscreen></iframe>
+          <div class="section-divider"> 
+          </div>
+          <section class="section-video">
+            <div class="section-video__content">
+              <div class="section-video__content__description">
+                <h3>collaborative textbooks</h3>
+                WikiToLearn vuole creare libri di testo liberi, collaborativi e facilmente accessibili. 
+                La nostra filosofia è riassunta nel motto “Il sapere si accresce solo se condiviso”. Nella nostra piattaforma l'insegnamento e l'apprendimento convergono nella stesura e nel perfezionamento cooperativo di note, appunti e libri di testo, organizzabili e ri-assemblabili secondo le esigenze specifiche degli utenti.
+              </div>
+              <div class="section-video__content__video">
+                <div class="embed-responsive embed-responsive-16by9">
+                  <iframe class="embed-responsive-item" src="//www.youtube.com/embed/NpEaa2P7qZI?rel=0" allowfullscreen></iframe>
+                </div>
+              </div>
+              
             </div>
           </section>
           <hr class="wikitolearn-divider--yellow">

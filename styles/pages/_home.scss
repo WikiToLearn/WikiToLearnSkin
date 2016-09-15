@@ -1,6 +1,6 @@
 .title {
-    padding-bottom: 4rem;
-    padding-top: 4rem;
+    padding: 2rem 0;
+
     text-align: left;
 
     @extend .container;
@@ -20,13 +20,13 @@
     }
 }
 
-.container-departments {
-    padding-bottom: 1rem;
+.section-departments {
+    padding-bottom: 1.5rem; //should be 2 but 0.5 is from the margin-bottom of the deps
 
     .departments {
         @extend .container;
 
-        &--wrapper{
+        &__wrapper{
             @include make-col-ready(sm);
             @include make-col(3);
 
@@ -56,46 +56,64 @@
     }
 }
 
-.join-us {
+.section-join-us {
     background-color: white;
     box-shadow: 0 1px 3px rgba(0,0,0,0.15);
-    padding: 1rem;
-    text-align: center;
+    
+    &__content{
+        @extend .container;
+        
+        text-align: center;
 
-    &__description{
-        font-family: "Roboto Slab";
-        font-size: 1.75rem;
-        font-weight: 300;
-        margin-bottom: 1rem;
-    }
+        padding: 2rem 0;
 
-    &__this-week{
-        margin-top: 1rem;
-    }
+        &__description{
+            font-family: "Roboto Slab";
+            font-size: 1.75rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
 
-    &__link {
-        background-color: $green;
-        border-radius: $border-radius;
-        color: white;
-        cursor: pointer;
-        display: inline-block;
-        font-size: 1.5rem;
-        padding: 0.5rem 7rem;
+        &__this-week{
+            margin-top: 1rem;
+        }
 
-        &:hover{
+        &__link {
+            background-color: $green;
+            border-radius: $border-radius;
             color: white;
-            text-decoration: none;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 1.5rem;
+            padding: 0.5rem 7rem;
+
+            &:hover{
+                color: white;
+                text-decoration: none;
+            }
         }
     }
 }
 
-.videos {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+.section-video {
+    
+    &__content {        
+        @extend .container;
+        
+        padding: 2rem 0;
+        
 
-    @extend .container;
+        &__video{
+            @include make-col-ready(xl);
+            @include make-col(8);
+        }
 
-    &__item {
+        &__description{
+            @include make-col-ready(xl);
+            @include make-col(4);
+        }
+    }
+    /*&__item {
         text-align: center;
 
         @include make-col-ready(xl);
@@ -107,7 +125,11 @@
         iframe {
             width: 100%;
         }
-    }
+    }*/
+}
+
+.section-divider{
+    background-color: white;
 }
 
 .testimonials {
