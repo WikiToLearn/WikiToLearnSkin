@@ -1,15 +1,22 @@
 .title {
-    padding-bottom: 5rem;
-    padding-top: 5rem;
+    padding-bottom: 4rem;
+    padding-top: 4rem;
     text-align: left;
 
     @extend .container;
 
     h1 {
-        font-size: 2.5rem;
         font-weight: lighter;
         margin-bottom: 0;
         text-align: center;
+
+        @include media-breakpoint-between(lg, xl) {
+            font-size: 2rem;
+        }
+
+        @include media-breakpoint-between(md, lg) {
+            font-size: 1.8rem;
+        }
     }
 }
 
