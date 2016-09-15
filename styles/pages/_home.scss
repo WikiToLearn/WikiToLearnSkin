@@ -111,7 +111,31 @@
         &__description{
             @include make-col-ready(xl);
             @include make-col(4);
-        }
+            
+            h3{
+                font-size: 2rem;
+                font-weight: lighter;
+            }
+
+            .button-container{
+                text-align: right;
+
+                button{
+                    margin-top: 1rem;
+                    margin-right: 0.25rem;
+
+                    background-color: $green;
+                    border-radius: $border-radius;
+                    color: white;
+                    cursor: pointer;
+                    display: inline-block;
+                    font-size: 1.1rem;
+                    padding: 0.5rem;
+                    outline: 0;
+                    border: 0;
+                }
+            }
+        }   
     }
     /*&__item {
         text-align: center;

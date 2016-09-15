@@ -246,6 +246,11 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 <h3>collaborative textbooks</h3>
                 WikiToLearn vuole creare libri di testo liberi, collaborativi e facilmente accessibili. 
                 La nostra filosofia è riassunta nel motto “Il sapere si accresce solo se condiviso”. Nella nostra piattaforma l'insegnamento e l'apprendimento convergono nella stesura e nel perfezionamento cooperativo di note, appunti e libri di testo, organizzabili e ri-assemblabili secondo le esigenze specifiche degli utenti.
+                <div class="button-container">
+                  <button>
+                    Learn More
+                  </button>
+                </div>
               </div>
               <div class="section-video__content__video">
                 <div class="embed-responsive embed-responsive-16by9">
