@@ -1,0 +1,16 @@
+// Media queries
+
+// small to medium devices
+@include media-breakpoint-between(sm, lg) {
+    $heading-title-size: 1.5rem;
+}
+
+// medium to large width devices
+@include media-breakpoint-between(md, lg) {
+    $heading-title-size: 2rem;
+}
+
+// medium to extra large devices
+@include media-breakpoint-between(md, xl) {
+    $btn-lg-font-size: 1rem;
+}

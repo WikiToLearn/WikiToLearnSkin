@@ -171,7 +171,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 </nav>
             </div>
         </header>
-        <main id="page">
+        <main class="page">
         <?php if ($this->getSkin()->getTitle()->isMainPage()) { ?>
           <section class="title">
             <h1> Learn with the best. Create books. Share <em>knowledge</em>. </h1>
