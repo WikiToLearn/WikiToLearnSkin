@@ -19,9 +19,21 @@ A custom Mediawiki skin for WikiToLearn
 
 ## Developing
 
-* 'npm install --dev'
+To start with a fresh clone of the repo you need to:
+* `npm install --dev`
     * This will install 'gulp' and the required submodules
-* 'gulp sass' 
+* `bower install`
+    * This will install bower dependencies
+
+To watch and compile the assets:    
+* `gulp sass` 
     * This will build the style
+* `gulp watch`
+    * This will listen for every changes in the styles folder and will compile it to plain css when files are saved.
+
+Further documentation on the skin can be found [here](http://meta.wikitolearn.org/Web_development/New_Skin/skin_doc)
+
+
+
 
 
