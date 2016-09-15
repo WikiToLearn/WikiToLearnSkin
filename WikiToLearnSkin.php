@@ -113,7 +113,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                     </button>
                   </form>
                   </span>
-                  <a href="#" class="nav__link hover-dark-green">
+                  <a href="#" class="nav__link nav--hover-dark-green">
                       crisbal
                   </a>
                   <div class="dropdown">
@@ -202,6 +202,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                     <span class="item__name">Matematica</span>
                   </div>
                 </div>
+                <div class="clearfix"></div>
                 <div class="departments--wrapper">
                   <div class="departments--wrapper__item">
                     <img class="item__image" src="http://i.imgur.com/XtYKLW2.png" alt="">
@@ -226,6 +227,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                     <span class="item__name">Matematica</span>
                   </div>
                 </div>
+                <div class="clearfix"></div>
               </div>
           </section>
           <section class="join-us">
