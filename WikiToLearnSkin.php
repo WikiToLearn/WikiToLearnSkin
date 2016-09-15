@@ -173,6 +173,9 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         </header>
         <main id="page">
         <?php if ($this->getSkin()->getTitle()->isMainPage()) { ?>
+          <section class="title">
+            <h1> Learn with the best. Create books. Share <em>knowledge</em>. </h1>
+          </section>
           <section class="container-departments">
               <div class="departments">
                 <div class="departments--wrapper">
@@ -226,10 +229,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               </div>
           </section>
           <section class="join-us">
-            <div class="join-us__description">
-                Learn with the best. Create books. Share knowledge.
-            </div>
-            <a href="#" id="join-us__link">Join Us</a>
+            <a href="#" class="join-us__link">Join Us</a>
             <div class="join-us__this-week">
                 This week on WikiToLearn: 32 new edits, 6 new pages and 2 new users.
             </div>
