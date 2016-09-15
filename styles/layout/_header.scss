@@ -20,7 +20,11 @@
             padding: 0;
 
             @include make-col-ready(xl);
-            @include make-col(6);
+            @include make-col(4);
+
+            @media-breakpoint-up(md) {
+                @include make-col(6);
+            }
             
             a{
                 text-decoration: none;
@@ -34,15 +38,29 @@
                 height: 2.5rem;
                 margin-right: 0.25rem;
                 vertical-align: middle;
+
+                @include media-breakpoint-down(sm) {
+                    height: 1.5rem;
+                }
+
+                @include media-breakpoint-between(md, lg) {
+                    height: 2rem;
+                }
             }
 
             &__title{
                 display: inline-block;
                 font-size: 2.5em;
-                font-family: "Aleo";
-                
+                font-family: "DinC";
                 vertical-align: middle;
 
+                @include media-breakpoint-down(md) {
+                    font-size: 1.1rem;
+                }
+
+                @include media-breakpoint-between(md, lg) {
+                    font-size: 1.8rem;
+                }
             }
         }
 
@@ -54,7 +72,11 @@
             text-align: right;
 
             @include make-col-ready(xl);
-            @include make-col(6);
+            @include make-col(8);
+
+            @media-breakpoint-up(md) {
+                @include make-col(6);
+            }
 
             &:after{
                 @include clearfix();
@@ -72,6 +94,14 @@
 
                 &:hover{
                     text-decoration: none;
+                }
+
+                @include media-breakpoint-between(sm, md) {
+                    font-size: 0.8rem;
+                }
+
+                @include media-breakpoint-between(md, lg) {
+                    font-size: 1rem;
                 }
             }
 
