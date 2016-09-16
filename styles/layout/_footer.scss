@@ -67,6 +67,7 @@
     }
 
     &__contacts {
+        @include clearfix;
         h4 {
             //color: $red;
             border-bottom: 0.1rem solid $red;

@@ -396,6 +396,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 </li>
               </ul>
             </li>
+            <div class="clearfix"></div>
             <li class="footer__learn-more">
               <h4 class="learn-more__first-heading">{{Learn More}}</h4>
               <ul class="learn-more__list">
