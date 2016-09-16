@@ -10,7 +10,7 @@
         @extend .container;
 
         > li {
-            font-size: 1.2rem;
+            font-size: $font-size-lg;
             padding: 0 2rem 2rem 2rem;
 
             @include make-col-ready(xl);
@@ -19,9 +19,22 @@
                 @include make-col(3);
             }
 
+            @include media-breakpoint-down(xl) {
+                font-size: $font-size-lg - .1rem;
+            }
+            @include media-breakpoint-down(lg) {
+                font-size: $font-size-lg - .2rem;
+            }
+
             h4 {
                 padding-top: 2rem;
                 padding-bottom: 2rem;
+                @include media-breakpoint-down(xl) {
+                    font-size: $font-size-h4 - .1rem;
+                }
+                @include media-breakpoint-down(lg) {
+                    font-size: $font-size-h4 - .2rem;
+                }
             }
 
             a {
@@ -40,8 +53,16 @@
     &__logo {
         display: block;
         img {
-            padding: 5rem;
+            padding: $footer-logo-padding;
+
             @extend .img-fluid;
+            @include media-breakpoint-down(xl) {
+                padding: $footer-logo-padding - 1rem;
+            }
+
+            @include media-breakpoint-down(lg) {
+                padding: $footer-logo-padding - 2rem;
+            }
         }
     }
 
