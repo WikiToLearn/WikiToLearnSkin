@@ -33,8 +33,12 @@
         display: block;
         margin: 0.5rem 0;
 
-        @include make-col-ready(sm);
+        @include make-col-ready(xl, $gutter: $grid-gutter-width-departments);
         @include make-col(3);
+        
+        @include media-breakpoint-down(md) {
+            @include make-col-ready(lg, $gutter: $grid-gutter-width-departments/2);
+        }
     }
 
     &__item {
