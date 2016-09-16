@@ -230,10 +230,10 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               <div class="clearfix"></div>
             </ul>
           </section>
-          <section class="section-join-us">
-            <div class="section-join-us__content">
-              <a href="#" class="section-join-us__link">Join Us</a>
-              <div class="section-join-us__this-week">
+          <section class="join-us">
+            <div class="join-us__content">
+              <a href="#" class="join-us__link">Join Us</a>
+              <div class="join-us__this-week">
                   This week on WikiToLearn: 32 new edits, 6 new pages and 2 new users.
               </div>
             </div>
