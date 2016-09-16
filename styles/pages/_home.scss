@@ -88,27 +88,44 @@
     }
 }
 
-.section-video {
-    
-    &__content {        
-        @extend .container;
-        
-        padding: $content-padding; //15px to get it in line with the deps
-         
+.media {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    @extend .container;
+
+    &__wrapper{
+        overflow: hidden;
+        padding-bottom: 33.33%;
+        padding-top: 2rem;
+        position: relative;
+
+        @include make-col-ready(xl);
+        @include make-col(12);
+        @include media-breakpoint-up(md) {
+            @include make-col(8);
+        }
     }
 
-    &__video{
-        @include make-col-ready(xl);
-        @include make-col(8);
-
-        .embed-responsive{
-            box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
-        }
+    &__video {
+        border: none;
+        box-shadow: rgba(0,0,0,0.1) 0px 1px 3px; // TODO: remove hard coded values
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
     }
 
     &__description{
         @include make-col-ready(xl);
-        @include make-col(4);
+        @include make-col(12);
+        @include media-breakpoint-up(md) {
+            @include make-col(4);
+        }
+
+        @include media-breakpoint-down(lg) {
+            font-size: .8rem; // TODO: make text aligned with video
+        }
     }   
 
     &__title{
@@ -121,53 +138,50 @@
         margin: 0;
     }
     
-    &__button-container{
-        text-align: right;
-
-        button{
-            margin-top: 1rem;
-
-            background-color: $green;
-            border-radius: $border-radius;
-            color: white;
-            cursor: pointer;
-            display: inline-block;
-            font-size: 1.1rem;
-            padding: 0.5rem;
-            outline: 0;
-            border: 0;
+    &__button{
+        background-color: $green;
+        border-radius: $border-radius;
+        border: 0;
+        color: white;
+        cursor: pointer;
+        display: table;
+        @include media-breakpoint-down(lg) {
+            font-size: .8rem;
         }
+        margin: 1rem auto;
+        outline: 0;
+        padding: 0.5rem;
     }
 
 }
 
-.section-testimonials {
+.testimonials {
     background-color: white;
     box-shadow: 0 1px 3px rgba(0,0,0,0.15);
     
     &__content{
-
-        @extend .container;
         padding: $content-padding;
-
         text-align: center;
 
-        &__read-more {
-            @extend .btn-outline-green;
-            margin-top: 1.5rem;
-        }
+        @extend .container;
     }
-    
+
+    &__read-more {
+        @extend .btn;
+        @extend .btn-outline-green;
+        margin-top: 1.5rem;
+    }    
 }
 
 .testimonial {
     margin-top: 0;
+    padding-right: 0;
 
     @extend .media;
 
     @include make-col-ready(xl);
     @include make-col(12);
-    @include media-breakpoint-up(sm) {
+    @include media-breakpoint-up(md) {
         @include make-col(4);
     }
 
@@ -180,7 +194,10 @@
     &__image {
         display: block;
         border-radius: $border-radius;
-        width: 5rem;
+        width: 3.5rem;
+        @include media-breakpoint-up(lg) {
+            width: 5rem;
+        }
     }
 
     &__body {
@@ -191,6 +208,10 @@
     &__quote {
         font-size: 1rem;
         @extend .blockquote;
+
+        @include media-breakpoint-between(md, lg) {
+            font-size: .8rem;
+        }
     }
 
     &__footer {
@@ -199,27 +220,24 @@
 }
 
 
-.section-sponsors {
+.sponsors {
+    @extend .container;
+    padding: $content-padding; //15px to get it in line with the deps
 
-    &__content{
-
-        @extend .container;
-        padding: $content-padding; //15px to get it in line with the deps
-
-        &__item {
-            @include make-col-ready(xl);
-            @include make-col(6);
-            @include media-breakpoint-up(sm) {
-                @include make-col(3);
-            }
-
-            img {
-                @extend .img-fluid;
-            }
+    &__item {
+        @include make-col-ready(xl);
+        @include make-col(6);
+        @include media-breakpoint-up(sm) {
+            @include make-col(3);
         }
 
-        .clearfix {
-            padding-bottom: 3rem
+        img {
+            @extend .img-fluid;
         }
     }
+
+    .clearfix {
+        padding-bottom: 3rem
+    }
+    
 }

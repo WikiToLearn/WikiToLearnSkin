@@ -238,30 +238,26 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               </div>
             </div>
           </section>
-          <section class="section-video">
-            <div class="section-video__content">
-              <div class="section-video__video">
-                <div class="embed-responsive embed-responsive-16by9">
-                  <iframe class="embed-responsive-item" src="//www.youtube.com/embed/NpEaa2P7qZI?rel=0" allowfullscreen></iframe>
-                </div>
-              </div>
-              <article class="section-video__description">
-                <h3 class="section-video__title">collaborative textbooks</h3>
-                <p class="section-video__text">
-                  WikiToLearn vuole creare libri di testo liberi, collaborativi e facilmente accessibili. 
-                  La nostra filosofia è riassunta nel motto “Il sapere si accresce solo se condiviso”. Nella nostra piattaforma l'insegnamento e l'apprendimento convergono nella stesura e nel perfezionamento cooperativo di note, appunti e libri di testo, organizzabili e ri-assemblabili secondo le esigenze specifiche degli utenti.
-                </p>
-                <div class="section-video__button-container">
-                  <button>
-                    Learn More
-                  </button>
-                </div>
-              </article>
+          <div class="section-divider"> 
+          </div>
+          <section class="media">
+            <div class="media__wrapper">
+              <iframe class="media__video" src="//www.youtube.com/embed/NpEaa2P7qZI?rel=0" allowfullscreen></iframe>
+            </div>
+            <div class="media__description">
+              <h3>collaborative textbooks</h3>
+              <p>
+                WikiToLearn vuole creare libri di testo liberi, collaborativi e facilmente accessibili. 
+                La nostra filosofia è riassunta nel motto “Il sapere si accresce solo se condiviso”. Nella nostra piattaforma l'insegnamento e l'apprendimento convergono nella stesura e nel perfezionamento cooperativo di note, appunti e libri di testo, organizzabili e ri-assemblabili secondo le esigenze specifiche degli utenti.
+              </p>
+              <button class="media__button">
+                Learn More
+              </button>
             </div>
           </section>
-          <section class="section-testimonials">
-            <div class="section-testimonials__content">
-              <article class="testimonial">
+          <section class="testimonials">
+            <div class="testimonials__content">
+              <div class="testimonial">
                 <a class="testimonial__link" href="#">
                   <img class="testimonial__image" src="<?php echo $this->getSkin()->getSkinStylePath( 'images/testimonials.png'); ?>" alt="Generic placeholder image">
                 </a>
@@ -273,8 +269,8 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                     <cite> M. Bona</cite>
                   </footer>
                 </div>
-              </article>
-              <article class="testimonial">
+              </div>
+              <div class="testimonial">
                 <a class="testimonial__link" href="#">
                   <img class="testimonial__image" src="<?php echo $this->getSkin()->getSkinStylePath( 'images/testimonials.png'); ?>" alt="Generic placeholder image">
                 </a>
@@ -286,8 +282,8 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                     <cite> M. Bona</cite>
                   </footer>
                 </div>
-              </article>
-              <article class="testimonial">
+              </div>
+              <div class="testimonial">
                 <a class="testimonial__link" href="#">
                   <img class="testimonial__image" src="<?php echo $this->getSkin()->getSkinStylePath( 'images/testimonials.png'); ?>" alt="Generic placeholder image">
                 </a>
@@ -299,37 +295,36 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                     <cite> M. Bona</cite>
                   </footer>
                 </div>
-              </article>
-              <a href="#" class="section-testimonials__content__read-more btn">Read more stories about WikiToLearn</a>
+              </div>
+              <a href="#" class="testimonials__read-more">Read more stories about WikiToLearn</a>
             </div>
           </section>
-          <section class="section-sponsors">
-            <div class="section-sponsors__content">
-              <div class="section-sponsors__content__item">
-                <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor1.png'); ?>">
-              </div>
-              <div class="section-sponsors__content__item">
-                <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor2.png'); ?>">
-              </div>
-              <div class="section-sponsors__content__item">
-                <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor3.png'); ?>">
-              </div>
-              <div class="section-sponsors__content__item">
-                <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor4.png'); ?>">
-              </div>
-              <div class="clearfix"></div>
-              <div class="section-sponsors__content__item">
-                <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor1.png'); ?>">
-              </div>
-              <div class="section-sponsors__content__item">
-                <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor2.png'); ?>">
-              </div>
-              <div class="section-sponsors__content__item">
-                <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor3.png'); ?>">
-              </div>
-              <div class="section-sponsors__content__item">
-                <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor4.png'); ?>">
-              </div>
+          <hr class="wikitolearn-divider--green">
+          <section class="sponsors">
+            <div class="sponsors__item">
+              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor1.png'); ?>">
+            </div>
+            <div class="sponsors__item">
+              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor2.png'); ?>">
+            </div>
+            <div class="sponsors__item">
+              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor3.png'); ?>">
+            </div>
+            <div class="sponsors__item">
+              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor4.png'); ?>">
+            </div>
+            <div class="clearfix"></div>
+            <div class="sponsors__item">
+              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor1.png'); ?>">
+            </div>
+            <div class="sponsors__item">
+              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor2.png'); ?>">
+            </div>
+            <div class="sponsors__item">
+              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor3.png'); ?>">
+            </div>
+            <div class="sponsors__item">
+              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor4.png'); ?>">
             </div>
           </section>
         <?php } else { ?>
@@ -347,10 +342,34 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                       <?php $this->html( 'undelete' ); ?>
                       </div>
                 <?php } ?>
+
                 <?php $this->html( 'bodytext' ) ?>
+        <h1> <?php $this->html( 'title' ); ?> </h1>
+
+        <?php echo $this->getIndicators(); ?>
+
+
+        <section id="content" class="mw-body">
+            <?php $this->msg( 'tagline' ); ?>
+            <?php if ( $this->data['subtitle'] ) { ?>
+                  <div id="contentSub"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
+                  <?php $this->html( 'subtitle' ); ?>
+                  </div>
+            <?php } ?>
+                  <?php if ( $this->data['undelete'] ) { ?>
+                  <div id="contentSub2"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
+                  <?php $this->html( 'undelete' ); ?>
+                  </div>
+            <?php } ?>
+
+            <?php $this->html( 'bodytext' ) ?>
+
+            <?php $this->html( 'catlinks' ); ?>
+
                 <?php $this->html( 'catlinks' ); ?>
+
                 <?php $this->html( 'dataAfterContent' ); ?>
-              </section>
+            </section>
         <?php } ?>
         </main>
         <footer class="footer">
