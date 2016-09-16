@@ -1,5 +1,5 @@
 .title {
-    padding: 2rem 0;
+    padding: $content-padding;
 
     text-align: left;
 
@@ -65,32 +65,25 @@
         
         text-align: center;
 
-        padding: 2rem 0;
+        padding: $content-padding;
+    }
 
-        &__description{
-            font-family: "Roboto Slab";
-            font-size: 1.75rem;
-            font-weight: 300;
-            margin-bottom: 1rem;
-        }
-
-        &__this-week{
+    &__this-week{
             margin-top: 1rem;
-        }
+    }
 
-        &__link {
-            background-color: $green;
-            border-radius: $border-radius;
+    &__link {
+        background-color: $green;
+        border-radius: $border-radius;
+        color: white;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 1.5rem;
+        padding: 0.5rem 7rem;
+
+        &:hover{
             color: white;
-            cursor: pointer;
-            display: inline-block;
-            font-size: 1.5rem;
-            padding: 0.5rem 7rem;
-
-            &:hover{
-                color: white;
-                text-decoration: none;
-            }
+            text-decoration: none;
         }
     }
 }
@@ -100,64 +93,52 @@
     &__content {        
         @extend .container;
         
-        padding: 2rem 15px; //15px to get it in line with the deps
-        
-
-        &__video{
-            @include make-col-ready(xl);
-            @include make-col(8);
-
-            .embed-responsive{
-                box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
-            }
-        }
-
-        &__description{
-            @include make-col-ready(xl);
-            @include make-col(4);
-            
-            h3{
-                font-size: 1.95rem;
-                font-weight: 300;
-                font-family: "Roboto Slab"
-            }
-
-            .button-container{
-                text-align: right;
-
-                button{
-                    margin-top: 1rem;
-
-                    background-color: $green;
-                    border-radius: $border-radius;
-                    color: white;
-                    cursor: pointer;
-                    display: inline-block;
-                    font-size: 1.1rem;
-                    padding: 0.5rem;
-                    outline: 0;
-                    border: 0;
-                }
-            }
-        }   
+        padding: $content-padding; //15px to get it in line with the deps
+         
     }
-    /*&__item {
-        text-align: center;
 
+    &__video{
         @include make-col-ready(xl);
-        @include make-col(12);
-        @include media-breakpoint-up(md) {
-            @include make-col(4);
-        }
+        @include make-col(8);
 
-        iframe {
-            width: 100%;
+        .embed-responsive{
+            box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
         }
-    }*/
-}
+    }
 
-.section-divider{
-    background-color: white;
+    &__description{
+        @include make-col-ready(xl);
+        @include make-col(4);
+    }   
+
+    &__title{
+        font-size: 1.95rem;
+        font-weight: 300;
+        font-family: "Roboto Slab"
+    }
+    
+    &__text{
+        margin: 0;
+    }
+    
+    &__button-container{
+        text-align: right;
+
+        button{
+            margin-top: 1rem;
+
+            background-color: $green;
+            border-radius: $border-radius;
+            color: white;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 1.1rem;
+            padding: 0.5rem;
+            outline: 0;
+            border: 0;
+        }
+    }
+
 }
 
 .section-testimonials {
@@ -167,13 +148,13 @@
     &__content{
 
         @extend .container;
-        padding: 2rem 15px;
+        padding: $content-padding;
 
         text-align: center;
 
         &__read-more {
             @extend .btn-outline-green;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
         }
     }
     
@@ -218,51 +199,27 @@
 }
 
 
-.sponsors {
-    padding-bottom: 5rem;
-    padding-top: 5rem;
+.section-sponsors {
 
-    @extend .container;
+    &__content{
 
-    &__item {
-        @include make-col-ready(xl);
-        @include make-col(6);
-        @include media-breakpoint-up(sm) {
-            @include make-col(3);
+        @extend .container;
+        padding: $content-padding; //15px to get it in line with the deps
+
+        &__item {
+            @include make-col-ready(xl);
+            @include make-col(6);
+            @include media-breakpoint-up(sm) {
+                @include make-col(3);
+            }
+
+            img {
+                @extend .img-fluid;
+            }
         }
 
-        img {
-            @extend .img-fluid;
-        }
-    }
-
-    .clearfix {
-        padding-bottom: 3rem
-    }
-}
-
-#hero{
-    text-align: center;
-
-    #biglogo{
-        display: inline-block;
-        height: 10rem;
-        vertical-align: middle;
-    }
-
-    #claim{
-        color: #666666;
-        display: inline-block;
-        font-size: 3rem;
-        font-weight: 500;
-        margin-left: 1rem;
-        text-align: left;
-        vertical-align: middle;
-        
-        h1, 
-        h2, 
-        h3{
-            margin: 0;
+        .clearfix {
+            padding-bottom: 3rem
         }
     }
 }
