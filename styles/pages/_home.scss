@@ -100,12 +100,16 @@
     &__content {        
         @extend .container;
         
-        padding: 2rem 0;
+        padding: 2rem 15px; //15px to get it in line with the deps
         
 
         &__video{
             @include make-col-ready(xl);
             @include make-col(8);
+
+            .embed-responsive{
+                box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
+            }
         }
 
         &__description{
@@ -113,8 +117,9 @@
             @include make-col(4);
             
             h3{
-                font-size: 2rem;
-                font-weight: lighter;
+                font-size: 1.95rem;
+                font-weight: 300;
+                font-family: "Roboto Slab"
             }
 
             .button-container{
@@ -122,7 +127,6 @@
 
                 button{
                     margin-top: 1rem;
-                    margin-right: 0.25rem;
 
                     background-color: $green;
                     border-radius: $border-radius;
@@ -156,16 +160,23 @@
     background-color: white;
 }
 
-.testimonials {
-    padding-top: 5rem;
-    text-align: center;
+.section-testimonials {
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+    
+    &__content{
 
-    @extend .container;
+        @extend .container;
+        padding: 2rem 15px;
 
-    &__button--read-more {
-        margin: 5rem auto;
-        @extend .btn-outline-green;
+        text-align: center;
+
+        &__read-more {
+            @extend .btn-outline-green;
+            margin-top: 1rem;
+        }
     }
+    
 }
 
 .testimonial {
