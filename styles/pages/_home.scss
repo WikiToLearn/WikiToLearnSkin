@@ -227,6 +227,11 @@
     @extend .container;
     padding: $content-padding; //15px to get it in line with the deps
 
+    &__list {
+        display: block;
+        list-style: none;
+    }
+
     &__item {
         @include make-col-ready(xl);
         @include make-col(6);

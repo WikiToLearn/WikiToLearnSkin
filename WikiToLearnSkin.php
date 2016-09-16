@@ -301,31 +301,33 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           </section>
           <hr class="wikitolearn-divider--green">
           <section class="sponsors">
-            <div class="sponsors__item">
-              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor1.png'); ?>">
-            </div>
-            <div class="sponsors__item">
-              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor2.png'); ?>">
-            </div>
-            <div class="sponsors__item">
-              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor3.png'); ?>">
-            </div>
-            <div class="sponsors__item">
-              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor4.png'); ?>">
-            </div>
-            <div class="clearfix"></div>
-            <div class="sponsors__item">
-              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor1.png'); ?>">
-            </div>
-            <div class="sponsors__item">
-              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor2.png'); ?>">
-            </div>
-            <div class="sponsors__item">
-              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor3.png'); ?>">
-            </div>
-            <div class="sponsors__item">
-              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor4.png'); ?>">
-            </div>
+            <ul class="sponsors__list">
+              <li class="sponsors__item">
+                <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor1.png'); ?>">
+              </li>
+              <li class="sponsors__item">
+                <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor2.png'); ?>">
+              </li>
+              <li class="sponsors__item">
+                <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor3.png'); ?>">
+              </li>
+              <li class="sponsors__item">
+                <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor4.png'); ?>">
+              </li>
+              <div class="clearfix"></div>
+              <li class="sponsors__item">
+                <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor1.png'); ?>">
+              </li>
+              <li class="sponsors__item">
+                <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor2.png'); ?>">
+              </li>
+              <li class="sponsors__item">
+                <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor3.png'); ?>">
+              </li>
+              <li class="sponsors__item">
+                <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor4.png'); ?>">
+              </li>
+            </ul>
           </section>
         <?php } else { ?>
             <h1> <?php $this->html( 'title' ); ?> </h1>
