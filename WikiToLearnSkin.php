@@ -179,52 +179,52 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           <section class="section-departments">
               <div class="departments">
                 <div class="departments__wrapper">
-                  <div class="departments__wrapper__item">
-                    <img class="item__image" src="http://i.imgur.com/XtYKLW2.png" alt="">
-                    <span class="item__name">Fisica</span>
+                  <div class="departments__item">
+                    <img class="departments__image" src="http://i.imgur.com/XtYKLW2.png" alt="">
+                    <span class="departments__name">Fisica</span>
                   </div>
                 </div>
                 <div class="departments__wrapper">
-                  <div class="departments__wrapper__item">
-                    <img class="item__image" src="http://i.imgur.com/PEPTSKE.png" alt="">
-                    <span class="item__name">Bioscienze</span>
+                  <div class="departments__item">
+                    <img class="departments__image" src="http://i.imgur.com/PEPTSKE.png" alt="">
+                    <span class="departments__name">Bioscienze</span>
                   </div>
                 </div>
                 <div class="departments__wrapper">
-                  <div class="departments__wrapper__item">
-                    <img class="item__image" src="http://i.imgur.com/XtYKLW2.png" alt="">
-                    <span class="item__name">Informatica</span>
+                  <div class="departments__item">
+                    <img class="departments__image" src="http://i.imgur.com/XtYKLW2.png" alt="">
+                    <span class="departments__name">Informatica</span>
                   </div>
                 </div>
                 <div class="departments__wrapper">
-                  <div class="departments__wrapper__item">
-                    <img class="item__image" src="http://i.imgur.com/PEPTSKE.png" alt="">
-                    <span class="item__name">Matematica</span>
+                  <div class="departments__item">
+                    <img class="departments__image" src="http://i.imgur.com/PEPTSKE.png" alt="">
+                    <span class="departments__name">Matematica</span>
                   </div>
                 </div>
                 <div class="clearfix"></div>
                 <div class="departments__wrapper">
-                  <div class="departments__wrapper__item">
-                    <img class="item__image" src="http://i.imgur.com/XtYKLW2.png" alt="">
-                    <span class="item__name">Fisica</span>
+                  <div class="departments__item">
+                    <img class="departments__image" src="http://i.imgur.com/XtYKLW2.png" alt="">
+                    <span class="departments__name">Fisica</span>
                   </div>
                 </div>
                 <div class="departments__wrapper">
-                  <div class="departments__wrapper__item">
-                    <img class="item__image" src="http://i.imgur.com/PEPTSKE.png" alt="">
-                    <span class="item__name">Bioscienze</span>
+                  <div class="departments__item">
+                    <img class="departments__image" src="http://i.imgur.com/PEPTSKE.png" alt="">
+                    <span class="departments__name">Bioscienze</span>
                   </div>
                 </div>
                 <div class="departments__wrapper">
-                  <div class="departments__wrapper__item">
-                    <img class="item__image" src="http://i.imgur.com/XtYKLW2.png" alt="">
-                    <span class="item__name">Informatica</span>
+                  <div class="departments__item">
+                    <img class="departments__image" src="http://i.imgur.com/XtYKLW2.png" alt="">
+                    <span class="departments__name">Informatica</span>
                   </div>
                 </div>
                 <div class="departments__wrapper">
-                  <div class="departments__wrapper__item">
-                    <img class="item__image" src="http://i.imgur.com/PEPTSKE.png" alt="">
-                    <span class="item__name">Matematica</span>
+                  <div class="departments__item">
+                    <img class="departments__image" src="http://i.imgur.com/PEPTSKE.png" alt="">
+                    <span class="departments__name">Matematica</span>
                   </div>
                 </div>
                 <div class="clearfix"></div>
