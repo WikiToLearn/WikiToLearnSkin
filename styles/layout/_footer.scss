@@ -9,7 +9,7 @@
 
         @extend .container;
 
-        & div {
+        > li {
             font-size: 1.2rem;
             padding: 0 2rem 2rem 2rem;
 
@@ -38,6 +38,7 @@
     }
 
     &__logo {
+        display: block;
         img {
             padding: 5rem;
             @extend .img-fluid;
