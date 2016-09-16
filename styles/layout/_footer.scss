@@ -1,37 +1,39 @@
 .footer {
     background-color: $black-secondary;
     width: 100%;
-}
 
-.footer-content {
-    color: $gray;
+    &__list {
+        color: $gray;
+        display: block;
+        @include list-unstyled();
 
-    @extend .container;
+        @extend .container;
 
-    & div {
-        font-size: 1.2rem;
-        padding: 0 2rem 2rem 2rem;
+        & div {
+            font-size: 1.2rem;
+            padding: 0 2rem 2rem 2rem;
 
-        @include make-col-ready(xl);
-        @include make-col(6);
-        @include media-breakpoint-up(md) {
-            @include make-col(3);
-        }
+            @include make-col-ready(xl);
+            @include make-col(6);
+            @include media-breakpoint-up(md) {
+                @include make-col(3);
+            }
 
-        h4 {
-            padding-top: 2rem;
-            padding-bottom: 2rem;
-        }
+            h4 {
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+            }
 
-        a {
-            text-decoration: none;
-            color: whitesmoke;
-        }
+            a {
+                text-decoration: none;
+                color: whitesmoke;
+            }
 
-        ul {
-            margin-bottom: 0rem;
-            padding-top: 1rem;
-            @include list-unstyled();
+            ul {
+                margin-bottom: 0rem;
+                padding-top: 1rem;
+                @include list-unstyled();
+            }
         }
     }
 
@@ -70,31 +72,31 @@
             }
         }
     }
-}
 
-.learn-more {
-    &__first-heading {
-        //color: $yellow;
-        border-bottom: 0.1rem solid $yellow;
-    }
-}
-
-.last-modified {
-    color: whitesmoke;
-    
-    ul {
-        @include list-unstyled();
+    .learn-more {
+        &__first-heading {
+            //color: $yellow;
+            border-bottom: 0.1rem solid $yellow;
+        }
     }
 
-    &__info {
-        text-align: center;
-    }
+    .last-modified {
+        color: whitesmoke;
+        
+        ul {
+            @include list-unstyled();
+        }
 
-    &__places {
-        margin-bottom: 0;
-        text-align: center;
-        li {
-            @include list-inline();
+        &__info {
+            text-align: center;
+        }
+
+        &__places {
+            margin-bottom: 0;
+            text-align: center;
+            li {
+                @include list-inline();
+            }
         }
     }
 }

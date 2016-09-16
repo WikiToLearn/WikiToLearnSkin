@@ -375,11 +375,11 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         <?php } ?>
         </main>
         <footer class="footer">
-          <div class="footer-content">
-            <div class="footer-content__logo">
+          <div class="footer__list">
+            <div class="footer__logo">
               <img src="/skins/WikiToLearnSkin/images/wikitolearn-logo.png">
             </div>
-            <div class="footer-content__contacts">
+            <div class="footer__contacts">
               <h4>{{ Contacts }}</h4>
               <ul class="contacts-list">
                 <li>
@@ -396,7 +396,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 </li>
               </ul>
             </div>
-            <div class="footer-content__learn-more">
+            <div class="footer__learn-more">
               <h4 class="learn-more__first-heading">{{Learn More}}</h4>
               <ul class="learn-more__list">
                 <li>
@@ -413,7 +413,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 </li>
               </ul>
             </div>
-            <div class="footer-content__social">
+            <div class="footer__social">
               <h4>{{Connect}}</h4>
               <ul class="social-icons">
                 <li>
