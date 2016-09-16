@@ -242,6 +242,11 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           </div>
           <section class="section-video">
             <div class="section-video__content">
+              <div class="section-video__content__video">
+                <div class="embed-responsive embed-responsive-16by9">
+                  <iframe class="embed-responsive-item" src="//www.youtube.com/embed/NpEaa2P7qZI?rel=0" allowfullscreen></iframe>
+                </div>
+              </div>
               <div class="section-video__content__description">
                 <h3>collaborative textbooks</h3>
                 WikiToLearn vuole creare libri di testo liberi, collaborativi e facilmente accessibili. 
@@ -252,56 +257,51 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                   </button>
                 </div>
               </div>
-              <div class="section-video__content__video">
-                <div class="embed-responsive embed-responsive-16by9">
-                  <iframe class="embed-responsive-item" src="//www.youtube.com/embed/NpEaa2P7qZI?rel=0" allowfullscreen></iframe>
-                </div>
-              </div>
-              
             </div>
           </section>
-          <hr class="wikitolearn-divider--yellow">
-          <section class="testimonials">
-            <div class="testimonial">
-              <a class="testimonial__link" href="#">
-                <img class="testimonial__image" src="<?php echo $this->getSkin()->getSkinStylePath( 'images/testimonials.png'); ?>" alt="Generic placeholder image">
-              </a>
-              <div class="testimonial__body">
-                <blockquote class="testimonial__quote">
-                  "WikiToLearn allows me to have great and always up-to-date material for my classes"
-                </blockquote>
-                <footer class="testimonial__footer">
-                  <cite> M. Bona</cite>
-                </footer>
+          <section class="section-testimonials">
+            <div class="section-testimonials__content">
+              <div class="testimonial">
+                <a class="testimonial__link" href="#">
+                  <img class="testimonial__image" src="<?php echo $this->getSkin()->getSkinStylePath( 'images/testimonials.png'); ?>" alt="Generic placeholder image">
+                </a>
+                <div class="testimonial__body">
+                  <blockquote class="testimonial__quote">
+                    "WikiToLearn allows me to have great and always up-to-date material for my classes"
+                  </blockquote>
+                  <footer class="testimonial__footer">
+                    <cite> M. Bona</cite>
+                  </footer>
+                </div>
               </div>
-            </div>
-            <div class="testimonial">
-              <a class="testimonial__link" href="#">
-                <img class="testimonial__image" src="<?php echo $this->getSkin()->getSkinStylePath( 'images/testimonials.png'); ?>" alt="Generic placeholder image">
-              </a>
-              <div class="testimonial__body">
-                <blockquote class="testimonial__quote">
-                  "WikiToLearn allows me to have great and always up-to-date material for my classes"
-                </blockquote>
-                <footer class="testimonial__footer">
-                  <cite> M. Bona</cite>
-                </footer>
+              <div class="testimonial">
+                <a class="testimonial__link" href="#">
+                  <img class="testimonial__image" src="<?php echo $this->getSkin()->getSkinStylePath( 'images/testimonials.png'); ?>" alt="Generic placeholder image">
+                </a>
+                <div class="testimonial__body">
+                  <blockquote class="testimonial__quote">
+                    "WikiToLearn allows me to have great and always up-to-date material for my classes"
+                  </blockquote>
+                  <footer class="testimonial__footer">
+                    <cite> M. Bona</cite>
+                  </footer>
+                </div>
               </div>
-            </div>
-            <div class="testimonial">
-              <a class="testimonial__link" href="#">
-                <img class="testimonial__image" src="<?php echo $this->getSkin()->getSkinStylePath( 'images/testimonials.png'); ?>" alt="Generic placeholder image">
-              </a>
-              <div class="testimonial__body">
-                <blockquote class="testimonial__quote">
-                  "WikiToLearn allows me to have great and always up-to-date material for my classes"
-                </blockquote>
-                <footer class="testimonial__footer">
-                  <cite> M. Bona</cite>
-                </footer>
+              <div class="testimonial">
+                <a class="testimonial__link" href="#">
+                  <img class="testimonial__image" src="<?php echo $this->getSkin()->getSkinStylePath( 'images/testimonials.png'); ?>" alt="Generic placeholder image">
+                </a>
+                <div class="testimonial__body">
+                  <blockquote class="testimonial__quote">
+                    "WikiToLearn allows me to have great and always up-to-date material for my classes"
+                  </blockquote>
+                  <footer class="testimonial__footer">
+                    <cite> M. Bona</cite>
+                  </footer>
+                </div>
               </div>
+              <a href="#" class="section-testimonials__content__read-more btn">Read more stories about WikiToLearn</a>
             </div>
-            <a href="#" class="testimonials__button--read-more btn">Read more stories about WikiToLearn</a>
           </section>
           <hr class="wikitolearn-divider--green">
           <section class="sponsors">
