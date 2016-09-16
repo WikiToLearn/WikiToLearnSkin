@@ -87,10 +87,12 @@
         }
 
         .social-icons {
+            overflow: auto;
+
             li {
                 @include list-inline();
                 @include make-col-ready(xs);
-                @include make-col(3);
+                @include make-col(4);
             }
         }
     }
