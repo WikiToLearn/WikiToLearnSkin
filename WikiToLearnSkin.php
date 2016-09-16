@@ -176,59 +176,59 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           <section class="title">
             <h1> Learn with the best. Create books. Share <em>knowledge</em>. </h1>
           </section>
-          <section class="section-departments">
-              <div class="departments">
-                <div class="departments__wrapper">
-                  <div class="departments__item">
-                    <img class="departments__image" src="http://i.imgur.com/XtYKLW2.png" alt="">
-                    <span class="departments__name">Fisica</span>
-                  </div>
+          <section class="departments">
+            <ul class="departments__content">
+              <li class="departments__wrapper">
+                <div class="departments__item">
+                  <img class="departments__image" src="http://i.imgur.com/XtYKLW2.png" alt="">
+                  <span class="departments__name">Fisica</span>
                 </div>
-                <div class="departments__wrapper">
-                  <div class="departments__item">
-                    <img class="departments__image" src="http://i.imgur.com/PEPTSKE.png" alt="">
-                    <span class="departments__name">Bioscienze</span>
-                  </div>
+              </li>
+              <li class="departments__wrapper">
+                <div class="departments__item">
+                  <img class="departments__image" src="http://i.imgur.com/PEPTSKE.png" alt="">
+                  <span class="departments__name">Bioscienze</span>
                 </div>
-                <div class="departments__wrapper">
-                  <div class="departments__item">
-                    <img class="departments__image" src="http://i.imgur.com/XtYKLW2.png" alt="">
-                    <span class="departments__name">Informatica</span>
-                  </div>
+              </li>
+              <li class="departments__wrapper">
+                <div class="departments__item">
+                  <img class="departments__image" src="http://i.imgur.com/XtYKLW2.png" alt="">
+                  <span class="departments__name">Informatica</span>
                 </div>
-                <div class="departments__wrapper">
-                  <div class="departments__item">
-                    <img class="departments__image" src="http://i.imgur.com/PEPTSKE.png" alt="">
-                    <span class="departments__name">Matematica</span>
-                  </div>
+              </li>
+              <li class="departments__wrapper">
+                <div class="departments__item">
+                  <img class="departments__image" src="http://i.imgur.com/PEPTSKE.png" alt="">
+                  <span class="departments__name">Matematica</span>
                 </div>
-                <div class="clearfix"></div>
-                <div class="departments__wrapper">
-                  <div class="departments__item">
-                    <img class="departments__image" src="http://i.imgur.com/XtYKLW2.png" alt="">
-                    <span class="departments__name">Fisica</span>
-                  </div>
+              </li>
+              <div class="clearfix"></div>
+              <li class="departments__wrapper">
+                <div class="departments__item">
+                  <img class="departments__image" src="http://i.imgur.com/XtYKLW2.png" alt="">
+                  <span class="departments__name">Fisica</span>
                 </div>
-                <div class="departments__wrapper">
-                  <div class="departments__item">
-                    <img class="departments__image" src="http://i.imgur.com/PEPTSKE.png" alt="">
-                    <span class="departments__name">Bioscienze</span>
-                  </div>
+              </li>
+              <li class="departments__wrapper">
+                <div class="departments__item">
+                  <img class="departments__image" src="http://i.imgur.com/PEPTSKE.png" alt="">
+                  <span class="departments__name">Bioscienze</span>
                 </div>
-                <div class="departments__wrapper">
-                  <div class="departments__item">
-                    <img class="departments__image" src="http://i.imgur.com/XtYKLW2.png" alt="">
-                    <span class="departments__name">Informatica</span>
-                  </div>
+              </li>
+              <li class="departments__wrapper">
+                <div class="departments__item">
+                  <img class="departments__image" src="http://i.imgur.com/XtYKLW2.png" alt="">
+                  <span class="departments__name">Informatica</span>
                 </div>
-                <div class="departments__wrapper">
-                  <div class="departments__item">
-                    <img class="departments__image" src="http://i.imgur.com/PEPTSKE.png" alt="">
-                    <span class="departments__name">Matematica</span>
-                  </div>
+              </li>
+              <li class="departments__wrapper">
+                <div class="departments__item">
+                  <img class="departments__image" src="http://i.imgur.com/PEPTSKE.png" alt="">
+                  <span class="departments__name">Matematica</span>
                 </div>
-                <div class="clearfix"></div>
-              </div>
+              </li>
+              <div class="clearfix"></div>
+            </ul>
           </section>
           <section class="section-join-us">
             <div class="section-join-us__content">

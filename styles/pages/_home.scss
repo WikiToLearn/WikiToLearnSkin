@@ -20,39 +20,42 @@
     }
 }
 
-.section-departments {
+.departments {
     padding-bottom: 1.5rem; //should be 2 but 0.5 is from the margin-bottom of the deps
 
-    .departments {
+    &__content {
         @extend .container;
+        display: block;
+        list-style: none;
+    }
 
-        &__wrapper{
-            margin: 0.5rem 0;
+    &__wrapper{
+        display: block;
+        margin: 0.5rem 0;
 
-            @include make-col-ready(sm);
-            @include make-col(3);
-        }
+        @include make-col-ready(sm);
+        @include make-col(3);
+    }
 
-        &__item {
-            background-color: white;
-            border-radius: $border-radius;
-            box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
-            text-align: center;
-        }
+    &__item {
+        background-color: white;
+        border-radius: $border-radius;
+        box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
+        text-align: center;
+    }
 
-        &__image{
-            border-radius: 2px;
-            height: 100%;
-            width: 100%;
-        }
+    &__image{
+        border-radius: 2px;
+        height: 100%;
+        width: 100%;
+    }
 
-        &__name{
-            color: $black;
-            display: inline-block;
-            font-size: 1.5rem;
-            font-weight: lighter;
-            line-height: 0;
-        }
+    &__name{
+        color: $black;
+        display: inline-block;
+        font-size: 1.5rem;
+        font-weight: lighter;
+        line-height: 0;
     }
 }
 
