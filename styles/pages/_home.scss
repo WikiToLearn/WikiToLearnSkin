@@ -101,7 +101,8 @@
         padding-bottom: 33.33%;
         padding-top: 2rem;
         position: relative;
-
+        box-shadow: rgba(0,0,0,0.1) 0px 1px 3px; // TODO: remove hard coded values
+        
         @include make-col-ready(xl);
         @include make-col(12);
         @include media-breakpoint-up(md) {
@@ -111,7 +112,6 @@
 
     &__video {
         border: none;
-        box-shadow: rgba(0,0,0,0.1) 0px 1px 3px; // TODO: remove hard coded values
         height: 100%;
         left: 0;
         position: absolute;
@@ -209,8 +209,12 @@
     }
 
     &__quote {
-        font-size: 1rem;
         @extend .blockquote;
+        
+        font-size: 1rem;
+        border-left-color: $green;
+        border-left-width: 2px;
+        font-style: italic;
 
         @include media-breakpoint-between(md, lg) {
             font-size: .8rem;
