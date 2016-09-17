@@ -178,7 +178,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           </section>
           <section class="departments">
             <ul class="departments__content">
-              <li class="departments__wrapper">
+              <li class="departments__wrapper departments__wrapper--first">
                 <div class="departments__item">
                   <img class="departments__image" src="http://i.imgur.com/XtYKLW2.png" alt="">
                   <span class="departments__name">Fisica</span>
@@ -196,7 +196,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                   <span class="departments__name">Informatica</span>
                 </div>
               </li>
-              <li class="departments__wrapper">
+              <li class="departments__wrapper departments__wrapper--last">
                 <div class="departments__item">
                   <img class="departments__image" src="http://i.imgur.com/PEPTSKE.png" alt="">
                   <span class="departments__name">Matematica</span>
@@ -230,10 +230,10 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               <div class="clearfix"></div>
             </ul>
           </section>
-          <section class="section-join-us">
-            <div class="section-join-us__content">
-              <a href="#" class="section-join-us__link">Join Us</a>
-              <div class="section-join-us__this-week">
+          <section class="join-us">
+            <div class="join-us__content">
+              <a href="#" class="join-us__link">Join Us</a>
+              <div class="join-us__this-week">
                   This week on WikiToLearn: 32 new edits, 6 new pages and 2 new users.
               </div>
             </div>
@@ -396,6 +396,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 </li>
               </ul>
             </li>
+            <div class="clearfix"></div>
             <li class="footer__learn-more">
               <h4 class="learn-more__first-heading">{{Learn More}}</h4>
               <ul class="learn-more__list">
