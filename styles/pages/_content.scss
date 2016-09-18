@@ -1,0 +1,17 @@
+#content{
+    max-width: 1000px;
+    margin: 0 auto;
+
+    background-color: white;
+    box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
+    
+    padding: 2rem;
+    
+    [class^="ve-"], [class^="oo-"]{
+        box-sizing: content-box;
+    }
+    
+    p:last-of-type{
+        margin-bottom: 0;
+    }
+}
