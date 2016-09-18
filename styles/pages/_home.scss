@@ -1,9 +1,11 @@
 .title {
-    padding: $content-padding;
+    background-color: #f8f8fb;
 
-    text-align: left;
-
-    @extend .container;
+    &__content{
+        @extend .container;
+        padding: $content-padding;
+        text-align: left;
+    }
 
     h1 {
         font-weight: lighter;
@@ -25,6 +27,7 @@
 }
 
 .departments {
+    background-color: #f8f8fb;
     padding-bottom: 1.5rem; //should be 2 but 0.5 is from the margin-bottom of the deps
 
     &__content {
@@ -74,6 +77,8 @@
     background-color: white;
     box-shadow: 0 1px 3px rgba(0,0,0,0.15);
     
+    position: relative;
+
     &__content{
         @extend .container;
         
@@ -107,9 +112,14 @@
 }
 
 .media {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    @extend .container;
+
+    background-color: #f8f8fb;
+
+    &__content{
+        @extend .container;
+        padding: $content-padding;
+    }
+    
 
     &__wrapper{
         overflow: hidden;
@@ -147,9 +157,9 @@
     }   
 
     &__title{
-        font-size: 1.95rem;
+        font-size: 2rem;
         font-weight: 300;
-        font-family: "Roboto Slab"
+        //font-family: "Roboto Slab"
     }
     
     &__text{
@@ -175,13 +185,14 @@
 
 .testimonials {
     background-color: white;
+    position: relative;
     box-shadow: 0 1px 3px rgba(0,0,0,0.15);
     
     &__content{
+        @extend .container;
+        
         padding: $content-padding;
         text-align: center;
-
-        @extend .container;
     }
 
     &__read-more {
@@ -196,7 +207,8 @@
     padding-right: 0;
 
     @extend .media;
-
+    background-color: white;
+    
     @include make-col-ready();
     @include make-col(12);
     @include media-breakpoint-up(md) {
