@@ -105,6 +105,9 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                   <a href="#"  class="nav__link nav__link--hover-green">
                     Libri
                   </a>
+                  <a href="#" class="nav__hamburger-menu">
+                    <i class="fa fa-bars"></i>
+                  </a>
                   <span class="nav__search">
                   <form action="<?php $this->text( 'wgScript' ); ?>">
                     <input type="hidden" name="title" value="<?php $this->text( 'searchtitle' ) ?>" />
@@ -118,7 +121,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                       crisbal
                   </a>
                   <div class="dropdown">
-                    <a id="notifications" class="menu-right dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav__bell menu-right dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fa fa-bell"></i>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="notifications">

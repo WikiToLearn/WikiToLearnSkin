@@ -10,9 +10,12 @@
     &__wrapper{
         width: 100%;
 
-        @extend .container;
+        @include media-breakpoint-up(sm) {
+            @include make-container();
+            @include make-container-max-widths();
+        }
         
-        @include media-breakpoint-down(md) {
+        @include media-breakpoint-between(sm, md) {
             width: 90%;
         }
 
@@ -24,6 +27,10 @@
 
             @include media-breakpoint-down(xs) {
                 display: none;
+            }
+
+            @include media-breakpoint-up(md) {
+                @include make-col(6);
             }
             
             a{
@@ -71,10 +78,19 @@
             padding: 0;
             text-align: right;
 
-            @include make-col-ready();
-            @include make-col(8);
+            @include make-col-ready($gutter: 0);
+            @include make-col(12);
+            padding: 0;
 
-            @media-breakpoint-up(md) {
+            @include media-breakpoint-up(sm) {
+                @include make-col-ready();
+            }
+
+            @include media-breakpoint-between(sm, md) {
+                @include make-col(8);
+            }
+
+            @include media-breakpoint-up(md) {
                 @include make-col(6);
             }
 
@@ -83,7 +99,7 @@
             }
 
             &__link {
-                color: #333;
+                color: $black;
                 display: inline-block;
                 font-size: 1.2rem;
                 font-weight: lighter;
@@ -125,6 +141,19 @@
                 }
             }
 
+            &__hamburger-menu {
+                color: $black;
+                text-align: center;
+                text-decoration: none;
+
+                @include make-col-ready();
+                @include make-col(2);
+
+                @include media-breakpoint-up(sm) {
+                    display: none;
+                }
+            }
+
             &__search {
                 form {
                     display: inline;
@@ -135,8 +164,15 @@
                     border: none;
                     outline: none;
                     padding: 0;
-                    width: 0;
 
+                    @include media-breakpoint-down(xs) {
+                        @include make-col-ready();
+                        @include make-col(7);
+                    }
+
+                    @include media-breakpoint-up(sm) {
+                        width: 0;
+                    }
                     // Reduce the level of indentation here
                     &.expanded-search {
                         transition: width 0.6s ease;
@@ -149,9 +185,14 @@
                     }
                 }
 
-                button {
+                &-button {
                     border: none;
                     background-color: transparent;
+
+                    @include media-breakpoint-down(xs) {
+                        @include make-col-ready();
+                        @include make-col(1);
+                    }
                 }
             }
 
@@ -164,6 +205,13 @@
             // this has to keep the bootstrap class naming conventions.
             .dropdown {
                 display: inline-block;
+
+                @include media-breakpoint-down(xs) {
+                    text-align: center;
+                    
+                    @include make-col-ready();
+                    @include make-col(2);
+                }
             }
 
             .dropdown-menu {
