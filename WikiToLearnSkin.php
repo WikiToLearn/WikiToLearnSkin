@@ -27,6 +27,7 @@ class SkinWikiToLearnSkin extends SkinTemplate
     public function initPage( OutputPage $out )
     {
         parent::initPage( $out );
+        $out->addMeta( 'viewport', 'width=device-width, initial-scale=1, shrink-to-fit=no' );
         $out->addModules( 'skin.wikitolearn.js' );
     }
 
@@ -95,13 +96,13 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                   </a>
                 </div>
                 <nav class="nav">
-                  <a href="#" class="nav__link nav--hover-red">
+                  <a href="#" class="nav__link nav__link--hover-red">
                     Cos'è
                   </a>
-                  <a href="#"  class="nav__link nav--hover-yellow">
+                  <a href="#"  class="nav__link nav__link--hover-yellow">
                     Collabora
                   </a>
-                  <a href="#"  class="nav__link nav--hover-green">
+                  <a href="#"  class="nav__link nav__link--hover-green">
                     Libri
                   </a>
                   <span class="nav__search">

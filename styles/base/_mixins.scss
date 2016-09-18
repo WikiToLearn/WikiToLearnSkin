@@ -10,7 +10,7 @@
 }
 
 @mixin animate-bottom-border($color) {
-    display: inline-block;
+    //display: inline-block;
 
     &:hover {
         &:after {

@@ -23,7 +23,7 @@
             @include make-col(4);
 
             @include media-breakpoint-down(xs) {
-                @include make-col(6);
+                display: none;
             }
             
             a{
@@ -92,7 +92,7 @@
                 text-align: center;
                 vertical-align: middle;
 
-                &:hover{
+                &:hover, &:focus{
                     text-decoration: none;
                 }
 
@@ -103,22 +103,26 @@
                 @include media-breakpoint-between(md, lg) {
                     font-size: 1rem;
                 }
-            }
 
-            &--hover-green {
-                @include animate-bottom-border($green)
-            }
+                @include media-breakpoint-down(xs) {
+                    display: none;
+                }
 
-            &--hover-yellow {
-                @include animate-bottom-border($yellow);
-            }
+                &--hover-green {
+                    @include animate-bottom-border($green)
+                }
 
-            &--hover-red {
-                @include animate-bottom-border($red);
-            }
+                &--hover-yellow {
+                    @include animate-bottom-border($yellow);
+                }
 
-            &--hover-dark-green {
-                @include animate-bottom-border($dark-green);
+                &--hover-red {
+                    @include animate-bottom-border($red);
+                }
+
+                &--hover-dark-green {
+                    @include animate-bottom-border($dark-green);
+                }
             }
 
             &__search {
