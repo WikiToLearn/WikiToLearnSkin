@@ -1,5 +1,13 @@
 .page{
     background-color: #f8f8fb;
-    padding-top: 3.2rem;
+
+    &.home{
+        padding-top: 3.2rem;
+    }
+
+    &.content{
+        padding-top: 5rem;
+        padding-bottom: 2rem;
+    }
 }
 
