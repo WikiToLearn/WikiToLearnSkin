@@ -3,12 +3,14 @@
     width: 100%;
 
     &__list {
+        @extend .container;
         color: $gray;
-        display: block;
         @include list-unstyled();
 
-        @extend .container;
-
+        @include media-breakpoint-down(sm) {
+            display: inline;
+        }
+        
         > li {
             font-size: $font-size-lg;
             padding: 0 2rem 2rem 2rem;
@@ -67,7 +69,6 @@
     }
 
     &__contacts {
-        @include clearfix;
         h4 {
             //color: $red;
             border-bottom: 0.1rem solid $red;
@@ -78,6 +79,12 @@
         li {
             padding-top: 0.3rem;
             padding-bottom: 0.3rem;
+        }
+    }
+
+    &__learn-more {
+        @include media-breakpoint-between(xs, sm) {
+            clear: both;
         }
     }
 

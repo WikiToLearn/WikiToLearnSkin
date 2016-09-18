@@ -175,12 +175,10 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 </nav>
             </div>
         </header>
+        <main class="page">
         <?php if ($this->getSkin()->getTitle()->isMainPage()) { ?>
-        <main class="page home">
           <section class="title">
-            <div class="title__content">
-              <h1> Learn with the best. Create books. Share <em>knowledge</em>. </h1>
-            </div>
+            <h1> Learn with the best. Create books. Share <em>knowledge</em>. </h1>
           </section>
           <section class="departments">
             <ul class="departments__content">
@@ -247,20 +245,18 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           <div class="section-divider"> 
           </div>
           <section class="media">
-            <div class="media__content">
-              <div class="media__wrapper">
-                <iframe class="media__video" src="//www.youtube.com/embed/NpEaa2P7qZI?rel=0" allowfullscreen></iframe>
-              </div>
-              <div class="media__description">
-                <h3 class="media__title">collaborative textbooks</h3>
-                <p class="media__text">
-                  WikiToLearn vuole creare libri di testo liberi, collaborativi e facilmente accessibili. 
-                  La nostra filosofia è riassunta nel motto “Il sapere si accresce solo se condiviso”. Nella nostra piattaforma l'insegnamento e l'apprendimento convergono nella stesura e nel perfezionamento cooperativo di note, appunti e libri di testo, organizzabili e ri-assemblabili secondo le esigenze specifiche degli utenti.
-                </p>
-                <button class="media__button">
-                  Learn More
-                </button>
-              </div>
+            <div class="media__wrapper">
+              <iframe class="media__video" src="//www.youtube.com/embed/NpEaa2P7qZI?rel=0" allowfullscreen></iframe>
+            </div>
+            <div class="media__description">
+              <h3>collaborative textbooks</h3>
+              <p>
+                WikiToLearn vuole creare libri di testo liberi, collaborativi e facilmente accessibili. 
+                La nostra filosofia è riassunta nel motto “Il sapere si accresce solo se condiviso”. Nella nostra piattaforma l'insegnamento e l'apprendimento convergono nella stesura e nel perfezionamento cooperativo di note, appunti e libri di testo, organizzabili e ri-assemblabili secondo le esigenze specifiche degli utenti.
+              </p>
+              <button class="media__button">
+                Learn More
+              </button>
             </div>
           </section>
           <section class="testimonials">
@@ -307,6 +303,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               <a href="#" class="testimonials__read-more">Read more stories about WikiToLearn</a>
             </div>
           </section>
+          <hr class="wikitolearn-divider--green">
           <section class="sponsors">
             <ul class="sponsors__list">
               <li class="sponsors__item">
@@ -335,13 +332,31 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor4.png'); ?>">
               </li>
             </ul>
-
           </section>
-        </main>
         <?php } else { ?>
-        <main class="page content">
-          <article id="content" class="mw-body">
-            <h1 id="firstHeading"> <?php $this->html( 'title' ); ?> </h1>
+            <h1> <?php $this->html( 'title' ); ?> </h1>
+            <?php echo $this->getIndicators(); ?>
+            <section id="content" class="mw-body">
+                <?php $this->msg( 'tagline' ); ?>
+                <?php if ( $this->data['subtitle'] ) { ?>
+                      <div id="contentSub"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
+                      <?php $this->html( 'subtitle' ); ?>
+                      </div>
+                <?php } ?>
+                      <?php if ( $this->data['undelete'] ) { ?>
+                      <div id="contentSub2"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
+                      <?php $this->html( 'undelete' ); ?>
+                      </div>
+                <?php } ?>
+
+                <?php $this->html( 'bodytext' ) ?>
+        <h1> <?php $this->html( 'title' ); ?> </h1>
+
+        <?php echo $this->getIndicators(); ?>
+
+
+        <section id="content" class="mw-body">
+            <?php $this->msg( 'tagline' ); ?>
             <?php if ( $this->data['subtitle'] ) { ?>
                   <div id="contentSub"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
                   <?php $this->html( 'subtitle' ); ?>
@@ -352,14 +367,17 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                   <?php $this->html( 'undelete' ); ?>
                   </div>
             <?php } ?>
-            <div id="bodyContent"><?php $this->html( 'bodytext' ); ?></div>
+
+            <?php $this->html( 'bodytext' ) ?>
 
             <?php $this->html( 'catlinks' ); ?>
 
-            <?php $this->html( 'dataAfterContent' ); ?>
-          </article>
+                <?php $this->html( 'catlinks' ); ?>
+
+                <?php $this->html( 'dataAfterContent' ); ?>
+            </section>
+        <?php } ?>
         </main>
-          <?php } ?>
         <footer class="footer">
           <ul class="footer__list">
             <li class="footer__logo">
@@ -382,8 +400,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 </li>
               </ul>
             </li>
-            <div class="clearfix"></div>
-            <li class="footer__learn-more">
+            <li class="footer__learn-more clearfix">
               <h4 class="learn-more__first-heading">{{Learn More}}</h4>
               <ul class="learn-more__list">
                 <li>
