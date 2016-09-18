@@ -19,10 +19,10 @@
         .logo{
             padding: 0;
 
-            @include make-col-ready(xl);
+            @include make-col-ready();
             @include make-col(4);
 
-            @media-breakpoint-up(md) {
+            @include media-breakpoint-down(xs) {
                 @include make-col(6);
             }
             
@@ -71,7 +71,7 @@
             padding: 0;
             text-align: right;
 
-            @include make-col-ready(xl);
+            @include make-col-ready();
             @include make-col(8);
 
             @media-breakpoint-up(md) {

@@ -37,11 +37,11 @@
         display: block;
         margin: 0.5rem 0;
 
-        @include make-col-ready(xl, $gutter: $grid-gutter-width-departments);
+        @include make-col-ready($gutter: $grid-gutter-width-departments);
         @include make-col(3);
 
         @include media-breakpoint-down(md) {
-            @include make-col-ready(lg, $gutter: $grid-gutter-width-departments/2);
+            @include make-col-ready($gutter: $grid-gutter-width-departments/2);
         }
     }
 
@@ -118,7 +118,7 @@
         position: relative;
         box-shadow: rgba(0,0,0,0.1) 0px 1px 3px; // TODO: remove hard coded values
         
-        @include make-col-ready(xl);
+        @include make-col-ready();
         @include make-col(12);
         @include media-breakpoint-up(md) {
             @include make-col(8);
@@ -135,7 +135,7 @@
     }
 
     &__description{
-        @include make-col-ready(xl);
+        @include make-col-ready();
         @include make-col(12);
         @include media-breakpoint-up(md) {
             @include make-col(4);
@@ -197,7 +197,7 @@
 
     @extend .media;
 
-    @include make-col-ready(xl);
+    @include make-col-ready();
     @include make-col(12);
     @include media-breakpoint-up(md) {
         @include make-col(4);
@@ -252,7 +252,7 @@
     }
 
     &__item {
-        @include make-col-ready(xl);
+        @include make-col-ready();
         @include make-col(6);
         @include media-breakpoint-up(sm) {
             @include make-col(3);
