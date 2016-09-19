@@ -67,7 +67,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
      */
     public function execute()
     {
-        $this->html( 'headelement' ); ?> 
+        $this->html( 'headelement' ); ?>
             <?php $this->html( 'newtalk' ); ?>
 
             <?php if ( $this->data['newtalk'] ) { ?>
@@ -84,24 +84,24 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
 
             <?php
               $this->execute_header();
-              if ($this->getSkin()->getTitle()->isMainPage()) { 
+              if ($this->getSkin()->getTitle()->isMainPage()) {
                 MWDebug::log('Generating Homepage');
                 $this->execute_home();
-              } else { 
+              } else {
                 MWDebug::log('Generating Content page');
                 $this->execute_content_page();
-              } 
+              }
               $this->execute_footer();
 
               $this->printTrail(); ?>
-            
+
           </body>
         </html>
     <?php }
 
 
     public function execute_header() { ?>
-      
+
       <header class="header">
         <div class="header__wrapper" >
           <div href="/" class="logo">
@@ -139,16 +139,18 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 crisbal
             </a>
             <div class="dropdown">
-              <a class="nav__bell menu-right dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a id="notifications" class="menu-right dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fa fa-bell"></i>
               </a>
               <div class="dropdown-menu" aria-labelledby="notifications">
                 <div class="dropdown-header">
-                  <span class="notifications-count">{{ Notifications (1) }}</span>
-                  <span class="mark-read-notifications">{{ Mark all as read }}</span>
+                  <span class="notifications-count">&nbsp;<span id="badge-count" class="badge" style="display:none;"></span></span>
+                  <span class="mark-read-notifications"><button type="button" class="btn btn-link" id="mark-all-read-button"></button></span>
                 </div>
                 <div class="dropdown-divider"></div>
-                <div class="dropdown-item">
+                <div class="dropdown-item" id="notifications-widget">
+                </div>
+                <!-- <div class="dropdown-item">
                   <div class="notifications-icon">
                     <i class="fa fa-quote-left"></i>
                   </div>
@@ -184,15 +186,16 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                       </span>
                     </div>
                   </div>
-                </div>
+                </div> -->
                 <div class="dropdown-divider"></div>
-
-                <div class="dropdown-footer"> {{ View All }} </div>
+                <div class="dropdown-footer" id="notifications-footer">
+                  <a id="notifications-view-all"></a>
+                </div>
               </div>
             </div>
           </nav>
         </div>
-      </header> 
+      </header>
     <?php }
 
     public function execute_home() { ?>
@@ -269,7 +272,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           <div class="media__description">
             <h3 class="media__title">collaborative textbooks</h3>
             <p class="media__text">
-              WikiToLearn vuole creare libri di testo liberi, collaborativi e facilmente accessibili. 
+              WikiToLearn vuole creare libri di testo liberi, collaborativi e facilmente accessibili.
               La nostra filosofia è riassunta nel motto “Il sapere si accresce solo se condiviso”. Nella nostra piattaforma l'insegnamento e l'apprendimento convergono nella stesura e nel perfezionamento cooperativo di note, appunti e libri di testo, organizzabili e ri-assemblabili secondo le esigenze specifiche degli utenti.
             </p>
             <button class="media__button">

@@ -15,7 +15,7 @@
                 },
                 mouseleave: function () {
                     if (! $('#search').is(':focus')) {
-                        $('#search').removeClass('expanded-search');                
+                        $('#search').removeClass('expanded-search');
                         $('#search').addClass('collapsed-search');
                     }
                 },
@@ -24,7 +24,7 @@
                     $('#search').addClass('expanded-search');
                 },
                 focusout: function() {
-                    $('#search').removeClass('expanded-search');                
+                    $('#search').removeClass('expanded-search');
                     $('#search').addClass('collapsed-search');
                 }
             });
@@ -32,33 +32,12 @@
             $('.nav__search').unbind();
         }
     }
-
-
-
+    var notificationsWidget = new NotificationsWidget();
     /*!
      * Echo Special:Notifications page initialization
-     */
+
     $( document ).ready( function () {
-        var $notificationsButton = $('#notifications'),
-            $notificationsWidget = $('.dropdown-menu'),
-            notificationsItems;
-
-
-        var queryParameters = {
-            action: 'query',
-            format: 'json',
-            meta: 'notifications'
-        }
-
-        $notificationsButton.click(function () {
-            $.getJSON('/api.php', queryParameters, function (data) {
-                notificationsItems = data.query.notifications.list;
-                console.log(notificationsItems);
-                for (var prop in notificationsItems) {
-                    console.log(prop);
-                    console.log(notificationsItems[prop]);
-                }
-            });
-        });
-    } );
+      var notificationsWidget = new NotificationsWidget();
+    });
+    */
 } )( jQuery, mediaWiki );

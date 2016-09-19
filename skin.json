@@ -32,7 +32,20 @@
             "scripts": [
                 "bower_components/tether/dist/js/tether.js",
                 "bower_components/bootstrap/dist/js/bootstrap.js",
+                "scripts/NotificationsWidget.js",
                 "scripts/app.js"
+            ],
+            "dependencies": [
+                "oojs-ui",
+                "ext.echo.dm",
+                "ext.echo.ui",
+                "mediawiki.util"
+            ],
+            "messages":[
+              "echo-none",
+  						"notifications",
+  						"echo-overlay-link",
+  						"echo-mark-all-as-read-confirmation"
             ],
             "position": "bottom"
         }
