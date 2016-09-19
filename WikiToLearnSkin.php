@@ -101,7 +101,6 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
 
 
     public function execute_header() { ?>
-
       <header class="header">
         <div class="header__wrapper" >
           <div href="/" class="logo">
@@ -324,35 +323,58 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             <a href="#" class="testimonials__read-more">Read more stories about WikiToLearn</a>
           </div>
         </section>
+        <section class="contributors">
+          <div class="contributors__content">
+            <h3 class="contributors__title">Contributions from</h3>
+            <ul class="contributors__list">
+              <div class="row">
+                <li class="contributors__item"><img src="https://upload.wikimedia.org/wikipedia/it/a/a2/Logo_Universit%C3%A0_Milano-Bicocca.jpg" alt=""></li>
+                <li class="contributors__item"><img src="http://design-guidelines.web.cern.ch/sites/design-guidelines.web.cern.ch/files/u6/CERN-logo.jpg" alt=""></li>
+                <li class="contributors__item"><img src="https://upload.wikimedia.org/wikipedia/it/thumb/5/54/Logo_Scuola_Internazionale_Superiore_di_Studi_Avanzati.svg/1280px-Logo_Scuola_Internazionale_Superiore_di_Studi_Avanzati.svg.png" alt=""></li>
+              </div>
+              <div class="row">
+                <li class="contributors__item"><img src="http://wikitolearn.org/images/it-wikimedia.png" alt=""></li>
+                <li class="contributors__item"><img src="http://wikitolearn.org/images/hep-logo.png" alt=""></li>
+                <li class="contributors__item"><img src="http://www.kde.org/stuff/clipart/klogo-official-lineart_simple.svg" alt=""></li>
+              </div>
+            </ul>
+          </div>
+        </section>
+        <!--
         <section class="sponsors">
+          <h3 class="sponsors__title">On the press</h3>
           <ul class="sponsors__list">
-            <li class="sponsors__item">
-              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor1.png'); ?>">
-            </li>
-            <li class="sponsors__item">
-              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor2.png'); ?>">
-            </li>
-            <li class="sponsors__item">
-              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor3.png'); ?>">
-            </li>
-            <li class="sponsors__item">
-              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor4.png'); ?>">
-            </li>
-            <div class="clearfix"></div>
-            <li class="sponsors__item">
-              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor1.png'); ?>">
-            </li>
-            <li class="sponsors__item">
-              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor2.png'); ?>">
-            </li>
-            <li class="sponsors__item">
-              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor3.png'); ?>">
-            </li>
-            <li class="sponsors__item">
-              <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor4.png'); ?>">
-            </li>
+            <div class="row">
+              <li class="sponsors__item">
+                <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor1.png'); ?>">
+              </li>
+              <li class="sponsors__item">
+                <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor2.png'); ?>">
+              </li>
+              <li class="sponsors__item">
+                <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor3.png'); ?>">
+              </li>
+              <li class="sponsors__item">
+                <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor4.png'); ?>">
+              </li>
+            </div>
+            <div class="row">
+              <li class="sponsors__item">
+                <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor1.png'); ?>">
+              </li>
+              <li class="sponsors__item">
+                <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor2.png'); ?>">
+              </li>
+              <li class="sponsors__item">
+                <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor3.png'); ?>">
+              </li>
+              <li class="sponsors__item">
+                <img src="<?php echo $this->getSkin()->getSkinStylePath( 'images/sponsor4.png'); ?>">
+              </li>
+            </div>
           </ul>
         </section>
+        -->
       </main>
     <?php }
 

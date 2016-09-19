@@ -78,8 +78,9 @@
     position: relative;
 
     &__content{
-        @extend .container;
-        
+        @include make-container();
+        @include make-container-max-widths();
+
         text-align: center;
 
         padding: $pages-home-content-padding;
@@ -195,7 +196,6 @@
         margin-top: 1.5rem;
     }    
 }
-
 .testimonial {
     @extend .media;
 
@@ -249,15 +249,52 @@
     }
 }
 
+.contributors{
+    
+    &__content{
+        @include make-container();
+        @include make-container-max-widths();
+
+        padding: $pages-home-content-padding;
+    }
+
+    &__title{
+        text-align: center;
+        margin-bottom: 1rem;
+        font-weight: lighter;
+    }
+
+    &__list{
+        display: block;
+        margin: 0 auto;
+        list-style: none;
+        padding: 0;
+        text-align: center;
+        
+        max-width: 40%;
+
+        .row:first-of-type{
+            margin-bottom: 2rem;
+        }
+    }
+    
+    &__item {
+        @include make-col-ready();
+        @include make-col(4);
+
+        img {
+            height: 6rem;
+        }
+    }
+}
 
 .sponsors {
-    @extend .container;
-
-    padding: $pages-home-content-padding; //15px to get it in line with the deps
-
+   
     &__list {
         display: block;
         list-style: none;
+        margin: 0 auto;
+        padding: 0;
     }
 
     &__item {
@@ -275,5 +312,4 @@
     .clearfix {
         padding-bottom: 3rem
     }
-    
 }
