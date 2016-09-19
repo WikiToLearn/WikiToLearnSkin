@@ -1,0 +1,27 @@
+.wikitolearn-divider {
+    // @extend .container;
+    // border: 0;
+    // height: .2rem;
+    // background: linear-gradient(to left, $dark-red 0%, $red 20%, $yellow 40%, $green 60%, $dark-green 80%);
+    background-color: whitesmoke;
+}
+
+.wikitolearn-divider--dark-red {
+    background-color: $dark-red;
+}
+
+.wikitolearn-divider--red {
+    background-color: $red;
+}
+
+.wikitolearn-divider--yellow {
+    background-color: $yellow;
+}
+
+.wikitolearn-divider--green {
+    background-color: $green;
+}
+
+.wikitolearn-divider--dark-green {
+    background-color: $dark-green;
+}

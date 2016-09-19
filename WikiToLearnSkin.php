@@ -66,7 +66,9 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
      * Outputs the entire contents of the page
      */
     public function execute()
-    {
+    { 
+      $this->skin = $this->getSkin();
+      
         $this->html( 'headelement' ); ?>
             <?php $this->html( 'newtalk' ); ?>
 
@@ -98,7 +100,6 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           </body>
         </html>
     <?php }
-
 
     public function execute_header() { ?>
       <header class="header">
@@ -134,11 +135,34 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               </button>
             </form>
             </span>
-            <a href="#" class="nav__link nav--hover-dark-green">
-                crisbal
-            </a>
-            <div class="dropdown">
-              <a id="notifications" class="menu-right dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+            <?php 
+              $user = $this->skin->getUser();
+            ?>
+            <?php if($user->isAnon()){ ?>
+                <a href="/Special:UserLogin" class="nav__link nav__link--hover-green">Login</a>
+                <a href="/Special:CreateAccount" class="nav__link nav__link--hover-green">Register</a>
+            <?php } else { ?>
+            <div class="dropdown dropdown-personal-tools">
+              <a class="nav__link nav__link--hover-green" href="#" id="dropdownToolbox" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <?php echo $user->getName() ?>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="dropdownToolbox">
+                <?php
+                  $toolbar = $this->getPersonalTools();
+                  unset($toolbar['notifications-alert']);
+                  unset($toolbar['notifications-message']);
+                  unset($toolbar['newmessages']);
+                  foreach ( $toolbar as $key => $tool ) {
+                    $tool['class'] = 'dropdown-item'; 
+                    echo $this->makeListItem( $key, $tool, ["tag" => "span"] );
+                    $personalToolsCount++;
+                  }
+                ?>
+              </div>
+            </div>
+            <div class="dropdown dropdown-notifications">
+              <a id="notifications" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fa fa-bell"></i>
               </a>
               <div class="dropdown-menu" aria-labelledby="notifications">
@@ -192,6 +216,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 </div>
               </div>
             </div>
+            <?php } ?>
           </nav>
         </div>
       </header>
@@ -380,23 +405,31 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
 
     public function execute_content_page() { ?>
       <main class="page page-content">
-        <article id="content" class="mw-body">
-          <h1 id="firstHeading"> <?php $this->html( 'title' ); ?> </h1>
+        <article class="page__body mw-body">
+          <h1 class="page__title" id="firstHeading"> 
+            <?php $this->html( 'title' ); ?>
+          </h1>
+
           <?php if ( $this->data['subtitle'] ) { ?>
-                <div id="contentSub"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
-                <?php $this->html( 'subtitle' ); ?>
-                </div>
+            <div class="page__contentSub" id="contentSub"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
+            <?php $this->html( 'subtitle' ); ?>
+            </div>
           <?php } ?>
-                <?php if ( $this->data['undelete'] ) { ?>
-                <div id="contentSub2"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
-                <?php $this->html( 'undelete' ); ?>
-                </div>
+            <?php if ( $this->data['undelete'] ) { ?>
+            <div class="page__contentSub2" id="contentSub2"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
+            <?php $this->html( 'undelete' ); ?>
+            </div>
           <?php } ?>
-          <div id="bodyContent"><?php $this->html( 'bodytext' ); ?></div>
+          <div class="page__text" id="bodyContent">
+            <?php $this->html( 'bodytext' ); ?>  
+          </div>
 
-          <?php $this->html( 'catlinks' ); ?>
-
-          <?php $this->html( 'dataAfterContent' ); ?>
+          <div class="page__categories">  
+            <?php $this->html( 'catlinks' ); ?>
+          </div>
+          <div class="page__dataAfterContent">
+            <?php $this->html( 'dataAfterContent' ); ?>
+          </div>
         </article>
       </main>
     <?php }
