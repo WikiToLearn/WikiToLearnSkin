@@ -143,11 +143,26 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 <a href="/Special:UserLogin" class="nav__link nav__link--hover-green">Login</a>
                 <a href="/Special:CreateAccount" class="nav__link nav__link--hover-green">Register</a>
             <?php } else { ?>
-            <a href="#" class="nav__link nav__link--hover-green">
-              <?php echo $user->getName() ?>
-            </a>
-            <div class="dropdown">
-              <a id="notifications" class="menu-right dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="dropdown dropdown-personal-tools">
+              <a class="nav__link nav__link--hover-green" href="#" id="dropdownToolbox" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <?php echo $user->getName() ?>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="dropdownToolbox">
+                <?php
+                  $toolbar = $this->getPersonalTools();
+                  unset($toolbar['notifications-alert']);
+                  unset($toolbar['notifications-message']);
+                  unset($toolbar['newmessages']);
+                  foreach ( $toolbar as $key => $tool ) {
+                    $tool['class'] = 'dropdown-item'; 
+                    echo $this->makeListItem( $key, $tool, ["tag" => "span"] );
+                    $personalToolsCount++;
+                  }
+                ?>
+              </div>
+            </div>
+            <div class="dropdown dropdown-notifications">
+              <a id="notifications" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fa fa-bell"></i>
               </a>
               <div class="dropdown-menu" aria-labelledby="notifications">
