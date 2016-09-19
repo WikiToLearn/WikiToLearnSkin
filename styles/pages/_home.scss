@@ -1,12 +1,8 @@
 .title {
+    @extend .container;
+    
     background-color: #f8f8fb;
-
-    &__content{
-        @extend .container;
-
-        padding: $pages-home-content-padding;
-        text-align: left;
-    }
+    padding: $pages-home-content-padding;
 
     h1 {
         font-weight: lighter;
@@ -114,16 +110,11 @@
 }
 
 .media {
-
-    background-color: #f8f8fb;
-
-    &__content{
-        @extend .container;
-
-        padding: $pages-home-content-padding;
-    }
+    @extend .container;
     
-
+    background-color: #f8f8fb;
+    padding: $pages-home-content-padding;
+    
     &__wrapper{
         overflow: hidden;
         padding-bottom: 33.33%;

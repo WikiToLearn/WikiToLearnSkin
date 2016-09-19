@@ -1,28 +1,39 @@
 ( function ( $, mw ) {
     'use strict';
 
-// Expandable search bar
-$( '.nav__search' ).on({
-    mouseenter: function() {
-        console.log('ciao');
-        $('#search').removeClass('collapsed-search');
-        $('#search').addClass('expanded-search');
-    },
-    mouseleave: function () {
-        if (! $('#search').is(':focus')) {
-            $('#search').removeClass('expanded-search');                
-            $('#search').addClass('collapsed-search');
+    var mql = window.matchMedia("(min-width: 544px)");
+    mql.addListener(handleViewportChange);
+    handleViewportChange(mql);
+
+    function handleViewportChange(mql) {
+        if (mql.matches) {
+            // Expandable search bar
+            $( '.nav__search' ).on({
+                mouseenter: function() {
+                    $('#search').removeClass('collapsed-search');
+                    $('#search').addClass('expanded-search');
+                },
+                mouseleave: function () {
+                    if (! $('#search').is(':focus')) {
+                        $('#search').removeClass('expanded-search');                
+                        $('#search').addClass('collapsed-search');
+                    }
+                },
+                focus: function () {
+                    $('#search').removeClass('collapsed-search');
+                    $('#search').addClass('expanded-search');
+                },
+                focusout: function() {
+                    $('#search').removeClass('expanded-search');                
+                    $('#search').addClass('collapsed-search');
+                }
+            });
+        } else {
+            $('.nav__search').unbind();
         }
-    },
-    focus: function () {
-        $('#search').removeClass('collapsed-search');
-        $('#search').addClass('expanded-search');
-    },
-    focusout: function() {
-        $('#search').removeClass('expanded-search');                
-        $('#search').addClass('collapsed-search');
     }
-});
+
+
 
     /*!
      * Echo Special:Notifications page initialization
