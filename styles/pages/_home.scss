@@ -3,7 +3,8 @@
 
     &__content{
         @extend .container;
-        padding: $content-padding;
+
+        padding: $pages-home-content-padding;
         text-align: left;
     }
 
@@ -13,15 +14,15 @@
         text-align: center;
 
         @include media-breakpoint-between(lg, xl) {
-            font-size: $font-size-landing-title - .5rem;
+            font-size: $pages-home-landing-title-font-size - .5rem;
         }
 
         @include media-breakpoint-between(md, lg) {
-            font-size: $font-size-landing-title - .7rem;
+            font-size: $pages-home-landing-title-font-size - .7rem;
         }
 
         @include media-breakpoint-between(sm, md) {
-            font-size: $font-size-landing-title - .9rem;
+            font-size: $pages-home-landing-title-font-size - .9rem;
         }
     }
 }
@@ -32,6 +33,7 @@
 
     &__content {
         @extend .container;
+
         display: block;
         list-style: none;
     }
@@ -40,11 +42,11 @@
         display: block;
         margin: 0.5rem 0;
 
-        @include make-col-ready($gutter: $grid-gutter-width-departments);
+        @include make-col-ready($gutter: $pages-home-grid-gutter-width-departments);
         @include make-col(3);
 
         @include media-breakpoint-down(md) {
-            @include make-col-ready($gutter: $grid-gutter-width-departments/2);
+            @include make-col-ready($gutter: $pages-home-grid-gutter-width-departments/2);
         }
     }
 
@@ -84,7 +86,7 @@
         
         text-align: center;
 
-        padding: $content-padding;
+        padding: $pages-home-content-padding;
     }
 
     &__this-week{
@@ -97,11 +99,11 @@
         color: white;
         cursor: pointer;
         display: inline-block;
-        font-size: $join-us-font-size;
+        font-size: $pages-home-join-us-link-font-size;
         padding: 0.5rem 7rem;
 
         @include media-breakpoint-down(md) {
-            font-size: $join-us-font-size - .2rem;
+            font-size: $pages-home-join-us-link-font-size - .2rem;
         }
 
         &:hover, &:focus {
@@ -117,7 +119,8 @@
 
     &__content{
         @extend .container;
-        padding: $content-padding;
+
+        padding: $pages-home-content-padding;
     }
     
 
@@ -191,7 +194,7 @@
     &__content{
         @extend .container;
         
-        padding: $content-padding;
+        padding: $pages-home-content-padding;
         text-align: center;
     }
 
@@ -203,10 +206,11 @@
 }
 
 .testimonial {
+    @extend .media;
+
     margin-top: 0;
     padding-right: 0;
 
-    @extend .media;
     background-color: white;
     
     @include make-col-ready();
@@ -217,7 +221,7 @@
 
     &__link {
         display: table-cell;
-        padding-right: $link-padding;
+        padding-right: $pages-home-testimonial-link-padding;
         vertical-align: top;
     }
 
@@ -231,8 +235,9 @@
     }
 
     &__body {
-        text-align: justify;
         @extend .media-body;
+
+        text-align: justify;
     }
 
     &__quote {
@@ -256,7 +261,8 @@
 
 .sponsors {
     @extend .container;
-    padding: $content-padding; //15px to get it in line with the deps
+
+    padding: $pages-home-content-padding; //15px to get it in line with the deps
 
     &__list {
         display: block;

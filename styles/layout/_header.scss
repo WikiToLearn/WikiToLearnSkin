@@ -8,9 +8,10 @@
     z-index: 10;
 
     &__wrapper{
+        @extend .container;
+
         width: 100%;
 
-        @extend .container;
         
         @include media-breakpoint-down(md) {
             width: 90%;
@@ -244,8 +245,9 @@
                 }
 
                 .notifications-message {
-                    margin-bottom: 0;
                     @extend .text-muted;
+                    
+                    margin-bottom: 0;
                 }
 
                 .notifications-details {

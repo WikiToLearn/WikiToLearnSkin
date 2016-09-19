@@ -3,11 +3,11 @@
     width: 100%;
 
     &__list {
+        @extend .container;
+
         color: $gray;
         display: block;
         @include list-unstyled();
-
-        @extend .container;
 
         > li {
             font-size: $font-size-lg;
@@ -53,15 +53,16 @@
     &__logo {
         display: block;
         img {
-            padding: $footer-logo-padding;
-
             @extend .img-fluid;
+            
+            padding: $layout-footer-logo-padding;
+
             @include media-breakpoint-down(xl) {
-                padding: $footer-logo-padding - 1rem;
+                padding: $layout-footer-logo-padding - 1rem;
             }
 
             @include media-breakpoint-down(lg) {
-                padding: $footer-logo-padding - 2rem;
+                padding: $layout-footer-logo-padding - 2rem;
             }
         }
     }
