@@ -67,39 +67,37 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
      */
     public function execute()
     {
-        $this->html( 'headelement' ); ?>
+        $this->html( 'headelement' ); ?> 
+            <?php $this->html( 'newtalk' ); ?>
 
-        <?php $this->html( 'newtalk' ); ?>
+            <?php if ( $this->data['newtalk'] ) { ?>
+              <div class="usermessage"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
+                <?php $this->html( 'newtalk' );?>
+              </div>
+            <?php } ?>
 
-        <?php if ( $this->data['newtalk'] ) { ?>
-          <div class="usermessage"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
-            <?php $this->html( 'newtalk' );?>
-          </div>
-        <?php } ?>
-
-        <?php $this->html( 'sitenotice' ); ?>
-
-        <?php if ( $this->data['sitenotice'] ) { ?>
-          <div id="siteNotice"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
             <?php $this->html( 'sitenotice' ); ?>
-          </div>
-        <?php } ?>
 
-        <?php
-          $this->execute_header();
-          if ($this->getSkin()->getTitle()->isMainPage()) { 
-            $this->execute_home();
-          } else { 
-            $this->execute_content_page();
-          } 
-          $this->execute_footer();
+            <?php if ( $this->data['sitenotice'] ) { ?>
+              <div id="siteNotice"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
+                <?php $this->html( 'sitenotice' ); ?>
+              </div>
+            <?php } ?>
 
-          $this->printTrail(); 
-        ?>
-        
-        </body>
-        </html><?php
-    }
+            <?php
+              $this->execute_header();
+              if ($this->getSkin()->getTitle()->isMainPage()) { 
+                $this->execute_home();
+              } else { 
+                $this->execute_content_page();
+              } 
+              $this->execute_footer();
+
+              $this->printTrail(); ?>
+            
+          </body>
+        </html>
+    <?php }
 
 
     public function execute_header() { ?>
