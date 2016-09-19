@@ -323,6 +323,14 @@
             .dropdown-divider {
                 margin: 0;
             }
+
+            // Extension of the Mediawiki Echo classes
+            #notifications-widget {
+                .mw-echo-ui-overlay {
+                    position: relative;
+                    top: -.3rem;
+                }
+            }
         }
     }
 }
