@@ -76,8 +76,6 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               </div>
             <?php } ?>
 
-            <?php $this->html( 'sitenotice' ); ?>
-
             <?php if ( $this->data['sitenotice'] ) { ?>
               <div id="siteNotice"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
                 <?php $this->html( 'sitenotice' ); ?>
@@ -87,8 +85,10 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             <?php
               $this->execute_header();
               if ($this->getSkin()->getTitle()->isMainPage()) { 
+                MWDebug::log('Generating Homepage');
                 $this->execute_home();
               } else { 
+                MWDebug::log('Generating Content page');
                 $this->execute_content_page();
               } 
               $this->execute_footer();
@@ -101,6 +101,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
 
 
     public function execute_header() { ?>
+      
       <header class="header">
         <div class="header__wrapper" >
           <div href="/" class="logo">
@@ -266,8 +267,8 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             <iframe class="media__video" src="//www.youtube.com/embed/NpEaa2P7qZI?rel=0" allowfullscreen></iframe>
           </div>
           <div class="media__description">
-            <h3>collaborative textbooks</h3>
-            <p>
+            <h3 class="media__title">collaborative textbooks</h3>
+            <p class="media__text">
               WikiToLearn vuole creare libri di testo liberi, collaborativi e facilmente accessibili. 
               La nostra filosofia è riassunta nel motto “Il sapere si accresce solo se condiviso”. Nella nostra piattaforma l'insegnamento e l'apprendimento convergono nella stesura e nel perfezionamento cooperativo di note, appunti e libri di testo, organizzabili e ri-assemblabili secondo le esigenze specifiche degli utenti.
             </p>
