@@ -8,8 +8,8 @@ function NotificationsWidget () {
   var model, unreadCounter, wrapperWidget,
   maxNotificationCount = mw.config.get( 'wgEchoMaxNotificationCount' ),
   echoApi = new mw.echo.api.EchoApi(),
-  widget = $('#notifications-widget');
-
+  overlay = $('<div>').addClass("mw-echo-ui-overlay");
+  
   unreadCounter = new mw.echo.dm.UnreadNotificationCounter( echoApi, 'all', maxNotificationCount );
 
   model = new mw.echo.dm.NotificationsModel(
@@ -19,7 +19,7 @@ function NotificationsWidget () {
   );
 
   wrapperWidget = new mw.echo.ui.NotificationsWrapper( model, {
-    $overlay: widget
+    $overlay: overlay
   } );
 
   // Events
@@ -27,6 +27,11 @@ function NotificationsWidget () {
     countChange: 'onUnreadCountChange'
   } );
 
+  //Initialize
+  $('#notifications-widget').append(
+    wrapperWidget.$element,
+    overlay
+  );
   // Populate notifications
   wrapperWidget.populate()
     .then( model.updateSeenTime.bind( model, 'all' ) );
@@ -40,7 +45,6 @@ function NotificationsWidget () {
 */
 NotificationsWidget.prototype.onUnreadCountChange = function ( count ) {
   var $badgeCounter = $('#badge-count');
-  console.log("baghaga");
   if ( count > 0 ) {
     $badgeCounter.text( count ).show();
   } else {

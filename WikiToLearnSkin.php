@@ -147,7 +147,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                   <span class="mark-read-notifications"><button type="button" class="btn btn-link" id="mark-all-read-button"></button></span>
                 </div>
                 <div class="dropdown-divider"></div>
-                <div class="dropdown-item" id="notifications-widget">
+                <div id="notifications-widget">
                 </div>
                 <!-- <div class="dropdown-item">
                   <div class="notifications-icon">
