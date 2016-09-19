@@ -143,8 +143,8 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               </a>
               <div class="dropdown-menu" aria-labelledby="notifications">
                 <div class="dropdown-header">
-                  <span class="notifications-count">&nbsp;<span id="badge-count" class="badge" style="display:none;"></span></span>
-                  <span class="mark-read-notifications"><button type="button" class="btn btn-link" id="mark-all-read-button"></button></span>
+                  <span class="notifications-count"><?php echo wfMessage('notifications') ?>&nbsp;<span id="badge-count" class="badge" style="display:none;"></span></span>
+                  <span class="mark-read-notifications"><button type="button" class="btn btn-link" id="mark-all-read-button" style="display:none;"><?php echo wfMessage('echo-mark-all-as-read') ?></button></span>
                 </div>
                 <div class="dropdown-divider"></div>
                 <div id="notifications-widget">
@@ -187,8 +187,8 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                   </div>
                 </div> -->
                 <div class="dropdown-divider"></div>
-                <div class="dropdown-footer" id="notifications-footer">
-                  <a id="notifications-view-all"></a>
+                <div class="dropdown-footer">
+                  <a id="notifications-view-all"><?php echo wfMessage('echo-overlay-link') ?></a>
                 </div>
               </div>
             </div>

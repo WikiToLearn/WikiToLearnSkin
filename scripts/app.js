@@ -32,12 +32,8 @@
             $('.nav__search').unbind();
         }
     }
-    var notificationsWidget = new NotificationsWidget();
-    /*!
-     * Echo Special:Notifications page initialization
 
-    $( document ).ready( function () {
-      var notificationsWidget = new NotificationsWidget();
-    });
-    */
+    //Create notification widget
+    var notificationsWidget = new NotificationsWidget();
+
 } )( jQuery, mediaWiki );
