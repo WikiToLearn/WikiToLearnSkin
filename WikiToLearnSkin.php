@@ -424,32 +424,40 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
 
       ?>
       <main class="page page-content">
-        <article id="content" class="page__body mw-body">
-          <h1 class="page__title"> 
-            <?php echo $pageTitle; ?>
-          </h1>
-          <?php $this->execute_breadcrumb($titleComponents) ?>
-          <?php if ( $this->data['subtitle'] ) { ?>
-            <div class="page__contentSub" id="contentSub"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
-            <?php $this->html( 'subtitle' ); ?>
+        <div class="page__container">  
+          <article class="page__body mw-body">
+            <?php $this->execute_breadcrumb($titleComponents) ?>
+            <h1 class="page__title"> 
+              <?php echo $pageTitle; ?>
+            </h1>
+            <?php if ( $this->data['subtitle'] ) { ?>
+              <div class="page__contentSub" id="contentSub"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
+              <?php //$this->html('subtitle'); ?>
+              </div>
+            <?php } ?>
+              <?php if ( $this->data['undelete'] ) { ?>
+              <div class="page__contentSub2" id="contentSub2"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
+              <?php $this->html( 'undelete' ); ?>
+              </div>
+            <?php } ?>
+            <div id="content"> <!-- #content tells visauleditor where to put itself: under the title -->
+              <div class="page__text" id="bodyContent">
+                <?php $this->html( 'bodytext' ); ?>  
+              </div>
+              <div class="page__categories">  
+                <?php $this->html( 'catlinks' ); ?>
+              </div>
+              <div class="page__dataAfterContent">
+                <?php $this->html( 'dataAfterContent' ); ?>
+              </div>
             </div>
-          <?php } ?>
-            <?php if ( $this->data['undelete'] ) { ?>
-            <div class="page__contentSub2" id="contentSub2"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
-            <?php $this->html( 'undelete' ); ?>
-            </div>
-          <?php } ?>
-          <div class="page__text" id="bodyContent">
-            <?php $this->html( 'bodytext' ); ?>  
+          </article>
+          <div class="page__tools">
+            <div class="tool">Edit <i class="fa fa-pencil"></i></div>
+            <div class="tool">Edit <i class="fa fa-pencil"></i></div>
+            <div class="tool">Edit <i class="fa fa-pencil"></i></div>
           </div>
-
-          <div class="page__categories">  
-            <?php $this->html( 'catlinks' ); ?>
-          </div>
-          <div class="page__dataAfterContent">
-            <?php $this->html( 'dataAfterContent' ); ?>
-          </div>
-        </article>
+        </div>
       </main>
     <?php }
 
@@ -541,7 +549,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             $link = Linker::linkKnown($linkObj, htmlspecialchars( $titleComponent ));
             echo $link;
             if($i !== (count($titleComponents)-1)) { //we don't add the slash on last link
-              echo "<span>/</span>";
+              echo "<span class='breadcrumb__divider'>/</span>";
             }
             $partialLink .= "/";
           }

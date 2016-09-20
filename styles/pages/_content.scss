@@ -1,26 +1,79 @@
 main.page-content{
 
-    .page__body{
+    .page__container{
+        @include make-row();
+
         max-width: 1000px;
         margin: 0 auto;
-
-        background-color: white;
-        box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
-        padding: 1.5rem 2.5rem;
     }
     
+    .page__body{
+        background-color: white;
+        box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
+        padding: 3rem;
+
+        float: left;
+        width: 95%;
+    }
+    
+    .page__tools{
+        float: left;
+        width: 5%;
+
+        .tool{
+            display: block;
+            background-color: red;
+            margin-bottom: 1rem;
+        }
+
+    }
     .page__title{
+        margin-bottom: 1rem;
         text-align: center;
-        margin-bottom: 0.2rem;
     }
 
     .page__text{
-         p:last-of-type{
+        font-size: 13pt;
+        line-height: 1.5em;
+        
+        p:empty {
+            display: none;
+        }
+
+        p:last-of-type{
             margin-bottom: 0;
+        }
+
+        .mwe-math-fallback-image-display{ //margin at the bottom of formulas
+            margin-bottom: 1rem;
+        }
+        
+        .mw-editsection{ //hide [Edit | Edit Wikitext]
+            display: none;
+        }
+        
+
+        h2, h3, h4, h5, h6{
+            font-weight: 300;
+        }
+    }
+    
+    .page__breadcrumb{
+        text-align: center;
+        
+        a{
+            color: $green;
+        }
+
+        .breadcrumb__divider{
+            margin: 0 0.15rem;
         }
     }
 
-    .page__breadcrumb{
-        text-align: center;
+    .page__categories{        
+        #catlinks{
+            text-align: right; 
+            margin-top: 1rem;
+        }
     }
 }
