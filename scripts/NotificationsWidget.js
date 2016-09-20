@@ -1,5 +1,5 @@
 function NotificationsWidget () {
-  
+
   var unreadCounter, wrapperWidget,
   maxNotificationCount = mw.config.get( 'wgEchoMaxNotificationCount' ),
   echoApi = new mw.echo.api.EchoApi();

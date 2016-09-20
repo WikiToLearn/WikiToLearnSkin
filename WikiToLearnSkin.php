@@ -66,9 +66,9 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
      * Outputs the entire contents of the page
      */
     public function execute()
-    { 
+    {
       $this->skin = $this->getSkin();
-      
+
         $this->html( 'headelement' ); ?>
             <?php $this->html( 'newtalk' ); ?>
 
@@ -136,15 +136,15 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             </form>
             </span>
 
-            <?php 
+            <?php
               $user = $this->skin->getUser();
             ?>
             <?php if($user->isAnon()){ ?>
               <a href="<?php echo $this->skin->makeSpecialUrl('UserLogin'); ?>" class="nav__link nav__link--hover-green">
-                <?php $this->msg( 'login' ) ?>  
+                <?php $this->msg( 'login' ) ?>
               </a>
               <a href="<?php echo $this->skin->makeSpecialUrl('CreateAccount'); ?>" class="nav__link nav__link--hover-green">
-                <?php $this->msg( 'createaccount' ) ?>  
+                <?php $this->msg( 'createaccount' ) ?>
               </a>
             <?php } else { ?>
               <div class="dropdown dropdown--personal-tools">
@@ -158,7 +158,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                     unset($toolbar['notifications-message']);
                     unset($toolbar['newmessages']);
                     foreach ( $toolbar as $key => $tool ) {
-                      $tool['class'] = 'dropdown-item'; 
+                      $tool['class'] = 'dropdown-item';
                       echo $this->makeListItem( $key, $tool, ["tag" => "span"] );
                       $personalToolsCount++;
                     }
@@ -409,13 +409,12 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       </main>
     <?php }
 
-    public function execute_content_page() { 
+    public function execute_content_page() {
       global $wgOut, $wgRequest;
-
       //title-related basics
-      $fullTitle = $wgOut->getTitle();      
+      $fullTitle = $wgOut->getTitle();
       $titleComponents = explode("/", $fullTitle);
-      if(count(titleComponents)>0) {
+      if(count($titleComponents)>0) {
         $pageTitle = $titleComponents[count($titleComponents)-1];
       } else {
         //this should never happen but who knows ¯\_(ツ)_/¯
@@ -424,10 +423,10 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
 
       ?>
       <main class="page page-content">
-        <div class="page__container">  
+        <div class="page__container">
           <article class="page__body mw-body">
             <?php $this->execute_breadcrumb($titleComponents) ?>
-            <h1 class="page__title"> 
+            <h1 class="page__title">
               <?php echo $pageTitle; ?>
             </h1>
             <?php if ( $this->data['subtitle'] ) { ?>
@@ -442,9 +441,9 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             <?php } ?>
             <div id="content"> <!-- #content tells visauleditor where to put itself: under the title -->
               <div class="page__text" id="bodyContent">
-                <?php $this->html( 'bodytext' ); ?>  
+                <?php $this->html( 'bodytext' ); ?>
               </div>
-              <div class="page__categories">  
+              <div class="page__categories">
                 <?php $this->html( 'catlinks' ); ?>
               </div>
               <div class="page__dataAfterContent">
@@ -453,9 +452,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             </div>
           </article>
           <div class="page__tools">
-            <div class="tool">Edit <i class="fa fa-pencil"></i></div>
-            <div class="tool">Edit <i class="fa fa-pencil"></i></div>
-            <div class="tool">Edit <i class="fa fa-pencil"></i></div>
+            <?php $this->execute_page_tools() ?>
           </div>
         </div>
       </main>
@@ -534,14 +531,15 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         </footer>
     <?php }
 
-    /*
-      Since this is a very personalized skin we can assume that all the subpages exist and avoid a few of the checks in Neverland
+    /**
+    * Since this is a very personalized skin we can assume that
+    * all the subpages exist and avoid a few of the checks in Neverland
     */
     public function execute_breadcrumb($titleComponents) { ?>
-      <div class="page__breadcrumb"> 
+      <div class="page__breadcrumb">
         <?php
           array_pop($titleComponents);  //remove current page
-          $partialLink = ""; 
+          $partialLink = "";
           for ($i=0;$i<count($titleComponents);$i++) {
             $titleComponent = $titleComponents[$i];
             $partialLink .= $titleComponent;
@@ -556,4 +554,41 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         ?>
       </div>
     <?php }
+
+    /**
+    * Generate a WikiToLearn's version of tools related to page.
+    * These tools are composed by classic 'views' tools (view, edit, history...)
+    * and some 'collection' tools (Download as PDF, Download plain text..)
+    */
+    public function execute_page_tools() {
+      $editTools = $this->data['content_navigation']['views'];
+      $collectionTools = $this->data['sidebar']['coll-print_export'];
+      foreach ($editTools as $toolAttributes) {?>
+        <div class="tool">
+          <a href="<?php echo $toolAttributes['href'] ?>">
+            <?php echo $toolAttributes['text']?>&nbsp;<i class="fa fa-pencil"></i>
+          </a>
+        </div>
+      <?php
+      }
+      ?>
+      <div class="collection-tools">
+        <div class="tool">
+          <a href="<?php echo $collectionTools[1]['href'] ?>">
+            <?php echo $collectionTools[1]['text']?>&nbsp;<i class="fa fa-file-pdf-o"></i>
+          </a>
+        </div>
+        <div class="tool">
+          <a href="<?php echo $collectionTools[2]['href'] ?>">
+            <?php echo $collectionTools[2]['text']?>&nbsp;<i class="fa fa-file-text-o"></i>
+          </a>
+        </div>
+        <div class="tool">
+          <a href="<?php echo $collectionTools[3]['href'] ?>">
+            <?php echo $collectionTools[3]['text']?>&nbsp;<i class="fa fa-file-o"></i>
+          </a>
+        </div>
+      </div>
+      <?php
+    }
 }
