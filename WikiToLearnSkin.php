@@ -409,13 +409,26 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       </main>
     <?php }
 
-    public function execute_content_page() { ?>
-      <main class="page page-content">
-        <article class="page__body mw-body">
-          <h1 class="page__title" id="firstHeading"> 
-            <?php $this->html( 'title' ); ?>
-          </h1>
+    public function execute_content_page() { 
+      global $wgOut, $wgRequest;
 
+      //title-related basics
+      $fullTitle = $wgOut->getTitle();      
+      $titleComponents = explode("/", $fullTitle);
+      if(count(titleComponents)>0) {
+        $pageTitle = $titleComponents[count($titleComponents)-1];
+      } else {
+        //this should never happen but who knows ¯\_(ツ)_/¯
+        $pageTitle = $fullTitle;
+      }
+
+      ?>
+      <main class="page page-content">
+        <article id="content" class="page__body mw-body">
+          <h1 class="page__title" id="firstHeading"> 
+            <?php echo $pageTitle; ?>
+          </h1>
+          <?php $this->execute_breadcrumb($titleComponents) ?>
           <?php if ( $this->data['subtitle'] ) { ?>
             <div class="page__contentSub" id="contentSub"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
             <?php $this->html( 'subtitle' ); ?>
@@ -511,5 +524,28 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             } ?>
           </div>
         </footer>
+    <?php }
+
+    /*
+      Since this is a very personalized skin we can assume that all the subpages exist and avoid a few of the checks in Neverland
+    */
+    public function execute_breadcrumb($titleComponents) { ?>
+      <div class="page__breadcrumb"> 
+        <?php
+          array_pop($titleComponents);  //remove current page
+          $partialLink = ""; 
+          for ($i=0;$i<count($titleComponents);$i++) {
+            $titleComponent = $titleComponents[$i];
+            $partialLink .= $titleComponent;
+            $linkObj = Title::newFromText($partialLink);
+            $link = Linker::linkKnown($linkObj, htmlspecialchars( $titleComponent ));
+            echo $link;
+            if($i !== (count($titleComponents)-1)) { //we don't add the slash on last link
+              echo "<span>/</span>";
+            }
+            $partialLink .= "/";
+          }
+        ?>
+      </div>
     <?php }
 }
