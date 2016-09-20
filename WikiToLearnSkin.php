@@ -425,7 +425,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       ?>
       <main class="page page-content">
         <article id="content" class="page__body mw-body">
-          <h1 class="page__title" id="firstHeading"> 
+          <h1 class="page__title"> 
             <?php echo $pageTitle; ?>
           </h1>
           <?php $this->execute_breadcrumb($titleComponents) ?>
