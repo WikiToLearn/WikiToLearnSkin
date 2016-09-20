@@ -167,8 +167,10 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               </a>
               <div class="dropdown-menu" aria-labelledby="notifications">
                 <div class="dropdown-header">
-                  <span class="notifications-count"><?php echo wfMessage('notifications') ?>&nbsp;<span id="badge-count" class="badge" style="display:none;"></span></span>
-                  <span class="mark-read-notifications"><button type="button" class="btn btn-link" id="mark-all-read-button" style="display:none;"><?php echo wfMessage('echo-mark-all-as-read') ?></button></span>
+                  <span class="dropdown--notifications__notifications-count"><?php echo wfMessage('notifications') ?>&nbsp;<span id="badge-count" class="badge" style="display:none;"></span></span>
+                  <span class="dropdown--notifications__mark-read-notifications">
+                    <a href="#" id="mark-all-read-button" style="display:none;"><?php echo wfMessage('echo-mark-all-as-read') ?></a>
+                  </span>
                 </div>
                 <div class="dropdown-divider"></div>
                 <div id="notifications-widget">
