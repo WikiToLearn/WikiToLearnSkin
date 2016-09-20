@@ -140,10 +140,10 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               $user = $this->skin->getUser();
             ?>
             <?php if($user->isAnon()){ ?>
-                <a href="/Special:UserLogin" class="nav__link nav__link--hover-green">Login</a>
-                <a href="/Special:CreateAccount" class="nav__link nav__link--hover-green">Register</a>
+                <a href="<?php echo $this->skin->makeSpecialUrl('UserLogin'); ?>" class="nav__link nav__link--hover-green">Login</a>
+                <a href="<?php echo $this->skin->makeSpecialUrl('CreateAccount'); ?>" class="nav__link nav__link--hover-green">Register</a>
             <?php } else { ?>
-            <div class="dropdown dropdown-personal-tools">
+            <div class="dropdown dropdown--personal-tools">
               <a class="nav__link nav__link--hover-green" href="#" id="dropdownToolbox" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <?php echo $user->getName() ?>
               </a>
@@ -161,7 +161,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 ?>
               </div>
             </div>
-            <div class="dropdown dropdown-notifications">
+            <div class="dropdown dropdown--notifications">
               <a id="notifications" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fa fa-bell"></i>
               </a>

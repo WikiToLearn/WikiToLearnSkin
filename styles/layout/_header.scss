@@ -216,17 +216,18 @@
                 }
             }
             
-            .dropdown-personal-tools{
+            .dropdown--personal-tools{
                 .dropdown-menu{
                     line-height: 1.75rem;
                 }
 
                 .dropdown-item a{
-                    display: block;                    
+                    display: block; 
+                    text-transform: capitalize;                  
                 }
             }
 
-            .dropdown-notifications {
+            .dropdown--notifications {
                 .dropdown-menu {
                     border-right: 1rem;
                     border: 1px solid $dark-green;
