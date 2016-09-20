@@ -127,9 +127,9 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               <i class="fa fa-bars"></i>
             </a>
             <span class="nav__search">
-            <form action="<?php $this->text( 'wgScript' ); ?>">
+            <form action="<?php $this->text( 'wgScript' ); ?>" autocomplete="off">
               <input type="hidden" name="title" value="<?php $this->text( 'searchtitle' ) ?>" />
-              <input type="search" id="search" placeholder="{{ search }}">
+              <input type="search" id="search" placeholder="<?php $this->msg( 'search' ) ?>">
               <button type="submit" class="nav__search-button">
                 <i class="fa fa-search"></i>
               </button>
@@ -140,84 +140,88 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               $user = $this->skin->getUser();
             ?>
             <?php if($user->isAnon()){ ?>
-                <a href="<?php echo $this->skin->makeSpecialUrl('UserLogin'); ?>" class="nav__link nav__link--hover-green">Login</a>
-                <a href="<?php echo $this->skin->makeSpecialUrl('CreateAccount'); ?>" class="nav__link nav__link--hover-green">Register</a>
+              <a href="<?php echo $this->skin->makeSpecialUrl('UserLogin'); ?>" class="nav__link nav__link--hover-green">
+                <?php $this->msg( 'login' ) ?>  
+              </a>
+              <a href="<?php echo $this->skin->makeSpecialUrl('CreateAccount'); ?>" class="nav__link nav__link--hover-green">
+                <?php $this->msg( 'createaccount' ) ?>  
+              </a>
             <?php } else { ?>
-            <div class="dropdown dropdown--personal-tools">
-              <a class="nav__link nav__link--hover-green" href="#" id="dropdownToolbox" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <?php echo $user->getName() ?>
-              </a>
-              <div class="dropdown-menu" aria-labelledby="dropdownToolbox">
-                <?php
-                  $toolbar = $this->getPersonalTools();
-                  unset($toolbar['notifications-alert']);
-                  unset($toolbar['notifications-message']);
-                  unset($toolbar['newmessages']);
-                  foreach ( $toolbar as $key => $tool ) {
-                    $tool['class'] = 'dropdown-item'; 
-                    echo $this->makeListItem( $key, $tool, ["tag" => "span"] );
-                    $personalToolsCount++;
-                  }
-                ?>
-              </div>
-            </div>
-            <div class="dropdown dropdown--notifications">
-              <a id="notifications" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fa fa-bell"></i>
-              </a>
-              <div class="dropdown-menu" aria-labelledby="notifications">
-                <div class="dropdown-header">
-                  <span class="dropdown--notifications__notifications-count"><?php echo wfMessage('notifications') ?>&nbsp;<span id="badge-count" class="badge" style="display:none;"></span></span>
-                  <span class="dropdown--notifications__mark-read-notifications">
-                    <a href="#" id="mark-all-read-button" style="display:none;"><?php echo wfMessage('echo-mark-all-as-read') ?></a>
-                  </span>
-                </div>
-                <div class="dropdown-divider"></div>
-                <div id="notifications-widget">
-                </div>
-                <!-- <div class="dropdown-item">
-                  <div class="notifications-icon">
-                    <i class="fa fa-quote-left"></i>
-                  </div>
-                  <div class="notifications-content">
-                    <h5 class="notifications-title">{{ notifications.title }}</h5>
-                    <p class="notifications-message"> {{ notifications.message }} </p>
-                    <div class="notifications-details">
-                      <span> <i class="fa fa-user"></i> {{ Author }} </span>
-                      <span> <i class="fa fa-comment"></i> {{ File }} </span>
-                      <span>
-                        <a href="#something" class="notifications-check" title="{{ Segna come già letto }}">
-                          <i class="fa fa-check"></i>
-                        </a>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="dropdown-divider"></div>
-                <div class="dropdown-item">
-                  <div class="notifications-icon">
-                    <i class="fa fa-quote-left"></i>
-                  </div>
-                  <div class="notifications-content">
-                    <h5 class="notifications-title">{{ notifications.title }}</h5>
-                    <p class="notifications-message"> {{ notifications.message }} </p>
-                    <div class="notifications-details">
-                      <span> <i class="fa fa-user"></i> {{ Author }} </span>
-                      <span> <i class="fa fa-comment"></i> {{ File }} </span>
-                      <span>
-                        <a href="#something" class="notifications-check" title="{{ Segna come già letto }}">
-                          <i class="fa fa-check"></i>
-                        </a>
-                      </span>
-                    </div>
-                  </div>
-                </div> -->
-                <div class="dropdown-divider"></div>
-                <div class="dropdown-footer">
-                  <a id="notifications-view-all"><?php echo wfMessage('echo-overlay-link') ?></a>
+              <div class="dropdown dropdown--personal-tools">
+                <a class="nav__link nav__link--hover-green" href="#" id="dropdownToolbox" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <?php echo $user->getName() ?>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownToolbox">
+                  <?php
+                    $toolbar = $this->getPersonalTools();
+                    unset($toolbar['notifications-alert']);
+                    unset($toolbar['notifications-message']);
+                    unset($toolbar['newmessages']);
+                    foreach ( $toolbar as $key => $tool ) {
+                      $tool['class'] = 'dropdown-item'; 
+                      echo $this->makeListItem( $key, $tool, ["tag" => "span"] );
+                      $personalToolsCount++;
+                    }
+                  ?>
                 </div>
               </div>
-            </div>
+              <div class="dropdown dropdown--notifications">
+                <a id="notifications" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-bell"></i>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="notifications">
+                  <div class="dropdown-header">
+                    <span class="dropdown--notifications__notifications-count"><?php echo wfMessage('notifications') ?>&nbsp;<span id="badge-count" class="badge" style="display:none;"></span></span>
+                    <span class="dropdown--notifications__mark-read-notifications">
+                      <a href="#" id="mark-all-read-button" style="display:none;"><?php echo wfMessage('echo-mark-all-as-read') ?></a>
+                    </span>
+                  </div>
+                  <div class="dropdown-divider"></div>
+                  <div id="notifications-widget">
+                  </div>
+                  <!-- <div class="dropdown-item">
+                    <div class="notifications-icon">
+                      <i class="fa fa-quote-left"></i>
+                    </div>
+                    <div class="notifications-content">
+                      <h5 class="notifications-title">{{ notifications.title }}</h5>
+                      <p class="notifications-message"> {{ notifications.message }} </p>
+                      <div class="notifications-details">
+                        <span> <i class="fa fa-user"></i> {{ Author }} </span>
+                        <span> <i class="fa fa-comment"></i> {{ File }} </span>
+                        <span>
+                          <a href="#something" class="notifications-check" title="{{ Segna come già letto }}">
+                            <i class="fa fa-check"></i>
+                          </a>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="dropdown-divider"></div>
+                  <div class="dropdown-item">
+                    <div class="notifications-icon">
+                      <i class="fa fa-quote-left"></i>
+                    </div>
+                    <div class="notifications-content">
+                      <h5 class="notifications-title">{{ notifications.title }}</h5>
+                      <p class="notifications-message"> {{ notifications.message }} </p>
+                      <div class="notifications-details">
+                        <span> <i class="fa fa-user"></i> {{ Author }} </span>
+                        <span> <i class="fa fa-comment"></i> {{ File }} </span>
+                        <span>
+                          <a href="#something" class="notifications-check" title="{{ Segna come già letto }}">
+                            <i class="fa fa-check"></i>
+                          </a>
+                        </span>
+                      </div>
+                    </div>
+                  </div> -->
+                  <div class="dropdown-divider"></div>
+                  <div class="dropdown-footer">
+                    <a id="notifications-view-all"><?php echo wfMessage('echo-overlay-link') ?></a>
+                  </div>
+                </div>
+              </div>
             <?php } ?>
           </nav>
         </div>
