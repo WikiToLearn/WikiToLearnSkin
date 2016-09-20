@@ -67,8 +67,9 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
      */
     public function execute()
     {
+      global $wgOut;
       $this->skin = $this->getSkin();
-
+      $this->namespaceId = $wgOut->getTitle()->getNamespace();
         $this->html( 'headelement' ); ?>
             <?php $this->html( 'newtalk' ); ?>
 
@@ -451,9 +452,15 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               </div>
             </div>
           </article>
-          <div class="page__tools">
-            <?php $this->execute_page_tools() ?>
-          </div>
+          <?php
+            if ($this->namespaceId === NS_COURSE || $this->namespaceId === NS_MAIN || $this->namespaceId === NS_USER) {
+          ?>
+            <div class="page__tools">
+              <?php $this->execute_page_tools() ?>
+            </div>
+          <?php
+          }
+           ?>
         </div>
       </main>
     <?php }
@@ -571,24 +578,26 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         </div>
       <?php
       }
+      if(!is_null($collectionTools)){
       ?>
-      <div class="collection-tools">
-        <div class="tool">
-          <a href="<?php echo $collectionTools[1]['href'] ?>">
-            <?php echo $collectionTools[1]['text']?>&nbsp;<i class="fa fa-file-pdf-o"></i>
-          </a>
+        <div class="collection-tools">
+          <div class="tool">
+            <a href="<?php echo $collectionTools[1]['href'] ?>">
+              <?php echo $collectionTools[1]['text']?>&nbsp;<i class="fa fa-file-pdf-o"></i>
+            </a>
+          </div>
+          <div class="tool">
+            <a href="<?php echo $collectionTools[2]['href'] ?>">
+              <?php echo $collectionTools[2]['text']?>&nbsp;<i class="fa fa-file-text-o"></i>
+            </a>
+          </div>
+          <div class="tool">
+            <a href="<?php echo $collectionTools[3]['href'] ?>">
+              <?php echo $collectionTools[3]['text']?>&nbsp;<i class="fa fa-file-o"></i>
+            </a>
+          </div>
         </div>
-        <div class="tool">
-          <a href="<?php echo $collectionTools[2]['href'] ?>">
-            <?php echo $collectionTools[2]['text']?>&nbsp;<i class="fa fa-file-text-o"></i>
-          </a>
-        </div>
-        <div class="tool">
-          <a href="<?php echo $collectionTools[3]['href'] ?>">
-            <?php echo $collectionTools[3]['text']?>&nbsp;<i class="fa fa-file-o"></i>
-          </a>
-        </div>
-      </div>
       <?php
+      }
     }
 }
