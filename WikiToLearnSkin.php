@@ -130,9 +130,6 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             <a href="#"  class="nav__link nav__link--hover-green">
               Libri
             </a>
-            <a href="#" class="nav__hamburger-menu">
-              <i class="fa fa-bars"></i>
-            </a>
             <span class="nav__search">
             <form action="<?php $this->text( 'wgScript' ); ?>" autocomplete="off">
               <input type="hidden" name="title" value="<?php $this->text( 'searchtitle' ) ?>" />
@@ -155,8 +152,9 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               </a>
             <?php } else { ?>
               <div class="dropdown dropdown--personal-tools">
-                <a class="nav__link nav__link--hover-green" href="#" id="dropdownToolbox" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <?php echo $user->getName() ?>
+                <a class="nav__link nav__link--hamburger nav__link--hover-green" href="#" id="dropdownToolbox" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span><?php echo $user->getName() ?></span>
+                    <i class="fa fa-bars"></i>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownToolbox">
                   <?php
