@@ -604,10 +604,10 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         </a>
       <?php } ?>
       <div class="tool--divider"></div>
-      <div class="fixed-action-btn horizontal click-to-toggle">
-          <a class="tool tool--download-pdf">
+      <div class="multitool horizontal click-to-toggle">
+          <span class="tool tool--download-pdf multitool__trigger">
             <i class="tool__icon fa fa-plus"></i>
-          </a>
+          </span>
           <ul>
             <li>
               <a title="<?php echo $collectionTools[1]['text']?>" class="tool tool--smaller tool--download-pdf" href="<?php echo $collectionTools[1]['href'] ?>">

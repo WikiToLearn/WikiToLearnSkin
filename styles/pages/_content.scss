@@ -78,12 +78,13 @@ main.page--article{
                 @mixin colorTool($color){
                     border: 2px solid $color;
                     color: $color;
-                    &:hover{
+                    &:hover, &.active{
                         color: white;
                         background-color: $color;
 
                         transition: all .1s linear;
                     }
+
                     transition: all .1s linear;
                 }
 
