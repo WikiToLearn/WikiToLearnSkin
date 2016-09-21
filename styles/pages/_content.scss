@@ -7,7 +7,7 @@ main.page-content{
         margin: 0 auto;
         margin-bottom: 0.5rem;
     }
-    
+
     .page__body{
         background-color: white;
         box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
@@ -16,11 +16,11 @@ main.page-content{
         float: left;
         width: 94%;
     }
-    
+
     .page__tools{
         float: left;
         width: 6%;
-        
+
         padding-left: 1rem;
         padding-top: 2rem;
 
@@ -42,25 +42,29 @@ main.page-content{
             &--view{
                 @include colorTool($green);
             }
-            
+
             &--ve-edit{
                 @include colorTool($yellow);
             }
-            
+
             &--download-pdf{
                 @include colorTool($red);
             }
 
+            &--advanced{
+                @include colorTool($black-secondary);
+            }
+
             background-color: white;
             border-radius: 50%;
-            
+
             display: block;
             margin-bottom: 1rem;
             text-align: center;
             height: $toolSize;
             width: $toolSize;
             position: relative;
-            
+
             box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
             &:hover{
                 text-decoration: none;
@@ -69,7 +73,7 @@ main.page-content{
             &__icon{
                 font-size: 1.25rem;
                 position: absolute;
-                
+
                 left: 0;
                 right: 0;
                 top: 50%;
@@ -86,7 +90,7 @@ main.page-content{
     .page__text{
         font-size: 13pt;
         line-height: 1.5em;
-        
+
         p:empty {
             display: none;
         }
@@ -98,20 +102,20 @@ main.page-content{
         .mwe-math-fallback-image-display{ //margin at the bottom of formulas
             margin-bottom: 1rem;
         }
-        
+
         .mw-editsection{ //hide [Edit | Edit Wikitext]
             display: none;
         }
-        
+
 
         h2, h3, h4, h5, h6{
             font-weight: 300;
         }
     }
-    
+
     .page__breadcrumb{
         text-align: center;
-        
+
         a{
             color: $green;
         }
@@ -121,9 +125,9 @@ main.page-content{
         }
     }
 
-    .page__categories{        
+    .page__categories{
         #catlinks{
-            text-align: right; 
+            text-align: right;
             margin-top: 1rem;
         }
     }
