@@ -67,10 +67,14 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
      */
     public function execute()
     {
-      global $wgOut;
+      //Declare useful variables for the whole template functions
+      global $wgOut, $wgRequest, $wgUser;
       $this->skin = $this->getSkin();
       $this->namespaceId = $wgOut->getTitle()->getNamespace();
-        $this->html( 'headelement' ); ?>
+      $this->pageTitle = $wgOut->getTitle();
+      $this->user = $wgUser;
+
+      $this->html( 'headelement' ); ?>
             <?php $this->html( 'newtalk' ); ?>
 
             <?php if ( $this->data['newtalk'] ) { ?>
@@ -411,10 +415,9 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     <?php }
 
     public function execute_content_page() {
-      global $wgOut, $wgRequest;
       //title-related basics
-      $fullTitle = $wgOut->getPageTitle();
-      MWDebug::log($fullTitle);
+
+      $fullTitle = $this->pageTitle;
       $titleComponents = explode("/", $fullTitle);
       if(count($titleComponents)>0) {
         $pageTitle = $titleComponents[count($titleComponents)-1];
@@ -454,7 +457,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             </div>
           </article>
           <?php
-            if ($this->namespaceId === NS_COURSE || $this->namespaceId === NS_MAIN || $this->namespaceId === NS_USER) {
+            if (self::is_editable_namespace()) {
           ?>
             <div class="page__tools">
               <?php $this->execute_page_tools($fullTitle) ?>
@@ -611,5 +614,18 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         </div>
       <?php
       }*/
+    }
+
+    private function is_editable_namespace(){
+      $id = $this->namespaceId;
+      $user = $this->user;
+      if($id === NS_COURSE || $id === NS_USER){
+        return true;
+      }elseif ($id === NS_MAIN || $id === NS_TEMPLATE || $id === NS_PROJECT) {
+        if($this->pageTitle->userCan('delete', $user, 'secure')){
+          return true;
+        }
+      }
+      return false;
     }
 }
