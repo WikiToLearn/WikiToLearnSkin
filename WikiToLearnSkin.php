@@ -467,12 +467,22 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
            ?>
         </div>
         <div class="page__navigation">
+        <?php
+        $previousAndNext = CourseEditorUtils::getPreviousAndNext($this->pageTitle);
+        MWDebug::log($previousAndNext);
+        if ($previousAndNext['previous'] !== NULL) { ?>
           <div class="page__navigation-button page__navigation-button--left">
-            <i class="fa fa-angle-double-left"></i> $titoloPrecedente
+            <a href="<?php echo Skin::makeUrl($previousAndNext['previous']) ?>"><i class="fa fa-angle-double-left"></i></a>
           </div>
-          <div class="page__navigation-button page__navigation-button--right">
-            $titoloSuccessivo <i class="fa fa-angle-double-right"></i> 
-          </div>  
+        <?php
+        }
+         if ($previousAndNext['next'] !== NULL) { ?>
+           <div class="page__navigation-button page__navigation-button--right">
+             <a href="<?php echo Skin::makeUrl($previousAndNext['next']) ?>"><i class="fa fa-angle-double-right"></i></a>
+           </div>
+         <?php
+         }
+          ?>
         </div>
       </main>
     <?php }
