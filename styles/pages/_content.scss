@@ -1,181 +1,166 @@
-main.page-content{
+main.page--article{
     
-    .page__nav{
-        max-width: 1000px;
-        margin: 0 auto;
-
-        a{
-            position: relative;
-            background-color: white;
-            padding: 0.25rem 1rem;
-            border-top-left-radius: 0.5rem;
-            border-top-right-radius: 0.5rem;
-            box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
-            
-
-            &.discussion{
-                border: 0;    
-            }
-        }
-
-    }
-
-    .page__body{
-        max-width: 1000px;
-        margin: 0 auto;
-        margin-bottom: 0.5rem;
-
-        background-color: white;
-        box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
-        padding: 3rem;
-
-        position: relative;
-    }
-
-    .tools{
-        position: absolute;
-        top: 1rem;
-        right: -0.75rem;
+    
+    
+    .article{
         
-        .tools__content{
-            position: fixed;
+        &__wrapper{
+            @include make-container();
+            @include make-container-max-widths();
+
+            display: flex;
+            padding: 0 3rem;
         }
 
-        .tool--divider{
-            margin-bottom: 2rem;
+        &__main{
+            flex-grow: 2; //grow as much as possible
         }
 
-        .tool{
-            $toolSize: 3rem;
-    
-            @mixin colorTool($color){
-                border: 2px solid $color;
-                color: $color;
-                &:hover{
-                    color: white;
-                    background-color: $color;
+        &__nav{
+            a{
+                position: relative;
+                background-color: white;
+                padding: 0.25rem 1rem;
+                border-top-left-radius: 0.5rem;
+                border-top-right-radius: 0.5rem;
+                box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
+                
 
+                &.discussion{
+                    border: 0;    
+                }
+            }
+
+        }
+
+        &__sheet{
+            background-color: white;
+            box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
+            margin-bottom: 0.5rem;
+            padding: 3rem;
+            position: relative;
+        }
+
+        &__tools{
+            flex-grow: 1;
+
+            padding-left: 1rem;
+            padding-top: 1.6rem;
+
+            .tool--divider{
+                margin-bottom: 2rem;
+            }
+
+            .tool{
+                $toolSize: 3rem;
+        
+                @mixin colorTool($color){
+                    border: 2px solid $color;
+                    color: $color;
+                    &:hover{
+                        color: white;
+                        background-color: $color;
+
+                        transition: all .1s linear;
+                    }
                     transition: all .1s linear;
                 }
-                transition: all .1s linear;
-            }
 
-            &--view{
-                @include colorTool($green);
-            }
+                &--view{
+                    @include colorTool($green);
+                }
 
-            &--ve-edit{
-                @include colorTool($yellow);
-            }
+                &--ve-edit{
+                    @include colorTool($yellow);
+                }
 
-            &--download-pdf{
-                @include colorTool($red);
-            }
+                &--download-pdf{
+                    @include colorTool($red);
+                }
 
-            &--advanced{
-                @include colorTool($black-secondary);
-            }
+                &--advanced{
+                    @include colorTool($black-secondary);
+                }
 
-            &--navigation{
-                @include colorTool($mwblue);
-            }
+                &--navigation{
+                    @include colorTool($mwblue);
+                }
 
-            background-color: white;
-            border-radius: 50%;
+                background-color: white;
+                border-radius: 50%;
 
-            display: block;
-            margin-bottom: 0.5rem;
-            text-align: center;
-            height: $toolSize;
-            width: $toolSize;
-            position: relative;
+                display: block;
+                margin-bottom: 0.5rem;
+                text-align: center;
+                height: $toolSize;
+                width: $toolSize;
+                position: relative;
 
-            box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
-            &:hover{
-                text-decoration: none;
-            }
+                box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
+                &:hover{
+                    text-decoration: none;
+                }
 
-            &__icon{
-                font-size: 1.25rem;
-                position: absolute;
+                &__icon{
+                    font-size: 1.25rem;
+                    position: absolute;
 
-                left: 0;
-                right: 0;
-                top: 50%;
-                transform: translateY(-50%);
+                    left: 0;
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
             }
         }
 
-    }
-    .page__title{
-        margin-bottom: 1rem;
-        text-align: center;
-    }
-
-    .page__text{
-        font-size: 13pt;
-        line-height: 1.5em;
-
-        p:empty {
-            display: none;
-        }
-
-        p:last-of-type{
-            margin-bottom: 0;
-        }
-
-        .mwe-math-fallback-image-display{ //margin at the bottom of formulas
+        &__title{
             margin-bottom: 1rem;
+            text-align: center;
         }
 
-        .mw-editsection{ //hide [Edit | Edit Wikitext]
-            display: none;
+        &__text{
+            font-size: 13pt;
+            line-height: 1.5em;
+
+            p:empty {
+                display: none;
+            }
+
+            p:last-of-type{
+                margin-bottom: 0;
+            }
+
+            .mwe-math-fallback-image-display{ //margin at the bottom of formulas
+                margin-bottom: 1rem;
+            }
+
+            .mw-editsection{ //hide [Edit | Edit Wikitext]
+                display: none;
+            }
+
+
+            h2, h3, h4, h5, h6{
+                font-weight: 300;
+            }
         }
 
+        &__breadcrumb{
+            text-align: center;
 
-        h2, h3, h4, h5, h6{
-            font-weight: 300;
-        }
-    }
+            a{
+                color: $green;
+            }
 
-    .page__breadcrumb{
-        text-align: center;
-
-        a{
-            color: $green;
-        }
-
-        .breadcrumb__divider{
-            margin: 0 0.15rem;
-        }
-    }
-
-    .page__categories{
-        #catlinks{
-            text-align: right;
-            margin-top: 1rem;
-        }
-    }
-
-    .page__navigation{
-        @include make-row();
-        max-width: 1000px;
-        margin: 0 auto;
-    }
-
-    .page__navigation-button{
-        background-color: white;
-        display: inline-block;
-        padding: 1rem;
-        
-        box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
-        &--left{
-            float: left;
+            .breadcrumb__divider{
+                margin: 0 0.15rem;
+            }
         }
 
-        &--right{
-            float: right;
+        &__categories{
+            #catlinks{
+                text-align: right;
+                margin-top: 1rem;
+            }
         }
     }
-
 }

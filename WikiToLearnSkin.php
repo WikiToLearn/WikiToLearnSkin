@@ -42,6 +42,7 @@ class SkinWikiToLearnSkin extends SkinTemplate
         $out->addStyle("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
         $out->addStyle("https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700");
         $out->addModuleStyles( 'skin.wikitolearn' );
+
     }
 }
 
@@ -427,44 +428,47 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       }
 
       ?>
-      <main class="page page-content">
-        <div class="page__nav">
-          <a href="" class="">namespace</a><a href="" class="discussion">Discussione</a> </div>
-        <article class="page__body mw-body">
-          <?php if (self::is_editable_namespace()) { ?>
-            <div class="tools">
-              <div class="tools__content">
-                <?php $this->execute_page_tools($fullTitle) ?>
+      <main class="page page--article">
+        <div class="article__wrapper">  
+          <div class="article__main">
+            <nav class="article__nav">
+              <a href="" class="">namespace</a>
+              <a href="" class="discussion">Discussione</a>
+            </nav>
+            <article class="article__sheet mw-body">
+              <?php $this->execute_breadcrumb($titleComponents) ?>
+              <h1 class="article__title">
+                <?php echo $pageTitle; ?>
+              </h1>
+              <?php if ( $this->data['subtitle'] ) { ?>
+                <div class="article__contentSub" id="contentSub"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
+                <?php //$this->html('subtitle'); ?>
+                </div>
+              <?php } ?>
+                <?php if ( $this->data['undelete'] ) { ?>
+                <div class="article__contentSub2" id="contentSub2"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
+                <?php $this->html( 'undelete' ); ?>
+                </div>
+              <?php } ?>
+              <div id="content"> <!-- #content tells visauleditor where to put itself: under the title -->
+                <div class="article__text" id="bodyContent">
+                  <?php $this->html( 'bodytext' ); ?>
+                </div>
+                <div class="article__categories">
+                  <?php $this->html( 'catlinks' ); ?>
+                </div>
+                <div class="article__dataAfterContent">
+                  <?php $this->html( 'dataAfterContent' ); ?>
+                </div>
               </div>
-            </div>
-          <?php } ?>
-
-          <?php $this->execute_breadcrumb($titleComponents) ?>
-          <h1 class="page__title">
-            <?php echo $pageTitle; ?>
-          </h1>
-          <?php if ( $this->data['subtitle'] ) { ?>
-            <div class="page__contentSub" id="contentSub"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
-            <?php //$this->html('subtitle'); ?>
-            </div>
-          <?php } ?>
-            <?php if ( $this->data['undelete'] ) { ?>
-            <div class="page__contentSub2" id="contentSub2"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
-            <?php $this->html( 'undelete' ); ?>
-            </div>
-          <?php } ?>
-          <div id="content"> <!-- #content tells visauleditor where to put itself: under the title -->
-            <div class="page__text" id="bodyContent">
-              <?php $this->html( 'bodytext' ); ?>
-            </div>
-            <div class="page__categories">
-              <?php $this->html( 'catlinks' ); ?>
-            </div>
-            <div class="page__dataAfterContent">
-              <?php $this->html( 'dataAfterContent' ); ?>
-            </div>
+            </article>
           </div>
-        </article>
+          <?php if (self::is_editable_namespace()) { ?>
+            <div class="article__tools">
+              <?php $this->execute_page_tools($fullTitle) ?>
+            </div>
+          <?php } ?>
+        </div>
       </main>
     <?php }
 
@@ -546,7 +550,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     * all the subpages exist and avoid a few of the checks in Neverland
     */
     public function execute_breadcrumb($titleComponents) { ?>
-      <div class="page__breadcrumb">
+      <div class="article__breadcrumb">
         <?php
           array_pop($titleComponents);  //remove current page
           $partialLink = "";
@@ -614,8 +618,8 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           <i class="tool__icon fa fa-gear"></i>
         </a>
       <?php } ?>
-      <a title="<?php echo $editTools['history']['text']?>" href="<?php echo $editTools['history']['href'] ?>">
-        <?php echo $editTools['history']['text']?>
+      <a class="tool tool--advanced" title="<?php echo $editTools['history']['text']?>" href="<?php echo $editTools['history']['href'] ?>">
+        <i class="tool__icon fa fa-clock-o"></i>
       </a>
       <?php
       //End advanced tools
