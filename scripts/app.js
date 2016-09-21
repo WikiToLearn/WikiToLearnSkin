@@ -10,22 +10,22 @@
             // Expandable search bar
             $( '.nav__search' ).on({
                 mouseenter: function() {
-                    $('#search').removeClass('collapsed-search');
-                    $('#search').addClass('expanded-search');
+                    $('#searchInput').removeClass('collapsed-search');
+                    $('#searchInput').addClass('expanded-search');
                 },
                 mouseleave: function () {
-                    if (! $('#search').is(':focus')) {
-                        $('#search').removeClass('expanded-search');
-                        $('#search').addClass('collapsed-search');
+                    if (! $('#searchInput').is(':focus')) {
+                        $('#searchInput').removeClass('expanded-search');
+                        $('#searchInput').addClass('collapsed-search');
                     }
                 },
                 focus: function () {
-                    $('#search').removeClass('collapsed-search');
-                    $('#search').addClass('expanded-search');
+                    $('#searchInput').removeClass('collapsed-search');
+                    $('#searchInput').addClass('expanded-search');
                 },
                 focusout: function() {
-                    $('#search').removeClass('expanded-search');
-                    $('#search').addClass('collapsed-search');
+                    $('#searchInput').removeClass('expanded-search');
+                    $('#searchInput').addClass('collapsed-search');
                 }
             });
         } else {

@@ -133,7 +133,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             <span class="nav__search">
             <form action="<?php $this->text( 'wgScript' ); ?>" autocomplete="off">
               <input type="hidden" name="title" value="<?php $this->text( 'searchtitle' ) ?>" />
-              <input type="search" id="search" placeholder="<?php $this->msg( 'search' ) ?>">
+              <?php echo $this->makeSearchInput( array( 'id' => 'searchInput' ) ); ?>
               <button type="submit" class="nav__search-button">
                 <i class="fa fa-search"></i>
               </button>
