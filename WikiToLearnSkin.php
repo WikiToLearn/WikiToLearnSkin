@@ -574,25 +574,37 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     public function execute_page_tools($title) {
       $editTools = $this->data['content_navigation']['views'];
       $collectionTools = $this->data['sidebar']['coll-print_export'];
+      $actionsTools = $this->data['content_navigation']['actions'];
 
       foreach ($editTools as $toolAttributes) {
         if($toolAttributes["id"] == "ca-view"){ ?>
-          <a title="Reading Mode" class="tool tool--view" href="<?php echo $toolAttributes['href'] ?>">
-            <i class="tool__icon fa fa-book"></i>  
-          </a> 
+          <a title="<?php echo $toolAttributes['text']?>" class="tool tool--view" href="<?php echo $toolAttributes['href'] ?>">
+            <i class="tool__icon fa fa-book"></i>
+          </a>
         <?php }
         elseif($toolAttributes["id"] == "ca-ve-edit"){ ?>
-          <a title="Edit" class="tool tool--ve-edit" href="<?php echo $toolAttributes['href'] ?>">
-            <i class="tool__icon fa fa-pencil"></i>  
+          <a title="<?php echo $toolAttributes['text']?>" class="tool tool--ve-edit" href="<?php echo $toolAttributes['href'] ?>">
+            <i class="tool__icon fa fa-pencil"></i>
           </a>
       <?php }
       }
       if(!is_null($collectionTools)) { ?>
-        <a title="Download as PDF" class="tool tool--download-pdf" href="<?php echo $collectionTools[1]['href'] ?>">
-          <i class="tool__icon fa fa-download"></i>  
+        <a title="<?php echo $collectionTools[1]['text']?>" class="tool tool--download-pdf" href="<?php echo $collectionTools[1]['href'] ?>">
+          <i class="tool__icon fa fa-download"></i>
         </a>
-      <?php } 
+      <?php }
 
+      //Start advanced tools
+      foreach ($actionsTools as $toolAttributes){ ?>
+        <a title="<?php echo $toolAttributes['text']?>" class="tool tool--advanced" href="<?php echo $toolAttributes['href'] ?>">
+          <i class="tool__icon fa fa-gear"></i>
+        </a>
+      <?php } ?>
+      <a title="<?php echo $editTools['history']['text']?>" href="<?php echo $editTools['history']['href'] ?>">
+        <?php echo $editTools['history']['text']?>
+      </a>
+      <?php
+      //End advanced tools
       /*if(!is_null($collectionTools)){
       ?>
         <div class="collection-tools">
