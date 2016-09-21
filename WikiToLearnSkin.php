@@ -428,6 +428,8 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
 
       ?>
       <main class="page page-content">
+        <div class="page__nav">
+          <a href="" class="">namespace</a><a href="" class="discussion">Discussione</a> </div>
         <article class="page__body mw-body">
           <?php if (self::is_editable_namespace()) { ?>
             <div class="tools">

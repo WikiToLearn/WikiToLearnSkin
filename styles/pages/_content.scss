@@ -1,4 +1,24 @@
 main.page-content{
+    
+    .page__nav{
+        max-width: 1000px;
+        margin: 0 auto;
+
+        a{
+            position: relative;
+            background-color: white;
+            padding: 0.25rem 1rem;
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+            box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
+            
+
+            &.discussion{
+                border: 0;    
+            }
+        }
+
+    }
 
     .page__body{
         max-width: 1000px;
@@ -15,7 +35,7 @@ main.page-content{
     .tools{
         position: absolute;
         top: 1rem;
-        right: -1.5rem;
+        right: -0.75rem;
         
         .tools__content{
             position: fixed;
