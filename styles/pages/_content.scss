@@ -1,32 +1,33 @@
 main.page-content{
 
-    .page__container{
-        @include make-row();
-
+    .page__body{
         max-width: 1000px;
         margin: 0 auto;
         margin-bottom: 0.5rem;
-    }
 
-    .page__body{
         background-color: white;
         box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
         padding: 3rem;
 
-        float: left;
-        width: 94%;
+        position: relative;
     }
 
-    .page__tools{
-        float: left;
-        width: 6%;
+    .tools{
+        position: absolute;
+        top: 1rem;
+        right: -1.5rem;
+        
+        .tools__content{
+            position: fixed;
+        }
 
-        padding-left: 1rem;
-        padding-top: 2rem;
+        .tool--divider{
+            margin-bottom: 2rem;
+        }
 
         .tool{
             $toolSize: 3rem;
-
+    
             @mixin colorTool($color){
                 border: 2px solid $color;
                 color: $color;
@@ -55,11 +56,15 @@ main.page-content{
                 @include colorTool($black-secondary);
             }
 
+            &--navigation{
+                @include colorTool($mwblue);
+            }
+
             background-color: white;
             border-radius: 50%;
 
             display: block;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             text-align: center;
             height: $toolSize;
             width: $toolSize;

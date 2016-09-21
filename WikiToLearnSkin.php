@@ -428,44 +428,41 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
 
       ?>
       <main class="page page-content">
-        <div class="page__container">
-          <article class="page__body mw-body">
-            <?php $this->execute_breadcrumb($titleComponents) ?>
-            <h1 class="page__title">
-              <?php echo $pageTitle; ?>
-            </h1>
-            <?php if ( $this->data['subtitle'] ) { ?>
-              <div class="page__contentSub" id="contentSub"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
-              <?php //$this->html('subtitle'); ?>
-              </div>
-            <?php } ?>
-              <?php if ( $this->data['undelete'] ) { ?>
-              <div class="page__contentSub2" id="contentSub2"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
-              <?php $this->html( 'undelete' ); ?>
-              </div>
-            <?php } ?>
-            <div id="content"> <!-- #content tells visauleditor where to put itself: under the title -->
-              <div class="page__text" id="bodyContent">
-                <?php $this->html( 'bodytext' ); ?>
-              </div>
-              <div class="page__categories">
-                <?php $this->html( 'catlinks' ); ?>
-              </div>
-              <div class="page__dataAfterContent">
-                <?php $this->html( 'dataAfterContent' ); ?>
+        <article class="page__body mw-body">
+          <?php if (self::is_editable_namespace()) { ?>
+            <div class="tools">
+              <div class="tools__content">
+                <?php $this->execute_page_tools($fullTitle) ?>
               </div>
             </div>
-          </article>
-          <?php
-            if (self::is_editable_namespace()) {
-          ?>
-            <div class="page__tools">
-              <?php $this->execute_page_tools($fullTitle) ?>
+          <?php } ?>
+
+          <?php $this->execute_breadcrumb($titleComponents) ?>
+          <h1 class="page__title">
+            <?php echo $pageTitle; ?>
+          </h1>
+          <?php if ( $this->data['subtitle'] ) { ?>
+            <div class="page__contentSub" id="contentSub"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
+            <?php //$this->html('subtitle'); ?>
             </div>
-          <?php
-          }
-           ?>
-        </div>
+          <?php } ?>
+            <?php if ( $this->data['undelete'] ) { ?>
+            <div class="page__contentSub2" id="contentSub2"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
+            <?php $this->html( 'undelete' ); ?>
+            </div>
+          <?php } ?>
+          <div id="content"> <!-- #content tells visauleditor where to put itself: under the title -->
+            <div class="page__text" id="bodyContent">
+              <?php $this->html( 'bodytext' ); ?>
+            </div>
+            <div class="page__categories">
+              <?php $this->html( 'catlinks' ); ?>
+            </div>
+            <div class="page__dataAfterContent">
+              <?php $this->html( 'dataAfterContent' ); ?>
+            </div>
+          </div>
+        </article>
         <div class="page__navigation">
           <div class="page__navigation-button page__navigation-button--left">
             <i class="fa fa-angle-double-left"></i> $titoloPrecedente
@@ -587,7 +584,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       foreach ($editTools as $toolAttributes) {
         if($toolAttributes["id"] == "ca-view"){ ?>
           <a title="<?php echo $toolAttributes['text']?>" class="tool tool--view" href="<?php echo $toolAttributes['href'] ?>">
-            <i class="tool__icon fa fa-book"></i>
+            <span class="tool__name"></span><i class="tool__icon fa fa-book"></i>
           </a>
         <?php }
         elseif($toolAttributes["id"] == "ca-ve-edit"){ ?>
@@ -600,8 +597,15 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         <a title="<?php echo $collectionTools[1]['text']?>" class="tool tool--download-pdf" href="<?php echo $collectionTools[1]['href'] ?>">
           <i class="tool__icon fa fa-download"></i>
         </a>
-      <?php }
-
+      <?php } ?>
+      <div class="tool--divider"></div>
+      <a title="Next" class="tool tool--navigation" href="<?php echo $toolAttributes['href'] ?>">
+        <i class="tool__icon fa fa-angle-double-left"></i>
+      </a>
+      <a title="Next" class="tool tool--navigation" href="<?php echo $toolAttributes['href'] ?>">
+        <i class="tool__icon fa fa-angle-double-right"></i>
+      </a>
+      <?php
       //Start advanced tools
       foreach ($actionsTools as $toolAttributes){ ?>
         <a title="<?php echo $toolAttributes['text']?>" class="tool tool--advanced" href="<?php echo $toolAttributes['href'] ?>">
