@@ -32,8 +32,10 @@
             "scripts": [
                 "bower_components/tether/dist/js/tether.js",
                 "bower_components/bootstrap/dist/js/bootstrap.js",
+                "bower_components/velocity/velocity.min.js",
                 "scripts/NotificationsWidget.js",
-                "scripts/app.js"
+                "scripts/app.js",
+                "scripts/multitool.js"
             ],
             "dependencies": [
                 "oojs-ui",

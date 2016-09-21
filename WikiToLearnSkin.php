@@ -425,7 +425,6 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         //this should never happen but who knows ¯\_(ツ)_/¯
         $pageTitle = $fullTitle;
       }
-      MWDebug::log($namespaceAndTalk);
       ?>
       <main class="page page--article">
         <div class="article__wrapper">
@@ -472,6 +471,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             </div>
           <?php } ?>
         </div>
+
       </main>
     <?php }
 
@@ -551,6 +551,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     /**
     * Since this is a very personalized skin we can assume that
     * all the subpages exist and avoid a few of the checks in Neverland
+    * @param string[] $titleComponents the subtokens composed the title
     */
     public function executeBreadcrumb($titleComponents) { ?>
       <div class="article__breadcrumb">
@@ -575,9 +576,10 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     /**
     * Generate a WikiToLearn's version of tools related to page.
     * These tools are composed by classic 'views' tools (view, edit, history...)
-    * and some 'collection' tools (Download as PDF, Download plain text..)
+    * some 'collection' tools (Download as PDF, Download plain text..),
+    * and advaced tools.
     */
-    public function executePageTools($title) {
+    public function executePageTools() {
       $editTools = $this->contentNavigation['views'];
       $collectionTools = $this->data['sidebar']['coll-print_export'];
       $actionsTools = $this->contentNavigation['actions'];
@@ -600,6 +602,29 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           <i class="tool__icon fa fa-download"></i>
         </a>
       <?php } ?>
+      <div class="tool--divider"></div>
+      <div class="multitool horizontal click-to-toggle">
+          <span class="tool tool--download-pdf multitool__trigger">
+            <i class="tool__icon fa fa-plus"></i>
+          </span>
+          <ul>
+            <li>
+              <a title="<?php echo $collectionTools[1]['text']?>" class="tool tool--smaller tool--download-pdf" href="<?php echo $collectionTools[1]['href'] ?>">
+                <i class="tool__icon fa fa-download"></i>
+              </a>
+            </li>
+            <li>
+              <a title="<?php echo $collectionTools[1]['text']?>" class="tool tool--smaller tool--download-pdf" href="<?php echo $collectionTools[1]['href'] ?>">
+                <i class="tool__icon fa fa-download"></i>
+              </a>
+            </li>
+            <li>
+              <a title="<?php echo $collectionTools[1]['text']?>" class="tool tool--smaller tool--download-pdf" href="<?php echo $collectionTools[1]['href'] ?>">
+                <i class="tool__icon fa fa-download"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
       <div class="tool--divider"></div>
 
       <?php if ($previousAndNext['previous'] !== NULL) { ?>
@@ -649,6 +674,11 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       }*/
     }
 
+    /**
+    * Check the namespace in order to confirm or not the
+    * generation of certain page tools.
+    * @return boolean
+    */
     private function isEditableNamespace(){
       $id = $this->namespaceId;
       $user = $this->user;
@@ -660,5 +690,20 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         }
       }
       return false;
+    }
+
+    /**
+    * Generate the HTML of a page tool.
+    * @param string $href the url to assign to the anchor
+    * @param string $title the title to assign to the anchor
+    * @param string $classes the classes to add to anchor
+    * @param string $icon the icon name
+    */
+    private function makeTool($href, $title, $classes, $icon) {
+      ?>
+      <a title="<?php echo $title ?>" class="tool <?php echo $classes?>" href="<?php echo $href ?>">
+          <i class="tool__icon fa <?php echo $icon ?>"></i>
+      </a>
+      <?php
     }
 }
