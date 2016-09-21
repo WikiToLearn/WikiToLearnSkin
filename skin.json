@@ -30,6 +30,8 @@
         },
         "skin.wikitolearn.js": {
             "scripts": [
+                "bower_components/hammerjs/hammer.min.js",
+                "bower_components/materialize/dist/js/materialize.min.js",
                 "bower_components/tether/dist/js/tether.js",
                 "bower_components/bootstrap/dist/js/bootstrap.js",
                 "scripts/NotificationsWidget.js",

@@ -54,6 +54,27 @@ main.page--article{
             .tool{
                 $toolSize: 3rem;
         
+                background-color: white;
+                border-radius: 50%;
+
+                display: block;
+                margin-bottom: 0.5rem;
+                text-align: center;
+                height: $toolSize;
+                width: $toolSize;
+                position: relative;
+
+                box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
+
+                &:hover{
+                    text-decoration: none;
+                }   
+                    
+                &--smaller{
+                    height: $toolSize*0.75;
+                    width: $toolSize*0.75;
+                }
+
                 @mixin colorTool($color){
                     border: 2px solid $color;
                     color: $color;
@@ -84,21 +105,6 @@ main.page--article{
 
                 &--navigation{
                     @include colorTool($mwblue);
-                }
-
-                background-color: white;
-                border-radius: 50%;
-
-                display: block;
-                margin-bottom: 0.5rem;
-                text-align: center;
-                height: $toolSize;
-                width: $toolSize;
-                position: relative;
-
-                box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
-                &:hover{
-                    text-decoration: none;
                 }
 
                 &__icon{

@@ -469,6 +469,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             </div>
           <?php } ?>
         </div>
+        
       </main>
     <?php }
 
@@ -598,7 +599,29 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         </a>
       <?php } ?>
       <div class="tool--divider"></div>
-      
+      <div class="fixed-action-btn horizontal click-to-toggle">
+          <a class="tool tool--download-pdf">
+            <i class="tool__icon fa fa-plus"></i>
+          </a>
+          <ul>
+            <li>
+              <a title="<?php echo $collectionTools[1]['text']?>" class="tool tool--smaller tool--download-pdf" href="<?php echo $collectionTools[1]['href'] ?>">
+                <i class="tool__icon fa fa-download"></i>
+              </a>
+            </li>
+            <li>
+              <a title="<?php echo $collectionTools[1]['text']?>" class="tool tool--smaller tool--download-pdf" href="<?php echo $collectionTools[1]['href'] ?>">
+                <i class="tool__icon fa fa-download"></i>
+              </a>
+            </li>
+            <li>
+              <a title="<?php echo $collectionTools[1]['text']?>" class="tool tool--smaller tool--download-pdf" href="<?php echo $collectionTools[1]['href'] ?>">
+                <i class="tool__icon fa fa-download"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      <div class="tool--divider"></div>
       <?php if ($previousAndNext['previous'] !== NULL) { ?>
         <a title="Next" class="tool tool--navigation" href="<?php echo Skin::makeUrl($previousAndNext['previous']) ?>">
           <i class="tool__icon fa fa-angle-double-left"></i>
