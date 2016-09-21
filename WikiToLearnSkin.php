@@ -463,24 +463,6 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             </div>
           </div>
         </article>
-        <div class="page__navigation">
-        <?php
-        $previousAndNext = CourseEditorUtils::getPreviousAndNext($this->pageTitle);
-        MWDebug::log($previousAndNext);
-        if ($previousAndNext['previous'] !== NULL) { ?>
-          <div class="page__navigation-button page__navigation-button--left">
-            <a href="<?php echo Skin::makeUrl($previousAndNext['previous']) ?>"><i class="fa fa-angle-double-left"></i></a>
-          </div>
-        <?php
-        }
-         if ($previousAndNext['next'] !== NULL) { ?>
-           <div class="page__navigation-button page__navigation-button--right">
-             <a href="<?php echo Skin::makeUrl($previousAndNext['next']) ?>"><i class="fa fa-angle-double-right"></i></a>
-           </div>
-         <?php
-         }
-          ?>
-        </div>
       </main>
     <?php }
 
@@ -590,7 +572,8 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       $editTools = $this->data['content_navigation']['views'];
       $collectionTools = $this->data['sidebar']['coll-print_export'];
       $actionsTools = $this->data['content_navigation']['actions'];
-
+      $previousAndNext = CourseEditorUtils::getPreviousAndNext($this->pageTitle);
+      
       foreach ($editTools as $toolAttributes) {
         if($toolAttributes["id"] == "ca-view"){ ?>
           <a title="<?php echo $toolAttributes['text']?>" class="tool tool--view" href="<?php echo $toolAttributes['href'] ?>">
@@ -609,12 +592,19 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         </a>
       <?php } ?>
       <div class="tool--divider"></div>
-      <a title="Next" class="tool tool--navigation" href="<?php echo $toolAttributes['href'] ?>">
-        <i class="tool__icon fa fa-angle-double-left"></i>
-      </a>
-      <a title="Next" class="tool tool--navigation" href="<?php echo $toolAttributes['href'] ?>">
-        <i class="tool__icon fa fa-angle-double-right"></i>
-      </a>
+      
+      <?php if ($previousAndNext['previous'] !== NULL) { ?>
+        <a title="Next" class="tool tool--navigation" href="<?php echo Skin::makeUrl($previousAndNext['previous']) ?>">
+          <i class="tool__icon fa fa-angle-double-left"></i>
+        </a>
+      <?php } ?>
+      
+      <?php if ($previousAndNext['next'] !== NULL) { ?>
+        <a title="Next" class="tool tool--navigation" href="<?php echo Skin::makeUrl($previousAndNext['next']) ?>">
+          <i class="tool__icon fa fa-angle-double-right"></i>
+        </a>
+      <?php } ?>
+
       <?php
       //Start advanced tools
       foreach ($actionsTools as $toolAttributes){ ?>
