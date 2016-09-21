@@ -74,6 +74,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       $this->namespaceId = $wgOut->getTitle()->getNamespace();
       $this->pageTitle = $wgOut->getTitle();
       $this->user = $wgUser;
+      $this->contentNavigation = $this->data['content_navigation'];
 
       $this->html( 'headelement' ); ?>
             <?php $this->html( 'newtalk' ); ?>
@@ -91,15 +92,15 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             <?php } ?>
 
             <?php
-              $this->execute_header();
+              $this->executeHeader();
               if ($this->getSkin()->getTitle()->isMainPage()) {
                 MWDebug::log('Generating Homepage');
-                $this->execute_home();
+                $this->executeHome();
               } else {
                 MWDebug::log('Generating Content page');
-                $this->execute_content_page();
+                $this->executeContentPage();
               }
-              $this->execute_footer();
+              $this->executeFooter();
 
               $this->printTrail(); ?>
 
@@ -107,7 +108,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         </html>
     <?php }
 
-    public function execute_header() { ?>
+    public function executeHeader() { ?>
       <header class="header">
         <div class="header__wrapper" >
           <div href="/" class="logo">
@@ -234,7 +235,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       </header>
     <?php }
 
-    public function execute_home() { ?>
+    public function executeHome() { ?>
       <main class="page page-home">
         <section class="title">
           <h1> Learn with the best. Create books. Share <em>knowledge</em>. </h1>
@@ -415,9 +416,9 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       </main>
     <?php }
 
-    public function execute_content_page() {
+    public function executeContentPage() {
+      $namespaceAndTalk = $this->contentNavigation['namespaces'];
       //title-related basics
-
       $fullTitle = $this->pageTitle;
       $titleComponents = explode("/", $fullTitle);
       if(count($titleComponents)>0) {
@@ -426,17 +427,21 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         //this should never happen but who knows ¯\_(ツ)_/¯
         $pageTitle = $fullTitle;
       }
-
+      MWDebug::log($namespaceAndTalk);
       ?>
       <main class="page page--article">
-        <div class="article__wrapper">  
+        <div class="article__wrapper">
           <div class="article__main">
             <nav class="article__nav">
-              <a href="" class="">namespace</a>
-              <a href="" class="discussion">Discussione</a>
+              <?php
+                foreach ($namespaceAndTalk as $value) { ?>
+                  <a href="<?php echo $value['href'] ?>" class="<?php echo $value['class'] ?>"><?php echo $value['text'] ?></a>
+                <?php
+                }
+               ?>
             </nav>
             <article class="article__sheet mw-body">
-              <?php $this->execute_breadcrumb($titleComponents) ?>
+              <?php $this->executeBreadcrumb($titleComponents) ?>
               <h1 class="article__title">
                 <?php echo $pageTitle; ?>
               </h1>
@@ -463,9 +468,9 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               </div>
             </article>
           </div>
-          <?php if (self::is_editable_namespace()) { ?>
+          <?php if (self::isEditableNamespace()) { ?>
             <div class="article__tools">
-              <?php $this->execute_page_tools($fullTitle) ?>
+              <?php $this->executePageTools($fullTitle) ?>
             </div>
           <?php } ?>
         </div>
@@ -473,7 +478,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       </main>
     <?php }
 
-    public function execute_footer() { ?>
+    public function executeFooter() { ?>
       <footer class="footer">
           <ul class="footer__list">
             <li class="footer__logo">
@@ -550,7 +555,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     * Since this is a very personalized skin we can assume that
     * all the subpages exist and avoid a few of the checks in Neverland
     */
-    public function execute_breadcrumb($titleComponents) { ?>
+    public function executeBreadcrumb($titleComponents) { ?>
       <div class="article__breadcrumb">
         <?php
           array_pop($titleComponents);  //remove current page
@@ -575,12 +580,12 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     * These tools are composed by classic 'views' tools (view, edit, history...)
     * and some 'collection' tools (Download as PDF, Download plain text..)
     */
-    public function execute_page_tools($title) {
-      $editTools = $this->data['content_navigation']['views'];
+    public function executePageTools($title) {
+      $editTools = $this->contentNavigation['views'];
       $collectionTools = $this->data['sidebar']['coll-print_export'];
-      $actionsTools = $this->data['content_navigation']['actions'];
+      $actionsTools = $this->contentNavigation['actions'];
       $previousAndNext = CourseEditorUtils::getPreviousAndNext($this->pageTitle);
-      
+
       foreach ($editTools as $toolAttributes) {
         if($toolAttributes["id"] == "ca-view"){ ?>
           <a title="<?php echo $toolAttributes['text']?>" class="tool tool--view" href="<?php echo $toolAttributes['href'] ?>">
@@ -622,14 +627,15 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           </ul>
         </div>
       <div class="tool--divider"></div>
+
       <?php if ($previousAndNext['previous'] !== NULL) { ?>
-        <a title="Next" class="tool tool--navigation" href="<?php echo Skin::makeUrl($previousAndNext['previous']) ?>">
+        <a title="<?php echo wfMessage('wikitolearnskin-previous-button-title') ?>" class="tool tool--navigation" href="<?php echo Skin::makeUrl($previousAndNext['previous']) ?>">
           <i class="tool__icon fa fa-angle-double-left"></i>
         </a>
       <?php } ?>
-      
+
       <?php if ($previousAndNext['next'] !== NULL) { ?>
-        <a title="Next" class="tool tool--navigation" href="<?php echo Skin::makeUrl($previousAndNext['next']) ?>">
+        <a title="<?php echo wfMessage('wikitolearnskin-next-button-title') ?>" class="tool tool--navigation" href="<?php echo Skin::makeUrl($previousAndNext['next']) ?>">
           <i class="tool__icon fa fa-angle-double-right"></i>
         </a>
       <?php } ?>
@@ -669,7 +675,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       }*/
     }
 
-    private function is_editable_namespace(){
+    private function isEditableNamespace(){
       $id = $this->namespaceId;
       $user = $this->user;
       if($id === NS_COURSE || $id === NS_USER){
