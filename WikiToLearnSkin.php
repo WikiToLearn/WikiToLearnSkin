@@ -577,18 +577,18 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
 
       foreach ($editTools as $toolAttributes) {
         if($toolAttributes["id"] == "ca-view"){ ?>
-          <a class="tool tool--view" href="<?php echo $toolAttributes['href'] ?>">
+          <a title="Reading Mode" class="tool tool--view" href="<?php echo $toolAttributes['href'] ?>">
             <i class="tool__icon fa fa-book"></i>  
           </a> 
         <?php }
         elseif($toolAttributes["id"] == "ca-ve-edit"){ ?>
-          <a class="tool tool--ve-edit" href="<?php echo $toolAttributes['href'] ?>">
+          <a title="Edit" class="tool tool--ve-edit" href="<?php echo $toolAttributes['href'] ?>">
             <i class="tool__icon fa fa-pencil"></i>  
           </a>
       <?php }
       }
       if(!is_null($collectionTools)) { ?>
-        <a class="tool tool--download-pdf" href="<?php echo $collectionTools[1]['href'] ?>">
+        <a title="Download as PDF" class="tool tool--download-pdf" href="<?php echo $collectionTools[1]['href'] ?>">
           <i class="tool__icon fa fa-download"></i>  
         </a>
       <?php } 
