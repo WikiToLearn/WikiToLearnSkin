@@ -19,7 +19,7 @@ function handleError(error) {
 
 gulp.task('sass', function() {
     var paths = require('node-neat').includePaths;
-    paths.push("bower_components/bootstrap/");
+    paths.push("bower_components/");
 	return gulp.src(src.sass)
 		.pipe(sass({
             includePaths: paths
