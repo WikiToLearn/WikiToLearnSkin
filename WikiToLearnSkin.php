@@ -580,9 +580,9 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     * and some 'collection' tools (Download as PDF, Download plain text..)
     */
     public function executePageTools($title) {
-      $editTools = $this->content_navigation['views'];
+      $editTools = $this->contentNavigation['views'];
       $collectionTools = $this->data['sidebar']['coll-print_export'];
-      $actionsTools = $this->content_navigation['actions'];
+      $actionsTools = $this->contentNavigation['actions'];
       $previousAndNext = CourseEditorUtils::getPreviousAndNext($this->pageTitle);
 
       foreach ($editTools as $toolAttributes) {
