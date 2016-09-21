@@ -466,6 +466,14 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           }
            ?>
         </div>
+        <div class="page__navigation">
+          <div class="page__navigation-button page__navigation-button--left">
+            <i class="fa fa-angle-double-left"></i> $titoloPrecedente
+          </div>
+          <div class="page__navigation-button page__navigation-button--right">
+            $titoloSuccessivo <i class="fa fa-angle-double-right"></i> 
+          </div>  
+        </div>
       </main>
     <?php }
 

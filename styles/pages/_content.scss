@@ -5,6 +5,7 @@ main.page-content{
 
         max-width: 1000px;
         margin: 0 auto;
+        margin-bottom: 0.5rem;
     }
     
     .page__body{
@@ -126,4 +127,26 @@ main.page-content{
             margin-top: 1rem;
         }
     }
+
+    .page__navigation{
+        @include make-row();
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .page__navigation-button{
+        background-color: white;
+        display: inline-block;
+        padding: 1rem;
+        
+        box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
+        &--left{
+            float: left;
+        }
+
+        &--right{
+            float: right;
+        }
+    }
+
 }
