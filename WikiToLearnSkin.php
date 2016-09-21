@@ -413,7 +413,8 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     public function execute_content_page() {
       global $wgOut, $wgRequest;
       //title-related basics
-      $fullTitle = $wgOut->getTitle();
+      $fullTitle = $wgOut->getPageTitle();
+      MWDebug::log($fullTitle);
       $titleComponents = explode("/", $fullTitle);
       if(count($titleComponents)>0) {
         $pageTitle = $titleComponents[count($titleComponents)-1];
@@ -456,7 +457,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             if ($this->namespaceId === NS_COURSE || $this->namespaceId === NS_MAIN || $this->namespaceId === NS_USER) {
           ?>
             <div class="page__tools">
-              <?php $this->execute_page_tools() ?>
+              <?php $this->execute_page_tools($fullTitle) ?>
             </div>
           <?php
           }
@@ -567,18 +568,29 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     * These tools are composed by classic 'views' tools (view, edit, history...)
     * and some 'collection' tools (Download as PDF, Download plain text..)
     */
-    public function execute_page_tools() {
+    public function execute_page_tools($title) {
       $editTools = $this->data['content_navigation']['views'];
       $collectionTools = $this->data['sidebar']['coll-print_export'];
-      foreach ($editTools as $toolAttributes) {?>
-        <div class="tool">
-          <a href="<?php echo $toolAttributes['href'] ?>">
-            <?php echo $toolAttributes['text']?>&nbsp;<i class="fa fa-pencil"></i>
+
+      foreach ($editTools as $toolAttributes) {
+        if($toolAttributes["id"] == "ca-view"){ ?>
+          <a class="tool tool--view" href="<?php echo $toolAttributes['href'] ?>">
+            <i class="tool__icon fa fa-book"></i>  
+          </a> 
+        <?php }
+        elseif($toolAttributes["id"] == "ca-ve-edit"){ ?>
+          <a class="tool tool--ve-edit" href="<?php echo $toolAttributes['href'] ?>">
+            <i class="tool__icon fa fa-pencil"></i>  
           </a>
-        </div>
-      <?php
+      <?php }
       }
-      if(!is_null($collectionTools)){
+      if(!is_null($collectionTools)) { ?>
+        <a class="tool tool--download-pdf" href="<?php echo $collectionTools[1]['href'] ?>">
+          <i class="tool__icon fa fa-download"></i>  
+        </a>
+      <?php } 
+
+      /*if(!is_null($collectionTools)){
       ?>
         <div class="collection-tools">
           <div class="tool">
@@ -598,6 +610,6 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           </div>
         </div>
       <?php
-      }
+      }*/
     }
 }

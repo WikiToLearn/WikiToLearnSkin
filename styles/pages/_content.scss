@@ -13,17 +13,63 @@ main.page-content{
         padding: 3rem;
 
         float: left;
-        width: 95%;
+        width: 94%;
     }
     
     .page__tools{
         float: left;
-        width: 5%;
+        width: 6%;
+        
+        padding-left: 1rem;
+        padding-top: 2rem;
 
         .tool{
+            $toolSize: 3rem;
+
+            @mixin colorTool($color){
+                border: 3px solid $color;
+                color: $color;
+                &:hover{
+                    color: $color;
+                }
+            }
+
+            &--view{
+                @include colorTool($green);
+            }
+            
+            &--ve-edit{
+                @include colorTool($yellow);
+            }
+            
+            &--download-pdf{
+                @include colorTool($red);
+            }
+
+            background-color: white;
+            border-radius: 50%;
+            
             display: block;
-            background-color: red;
             margin-bottom: 1rem;
+            text-align: center;
+            height: $toolSize;
+            width: $toolSize;
+            position: relative;
+            
+            box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
+            &:hover{
+                text-decoration: none;
+            }
+
+            &__icon{
+                font-size: 1.25rem;
+                position: absolute;
+                
+                left: 0;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+            }
         }
 
     }
