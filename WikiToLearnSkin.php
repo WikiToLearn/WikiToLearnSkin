@@ -92,7 +92,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             <?php } ?>
 
             <?php
-              $this->execute_header();
+              $this->executeHeader();
               if ($this->getSkin()->getTitle()->isMainPage()) {
                 MWDebug::log('Generating Homepage');
                 $this->executeHome();
@@ -108,7 +108,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         </html>
     <?php }
 
-    public function execute_header() { ?>
+    public function executeHeader() { ?>
       <header class="header">
         <div class="header__wrapper" >
           <div href="/" class="logo">
@@ -468,7 +468,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               </div>
             </article>
           </div>
-          <?php if (self::IsEditableNamespace()) { ?>
+          <?php if (self::isEditableNamespace()) { ?>
             <div class="article__tools">
               <?php $this->executePageTools($fullTitle) ?>
             </div>
@@ -651,7 +651,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       }*/
     }
 
-    private function IsEditableNamespace(){
+    private function isEditableNamespace(){
       $id = $this->namespaceId;
       $user = $this->user;
       if($id === NS_COURSE || $id === NS_USER){
