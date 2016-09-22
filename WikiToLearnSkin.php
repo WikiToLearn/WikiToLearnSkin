@@ -432,7 +432,9 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             <nav class="article__nav">
               <?php
                 foreach ($namespaceAndTalk as $value) { ?>
+                <div class="nav__item">
                   <a href="<?php echo $value['href'] ?>" class="<?php echo $value['class'] ?>"><?php echo $value['text'] ?></a>
+                </div>
                 <?php
                 }
                ?>

@@ -15,17 +15,37 @@ main.page--article{
         }
 
         &__nav{
-            a{
+            border-bottom: 1px solid #eee;
+
+            &:before{
+                content: " ";
+                display: table;
+            }
+            &:after{
+                clear: both;
+                content: " ";
+                display: block;
+            }
+
+            .nav__item{
+                display: block;
                 position: relative;
-                background-color: white;
+                float: left;
+                margin-bottom: -1px;
+            }
+
+            a{
+                display: block;
                 padding: 0.25rem 1rem;
                 border-top-left-radius: 0.5rem;
                 border-top-right-radius: 0.5rem;
-                box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
-                
-
-                &.discussion{
-                    border: 0;    
+                background-color: white;
+                margin-right: 0.5rem;
+                &.selected{
+                    box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
+                    background-color: white;
+                    border: 1px solid #eee;
+                    border-bottom: 0;
                 }
             }
 
