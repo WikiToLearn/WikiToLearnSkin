@@ -591,9 +591,9 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           self::makeTool($toolAttributes['href'], $toolAttributes['text'], "tool--ve-edit", "fa-pencil" );
         }
       }
-      echo "<i class='tool--divider'></i>";
       self::buildCollectionTools();
       self::buildAdvancedTools();
+      echo "<i class='tool--divider'></i>";
       self::buildPreviousAndNext();
     }
 
@@ -656,7 +656,6 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             </li>
           </ul>
         </div>
-        <i class="tool--divider"></i>
         <?php
       }
     }
@@ -670,18 +669,18 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     ?>
       <div class="multitool horizontal click-to-toggle">
         <span title="<?php echo wfMessage('wikitolearnskin-advanced-button-title') ?>" class="tool tool--advanced multitool__trigger">
-          <i class="tool__icon fa fa-ellipsis-h"></i>
+          <i class="tool__icon fa fa-wrench"></i>
         </span>
         <ul>
           <li>
-            <a class="tool tool--smaller tool--advanced" title="<?php echo $editTools['edit']['text']?>" href="<?php echo $editTools['edit']['href'] ?>">
-              <i class="tool__icon fa fa-pencil-square-o"></i>
-            </a>
+            <?php
+            self::makeTool($editTools['edit']['href'], $editTools['edit']['text'], "tool--advanced", "fa-pencil-square-o");
+            ?>
           </li>
           <li>
-            <a class="tool tool--smaller tool--advanced" title="<?php echo $editTools['history']['text']?>" href="<?php echo $editTools['history']['href'] ?>">
-              <i class="tool__icon fa fa-clock-o"></i>
-            </a>
+            <?php
+            self::makeTool($editTools['history']['href'], $editTools['history']['text'], "tool--advanced", "fa-history");
+             ?>
           </li>
       <?php foreach ($actionsTools as $key => $toolAttributes){ ?>
           <li>
@@ -709,7 +708,6 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       } ?>
         </ul>
       </div>
-      <i class="tool--divider"></i>
       <?php
     }
 
