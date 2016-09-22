@@ -1,4 +1,6 @@
 {
   "wikitolearnskin-next-button-title" : "The title of the link within the next button",
-  "wikitolearnskin-previous-button-title" : "The title of the link within the previous button"
+  "wikitolearnskin-previous-button-title" : "The title of the link within the previous button",
+  "wikitolearnskin-download-button-title" : "The title of the span within the download button",
+  "wikitolearnskin-advanced-button-title" : "The title of the span within the advanced button"
 }

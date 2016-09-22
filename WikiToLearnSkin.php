@@ -133,7 +133,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             <span class="nav__search">
             <form action="<?php $this->text( 'wgScript' ); ?>" autocomplete="off">
               <input type="hidden" name="title" value="<?php $this->text( 'searchtitle' ) ?>" />
-              <input type="search" id="search" placeholder="<?php $this->msg( 'search' ) ?>">
+              <?php echo $this->makeSearchInput( array( 'id' => 'searchInput' ) ); ?>
               <button type="submit" class="nav__search-button">
                 <i class="fa fa-search"></i>
               </button>
@@ -581,97 +581,17 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     */
     public function executePageTools() {
       $editTools = $this->contentNavigation['views'];
-      $collectionTools = $this->data['sidebar']['coll-print_export'];
-      $actionsTools = $this->contentNavigation['actions'];
-      $previousAndNext = CourseEditorUtils::getPreviousAndNext($this->pageTitle);
 
-      foreach ($editTools as $toolAttributes) {
-        if($toolAttributes["id"] == "ca-view"){ ?>
-          <a title="<?php echo $toolAttributes['text']?>" class="tool tool--view" href="<?php echo $toolAttributes['href'] ?>">
-            <span class="tool__name"></span><i class="tool__icon fa fa-book"></i>
-          </a>
-        <?php }
-        elseif($toolAttributes["id"] == "ca-ve-edit"){ ?>
-          <a title="<?php echo $toolAttributes['text']?>" class="tool tool--ve-edit" href="<?php echo $toolAttributes['href'] ?>">
-            <i class="tool__icon fa fa-pencil"></i>
-          </a>
-      <?php }
+      foreach ($editTools as $key => $toolAttributes) {
+        if($key === "view"){
+          self::makeTool($toolAttributes['href'], $toolAttributes['text'], "tool--view", "fa-book" );
+        }else if($key === "ve-edit"){
+          self::makeTool($toolAttributes['href'], $toolAttributes['text'], "tool--ve-edit", "fa-pencil" );
+        }
       }
-      if(!is_null($collectionTools)) { ?>
-        <a title="<?php echo $collectionTools[1]['text']?>" class="tool tool--download-pdf" href="<?php echo $collectionTools[1]['href'] ?>">
-          <i class="tool__icon fa fa-download"></i>
-        </a>
-      <?php } ?>
-      <div class="tool--divider"></div>
-      <div class="multitool horizontal click-to-toggle">
-          <span class="tool tool--download-pdf multitool__trigger">
-            <i class="tool__icon fa fa-plus"></i>
-          </span>
-          <ul>
-            <li>
-              <a title="<?php echo $collectionTools[1]['text']?>" class="tool tool--smaller tool--download-pdf" href="<?php echo $collectionTools[1]['href'] ?>">
-                <i class="tool__icon fa fa-download"></i>
-              </a>
-            </li>
-            <li>
-              <a title="<?php echo $collectionTools[1]['text']?>" class="tool tool--smaller tool--download-pdf" href="<?php echo $collectionTools[1]['href'] ?>">
-                <i class="tool__icon fa fa-download"></i>
-              </a>
-            </li>
-            <li>
-              <a title="<?php echo $collectionTools[1]['text']?>" class="tool tool--smaller tool--download-pdf" href="<?php echo $collectionTools[1]['href'] ?>">
-                <i class="tool__icon fa fa-download"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
-      <div class="tool--divider"></div>
-
-      <?php if ($previousAndNext['previous'] !== NULL) { ?>
-        <a title="<?php echo wfMessage('wikitolearnskin-previous-button-title') ?>" class="tool tool--navigation" href="<?php echo Skin::makeUrl($previousAndNext['previous']) ?>">
-          <i class="tool__icon fa fa-angle-double-left"></i>
-        </a>
-      <?php } ?>
-
-      <?php if ($previousAndNext['next'] !== NULL) { ?>
-        <a title="<?php echo wfMessage('wikitolearnskin-next-button-title') ?>" class="tool tool--navigation" href="<?php echo Skin::makeUrl($previousAndNext['next']) ?>">
-          <i class="tool__icon fa fa-angle-double-right"></i>
-        </a>
-      <?php } ?>
-
-      <?php
-      //Start advanced tools
-      foreach ($actionsTools as $toolAttributes){ ?>
-        <a title="<?php echo $toolAttributes['text']?>" class="tool tool--advanced" href="<?php echo $toolAttributes['href'] ?>">
-          <i class="tool__icon fa fa-gear"></i>
-        </a>
-      <?php } ?>
-      <a class="tool tool--advanced" title="<?php echo $editTools['history']['text']?>" href="<?php echo $editTools['history']['href'] ?>">
-        <i class="tool__icon fa fa-clock-o"></i>
-      </a>
-      <?php
-      //End advanced tools
-      /*if(!is_null($collectionTools)){
-      ?>
-        <div class="collection-tools">
-          <div class="tool">
-            <a href="<?php echo $collectionTools[1]['href'] ?>">
-              <?php echo $collectionTools[1]['text']?>&nbsp;<i class="fa fa-file-pdf-o"></i>
-            </a>
-          </div>
-          <div class="tool">
-            <a href="<?php echo $collectionTools[2]['href'] ?>">
-              <?php echo $collectionTools[2]['text']?>&nbsp;<i class="fa fa-file-text-o"></i>
-            </a>
-          </div>
-          <div class="tool">
-            <a href="<?php echo $collectionTools[3]['href'] ?>">
-              <?php echo $collectionTools[3]['text']?>&nbsp;<i class="fa fa-file-o"></i>
-            </a>
-          </div>
-        </div>
-      <?php
-      }*/
+      self::buildCollectionTools();
+      self::buildAvancedTools();
+      self::buildPreviousAndNext();
     }
 
     /**
@@ -690,6 +610,103 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         }
       }
       return false;
+    }
+
+    /**
+    * Generate the HTML of previous and next buttons
+    */
+    private function buildPreviousAndNext(){
+      $previousAndNext = CourseEditorUtils::getPreviousAndNext($this->pageTitle);
+      $previous = $previousAndNext['previous'];
+      $next = $previousAndNext['next'];
+      if ($previous !== NULL) {
+        $href = Skin::makeUrl($previous);
+        $title = wfMessage('wikitolearnskin-previous-button-title');
+        self::makeTool($href, $title, "tool--navigation", "fa-angle-double-left");
+      }
+      if ($next !== NULL) {
+        $href = Skin::makeUrl($next);
+        $title = wfMessage('wikitolearnskin-next-button-title');
+        self::makeTool($href, $title, "tool--navigation", "fa-angle-double-right");
+      }
+    }
+
+    /**
+    * Generate the HTML of the collection tools
+    */
+    private function buildCollectionTools(){
+      $collectionTools = $this->data['sidebar']['coll-print_export'];
+      if(!is_null($collectionTools)) { ?>
+        <div class="multitool horizontal click-to-toggle">
+            <span title="<?php echo wfMessage('wikitolearnskin-download-button-title') ?>" class="tool tool--download-pdf multitool__trigger">
+              <i class="tool__icon fa fa-download"></i>
+            </span>
+            <ul>
+              <li>
+                <?php self::makeTool($collectionTools[1]['href'], $collectionTools[1]['text'], "tool--smaller tool--download-pdf", "fa-file-pdf-o" ); ?>
+              </li>
+              <li>
+                <?php self::makeTool($collectionTools[2]['href'], $collectionTools[2]['text'], "tool--smaller tool--download-pdf", "fa-file-text-o" ); ?>
+              </li>
+              <li>
+                <?php self::makeTool($collectionTools[3]['href'], $collectionTools[3]['text'], "tool--smaller tool--download-pdf", "fa-print" ); ?>
+              </li>
+            </ul>
+          </div>
+        <?php
+      }
+    }
+
+    /**
+    * Generate the HTML of the advanced tools
+    */
+    private function buildAvancedTools(){
+      $actionsTools = $this->contentNavigation['actions'];
+      $editTools = $this->contentNavigation['views'];
+    ?>
+      <div class="multitool horizontal click-to-toggle">
+        <span title="<?php echo wfMessage('wikitolearnskin-advanced-button-title') ?>" class="tool tool--advanced multitool__trigger">
+          <i class="tool__icon fa fa-wrench"></i>
+        </span>
+        <ul>
+          <li>
+            <a class="tool tool--smaller tool--advanced" title="<?php echo $editTools['edit']['text']?>" href="<?php echo $editTools['edit']['href'] ?>">
+              <i class="tool__icon fa fa-pencil-square-o"></i>
+            </a>
+          </li>
+          <li>
+            <a class="tool tool--smaller tool--advanced" title="<?php echo $editTools['history']['text']?>" href="<?php echo $editTools['history']['href'] ?>">
+              <i class="tool__icon fa fa-clock-o"></i>
+            </a>
+          </li>
+      <?php foreach ($actionsTools as $key => $toolAttributes){ ?>
+          <li>
+            <?php
+            switch ($key) {
+              case 'watch':
+                self::makeTool($toolAttributes['href'], $toolAttributes['text'], "tool--smaller tool--advanced", "fa-eye" );
+                break;
+              case 'unwatch':
+                self::makeTool($toolAttributes['href'], $toolAttributes['text'], "tool--smaller tool--advanced", "fa-eye-slash" );
+                break;
+              case 'protect':
+                self::makeTool($toolAttributes['href'], $toolAttributes['text'], "tool--smaller tool--advanced", "fa-lock" );
+                break;
+              case 'delete':
+                self::makeTool($toolAttributes['href'], $toolAttributes['text'], "tool--smaller tool--advanced", "fa-trash" );
+                break;
+              case 'move':
+                self::makeTool($toolAttributes['href'], $toolAttributes['text'], "tool--smaller tool--advanced", "fa-reply" );
+                break;
+            }
+            ?>
+          </li>
+        <?php
+      } ?>
+        </ul>
+      </div>
+      <div class="tool--divider"></div>
+      <?php
     }
 
     /**
