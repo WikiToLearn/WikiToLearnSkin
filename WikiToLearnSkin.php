@@ -589,8 +589,9 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           self::makeTool($toolAttributes['href'], $toolAttributes['text'], "tool--ve-edit", "fa-pencil" );
         }
       }
+      echo "<i class='tool--divider'></i>";
       self::buildCollectionTools();
-      self::buildAvancedTools();
+      self::buildAdvancedTools();
       self::buildPreviousAndNext();
     }
 
@@ -638,21 +639,22 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       $collectionTools = $this->data['sidebar']['coll-print_export'];
       if(!is_null($collectionTools)) { ?>
         <div class="multitool horizontal click-to-toggle">
-            <span title="<?php echo wfMessage('wikitolearnskin-download-button-title') ?>" class="tool tool--download-pdf multitool__trigger">
-              <i class="tool__icon fa fa-download"></i>
-            </span>
-            <ul>
-              <li>
-                <?php self::makeTool($collectionTools[1]['href'], $collectionTools[1]['text'], "tool--smaller tool--download-pdf", "fa-file-pdf-o" ); ?>
-              </li>
-              <li>
-                <?php self::makeTool($collectionTools[2]['href'], $collectionTools[2]['text'], "tool--smaller tool--download-pdf", "fa-file-text-o" ); ?>
-              </li>
-              <li>
-                <?php self::makeTool($collectionTools[3]['href'], $collectionTools[3]['text'], "tool--smaller tool--download-pdf", "fa-print" ); ?>
-              </li>
-            </ul>
-          </div>
+          <span title="<?php echo wfMessage('wikitolearnskin-download-button-title') ?>" class="tool tool--download-pdf multitool__trigger">
+            <i class="tool__icon fa fa-download"></i>
+          </span>
+          <ul>
+            <li>
+              <?php self::makeTool($collectionTools[2]['href'], $collectionTools[2]['text'], "tool--smaller tool--download-pdf", "fa-file-text-o" ); ?>
+            </li>
+            <li>
+              <?php self::makeTool($collectionTools[3]['href'], $collectionTools[3]['text'], "tool--smaller tool--download-pdf", "fa-print" ); ?>
+            </li>
+            <li>
+              <?php self::makeTool($collectionTools[1]['href'], $collectionTools[1]['text'], "tool--smaller tool--download-pdf", "fa-file-pdf-o" ); ?>
+            </li>
+          </ul>
+        </div>
+        <i class="tool--divider"></i>
         <?php
       }
     }
@@ -660,13 +662,13 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     /**
     * Generate the HTML of the advanced tools
     */
-    private function buildAvancedTools(){
+    private function buildAdvancedTools(){
       $actionsTools = $this->contentNavigation['actions'];
       $editTools = $this->contentNavigation['views'];
     ?>
       <div class="multitool horizontal click-to-toggle">
         <span title="<?php echo wfMessage('wikitolearnskin-advanced-button-title') ?>" class="tool tool--advanced multitool__trigger">
-          <i class="tool__icon fa fa-wrench"></i>
+          <i class="tool__icon fa fa-ellipsis-h"></i>
         </span>
         <ul>
           <li>
@@ -705,7 +707,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       } ?>
         </ul>
       </div>
-      <div class="tool--divider"></div>
+      <i class="tool--divider"></i>
       <?php
     }
 
