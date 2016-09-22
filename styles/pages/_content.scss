@@ -1,7 +1,4 @@
 main.page--article{
-    
-    
-    
     .article{
         
         &__wrapper{
@@ -14,6 +11,8 @@ main.page--article{
 
         &__main{
             flex-grow: 2; //grow as much as possible
+            flex-basis: 100%; //use all space, for real (this is to fix the bug about less than one line content)
+
         }
 
         &__nav{
