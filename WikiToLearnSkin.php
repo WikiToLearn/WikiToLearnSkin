@@ -674,12 +674,12 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         <ul>
           <li>
             <?php
-            self::makeTool($editTools['edit']['href'], $editTools['edit']['text'], "tool--advanced", "fa-pencil-square-o");
+            self::makeTool($editTools['edit']['href'], $editTools['edit']['text'], "tool--smaller tool--advanced", "fa-pencil-square-o");
             ?>
           </li>
           <li>
             <?php
-            self::makeTool($editTools['history']['href'], $editTools['history']['text'], "tool--advanced", "fa-history");
+            self::makeTool($editTools['history']['href'], $editTools['history']['text'], "tool--smaller tool--advanced", "fa-history");
              ?>
           </li>
       <?php foreach ($actionsTools as $key => $toolAttributes){ ?>
