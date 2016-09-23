@@ -432,7 +432,9 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             <nav class="article__nav">
               <?php
                 foreach ($namespaceAndTalk as $value) { ?>
+                <div class="nav__item">
                   <a href="<?php echo $value['href'] ?>" class="<?php echo $value['class'] ?>"><?php echo $value['text'] ?></a>
+                </div>
                 <?php
                 }
                ?>
@@ -590,7 +592,8 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         }
       }
       self::buildCollectionTools();
-      self::buildAvancedTools();
+      self::buildAdvancedTools();
+      echo "<i class='tool--divider'></i>";
       self::buildPreviousAndNext();
     }
 
@@ -638,21 +641,21 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       $collectionTools = $this->data['sidebar']['coll-print_export'];
       if(!is_null($collectionTools)) { ?>
         <div class="multitool horizontal click-to-toggle">
-            <span title="<?php echo wfMessage('wikitolearnskin-download-button-title') ?>" class="tool tool--download-pdf multitool__trigger">
-              <i class="tool__icon fa fa-download"></i>
-            </span>
-            <ul>
-              <li>
-                <?php self::makeTool($collectionTools[1]['href'], $collectionTools[1]['text'], "tool--smaller tool--download-pdf", "fa-file-pdf-o" ); ?>
-              </li>
-              <li>
-                <?php self::makeTool($collectionTools[2]['href'], $collectionTools[2]['text'], "tool--smaller tool--download-pdf", "fa-file-text-o" ); ?>
-              </li>
-              <li>
-                <?php self::makeTool($collectionTools[3]['href'], $collectionTools[3]['text'], "tool--smaller tool--download-pdf", "fa-print" ); ?>
-              </li>
-            </ul>
-          </div>
+          <span title="<?php echo wfMessage('wikitolearnskin-download-button-title') ?>" class="tool tool--download-pdf multitool__trigger">
+            <i class="tool__icon fa fa-download"></i>
+          </span>
+          <ul>
+            <li>
+              <?php self::makeTool($collectionTools[2]['href'], $collectionTools[2]['text'], "tool--smaller tool--download-pdf", "fa-file-text-o" ); ?>
+            </li>
+            <li>
+              <?php self::makeTool($collectionTools[3]['href'], $collectionTools[3]['text'], "tool--smaller tool--download-pdf", "fa-print" ); ?>
+            </li>
+            <li>
+              <?php self::makeTool($collectionTools[1]['href'], $collectionTools[1]['text'], "tool--smaller tool--download-pdf", "fa-file-pdf-o" ); ?>
+            </li>
+          </ul>
+        </div>
         <?php
       }
     }
@@ -660,7 +663,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     /**
     * Generate the HTML of the advanced tools
     */
-    private function buildAvancedTools(){
+    private function buildAdvancedTools(){
       $actionsTools = $this->contentNavigation['actions'];
       $editTools = $this->contentNavigation['views'];
     ?>
@@ -670,14 +673,14 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         </span>
         <ul>
           <li>
-            <a class="tool tool--smaller tool--advanced" title="<?php echo $editTools['edit']['text']?>" href="<?php echo $editTools['edit']['href'] ?>">
-              <i class="tool__icon fa fa-pencil-square-o"></i>
-            </a>
+            <?php
+            self::makeTool($editTools['edit']['href'], $editTools['edit']['text'], "tool--smaller tool--advanced", "fa-pencil-square-o");
+            ?>
           </li>
           <li>
-            <a class="tool tool--smaller tool--advanced" title="<?php echo $editTools['history']['text']?>" href="<?php echo $editTools['history']['href'] ?>">
-              <i class="tool__icon fa fa-clock-o"></i>
-            </a>
+            <?php
+            self::makeTool($editTools['history']['href'], $editTools['history']['text'], "tool--smaller tool--advanced", "fa-history");
+             ?>
           </li>
       <?php foreach ($actionsTools as $key => $toolAttributes){ ?>
           <li>
@@ -705,7 +708,6 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       } ?>
         </ul>
       </div>
-      <div class="tool--divider"></div>
       <?php
     }
 

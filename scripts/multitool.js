@@ -17,7 +17,6 @@ $(document).ready(function() {
 
     // Toggle-on-click behaviour.
     $('.multitool.click-to-toggle > .multitool__trigger').on('click', function(e) {
-      console.log("here");
       var $this = $(this);
       var $menu = $this.parent();
       if ($menu.hasClass('active')) {
