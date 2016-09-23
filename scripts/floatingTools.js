@@ -4,9 +4,10 @@ $( document ).ready(function() {
 
     toolsContainer = $("#tools_container");
 
-    articleMain = $(".article__sheet");
+    articleMain = $(".article__main");
+    articleSheet = $(".article__sheet");
 
-    if(articleMain.height() > toolsContainer.height()){
+    if(articleSheet.height() > toolsContainer.height()){
         $(document).scroll(function() {
             toolsContainer.css("position", "fixed");
             toolsContainer.css("bottom", "");
