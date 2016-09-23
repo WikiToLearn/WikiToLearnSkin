@@ -35,7 +35,8 @@
                 "bower_components/velocity/velocity.min.js",
                 "scripts/NotificationsWidget.js",
                 "scripts/app.js",
-                "scripts/multitool.js"
+                "scripts/multitool.js",
+                "scripts/floatingTools.js"
             ],
             "dependencies": [
                 "oojs-ui",

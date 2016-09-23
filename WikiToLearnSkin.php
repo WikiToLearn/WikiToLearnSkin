@@ -469,7 +469,9 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           </div>
           <?php if (self::isEditableNamespace()) { ?>
             <div class="article__tools">
-              <?php $this->executePageTools($fullTitle) ?>
+              <div id="tools_container">   
+                <?php $this->executePageTools($fullTitle) ?>
+              </div>
             </div>
           <?php } ?>
         </div>
