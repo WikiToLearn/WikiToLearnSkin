@@ -430,10 +430,11 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         <div class="article__wrapper">
           <div class="article__main">
             <article class="article__sheet mw-body">
-              <?php $this->executeBreadcrumb($titleComponents) ?>
               <h1 class="article__title">
                 <?php echo $pageTitle; ?>
               </h1>
+              <?php $this->executeBreadcrumb($titleComponents) ?>
+
               <?php if ( $this->data['subtitle'] ) { ?>
                 <div class="article__contentSub" id="contentSub"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
                 <?php //$this->html('subtitle'); ?>
@@ -550,7 +551,6 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     public function executeBreadcrumb($titleComponents) { ?>
       <div class="article__breadcrumb">
         <?php
-          array_pop($titleComponents);  //remove current page
           $partialLink = $this->pageTitle->getNsText() . ":";
           for ($i=0; $i<count($titleComponents); $i++) {
             $titleComponent = $titleComponents[$i];
@@ -558,8 +558,18 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             $linkObj = Title::newFromText($partialLink);
             $link = Linker::linkKnown($linkObj, htmlspecialchars( $titleComponent ));
             echo $link;
-            if($i !== (count($titleComponents)-1)) { //we don't add the slash on last link
-              echo "<span class='breadcrumb__divider'>/</span>";
+            if($i !== (count($titleComponents)-1)) { //we don't add the slash on last link ?>
+            <div class="dropdown breadcrumb__dropdown">
+              <span href="#" class="dropdown__toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-angle-right"></i>
+              </span>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">ADD SUBPAGES OF <?php echo $partialLink ?></a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </div>
+            <?php
             }
             $partialLink .= "/";
           }
