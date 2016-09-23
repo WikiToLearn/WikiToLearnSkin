@@ -429,16 +429,6 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       <main class="page page--article">
         <div class="article__wrapper">
           <div class="article__main">
-            <nav class="article__nav">
-              <?php
-                foreach ($namespaceAndTalk as $value) { ?>
-                <div class="nav__item">
-                  <a href="<?php echo $value['href'] ?>" class="<?php echo $value['class'] ?>"><?php echo $value['text'] ?></a>
-                </div>
-                <?php
-                }
-               ?>
-            </nav>
             <article class="article__sheet mw-body">
               <?php $this->executeBreadcrumb($titleComponents) ?>
               <h1 class="article__title">
