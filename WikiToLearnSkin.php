@@ -586,9 +586,9 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
 
       foreach ($editTools as $key => $toolAttributes) {
         if($key === "view"){
-          self::makeTool($toolAttributes['href'], $toolAttributes['text'], "tool--view", "fa-book" );
+          self::makeTool($toolAttributes['href'], $toolAttributes['text'], "tool--green", "fa-book" );
         }else if($key === "ve-edit"){
-          self::makeTool($toolAttributes['href'], $toolAttributes['text'], "tool--ve-edit", "fa-pencil" );
+          self::makeTool($toolAttributes['href'], $toolAttributes['text'], "tool--yellow", "fa-pencil" );
         }
       }
       self::buildCollectionTools();
@@ -625,12 +625,12 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       if ($previous !== NULL) {
         $href = Skin::makeUrl($previous);
         $title = wfMessage('wikitolearnskin-previous-button-title');
-        self::makeTool($href, $title, "tool--navigation", "fa-angle-double-left");
+        self::makeTool($href, $title, "tool--blue", "fa-angle-double-left");
       }
       if ($next !== NULL) {
         $href = Skin::makeUrl($next);
         $title = wfMessage('wikitolearnskin-next-button-title');
-        self::makeTool($href, $title, "tool--navigation", "fa-angle-double-right");
+        self::makeTool($href, $title, "tool--blue", "fa-angle-double-right");
       }
     }
 
@@ -641,18 +641,18 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       $collectionTools = $this->data['sidebar']['coll-print_export'];
       if(!is_null($collectionTools)) { ?>
         <div class="multitool horizontal click-to-toggle">
-          <span title="<?php echo wfMessage('wikitolearnskin-download-button-title') ?>" class="tool tool--download-pdf multitool__trigger">
+          <span title="<?php echo wfMessage('wikitolearnskin-download-button-title') ?>" class="tool tool--red multitool__trigger">
             <i class="tool__icon fa fa-download"></i>
           </span>
           <ul>
             <li>
-              <?php self::makeTool($collectionTools[2]['href'], $collectionTools[2]['text'], "tool--smaller tool--download-pdf", "fa-file-text-o" ); ?>
+              <?php self::makeTool($collectionTools[2]['href'], $collectionTools[2]['text'], "tool--smaller tool--red", "fa-file-text-o" ); ?>
             </li>
             <li>
-              <?php self::makeTool($collectionTools[3]['href'], $collectionTools[3]['text'], "tool--smaller tool--download-pdf", "fa-print" ); ?>
+              <?php self::makeTool($collectionTools[3]['href'], $collectionTools[3]['text'], "tool--smaller tool--red", "fa-print" ); ?>
             </li>
             <li>
-              <?php self::makeTool($collectionTools[1]['href'], $collectionTools[1]['text'], "tool--smaller tool--download-pdf", "fa-file-pdf-o" ); ?>
+              <?php self::makeTool($collectionTools[1]['href'], $collectionTools[1]['text'], "tool--smaller tool--red", "fa-file-pdf-o" ); ?>
             </li>
           </ul>
         </div>
@@ -668,18 +668,18 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       $editTools = $this->contentNavigation['views'];
     ?>
       <div class="multitool horizontal click-to-toggle">
-        <span title="<?php echo wfMessage('wikitolearnskin-advanced-button-title') ?>" class="tool tool--advanced multitool__trigger">
+        <span title="<?php echo wfMessage('wikitolearnskin-advanced-button-title') ?>" class="tool tool--black multitool__trigger">
           <i class="tool__icon fa fa-wrench"></i>
         </span>
         <ul>
           <li>
             <?php
-            self::makeTool($editTools['edit']['href'], $editTools['edit']['text'], "tool--smaller tool--advanced", "fa-pencil-square-o");
+            self::makeTool($editTools['edit']['href'], $editTools['edit']['text'], "tool--smaller tool--black", "fa-pencil-square-o");
             ?>
           </li>
           <li>
             <?php
-            self::makeTool($editTools['history']['href'], $editTools['history']['text'], "tool--smaller tool--advanced", "fa-history");
+            self::makeTool($editTools['history']['href'], $editTools['history']['text'], "tool--smaller tool--black", "fa-history");
              ?>
           </li>
       <?php foreach ($actionsTools as $key => $toolAttributes){ ?>
@@ -687,19 +687,19 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             <?php
             switch ($key) {
               case 'watch':
-                self::makeTool($toolAttributes['href'], $toolAttributes['text'], "tool--smaller tool--advanced", "fa-eye" );
+                self::makeTool($toolAttributes['href'], $toolAttributes['text'], "tool--smaller tool--black", "fa-eye" );
                 break;
               case 'unwatch':
-                self::makeTool($toolAttributes['href'], $toolAttributes['text'], "tool--smaller tool--advanced", "fa-eye-slash" );
+                self::makeTool($toolAttributes['href'], $toolAttributes['text'], "tool--smaller tool--black", "fa-eye-slash" );
                 break;
               case 'protect':
-                self::makeTool($toolAttributes['href'], $toolAttributes['text'], "tool--smaller tool--advanced", "fa-lock" );
+                self::makeTool($toolAttributes['href'], $toolAttributes['text'], "tool--smaller tool--black", "fa-lock" );
                 break;
               case 'delete':
-                self::makeTool($toolAttributes['href'], $toolAttributes['text'], "tool--smaller tool--advanced", "fa-trash" );
+                self::makeTool($toolAttributes['href'], $toolAttributes['text'], "tool--smaller tool--black", "fa-trash" );
                 break;
               case 'move':
-                self::makeTool($toolAttributes['href'], $toolAttributes['text'], "tool--smaller tool--advanced", "fa-reply" );
+                self::makeTool($toolAttributes['href'], $toolAttributes['text'], "tool--smaller tool--black", "fa-reply" );
                 break;
             }
             ?>

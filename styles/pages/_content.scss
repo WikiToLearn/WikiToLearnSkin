@@ -1,6 +1,6 @@
 main.page--article{
     .article{
-        
+
         &__wrapper{
             @include make-container();
             @include make-container-max-widths();
@@ -72,7 +72,7 @@ main.page--article{
 
             .tool{
                 $toolSize: 3rem;
-        
+
                 background-color: white;
                 border-radius: 50%;
 
@@ -87,8 +87,8 @@ main.page--article{
 
                 &:hover{
                     text-decoration: none;
-                }   
-                    
+                }
+
                 &--smaller{
                     height: $toolSize*0.75;
                     width: $toolSize*0.75;
@@ -107,23 +107,23 @@ main.page--article{
                     transition: all .1s linear;
                 }
 
-                &--view{
+                &--green{
                     @include colorTool($green);
                 }
 
-                &--ve-edit{
+                &--yellow{
                     @include colorTool($yellow);
                 }
 
-                &--download-pdf{
+                &--red{
                     @include colorTool($red);
                 }
 
-                &--advanced{
+                &--black{
                     @include colorTool($black-secondary);
                 }
 
-                &--navigation{
+                &--blue{
                     @include colorTool($mwblue);
                 }
 
