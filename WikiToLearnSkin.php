@@ -591,7 +591,6 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           break;
         }
       }
-      echo "<i class='tool--divider'></i>";
       self::buildPreviousAndNext();
     }
 
@@ -620,6 +619,10 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       $previousAndNext = CourseEditorUtils::getPreviousAndNext($this->pageTitle);
       $previous = $previousAndNext['previous'];
       $next = $previousAndNext['next'];
+      if ($previous !== NULL || $next != NULL){
+        echo "<i class='tool--divider'></i>";
+      }
+      
       if ($previous !== NULL) {
         $href = Skin::makeUrl($previous);
         $title = wfMessage('wikitolearnskin-previous-button-title');
