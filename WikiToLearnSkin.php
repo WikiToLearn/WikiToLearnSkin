@@ -417,7 +417,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     public function executeContentPage() {
       $namespaceAndTalk = $this->contentNavigation['namespaces'];
       //title-related basics
-      $fullTitle = $this->pageTitle;
+      $fullTitle = $this->pageTitle->getText();
       $titleComponents = explode("/", $fullTitle);
       if(count($titleComponents)>0) {
         $pageTitle = $titleComponents[count($titleComponents)-1];
@@ -557,8 +557,8 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       <div class="article__breadcrumb">
         <?php
           array_pop($titleComponents);  //remove current page
-          $partialLink = "";
-          for ($i=0;$i<count($titleComponents);$i++) {
+          $partialLink = $this->pageTitle->getNsText() . ":";
+          for ($i=0; $i<count($titleComponents); $i++) {
             $titleComponent = $titleComponents[$i];
             $partialLink .= $titleComponent;
             $linkObj = Title::newFromText($partialLink);
