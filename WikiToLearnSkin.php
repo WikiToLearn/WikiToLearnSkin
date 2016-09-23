@@ -165,7 +165,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                     foreach ( $toolbar as $key => $tool ) {
                       $tool['class'] = 'dropdown-item';
                       echo $this->makeListItem( $key, $tool, ["tag" => "span"] );
-                      $personalToolsCount++;
+                      //$personalToolsCount++;
                     }
                   ?>
                 </div>
@@ -415,16 +415,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     <?php }
 
     public function executeContentPage() {
-      $namespaceAndTalk = $this->contentNavigation['namespaces'];
-      //title-related basics
-      $fullTitle = $this->pageTitle->getText();
-      $titleComponents = explode("/", $fullTitle);
-      if(count($titleComponents)>0) {
-        $pageTitle = $titleComponents[count($titleComponents)-1];
-      } else {
-        //this should never happen but who knows ¯\_(ツ)_/¯
-        $pageTitle = $fullTitle;
-      }
+      $pageTitle = $this->pageTitle->getSubpageText();
       ?>
       <main class="page page--article">
         <div class="article__wrapper">
@@ -433,8 +424,19 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               <h1 class="article__title">
                 <?php echo $pageTitle; ?>
               </h1>
-              <?php $this->executeBreadcrumb($titleComponents) ?>
-
+              <div class="article__breadcrumb">
+                <?php
+                $fullTitle = $this->pageTitle->getText();
+                $titleComponents = explode("/", $fullTitle);
+                $partialLink = $this->pageTitle->getNsText() . ":";
+                if ($this->namespaceId === NS_COURSE) {
+                  $this->executeCourseBreadcrumb($titleComponents, $partialLink);
+                }elseif ($this->namespaceId === NS_USER) {
+                  $this->executeUserBreadcrumb($titleComponents, $partialLink);
+                }else {
+                  $this->executeStandardBreadcrumb($titleComponents, $partialLink);
+                }?>
+              </div>
               <?php if ( $this->data['subtitle'] ) { ?>
                 <div class="article__contentSub" id="contentSub"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
                 <?php //$this->html('subtitle'); ?>
@@ -544,38 +546,116 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     <?php }
 
     /**
-    * Since this is a very personalized skin we can assume that
-    * all the subpages exist and avoid a few of the checks in Neverland
+    * Generete the breadcrumb for all namespaces except NS_USER and NS_COURSE
     * @param string[] $titleComponents the subtokens composed the title
+    * @param string $partialLink the partial link from which to build the links
     */
-    public function executeBreadcrumb($titleComponents) { ?>
-      <div class="article__breadcrumb">
-        <?php
-          $partialLink = $this->pageTitle->getNsText() . ":";
-          for ($i=0; $i<count($titleComponents); $i++) {
-            $titleComponent = $titleComponents[$i];
-            $partialLink .= $titleComponent;
-            $linkObj = Title::newFromText($partialLink);
-            $link = Linker::linkKnown($linkObj, htmlspecialchars( $titleComponent ));
-            echo $link;
-            if($i !== (count($titleComponents)-1)) { //we don't add the slash on last link ?>
-            <div class="dropdown breadcrumb__dropdown">
-              <span href="#" class="dropdown__toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fa fa-angle-right"></i>
-              </span>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">ADD SUBPAGES OF <?php echo $partialLink ?></a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </div>
-            <?php
-            }
-            $partialLink .= "/";
+    public function executeStandardBreadcrumb($titleComponents, $partialLink){
+      if(sizeof($titleComponents) > 1){
+        for ($i = 0; $i < sizeof($titleComponents); $i++) {
+          $titleComponent = $titleComponents[$i];
+          $partialLink .= $titleComponent;
+          $linkObj = Title::newFromText($partialLink);
+          $link = Linker::linkKnown($linkObj, htmlspecialchars( $titleComponent ));
+          echo $link;
+          if($i !== (sizeof($titleComponents) - 1)) { //we don't add the slash on last link
+            echo "<span class='breadcrumb__divider'> / </span>";
           }
-        ?>
+          $partialLink .= "/";
+        }
+      }
+    }
+
+    /**
+    * Generete the HTML for the breadcrumb in NS_USER exploting
+    * executeCourseBreadcrumb() method for the common part after the
+    * userpage link.
+    * @param string[] $titleComponents the subtokens composed the title
+    * @param string $partialLink the partial link from which to build the links
+    */
+    public function executeUserBreadcrumb($titleComponents, $partialLink){
+      if(sizeof($titleComponents) > 1){
+        $userPage = array_shift($titleComponents);
+        $partialLink .= $userPage;
+        $linkObj = Title::newFromText($partialLink);
+        $link = Linker::linkKnown($linkObj, htmlspecialchars( $userPage ));
+        echo ($link);
+        if(sizeof($titleComponents) === 1){
+          self::executeCourseBreadcrumb($titleComponents, $partialLink . "/");
+        }elseif (sizeof($titleComponents) > 1) {
+          echo "<span class='breadcrumb__divider'> / </span>";
+          self::executeCourseBreadcrumb($titleComponents, $partialLink . "/");
+        }
+      }
+    }
+
+    /**
+    * Generete the HTML of the breadcrumb for pages that follow the Course
+    * structure. We want to provide dropdowns within breadcrumb in these pages.
+    * Courses are allowed in NS_COURSE and NS_USER.
+    * @param string[] $titleComponents the subtokens composed the title
+    * @param string $partialLink the partial link from which to build the links
+    */
+    // FIXME: This function it's a mess! Should be refactored, but it works!
+    public function executeCourseBreadcrumb($titleComponents, $partialLink) {
+      if(sizeof($titleComponents) > 1){
+        $partialLink .= $titleComponents[0];
+        $subpages = CourseEditorUtils::getSections($partialLink);
+        $linkObj = Title::newFromText($partialLink);
+        $link = Linker::linkKnown($linkObj, htmlspecialchars( $titleComponents[0] ));
+        echo $link;
+        if (sizeof($subpages) !== 0){
+          self::buildBreadcrumbDropdown($subpages, $partialLink);
+        }
+        switch (sizeof($titleComponents)) {
+          case 2:
+          $linkObj = Title::newFromText($partialLink . "/" . $titleComponents[1]);
+          $link = Linker::linkKnown($linkObj, htmlspecialchars( $titleComponents[1] ));
+          echo $link;
+          break;
+          case 3:
+          $partialLink .= "/" . $titleComponents[1];
+          $linkObj = Title::newFromText($partialLink);
+          $link = Linker::linkKnown($linkObj, htmlspecialchars( $titleComponents[1] ));
+          echo $link;
+          $subpages = CourseEditorUtils::getChapters($partialLink);
+          if (sizeof($subpages) !== 0){
+            self::buildBreadcrumbDropdown($subpages, $partialLink);
+          }
+          $linkObj = Title::newFromText($partialLink . "/" . $titleComponents[2]);
+          $link = Linker::linkKnown($linkObj, htmlspecialchars( $titleComponents[2] ));
+          echo $link;
+          break;
+          default:
+          break;
+        }
+      }
+    }
+
+  /**
+  * Utility to build the dropdowns in the breadcrumb
+  * @param string[] $titleComponents the subtokens composed the title
+  * @param string $partialLink the partial link from which to build the links
+  */
+  private function buildBreadcrumbDropdown($subpages, $partialLink){
+    ?>
+      <div class="dropdown breadcrumb__dropdown">
+        <span href="#" class="dropdown__toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-angle-right"></i>
+        </span>
+        <div class="dropdown-menu">
+          <?php
+          foreach ($subpages as $subpage){
+            $subpageLink = Skin::makeUrl($partialLink . '/' . $subpage);
+            ?>
+            <a class="dropdown-item" href="<?php echo $subpageLink ?>"><?php echo $subpage ?></a>
+            <?php
+          }
+          ?>
+        </div>
       </div>
-    <?php }
+    <?php
+  }
 
     /**
     * Generate a WikiToLearn's version of tools related to page.
@@ -632,16 +712,16 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       if ($previous !== NULL || $next != NULL){
         echo "<i class='tool--divider'></i>";
       }
-      
+
       if ($previous !== NULL) {
         $href = Skin::makeUrl($previous);
         $title = wfMessage('wikitolearnskin-previous-button-title');
-        self::makeTool($href, $title, "tool--blue", "previous-button", "fa-angle-double-left");
+        self::makeTool($href, $title, null ,"tool--blue", "fa-angle-double-left");
       }
       if ($next !== NULL) {
         $href = Skin::makeUrl($next);
         $title = wfMessage('wikitolearnskin-next-button-title');
-        self::makeTool($href, $title, "tool--blue", "next-button", "fa-angle-double-right");
+        self::makeTool($href, $title, null, "tool--blue", "fa-angle-double-right");
       }
     }
 
@@ -731,7 +811,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     */
     private function makeTool($href, $title, $id, $classes, $icon) {
       ?>
-      <a id="<?php echo $id ?>" title="<?php echo $title ?>" class="tool <?php echo $classes?>" href="<?php echo $href ?>">
+      <a <?php if($id !== NULL){ echo ('id="' . $id . '"'); }?> title="<?php echo $title ?>" class="tool <?php echo $classes?>" href="<?php echo $href ?>">
           <i class="tool__icon fa <?php echo $icon ?>"></i>
       </a>
       <?php
