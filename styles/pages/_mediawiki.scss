@@ -1,0 +1,26 @@
+body{
+
+    &.mw-special-CreateAccount{ #register page
+        .mw-ui-container {
+            display: flex;
+
+            #userloginForm{
+                flex: 1;
+                float: none;
+                margin-right: 2rem;
+            }
+
+            .mw-createacct-benefits-container{
+                flex: 1;
+            }
+        }
+    }
+    
+    .mw-ui-button{
+        max-width: 100%;
+    }
+
+    .mw-ui-vform{
+        width: auto;
+    }
+}
