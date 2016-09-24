@@ -152,7 +152,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               </a>
             <?php } else { ?>
               <div class="dropdown dropdown--personal-tools">
-                <a class="nav__link nav__link--hamburger nav__link--hover-green" href="#" id="dropdownToolbox" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav__link nav__link--hamburger nav__link--hover-mwblue" href="#" id="dropdownToolbox" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span><?php echo $user->getName() ?></span>
                     <i class="fa fa-bars"></i>
                 </a>
