@@ -419,23 +419,25 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       ?>
       <main class="page page--article">
         <div class="article__wrapper">
+          <?php
+          $fullTitle = $this->pageTitle->getText();
+          $titleComponents = explode("/", $fullTitle);
+          $partialLink = $this->pageTitle->getNsText() . ":"; ?>
+          <?php if(count($titleComponents) > 1) {
+            echo '<div class="article__breadcrumb">';
+            echo '<div class="breadcrumb">';
+            if ($this->namespaceId === NS_COURSE) {
+              $this->executeCourseBreadcrumb($titleComponents, $partialLink);
+            }elseif ($this->namespaceId === NS_USER) {
+              $this->executeUserBreadcrumb($titleComponents, $partialLink);
+            }else {
+              $this->executeStandardBreadcrumb($titleComponents, $partialLink);
+            }
+            echo "</div>";
+            echo '</div>';
+            }
+          ?>
           <div class="article__main">
-              <?php
-              $fullTitle = $this->pageTitle->getText();
-              $titleComponents = explode("/", $fullTitle);
-              $partialLink = $this->pageTitle->getNsText() . ":"; ?>
-              <?php if(count($titleComponents) > 1) {
-                echo '<div class="article__breadcrumb">';
-                if ($this->namespaceId === NS_COURSE) {
-                  $this->executeCourseBreadcrumb($titleComponents, $partialLink);
-                }elseif ($this->namespaceId === NS_USER) {
-                  $this->executeUserBreadcrumb($titleComponents, $partialLink);
-                }else {
-                  $this->executeStandardBreadcrumb($titleComponents, $partialLink);
-                }
-                echo '</div>';
-              }
-              ?>
             <article class="article__sheet mw-body">
               <h1 class="article__title">
                 <?php echo $pageTitle; ?>
@@ -462,14 +464,14 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 </div>
               </div>
             </article>
-          </div>
-          <?php if (self::isEditableNamespace()) { ?>
-            <div class="article__tools">
-              <div id="tools_container">
-                <?php $this->executePageTools($fullTitle) ?>
+            <?php if (self::isEditableNamespace()) { ?>
+              <div class="article__tools">
+                <div id="tools_container">
+                  <?php $this->executePageTools($fullTitle) ?>
+                </div>
               </div>
-            </div>
-          <?php } ?>
+            <?php } ?>
+          </div>
         </div>
 
       </main>

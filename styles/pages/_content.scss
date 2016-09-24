@@ -5,53 +5,16 @@ main.page--article{
             @include make-container();
             @include make-container-max-widths();
 
-            display: flex;
             padding: 0 3rem;
         }
-
+        
         &__main{
+            display: flex;
+        }
+        
+        &__sheet{
             flex-grow: 2; //grow as much as possible
             flex-basis: 100%; //use all space, for real (this is to fix the bug about less than one line content)
-        }
-
-        &__nav{
-            border-bottom: 1px solid #eee;
-
-            &:before{
-                content: " ";
-                display: table;
-            }
-            &:after{
-                clear: both;
-                content: " ";
-                display: block;
-            }
-
-            .nav__item{
-                display: block;
-                position: relative;
-                float: left;
-                margin-bottom: -1px;
-            }
-
-            a{
-                display: block;
-                padding: 0.25rem 1rem;
-                border-top-left-radius: 0.5rem;
-                border-top-right-radius: 0.5rem;
-                background-color: white;
-                margin-right: 0.5rem;
-                &.selected{
-                    box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
-                    background-color: white;
-                    border: 1px solid #eee;
-                    border-bottom: 0;
-                }
-            }
-
-        }
-
-        &__sheet{
             background-color: white;
             box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
             margin-bottom: 0.5rem;
@@ -172,55 +135,58 @@ main.page--article{
         }
 
         &__breadcrumb{
-            
-            background-color: white;
-            box-shadow: rgba(0,0,0,0.1) 0px 1px 2px;
-            display: inline-block;
-            padding: 0.25rem 1rem;
-            text-align: left;
-            
+            .breadcrumb{
 
-            .breadcrumb__item{
-                &:last-of-type{
-                    color: $black;
-                    cursor: default;
-                    &:hover{
-                        text-decoration: none;
-                    }
-                }
-            }
+                background-color: white;
+                box-shadow: rgba(0,0,0,0.1) 0px 1px 2px;
+                display: inline-block;
+                padding: 0.25rem 1rem;
+                margin: 0;
+                text-align: left;
+                
 
-            .breadcrumb__dropdown{
-                text-align: center;
-                .dropdown__toggle{
-                    border: 1px solid #eee;
-                    border-radius: $border-radius;
-                    color: $mwblue;
-                    cursor: pointer;
-                    display: inline-block;
-                    width: 1.5rem; 
-                    
-                    transition: 0.1s linear all; 
-                    &:hover{
-                        background-color: #eee;
-                        transition: 0.1s linear all; 
-                    }
-                    .fa{
-                        transition: 0.1s linear all; 
-                    }
-                }
-
-                &.open{
-                    .dropdown__toggle{
-                        background-color: #eee;
-                        .fa{
-                            transform: rotate(90deg);
-                            transition: 0.1s linear all; 
+                .breadcrumb__item{
+                    &:last-of-type{
+                        color: $black;
+                        cursor: default;
+                        &:hover{
+                            text-decoration: none;
                         }
                     }
                 }
 
-                display: inline-block;
+                &__dropdown{
+                    text-align: center;
+                    .dropdown__toggle{
+                        border: 1px solid #eee;
+                        border-radius: $border-radius;
+                        color: $mwblue;
+                        cursor: pointer;
+                        display: inline-block;
+                        width: 1.5rem; 
+                        
+                        transition: 0.1s linear all; 
+                        &:hover{
+                            background-color: #eee;
+                            transition: 0.1s linear all; 
+                        }
+                        .fa{
+                            transition: 0.1s linear all; 
+                        }
+                    }
+
+                    &.open{
+                        .dropdown__toggle{
+                            background-color: #eee;
+                            .fa{
+                                transform: rotate(90deg);
+                                transition: 0.1s linear all; 
+                            }
+                        }
+                    }
+
+                    display: inline-block;
+                }
             }
         }
 
