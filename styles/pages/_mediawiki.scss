@@ -16,6 +16,35 @@ body{
         }
     }
     
+    #mw-prefs-form {
+        border: 1px solid #eee;
+        border-radius: $border-radius;
+        padding: 1rem;
+
+        fieldset{
+            margin-bottom: 1rem;
+        }
+
+        .mainLegend{
+            display: none;
+        }
+        
+        table{
+            margin-left: 1rem;
+            tr .mw-label{
+                text-align: left;
+                font-weight: 600;
+                label{
+                    margin-bottom: 0;
+                }
+            }
+
+            label{
+                display: inline;
+            }
+        }
+    }
+
     .mw-ui-button{
         max-width: 100%;
     }
