@@ -142,6 +142,7 @@ main.page--article{
 
         &__title{
             text-align: center;
+            margin-bottom: 1rem;
         }
 
         &__text{
@@ -171,27 +172,50 @@ main.page--article{
         }
 
         &__breadcrumb{
-            text-align: center;
-            margin-bottom: 1rem;
-            a{
-                color: $green;
+            
+            background-color: white;
+            box-shadow: rgba(0,0,0,0.1) 0px 1px 2px;
+            display: inline-block;
+            padding: 0.25rem 1rem;
+            text-align: left;
+            
+
+            .breadcrumb__item{
+                &:last-of-type{
+                    color: $black;
+                    cursor: default;
+                    &:hover{
+                        text-decoration: none;
+                    }
+                }
             }
 
             .breadcrumb__dropdown{
-                
+                text-align: center;
                 .dropdown__toggle{
+                    border: 1px solid #eee;
+                    border-radius: $border-radius;
                     color: $mwblue;
                     cursor: pointer;
+                    display: inline-block;
+                    width: 1.5rem; 
+                    
+                    transition: 0.1s linear all; 
+                    &:hover{
+                        background-color: #eee;
+                        transition: 0.1s linear all; 
+                    }
                     .fa{
-                        transition: 0.1s linear transform; 
+                        transition: 0.1s linear all; 
                     }
                 }
 
                 &.open{
                     .dropdown__toggle{
+                        background-color: #eee;
                         .fa{
                             transform: rotate(90deg);
-                            transition: 0.1s linear transform; 
+                            transition: 0.1s linear all; 
                         }
                     }
                 }

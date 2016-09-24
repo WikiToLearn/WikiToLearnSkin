@@ -160,6 +160,11 @@
                     &--hover-dark-green {
                         @include animate-bottom-border($dark-green);
                     }
+
+                    &--hover-mwblue {
+                        @include animate-bottom-border($mwblue);
+                    }
+
                 }
             }
 

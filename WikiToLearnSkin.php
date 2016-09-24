@@ -144,10 +144,10 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               $user = $this->skin->getUser();
             ?>
             <?php if($user->isAnon()){ ?>
-              <a href="<?php echo $this->skin->makeSpecialUrl('UserLogin'); ?>" class="nav__link nav__link--hover-green">
+              <a href="<?php echo $this->skin->makeSpecialUrl('UserLogin'); ?>" class="nav__link nav__link--hover-mwblue">
                 <?php $this->msg( 'login' ) ?>
               </a>
-              <a href="<?php echo $this->skin->makeSpecialUrl('CreateAccount'); ?>" class="nav__link nav__link--hover-green">
+              <a href="<?php echo $this->skin->makeSpecialUrl('CreateAccount'); ?>" class="nav__link nav__link--hover-mwblue">
                 <?php $this->msg( 'createaccount' ) ?>
               </a>
             <?php } else { ?>
@@ -420,23 +420,23 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       <main class="page page--article">
         <div class="article__wrapper">
           <div class="article__main">
+            <div class="article__breadcrumb">
+              <?php
+              $fullTitle = $this->pageTitle->getText();
+              $titleComponents = explode("/", $fullTitle);
+              $partialLink = $this->pageTitle->getNsText() . ":";
+              if ($this->namespaceId === NS_COURSE) {
+                $this->executeCourseBreadcrumb($titleComponents, $partialLink);
+              }elseif ($this->namespaceId === NS_USER) {
+                $this->executeUserBreadcrumb($titleComponents, $partialLink);
+              }else {
+                $this->executeStandardBreadcrumb($titleComponents, $partialLink);
+              }?>
+            </div>
             <article class="article__sheet mw-body">
               <h1 class="article__title">
                 <?php echo $pageTitle; ?>
               </h1>
-              <div class="article__breadcrumb">
-                <?php
-                $fullTitle = $this->pageTitle->getText();
-                $titleComponents = explode("/", $fullTitle);
-                $partialLink = $this->pageTitle->getNsText() . ":";
-                if ($this->namespaceId === NS_COURSE) {
-                  $this->executeCourseBreadcrumb($titleComponents, $partialLink);
-                }elseif ($this->namespaceId === NS_USER) {
-                  $this->executeUserBreadcrumb($titleComponents, $partialLink);
-                }else {
-                  $this->executeStandardBreadcrumb($titleComponents, $partialLink);
-                }?>
-              </div>
               <?php if ( $this->data['subtitle'] ) { ?>
                 <div class="article__contentSub" id="contentSub"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
                 <?php //$this->html('subtitle'); ?>
@@ -559,7 +559,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           $link = Linker::linkKnown($linkObj, htmlspecialchars( $titleComponent ));
           echo $link;
           if($i !== (sizeof($titleComponents) - 1)) { //we don't add the slash on last link
-            echo "<span class='breadcrumb__divider'> / </span>";
+            echo "<span class='breadcrumb__divider'> <i class='fa fa-angle-right'></i> </span>";
           }
           $partialLink .= "/";
         }
@@ -583,7 +583,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         if(sizeof($titleComponents) === 1){
           self::executeCourseBreadcrumb($titleComponents, $partialLink . "/");
         }elseif (sizeof($titleComponents) > 1) {
-          echo "<span class='breadcrumb__divider'> / </span>";
+          echo "<span class='breadcrumb__divider'> <i class='fa fa-angle-right'></i> </span>";
           self::executeCourseBreadcrumb($titleComponents, $partialLink . "/");
         }
       }
@@ -610,20 +610,20 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         switch (sizeof($titleComponents)) {
           case 2:
           $linkObj = Title::newFromText($partialLink . "/" . $titleComponents[1]);
-          $link = Linker::linkKnown($linkObj, htmlspecialchars( $titleComponents[1] ));
+          $link = Linker::linkKnown($linkObj, htmlspecialchars( $titleComponents[1] ), ["class" => "breadcrumb__item"]);
           echo $link;
           break;
           case 3:
           $partialLink .= "/" . $titleComponents[1];
           $linkObj = Title::newFromText($partialLink);
-          $link = Linker::linkKnown($linkObj, htmlspecialchars( $titleComponents[1] ));
+          $link = Linker::linkKnown($linkObj, htmlspecialchars( $titleComponents[1] ), ["class" => "breadcrumb__item"]);
           echo $link;
           $subpages = CourseEditorUtils::getChapters($partialLink);
           if (sizeof($subpages) !== 0){
             self::buildBreadcrumbDropdown($subpages, $partialLink);
           }
           $linkObj = Title::newFromText($partialLink . "/" . $titleComponents[2]);
-          $link = Linker::linkKnown($linkObj, htmlspecialchars( $titleComponents[2] ));
+          $link = Linker::linkKnown($linkObj, htmlspecialchars( $titleComponents[2] ), ["class" => "breadcrumb__item"]);
           echo $link;
           break;
           default:
