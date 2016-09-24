@@ -763,17 +763,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           <i class="tool__icon fa fa-wrench"></i>
         </span>
         <ul>
-          <li>
-            <?php
-            self::makeTool($editTools['edit']['href'], $editTools['edit']['text'], $editTools['edit']['id'], "tool--smaller tool--yellow", "fa-pencil-square-o");
-            ?>
-          </li>
-          <li>
-            <?php
-            self::makeTool($editTools['history']['href'], $editTools['history']['text'], $editTools['history']['id'], "tool--smaller tool--yellow", "fa-history");
-             ?>
-          </li>
-      <?php foreach ($actionsTools as $key => $toolAttributes){ ?>
+        <?php foreach ($actionsTools as $key => $toolAttributes){ ?>
           <li>
             <?php
             switch ($key) {
@@ -797,6 +787,16 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           </li>
         <?php
       } ?>
+          <li>
+            <?php
+            self::makeTool($editTools['history']['href'], $editTools['history']['text'], $editTools['history']['id'], "tool--smaller tool--yellow", "fa-history");
+             ?>
+          </li>
+          <li>
+            <?php
+            self::makeTool($editTools['edit']['href'], $editTools['edit']['text'], $editTools['edit']['id'], "tool--smaller tool--yellow", "fa-pencil-square-o");
+            ?>
+          </li>
         </ul>
       </div>
       <?php
