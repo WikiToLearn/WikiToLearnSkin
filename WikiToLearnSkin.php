@@ -558,7 +558,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         $titleComponent = $titleComponents[$i];
         $partialLink .= $titleComponent;
         $linkObj = Title::newFromText($partialLink);
-        $link = Linker::linkKnown($linkObj, htmlspecialchars( $titleComponent ));
+        $link = Linker::linkKnown($linkObj, htmlspecialchars( $titleComponent, ["class" => "breadcrumb__item"] ));
         echo $link;
         if($i !== (sizeof($titleComponents) - 1)) { //we don't add the slash on last link
           echo "<span class='breadcrumb__divider'> <i class='fa fa-angle-right'></i> </span>";
@@ -578,7 +578,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       $userPage = array_shift($titleComponents);
       $partialLink .= $userPage;
       $linkObj = Title::newFromText($partialLink);
-      $link = Linker::linkKnown($linkObj, htmlspecialchars( $userPage ));
+      $link = Linker::linkKnown($linkObj, htmlspecialchars( $userPage ), ["class" => "breadcrumb__item"]);
       echo ($link);
       echo "<span class='breadcrumb__divider'> <i class='fa fa-angle-right'></i> </span>";
       self::executeCourseBreadcrumb($titleComponents, $partialLink . "/");
@@ -596,7 +596,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       $partialLink .= $titleComponents[0];
       $subpages = CourseEditorUtils::getSections($partialLink);
       $linkObj = Title::newFromText($partialLink);
-      $link = Linker::linkKnown($linkObj, htmlspecialchars( $titleComponents[0] ));
+      $link = Linker::linkKnown($linkObj, htmlspecialchars( $titleComponents[0] ), ["class" => "breadcrumb__item"]);
       echo $link;
       if (count($subpages) !== 0 && count($titleComponents) > 1){
         self::buildBreadcrumbDropdown($subpages, $partialLink);
