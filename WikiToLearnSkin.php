@@ -420,19 +420,22 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       <main class="page page--article">
         <div class="article__wrapper">
           <div class="article__main">
-            <div class="article__breadcrumb">
               <?php
               $fullTitle = $this->pageTitle->getText();
               $titleComponents = explode("/", $fullTitle);
-              $partialLink = $this->pageTitle->getNsText() . ":";
-              if ($this->namespaceId === NS_COURSE) {
-                $this->executeCourseBreadcrumb($titleComponents, $partialLink);
-              }elseif ($this->namespaceId === NS_USER) {
-                $this->executeUserBreadcrumb($titleComponents, $partialLink);
-              }else {
-                $this->executeStandardBreadcrumb($titleComponents, $partialLink);
-              }?>
-            </div>
+              $partialLink = $this->pageTitle->getNsText() . ":"; ?>
+              <?php if(count($titleComponents) > 1) {
+                echo '<div class="article__breadcrumb">';
+                if ($this->namespaceId === NS_COURSE) {
+                  $this->executeCourseBreadcrumb($titleComponents, $partialLink);
+                }elseif ($this->namespaceId === NS_USER) {
+                  $this->executeUserBreadcrumb($titleComponents, $partialLink);
+                }else {
+                  $this->executeStandardBreadcrumb($titleComponents, $partialLink);
+                }
+                echo '</div>';
+              }
+              ?>
             <article class="article__sheet mw-body">
               <h1 class="article__title">
                 <?php echo $pageTitle; ?>
