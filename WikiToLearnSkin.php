@@ -415,33 +415,17 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     <?php }
 
     public function executeContentPage() {
-      $pageTitle = $this->pageTitle->getSubpageText();
+      $pageTitle = $this->pageTitle;
+      $displayTitle = $this->pageTitle->getSubpageText();
       ?>
       <main class="page page--article">
         <div class="article__wrapper">
-          <?php
-          $fullTitle = $this->pageTitle->getText();
-          $titleComponents = explode("/", $fullTitle);
-          $partialLink = $this->pageTitle->getNsText() . ":"; ?>
-          <?php if(count($titleComponents) > 1) {
-            echo '<div class="article__breadcrumb">';
-            echo '<div class="breadcrumb">';
-            if ($this->namespaceId === NS_COURSE) {
-              $this->executeCourseBreadcrumb($titleComponents, $partialLink);
-            }elseif ($this->namespaceId === NS_USER) {
-              $this->executeUserBreadcrumb($titleComponents, $partialLink);
-            }else {
-              $this->executeStandardBreadcrumb($titleComponents, $partialLink);
-            }
-            echo "</div>";
-            echo '</div>';
-            }
-          ?>
-          <div class="article__main">
-            <div class="article__sheet"> 
+          <?php self::executeBreadcrumb($pageTitle); //build the breadcrumb?>
+          <div class="article__main"> <!-- This is needed to wrap the "sheet" and the tools so we can display them one next to another-->
+            <div class="article__sheet"> <!-- This is needed to wrap the content (rectangular sheet and the bottom navigations button (so they don't overlap the tools) -->
               <article class="article__content mw-body">
                 <h1 class="article__title">
-                  <?php echo $pageTitle; ?>
+                  <?php echo $displayTitle; ?>
                 </h1>
                 <?php if ( $this->data['subtitle'] ) { ?>
                   <div class="article__contentSub" id="contentSub"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
@@ -463,17 +447,11 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                   <div class="article__dataAfterContent">
                     <?php $this->html( 'dataAfterContent' ); ?>
                   </div>
-                </div>
+                </div> <!-- Here the real content begins -->
               </article>
-              <?php self::buildPreviousAndNext(); ?>
+              <?php self::executePreviousNext(); //build previos and next ?>
             </div>
-            <?php if (self::isEditableNamespace()) { ?>
-              <div class="article__tools">
-                <div id="tools_container">
-                  <?php $this->executePageTools($fullTitle) ?>
-                </div>
-              </div>
-            <?php } ?>
+            <?php self::executePageTools($fullTitle) //build the tools?>
           </div>
         </div>
 
@@ -552,6 +530,28 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           </div>
         </footer>
     <?php }
+
+    /*
+    * Wrapper for generating and printing all kinds of breadcrumbs
+    */
+    public function executeBreadcrumb($pageTitle){
+      $fullTitle = $pageTitle->getText();
+      $titleComponents = explode("/", $fullTitle);
+      $partialLink = $pageTitle->getNsText() . ":";
+      if(count($titleComponents) > 1) {
+        echo '<div class="article__breadcrumb">';
+          echo '<div class="breadcrumb">';
+          if ($this->namespaceId === NS_COURSE) {
+            $this->executeCourseBreadcrumb($titleComponents, $partialLink);
+          }elseif ($this->namespaceId === NS_USER) {
+            $this->executeUserBreadcrumb($titleComponents, $partialLink);
+          }else {
+            $this->executeStandardBreadcrumb($titleComponents, $partialLink);
+          }
+          echo "</div>";
+        echo '</div>';
+        }
+    }
 
     /**
     * Generete the breadcrumb for all namespaces except NS_USER and NS_COURSE
@@ -662,22 +662,28 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     * and advaced tools.
     */
     public function executePageTools() {
-      $editTools = $this->contentNavigation['views'];
-      $namespaceAndTalk = $this->contentNavigation['namespaces'];
-      foreach ($editTools as $key => $toolAttributes) {
-        /*if($key === "view"){
-          self::makeTool($toolAttributes['href'], $toolAttributes['text'], $toolAttributes['id'], "tool--green", "fa-book" );
-        }else*/ if($key === "ve-edit"){
-          self::makeTool($toolAttributes['href'], $toolAttributes['text'], $toolAttributes['id'], "tool--red", "fa-pencil" );
-        }
-      }
-      self::buildAdvancedTools();
-      self::buildCollectionTools();
-      foreach ($namespaceAndTalk as $value) {
-        if ($value['id'] === "ca-talk") {
-          self::makeTool($value['href'], $value['text'], $value['id'], "tool--black", "fa-comments-o" );
-          break;
-        }
+      if (self::isEditableNamespace()) {
+        echo '<div class="article__tools">';
+          echo '<div id="tools_container">';
+          $editTools = $this->contentNavigation['views'];
+          $namespaceAndTalk = $this->contentNavigation['namespaces'];
+          foreach ($editTools as $key => $toolAttributes) {
+            /*if($key === "view"){
+              self::makeTool($toolAttributes['href'], $toolAttributes['text'], $toolAttributes['id'], "tool--green", "fa-book" );
+            }else*/ if($key === "ve-edit"){
+              self::makeTool($toolAttributes['href'], $toolAttributes['text'], $toolAttributes['id'], "tool--red", "fa-pencil" );
+            }
+          }
+          self::buildAdvancedTools();
+          self::buildCollectionTools();
+          foreach ($namespaceAndTalk as $value) {
+            if ($value['id'] === "ca-talk") {
+              self::makeTool($value['href'], $value['text'], $value['id'], "tool--black", "fa-comments-o" );
+              break;
+            }
+          }
+          echo '</div>';
+        echo '</div>';
       }
     }
 
@@ -702,7 +708,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     /**
     * Generate the HTML of previous and next buttons
     */
-    private function buildPreviousAndNext(){
+    private function executePreviousNext(){
       $previousAndNext = CourseEditorUtils::getPreviousAndNext($this->pageTitle);
       $previous = $previousAndNext['previous'];
       $next = $previousAndNext['next'];
