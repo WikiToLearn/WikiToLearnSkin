@@ -2,5 +2,14 @@
   "wikitolearnskin-next-button-title" : "The title of the link within the next button",
   "wikitolearnskin-previous-button-title" : "The title of the link within the previous button",
   "wikitolearnskin-download-button-title" : "The title of the span within the download button",
-  "wikitolearnskin-advanced-button-title" : "The title of the span within the advanced button"
+  "wikitolearnskin-advanced-button-title" : "The title of the span within the advanced button",
+  "wikitolearnskin-footer-contacs" : "Used within the footer for the contacts column",
+  "wikitolearnskin-footer-learn-more" : "Used within the footer for the learn more column",
+  "wikitolearnskin-footer-hosted-by" : "Used within the footer for the hosted by column",
+  "wikitolearnskin-footer-follow-us" : "Used within the footer for the follow us column",
+  "wikitolearnskin-navbar-about" : "Used within the navbar for the about button",
+  "wikitolearnskin-navbar-contribute" : "Used within the navbar for the contribute button",
+  "wikitolearnskin-join-us-button" : "The button label for the Join us button in the homepage",
+  "wikitolearnskin-read-more-stories-button" : "The label for the Read more stories about WikiToLearn button in the homepage",
+  "wikitolearnskin-contributions-from" : "The section title Contributions from in the homepage"
 }

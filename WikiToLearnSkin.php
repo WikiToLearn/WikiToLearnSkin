@@ -122,10 +122,10 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           </div>
           <nav class="nav">
             <a href="#" class="nav__link nav__link--hover-red">
-              Cos'è
+              <?php echo wfMessage('wikitolearnskin-navbar-about'); ?>
             </a>
             <a href="#"  class="nav__link nav__link--hover-yellow">
-              Collabora
+              <?php echo wfMessage('wikitolearnskin-navbar-contribute'); ?>
             </a>
             <a href="#"  class="nav__link nav__link--hover-green">
               Libri
@@ -294,7 +294,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         </section>
         <section class="join-us">
           <div class="join-us__content">
-            <a href="#" class="join-us__link">Join Us</a>
+            <a href="#" class="join-us__link"><?php echo wfMessage('wikitolearnskin-join-us-button'); ?></a>
             <div class="join-us__this-week">
                 This week on WikiToLearn: 32 new edits, 6 new pages and 2 new users.
             </div>
@@ -311,7 +311,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               La nostra filosofia è riassunta nel motto “Il sapere si accresce solo se condiviso”. Nella nostra piattaforma l'insegnamento e l'apprendimento convergono nella stesura e nel perfezionamento cooperativo di note, appunti e libri di testo, organizzabili e ri-assemblabili secondo le esigenze specifiche degli utenti.
             </p>
             <button class="media__button">
-              Learn More
+              <?php echo wfMessage('wikitolearnskin-footer-learn-more'); ?>
             </button>
           </div>
         </section>
@@ -356,12 +356,12 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 </footer>
               </div>
             </div>
-            <a href="#" class="testimonials__read-more">Read more stories about WikiToLearn</a>
+            <a href="#" class="testimonials__read-more"><?php echo wfMessage('wikitolearnskin-read-more-stories-button'); ?></a>
           </div>
         </section>
         <section class="contributors">
           <div class="contributors__content">
-            <h3 class="contributors__title">Contributions from</h3>
+            <h3 class="contributors__title"><?php echo wfMessage('wikitolearnskin-contributions-from'); ?></h3>
             <ul class="contributors__list">
               <div class="row">
                 <li class="contributors__item"><img src="https://upload.wikimedia.org/wikipedia/it/a/a2/Logo_Universit%C3%A0_Milano-Bicocca.jpg" alt=""></li>
@@ -465,7 +465,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               <img src="/skins/WikiToLearnSkin/images/wikitolearn-logo.png">
             </li>
             <li class="footer__contacts">
-              <h4>{{ Contacts }}</h4>
+              <h4><?php echo wfMessage('wikitolearnskin-footer-contacs'); ?></h4>
               <ul class="contacts-list">
                 <li>
                   <a href="mailto:info@wikitolearn.org"> info@wikitolearn.org </a>
@@ -482,13 +482,13 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               </ul>
             </li>
             <li class="footer__learn-more clearfix">
-              <h4 class="learn-more__first-heading">{{Learn More}}</h4>
+              <h4 class="learn-more__first-heading"><?php echo wfMessage('wikitolearnskin-footer-learn-more'); ?></h4>
               <ul class="learn-more__list">
                 <li>
                   <a class="learn-more__philosophy" href="#{{wikitolearn philosophy}}">{{ WikiToLearn philosophy }}</a>
                 </li>
               </ul>
-              <h4 class="learn-more__second-heading">{{Hosted by}}</h4>
+              <h4 class="learn-more__second-heading"><?php echo wfMessage('wikitolearnskin-footer-hosted-by'); ?></h4>
               <ul class="learn-more__sponsors">
                 <li>
                   <a href="#GARR">Garr</a>
@@ -499,7 +499,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               </ul>
             </li>
             <li class="footer__social">
-              <h4>{{Connect}}</h4>
+              <h4><?php echo wfMessage('wikitolearnskin-footer-follow-us'); ?></h4>
               <ul class="social-icons">
                 <li>
                   <i class="fa fa-facebook fa-2x" aria-hidden="true"></i>
@@ -717,13 +717,13 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         if ($previous !== NULL) {
           $href = Skin::makeUrl($previous);
           $title = wfMessage('wikitolearnskin-previous-button-title');
-          echo "<a href='$href' title='$title' class='navigation__button navigation__button--previous'><i class='fa fa-angle-double-left'></i> Previous</a>";
+          echo "<a href='$href' title='$title' class='navigation__button navigation__button--previous'><i class='fa fa-angle-double-left'></i>&nbsp;$title</a>";
 
         }
         if ($next !== NULL) {
           $href = Skin::makeUrl($next);
           $title = wfMessage('wikitolearnskin-next-button-title');
-          echo "<a href='$href' title='$title' class='navigation__button navigation__button--next'>Next <i class='fa fa-angle-double-right'></i></a>";
+          echo "<a href='$href' title='$title' class='navigation__button navigation__button--next'>$title&nbsp;<i class='fa fa-angle-double-right'></i></a>";
         }
         echo '</div>';
       }
