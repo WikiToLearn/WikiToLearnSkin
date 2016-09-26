@@ -438,32 +438,35 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             }
           ?>
           <div class="article__main">
-            <article class="article__sheet mw-body">
-              <h1 class="article__title">
-                <?php echo $pageTitle; ?>
-              </h1>
-              <?php if ( $this->data['subtitle'] ) { ?>
-                <div class="article__contentSub" id="contentSub"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
-                <?php //$this->html('subtitle'); ?>
+            <div class="article__sheet"> 
+              <article class="article__content mw-body">
+                <h1 class="article__title">
+                  <?php echo $pageTitle; ?>
+                </h1>
+                <?php if ( $this->data['subtitle'] ) { ?>
+                  <div class="article__contentSub" id="contentSub"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
+                  <?php //$this->html('subtitle'); ?>
+                  </div>
+                <?php } ?>
+                  <?php if ( $this->data['undelete'] ) { ?>
+                  <div class="article__contentSub2" id="contentSub2"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
+                  <?php $this->html( 'undelete' ); ?>
+                  </div>
+                <?php } ?>
+                <div id="content"> <!-- #content tells visauleditor where to put itself: under the title -->
+                  <div class="article__text" id="bodyContent">
+                    <?php $this->html( 'bodytext' ); ?>
+                  </div>
+                  <div class="article__categories">
+                    <?php $this->html( 'catlinks' ); ?>
+                  </div>
+                  <div class="article__dataAfterContent">
+                    <?php $this->html( 'dataAfterContent' ); ?>
+                  </div>
                 </div>
-              <?php } ?>
-                <?php if ( $this->data['undelete'] ) { ?>
-                <div class="article__contentSub2" id="contentSub2"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
-                <?php $this->html( 'undelete' ); ?>
-                </div>
-              <?php } ?>
-              <div id="content"> <!-- #content tells visauleditor where to put itself: under the title -->
-                <div class="article__text" id="bodyContent">
-                  <?php $this->html( 'bodytext' ); ?>
-                </div>
-                <div class="article__categories">
-                  <?php $this->html( 'catlinks' ); ?>
-                </div>
-                <div class="article__dataAfterContent">
-                  <?php $this->html( 'dataAfterContent' ); ?>
-                </div>
-              </div>
-            </article>
+              </article>
+              <?php self::buildPreviousAndNext(); ?>
+            </div>
             <?php if (self::isEditableNamespace()) { ?>
               <div class="article__tools">
                 <div id="tools_container">
@@ -676,7 +679,6 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           break;
         }
       }
-      self::buildPreviousAndNext();
     }
 
     /**
@@ -705,18 +707,19 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       $previous = $previousAndNext['previous'];
       $next = $previousAndNext['next'];
       if ($previous !== NULL || $next != NULL){
-        echo "<i class='tool--divider'></i>";
-      }
+        echo '<div class="article__navigation">';
+        if ($previous !== NULL) {
+          $href = Skin::makeUrl($previous);
+          $title = wfMessage('wikitolearnskin-previous-button-title');
+          echo "<a href='$href' title='$title' class='navigation__button navigation__button--previous'><i class='fa fa-angle-double-left'></i> Previous</a>";
 
-      if ($previous !== NULL) {
-        $href = Skin::makeUrl($previous);
-        $title = wfMessage('wikitolearnskin-previous-button-title');
-        self::makeTool($href, $title, null ,"tool--blue", "fa-angle-double-left");
-      }
-      if ($next !== NULL) {
-        $href = Skin::makeUrl($next);
-        $title = wfMessage('wikitolearnskin-next-button-title');
-        self::makeTool($href, $title, null, "tool--blue", "fa-angle-double-right");
+        }
+        if ($next !== NULL) {
+          $href = Skin::makeUrl($next);
+          $title = wfMessage('wikitolearnskin-next-button-title');
+          echo "<a href='$href' title='$title' class='navigation__button navigation__button--next'>Next <i class='fa fa-angle-double-right'></i></a>";
+        }
+        echo '</div>';
       }
     }
 

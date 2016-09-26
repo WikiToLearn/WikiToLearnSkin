@@ -15,11 +15,40 @@ main.page--article{
         &__sheet{
             flex-grow: 2; //grow as much as possible
             flex-basis: 100%; //use all space, for real (this is to fix the bug about less than one line content)
+        }
+        
+        &__content{
             background-color: white;
             box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
-            margin-bottom: 0.5rem;
             padding: 3rem;
             position: relative;
+        }
+        
+        &__navigation{
+            margin-top: 0.75rem;
+
+            &::after{
+                clear: both;
+                content: " ";
+                display: block;
+            }
+
+           .navigation{
+                &__button{
+                    background-color: white;
+                    box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
+                    padding: 0.5rem 1.5rem;
+                    &--previous{
+                        float: left;
+                    }
+
+                    &--next{
+                        float: right;
+                    }
+                }
+
+
+           } 
         }
 
         &__tools{
@@ -143,7 +172,14 @@ main.page--article{
                 padding: 0.25rem 1rem;
                 margin: 0;
                 text-align: left;
-                
+                    
+                &__divider{
+                    text-align: center;
+                    display: inline-block;
+                    width: 1.5rem; 
+                    margin: 0 0.15rem;
+                    color: $black-secondary;
+                }
 
                 .breadcrumb__item{
                     &:last-of-type{
@@ -164,7 +200,8 @@ main.page--article{
                         cursor: pointer;
                         display: inline-block;
                         width: 1.5rem; 
-                        
+                        margin: 0 0.15rem;
+
                         transition: 0.1s linear all; 
                         &:hover{
                             background-color: #eee;
