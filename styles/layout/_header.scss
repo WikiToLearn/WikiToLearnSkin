@@ -15,7 +15,7 @@
             @include make-container();
             @include make-container-max-widths();
         }
-        
+
         @include media-breakpoint-between(sm, md) {
             width: 90%;
         }
@@ -33,7 +33,7 @@
             @include media-breakpoint-up(md) {
                 @include make-col(6);
             }
-            
+
             a{
                 text-decoration: none;
 
@@ -128,7 +128,7 @@
                 &--hamburger {
                     @include media-breakpoint-down(sm) {
                         display: block;
-                        color: $black; 
+                        color: $black;
                         text-align: center;
                         text-decoration: none;
 
@@ -169,7 +169,7 @@
             }
 
             &__search {
-                
+
                 @include media-breakpoint-down(xs) {
                     display: inline-block;
                     @include make-col-ready();
@@ -230,7 +230,7 @@
 
                 @include media-breakpoint-down(xs) {
                     text-align: center;
-                    
+
                     @include make-col-ready();
                     @include make-col(2);
                 }
@@ -253,8 +253,8 @@
                     }
 
                     .dropdown-item a{
-                        display: block; 
-                        text-transform: capitalize;                  
+                        display: block;
+                        text-transform: capitalize;
                     }
                 }
 
@@ -295,7 +295,7 @@
                           background-color: $dark-green;
                         }
                     }
-                    
+
                     &__mark-read-notifications{
                         float: right;
                     }
@@ -347,7 +347,7 @@
 
                         .notifications-message {
                             @extend .text-muted;
-                            
+
                             margin-bottom: 0;
                         }
 
@@ -375,6 +375,29 @@
                     .dropdown-divider {
                         margin: 0;
                     }
+                }
+            }
+
+            &--languages {
+                @include media-breakpoint-down(xs) {
+                    @include make-col-ready();
+                    @include make-col(2);
+                    @include make-col-pull(8);
+                }
+
+                .dropdown-menu{
+                    line-height: 1.75rem;
+
+                    @include media-breakpoint-down(xs) {
+                        width: 100vw;
+                        top: 44.6px;
+                        left: 0;
+                    }
+                }
+
+                .dropdown-item a{
+                    display: block;
+                    text-transform: capitalize;
                 }
             }
 

@@ -70,11 +70,13 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     {
       //Declare useful variables for the whole template functions
       global $wgOut, $wgRequest, $wgUser;
+      //global $wgSupportedLanguages;
       $this->skin = $this->getSkin();
       $this->namespaceId = $wgOut->getTitle()->getNamespace();
       $this->pageTitle = $wgOut->getTitle();
       $this->user = $wgUser;
       $this->contentNavigation = $this->data['content_navigation'];
+      $this->supportedLanguages = array('it' => 'it', 'en' => 'gb', 'de' => 'de', 'fr' => 'fr', 'ca' => 'es', 'es' => 'es')
 
       $this->html( 'headelement' ); ?>
             <?php $this->html( 'newtalk' ); ?>
@@ -228,6 +230,15 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 </div>
               </div>
             <?php } ?>
+            &nbsp;
+            <div class="dropdown dropdown--languages">
+              <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-language"></i>
+              </a>
+              <div class="dropdown-menu">
+                <?php self::generateLanguageSelectorItems(); ?>
+              </div>
+            </div>
           </nav>
         </div>
       </header>
@@ -819,5 +830,16 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           <i class="tool__icon fa <?php echo $icon ?>"></i>
       </a>
       <?php
+    }
+
+    /**
+    * Generate the HTML of the languages dropdown
+    */
+    private function generateLanguageSelectorItems(){
+      $supportedLanguages = $this->supportedLanguages;
+      asort($supportedLanguages);
+      foreach($supportedLanguages as $lang => $flag) {
+        echo '<a class="dropdown-item" href="' . $lang . '"><span class="flag-icon flag-icon-' . $flag . '"></span>&nbsp;' . $lang . '</a>';
+      }
     }
 }

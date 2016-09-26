@@ -24,6 +24,7 @@
         "skin.wikitolearn": {
             "position": "top",
             "styles": {
+                    "bower_components/flag-icon-css/css/flag-icon.css" : { "media": "screen" },
                     "bower_components/font-awesome/css/font-awesome.css": { "media": "screen" },
                     "build/styles/skin.css": { "media": "screen" }
             }
