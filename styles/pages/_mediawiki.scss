@@ -52,4 +52,17 @@ body{
     .mw-ui-vform{
         width: auto;
     }
+
+    #mw-content-text{ 
+        //this is to fix float:left on SSection
+        //this is actually our fault 
+        //but as long as we don't change the SSection template 
+        //we have to deal with the issue like this 
+        
+        &::after{
+            content: " ";
+            clear: both;
+            display: block;
+        }
+    }
 }
