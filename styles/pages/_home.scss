@@ -36,14 +36,18 @@
 
     &__wrapper{
         display: block;
-        margin: 0.5rem 0;
 
-        @include make-col-ready($gutter: $pages-home-grid-gutter-width-departments);
+        /*@include make-col-ready($gutter: $pages-home-grid-gutter-width-departments);
         @include make-col(3);
 
         @include media-breakpoint-down(md) {
             @include make-col-ready($gutter: $pages-home-grid-gutter-width-departments/2);
-        }
+        }*/
+
+        float: left; //we have to do this since bootstrap does not allow 5cols per row
+        width: 20%;
+        padding: 0 0.25rem;
+        padding-bottom: 0.5rem;
     }
 
     &__item {

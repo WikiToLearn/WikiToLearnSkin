@@ -273,6 +273,12 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 <span class="departments__name">Matematica</span>
               </div>
             </li>
+            <li class="departments__wrapper departments__wrapper--last">
+              <div class="departments__item">
+                <img class="departments__image" src="http://i.imgur.com/PEPTSKE.png" alt="">
+                <span class="departments__name">Matematica</span>
+              </div>
+            </li>
             <div class="clearfix"></div>
             <li class="departments__wrapper">
               <div class="departments__item">
@@ -296,6 +302,12 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               <div class="departments__item">
                 <img class="departments__image" src="http://i.imgur.com/PEPTSKE.png" alt="">
                 <span class="departments__name">Matematica</span>
+              </div>
+            </li>
+            <li class="departments__wrapper">
+              <div class="departments__item">
+                <img class="departments__image" src="http://i.imgur.com/XtYKLW2.png" alt="">
+                <span class="departments__name">Fisica</span>
               </div>
             </li>
             <div class="clearfix"></div>
