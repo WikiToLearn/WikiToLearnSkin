@@ -20,10 +20,10 @@
   },
   "homepage": "https://github.com/WikiToLearn/WikiToLearnSkin#readme",
   "dependencies": {
-    "bower": "^1.7.9"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
+    "bower": "^1.7.9",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-cli": "^1.2.2",
     "gulp-plumber": "^1.1.0",
