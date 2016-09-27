@@ -131,7 +131,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               <?php echo wfMessage('wikitolearnskin-navbar-third-option'); ?>
             </a>
             <span class="nav__search">
-            <form action="<?php $this->text( 'wgScript' ); ?>" autocomplete="off">
+            <form id="searchForm" action="<?php $this->text( 'wgScript' ); ?>" autocomplete="off">
               <input type="hidden" name="title" value="<?php $this->text( 'searchtitle' ) ?>" />
               <?php echo $this->makeSearchInput( array( 'id' => 'searchInput' ) ); ?>
               <button type="submit" class="nav__search-button">

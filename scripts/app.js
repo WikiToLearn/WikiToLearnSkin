@@ -35,5 +35,4 @@
 
     //Create notification widget
     var notificationsWidget = new NotificationsWidget();
-
 } )( jQuery, mediaWiki );
