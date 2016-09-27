@@ -168,12 +168,18 @@
         color: white;
         cursor: pointer;
         display: table;
+
         @include media-breakpoint-down(lg) {
             font-size: .8rem;
         }
         margin: 1rem auto;
         outline: 0;
         padding: 0.5rem 1rem;
+
+        &:hover{
+            text-decoration: none;
+            color: white;
+        }
     }
 
 }
