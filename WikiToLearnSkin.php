@@ -27,7 +27,7 @@ class SkinWikiToLearnSkin extends SkinTemplate
     public function initPage( OutputPage $out )
     {
         parent::initPage( $out );
-        $out->addMeta( 'viewport', 'width=device-width, initial-scale=1, shrink-to-fit=no' );
+        $out->addMeta( 'viewport', 'width=device-width, initial-scale=1' );
         $out->addModules( 'skin.wikitolearn.js' );
     }
 

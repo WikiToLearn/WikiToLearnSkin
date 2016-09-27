@@ -15,6 +15,7 @@ main.page--article{
         &__sheet{
             flex-grow: 2; //grow as much as possible
             flex-basis: 100%; //use all space, for real (this is to fix the bug about less than one line content)
+            max-width: 100%;
         }
         
         &__content{
