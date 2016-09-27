@@ -1,23 +1,28 @@
 {
+  "wikitolearnskin-home-claim": "The claim right before the departments",
+
   "wikitolearnskin-next-button-title" : "The title of the link within the next button",
   "wikitolearnskin-previous-button-title" : "The title of the link within the previous button",
   "wikitolearnskin-download-button-title" : "The title of the span within the download button",
   "wikitolearnskin-advanced-button-title" : "The title of the span within the advanced button",
-  "wikitolearnskin-footer-contacs" : "Used within the footer for the contacts column",
-  "wikitolearnskin-footer-learn-more" : "Used within the footer for the learn more column",
-  "wikitolearnskin-footer-hosted-by" : "Used within the footer for the hosted by column",
-  "wikitolearnskin-footer-follow-us" : "Used within the footer for the follow us column",
+  
   "wikitolearnskin-navbar-about" : "Used within the navbar for the about button",
   "wikitolearnskin-navbar-contribute" : "Used within the navbar for the contribute button",
   "wikitolearnskin-navbar-third-option" : "Used within the navbar for the third button",
+  "wikitolearnskin-navbar-about-link" : "wikitolearnskin-navbar-about-link",
+  "wikitolearnskin-navbar-contribute-link" : "wikitolearnskin-navbar-contribute-link",
+  "wikitolearnskin-navbar-third-option-link" : "wikitolearnskin-navbar-contribute-link",
+  
   "wikitolearnskin-join-us-button" : "The button label for the Join us button in the homepage",
-  "wikitolearnskin-read-more-stories-button" : "The label for the Read more stories about WikiToLearn button in the homepage",
-  "wikitolearnskin-contributions-from" : "The section title Contributions from in the homepage",
-  "wikitolearnskin-home-claim": "The claim right before the departments",
+  "wikitolearnskin-join-us-button-link" : "wikitolearnskin-join-us-button-link",
+  
+
   "wikitolearnskin-media-video-url": "wikitolearnskin-media-video-url",
   "wikitolearnskin-media-title": "wikitolearnskin-media-title",
   "wikitolearnskin-media-text": "wikitolearnskin-media-text",
   "wikitolearnskin-media-learn-more": "wikitolearnskin-media-learn-more",
+  "wikitolearnskin-media-learn-more-link": "wikitolearnskin-media-learn-more-link",
+
   "wikitolearnskin-testimonials-first-quote": "wikitolearnskin-testimonials-first-quote",
   "wikitolearnskin-testimonials-first-name": "wikitolearnskin-testimonials-first-name",
   "wikitolearnskin-testimonials-first-image-path": "wikitolearnskin-testimonials-first-image-path",
@@ -27,4 +32,15 @@
   "wikitolearnskin-testimonials-third-quote": "wikitolearnskin-testimonials-third-quote",
   "wikitolearnskin-testimonials-third-name": "wikitolearnskin-testimonials-third-name",
   "wikitolearnskin-testimonials-third-image-path": "wikitolearnskin-testimonials-first-image-path",
+  "wikitolearnskin-read-more-stories-button" : "The label for the Read more stories about WikiToLearn button in the homepage",
+  "wikitolearnskin-read-more-stories-button-link" : "wikitolearnskin-read-more-stories-button-link",
+
+  "wikitolearnskin-contributions-from" : "The section title Contributions from in the homepage",
+
+
+  "wikitolearnskin-footer-contacs" : "Used within the footer for the contacts column",
+  "wikitolearnskin-footer-learn-more" : "Used within the footer for the learn more column",
+  "wikitolearnskin-footer-hosted-by" : "Used within the footer for the hosted by column",
+  "wikitolearnskin-footer-follow-us" : "Used within the footer for the follow us column"
+  
 }

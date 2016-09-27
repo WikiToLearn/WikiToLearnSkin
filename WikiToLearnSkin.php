@@ -121,13 +121,13 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             </a>
           </div>
           <nav class="nav">
-            <a href="#" class="nav__link nav__link--hover-red">
+            <a href="<?php echo wfMessage('wikitolearnskin-navbar-about-link')->plain(); ?>" class="nav__link nav__link--hover-red">
               <?php echo wfMessage('wikitolearnskin-navbar-about'); ?>
             </a>
-            <a href="#"  class="nav__link nav__link--hover-yellow">
+            <a href="<?php echo wfMessage('wikitolearnskin-navbar-contribute-link')->plain(); ?>"  class="nav__link nav__link--hover-yellow">
               <?php echo wfMessage('wikitolearnskin-navbar-contribute'); ?>
             </a>
-            <a href="#"  class="nav__link nav__link--hover-green">
+            <a href="<?php echo wfMessage('wikitolearnskin-navbar-third-option-link')->plain(); ?>"  class="nav__link nav__link--hover-green">
               <?php echo wfMessage('wikitolearnskin-navbar-third-option'); ?>
             </a>
             <span class="nav__search">
@@ -303,7 +303,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         </section>
         <section class="join-us">
           <div class="join-us__content">
-            <a href="#" class="join-us__link"><?php echo wfMessage('wikitolearnskin-join-us-button'); ?></a>
+            <a href="<?php echo wfMessage('wikitolearnskin-join-us-button-link')->plain(); ?>" class="join-us__link"><?php echo wfMessage('wikitolearnskin-join-us-button'); ?></a>
             <div class="join-us__this-week">
                 {{This week on WikiToLearn: 32 new edits, 6 new pages and 2 new users.}}
             </div>
@@ -318,9 +318,9 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             <p class="media__text">
               <?php echo wfMessage('wikitolearnskin-media-text'); ?>
             </p>
-            <button class="media__button">
+            <a href="<?php echo wfMessage('wikitolearnskin-join-us-button-link')->plain(); ?>" class="media__button">
               <?php echo wfMessage('wikitolearnskin-media-learn-more'); ?>
-            </button>
+            </a>
           </div>
         </section>
         <section class="testimonials">
@@ -364,7 +364,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 </footer>
               </div>
             </div>
-            <a href="#" class="testimonials__read-more"><?php echo wfMessage('wikitolearnskin-read-more-stories-button'); ?></a>
+            <a href="<?php echo wfMessage('wikitolearnskin-read-more-stories-button-link')->plain(); ?>" class="testimonials__read-more"><?php echo wfMessage('wikitolearnskin-read-more-stories-button'); ?></a>
           </div>
         </section>
         <section class="contributors">
