@@ -55,7 +55,7 @@ USE_DOCKER="1" #debuggin
 
 if [[ "$USE_DOCKER" -eq "1" ]] ; then
     echo "Preparing docker commands"
-    docker run -e HOME=/tmp/ --rm -ti -v $(pwd):/opt node:6  /bin/bash -c "groupadd --gid `id -g` node && useradd -d /tmp --uid "`id -u`" --gid "`id -g`" node && su -s /bin/bash -c 'cd /opt && $NPM_COMMAND && $BOWER_COMMAND && $COMPILES_SASS_COMMAND' node"
+    docker run -e HOME=/tmp/ --rm -v $(pwd):/opt node:6  /bin/bash -c "groupadd --gid `id -g` node && useradd -d /tmp --uid "`id -u`" --gid "`id -g`" node && su -s /bin/bash -c 'cd /opt && $NPM_COMMAND && $BOWER_COMMAND && $COMPILES_SASS_COMMAND' node"
 else
     $NPM_COMMAND && $BOWER_COMMAND && $COMPILES_SASS_COMMAND
 fi
