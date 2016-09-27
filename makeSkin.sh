@@ -41,7 +41,6 @@ if [[ "$USE_DOCKER" -eq "0" ]] ; then #node and npm found
 
     if [[ "$USE_DOCKER" -eq "0" ]] ; then #node and npm found
         NPM_CURRENT_VERSION="$(npm -v)"
-        echo $NPM_CURRENT_VERSION
         if [ "$NPM_REQUIRED_VERSION" != `echo -e "$NPM_CURRENT_VERSION\n$NPM_REQUIRED_VERSION" | sort -V | head -n1` ] ; then #todo: add version check
             echo "npm is too old, using docker fallback"
             USE_DOCKER="1"
@@ -52,8 +51,15 @@ if [[ "$USE_DOCKER" -eq "0" ]] ; then #node and npm found
 fi
 
 if [[ "$USE_DOCKER" -eq "1" ]] ; then
-    echo "Preparing docker commands"
-    docker run -e HOME=/tmp/ --rm -v $(pwd):/opt node:6  /bin/bash -c "groupadd --gid `id -g` node && useradd -d /tmp --uid "`id -u`" --gid "`id -g`" node && su -s /bin/bash -c 'cd /opt && $NPM_COMMAND && $BOWER_COMMAND && $COMPILES_SASS_COMMAND' node"
+    echo "Running with docker"
+    docker run \
+      -e HOME=/tmp/ \
+      --rm \
+      -v wikitolearnskin-npm-home:/tmp/ \
+      -v $(pwd):/opt \
+      node:6 \
+      /bin/bash -c "groupadd --gid `id -g` node && useradd -d /tmp/ --uid "`id -u`" --gid "`id -g`" node && su -s /bin/bash -c 'cd /opt && $NPM_COMMAND && $BOWER_COMMAND && $COMPILES_SASS_COMMAND' node"
 else
+    echo "Running with system node"
     $NPM_COMMAND && $BOWER_COMMAND && $COMPILES_SASS_COMMAND
 fi
