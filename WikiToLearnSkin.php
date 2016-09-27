@@ -70,13 +70,11 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     {
       //Declare useful variables for the whole template functions
       global $wgOut, $wgRequest, $wgUser;
-      //global $wgSupportedLanguages;
       $this->skin = $this->getSkin();
       $this->namespaceId = $wgOut->getTitle()->getNamespace();
       $this->pageTitle = $wgOut->getTitle();
       $this->user = $wgUser;
       $this->contentNavigation = $this->data['content_navigation'];
-      $this->supportedLanguages = array('it' => 'it', 'en' => 'gb', 'de' => 'de', 'fr' => 'fr', 'ca' => 'es', 'es' => 'es')
 
       $this->html( 'headelement' ); ?>
             <?php $this->html( 'newtalk' ); ?>
@@ -836,7 +834,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     * Generate the HTML of the languages dropdown
     */
     private function generateLanguageSelectorItems(){
-      $supportedLanguages = $this->supportedLanguages;
+      $supportedLanguages = array('it' => 'it', 'en' => 'gb', 'de' => 'de', 'fr' => 'fr', 'ca' => 'es', 'es' => 'es');
       asort($supportedLanguages);
       foreach($supportedLanguages as $lang => $flag) {
         echo '<a class="dropdown-item" href="' . $lang . '"><span class="flag-icon flag-icon-' . $flag . '"></span>&nbsp;' . $lang . '</a>';
