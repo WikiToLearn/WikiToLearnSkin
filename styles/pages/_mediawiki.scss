@@ -1,6 +1,10 @@
 body{
+    
+    [class^="ve-"], [class^="oo-"], [class^="mw-"]{
+        box-sizing: content-box;
+    }
 
-    &.mw-special-CreateAccount{ #register page
+    &.mw-special-CreateAccount{ //register page
         .mw-ui-container {
             display: flex;
 
@@ -16,6 +20,59 @@ body{
         }
     }
     
+    &.mw-special-Search{ //search page
+        
+        .searchresults{
+            margin: 1rem 0;
+
+            h2{
+                margin-top: 1rem;
+            }
+        }
+
+        
+        #searchText{
+            max-width: 100%;
+            input.oo-ui-inputWidget-input{
+                box-sizing: border-box;
+                width: 100%;
+            }
+        }
+
+        #searchText+div{
+            margin-top: 0.5rem;
+        }
+
+        .mw-search-exists{
+            
+            border-bottom: 1px solid silver;
+            display: block;
+            font-size: 2.5rem;
+            line-height: 2.5rem;
+
+            padding-bottom: 1rem !important; //sorry
+
+            b{
+                font-weight: lighter;
+            }
+        }
+        
+        .mw-search-results{
+            padding-left: 0rem;
+            display: block;
+            width: 100%;
+
+            li{
+
+                border: 1px solid silver;
+                border-radius: $border-radius;
+                display: block;
+                padding: 1rem;
+                margin-bottom: 1rem;
+            }
+        }
+    }
+
     #mw-prefs-form {
         border: 1px solid #eee;
         border-radius: $border-radius;
