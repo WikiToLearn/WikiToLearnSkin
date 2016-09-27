@@ -9,7 +9,14 @@
   "wikitolearnskin-footer-follow-us" : "Follow us",
   "wikitolearnskin-navbar-about" : "About",
   "wikitolearnskin-navbar-contribute" : "Contribute",
+  "wikitolearnskin-navbar-third-option" : "???",
   "wikitolearnskin-join-us-button" : "Join us",
   "wikitolearnskin-read-more-stories-button" : "Read more stories about WikiToLearn",
-  "wikitolearnskin-contributions-from" : "Contributions from"
+  "wikitolearnskin-contributions-from" : "Contributions from",
+  "wikitolearnskin-home-claim": "Figure out a claim",
+  "wikitolearnskin-media-video-url": "//www.youtube.com/embed/NpEaa2P7qZI?rel=0",
+  "wikitolearnskin-media-learn-more": "Read more",
+  "wikitolearnskin-testimonials-first-image-path": "images/placeholder-user.png",
+  "wikitolearnskin-testimonials-second-image-path": "images/placeholder-user.png",
+  "wikitolearnskin-testimonials-third-image-path": "images/placeholder-user.png"
 }

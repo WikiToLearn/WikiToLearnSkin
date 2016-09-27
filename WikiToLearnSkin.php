@@ -128,7 +128,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               <?php echo wfMessage('wikitolearnskin-navbar-contribute'); ?>
             </a>
             <a href="#"  class="nav__link nav__link--hover-green">
-              Libri
+              <?php echo wfMessage('wikitolearnskin-navbar-third-option'); ?>
             </a>
             <span class="nav__search">
             <form action="<?php $this->text( 'wgScript' ); ?>" autocomplete="off">
@@ -245,7 +245,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     public function executeHome() { ?>
       <main class="page page-home">
         <section class="title">
-          <h1> Learn with the best. Create books. Share <em>knowledge</em>. </h1>
+          <h1> <?php echo wfMessage('wikitolearnskin-home-claim'); ?> </h1>
         </section>
         <section class="departments">
           <ul class="departments__content">
@@ -305,22 +305,21 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           <div class="join-us__content">
             <a href="#" class="join-us__link"><?php echo wfMessage('wikitolearnskin-join-us-button'); ?></a>
             <div class="join-us__this-week">
-                This week on WikiToLearn: 32 new edits, 6 new pages and 2 new users.
+                {{This week on WikiToLearn: 32 new edits, 6 new pages and 2 new users.}}
             </div>
           </div>
         </section>
         <section class="media">
           <div class="media__wrapper">
-            <iframe class="media__video" src="//www.youtube.com/embed/NpEaa2P7qZI?rel=0" allowfullscreen></iframe>
+            <iframe class="media__video" src="<?php echo wfMessage('wikitolearnskin-media-video-url'); ?>" allowfullscreen></iframe>
           </div>
           <div class="media__description">
-            <h3 class="media__title">collaborative textbooks</h3>
+            <h3 class="media__title"><?php echo wfMessage('wikitolearnskin-media-title'); ?></h3>
             <p class="media__text">
-              WikiToLearn vuole creare libri di testo liberi, collaborativi e facilmente accessibili.
-              La nostra filosofia è riassunta nel motto “Il sapere si accresce solo se condiviso”. Nella nostra piattaforma l'insegnamento e l'apprendimento convergono nella stesura e nel perfezionamento cooperativo di note, appunti e libri di testo, organizzabili e ri-assemblabili secondo le esigenze specifiche degli utenti.
+              <?php echo wfMessage('wikitolearnskin-media-text'); ?>
             </p>
             <button class="media__button">
-              <?php echo wfMessage('wikitolearnskin-footer-learn-more'); ?>
+              <?php echo wfMessage('wikitolearnskin-media-learn-more'); ?>
             </button>
           </div>
         </section>
@@ -328,40 +327,40 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           <div class="testimonials__content">
             <div class="testimonial">
               <a class="testimonial__link" href="#">
-                <img class="testimonial__image" src="<?php echo $this->getSkin()->getSkinStylePath( 'images/testimonials.png'); ?>" alt="Generic placeholder image">
+                <img class="testimonial__image" src="<?php echo $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-testimonials-first-image-path') ); ?>" alt="<?php echo wfMessage('wikitolearnskin-testimonials-first-name'); ?>">
               </a>
               <div class="testimonial__body">
                 <blockquote class="testimonial__quote">
-                  "WikiToLearn allows me to have great and always up-to-date material for my classes"
+                  <?php echo wfMessage('wikitolearnskin-testimonials-first-quote'); ?>
                 </blockquote>
                 <footer class="testimonial__footer">
-                  <cite> M. Bona</cite>
+                  <cite> <?php echo wfMessage('wikitolearnskin-testimonials-first-name'); ?></cite>
                 </footer>
               </div>
             </div>
             <div class="testimonial">
               <a class="testimonial__link" href="#">
-                <img class="testimonial__image" src="<?php echo $this->getSkin()->getSkinStylePath( 'images/testimonials.png'); ?>" alt="Generic placeholder image">
+                <img class="testimonial__image" src="<?php echo $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-testimonials-second-image-path') ); ?>" alt="<?php echo wfMessage('wikitolearnskin-testimonials-second-name'); ?>">
               </a>
               <div class="testimonial__body">
                 <blockquote class="testimonial__quote">
-                  "WikiToLearn allows me to have great and always up-to-date material for my classes"
+                  <?php echo wfMessage('wikitolearnskin-testimonials-second-quote'); ?>
                 </blockquote>
                 <footer class="testimonial__footer">
-                  <cite> M. Bona</cite>
+                  <cite><?php echo wfMessage('wikitolearnskin-testimonials-second-name'); ?></cite>
                 </footer>
               </div>
             </div>
             <div class="testimonial">
               <a class="testimonial__link" href="#">
-                <img class="testimonial__image" src="<?php echo $this->getSkin()->getSkinStylePath( 'images/testimonials.png'); ?>" alt="Generic placeholder image">
+                <img class="testimonial__image" src="<?php echo $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-testimonials-third-image-path') ); ?>" alt="<?php echo wfMessage('wikitolearnskin-testimonials-third-name'); ?>">
               </a>
               <div class="testimonial__body">
                 <blockquote class="testimonial__quote">
-                  "WikiToLearn allows me to have great and always up-to-date material for my classes"
+                  <?php echo wfMessage('wikitolearnskin-testimonials-third-quote'); ?>
                 </blockquote>
                 <footer class="testimonial__footer">
-                  <cite> M. Bona</cite>
+                  <cite><?php echo wfMessage('wikitolearnskin-testimonials-third-name'); ?></cite>
                 </footer>
               </div>
             </div>
