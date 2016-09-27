@@ -95,9 +95,20 @@ body{
                     margin-bottom: 0;
                 }
             }
-
+            
             label{
                 display: inline;
+            }
+        }
+
+        .mw-prefs-buttons{
+            input[type="submit"]{
+                background-color: $mwblue;
+                border: 0;
+                border-radius: 2px;
+                color: white;
+                outline: 0;
+                padding: .5em 2em;
             }
         }
     }
