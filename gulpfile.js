@@ -18,7 +18,7 @@ function handleError(error) {
 }
 
 gulp.task('sass', function() {
-    var paths = require('node-neat').includePaths;
+    var paths = [];
     paths.push("bower_components/");
 	return gulp.src(src.sass)
 		.pipe(sass({
