@@ -69,7 +69,6 @@
         display: inline-block;
         font-size: 1.5rem;
         font-weight: lighter;
-        line-height: 0;
         @include media-breakpoint-down(sm) {
             font-size: 1.2rem;
         }
