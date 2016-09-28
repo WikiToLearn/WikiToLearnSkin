@@ -69,9 +69,20 @@
   "wikitolearnskin-contributions-from" : "The section title Contributions from in the homepage",
 
 
-  "wikitolearnskin-footer-contacs" : "Used within the footer for the contacts column",
-  "wikitolearnskin-footer-learn-more" : "Used within the footer for the learn more column",
+  "wikitolearnskin-footer-special-pages" : "Text to special pages",
+  "wikitolearnskin-footer-recent-changes" : "Text to recent changes",
+  "wikitolearnskin-footer-more" : "More column title",
+  "wikitolearnskin-footer-more-1-text" : "wikitolearnskin-footer-more-1-text",
+  "wikitolearnskin-footer-more-1-link" : "wikitolearnskin-footer-more-1-link",
+  "wikitolearnskin-footer-more-2-text" : "wikitolearnskin-footer-more-2-text",
+  "wikitolearnskin-footer-more-2-link" : "wikitolearnskin-footer-more-2-link",
+  "wikitolearnskin-footer-more-3-text" : "wikitolearnskin-footer-more-3-text",
+  "wikitolearnskin-footer-more-3-link" : "wikitolearnskin-footer-more-3-link",
+  
+  "wikitolearnskin-footer-keep-in-touch" : "Used within the footer for the follow us column",
+  "wikitolearnskin-footer-kit-channels-text" : "wikitolearnskin-footer-kit-channels-text",
+  "wikitolearnskin-footer-kit-channels-link" : "wikitolearnskin-footer-kit-channels-link",
+
   "wikitolearnskin-footer-hosted-by" : "Used within the footer for the hosted by column",
-  "wikitolearnskin-footer-follow-us" : "Used within the footer for the follow us column"
   
 }
