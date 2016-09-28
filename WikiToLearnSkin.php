@@ -211,68 +211,21 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         </section>
         <section class="departments">
           <ul class="departments__content">
-            <li class="departments__wrapper departments__wrapper--first">
-              <div class="departments__item">
-                <img class="departments__image" src="http://i.imgur.com/XtYKLW2.png" alt="">
-                <span class="departments__name">Fisica</span>
-              </div>
-            </li>
-            <li class="departments__wrapper">
-              <div class="departments__item">
-                <img class="departments__image" src="http://i.imgur.com/PEPTSKE.png" alt="">
-                <span class="departments__name">Bioscienze</span>
-              </div>
-            </li>
-            <li class="departments__wrapper">
-              <div class="departments__item">
-                <img class="departments__image" src="http://i.imgur.com/XtYKLW2.png" alt="">
-                <span class="departments__name">Informatica</span>
-              </div>
-            </li>
-            <li class="departments__wrapper departments__wrapper--last">
-              <div class="departments__item">
-                <img class="departments__image" src="http://i.imgur.com/PEPTSKE.png" alt="">
-                <span class="departments__name">Matematica</span>
-              </div>
-            </li>
-            <li class="departments__wrapper departments__wrapper--last">
-              <div class="departments__item">
-                <img class="departments__image" src="http://i.imgur.com/PEPTSKE.png" alt="">
-                <span class="departments__name">Matematica</span>
-              </div>
-            </li>
-            <div class="clearfix"></div>
-            <li class="departments__wrapper">
-              <div class="departments__item">
-                <img class="departments__image" src="http://i.imgur.com/XtYKLW2.png" alt="">
-                <span class="departments__name">Fisica</span>
-              </div>
-            </li>
-            <li class="departments__wrapper">
-              <div class="departments__item">
-                <img class="departments__image" src="http://i.imgur.com/PEPTSKE.png" alt="">
-                <span class="departments__name">Bioscienze</span>
-              </div>
-            </li>
-            <li class="departments__wrapper">
-              <div class="departments__item">
-                <img class="departments__image" src="http://i.imgur.com/XtYKLW2.png" alt="">
-                <span class="departments__name">Informatica</span>
-              </div>
-            </li>
-            <li class="departments__wrapper">
-              <div class="departments__item">
-                <img class="departments__image" src="http://i.imgur.com/PEPTSKE.png" alt="">
-                <span class="departments__name">Matematica</span>
-              </div>
-            </li>
-            <li class="departments__wrapper">
-              <div class="departments__item">
-                <img class="departments__image" src="http://i.imgur.com/XtYKLW2.png" alt="">
-                <span class="departments__name">Fisica</span>
-              </div>
-            </li>
-            <div class="clearfix"></div>
+            <?php
+              self::makeDepartment( wfMessage('wikitolearnskin-departments-1-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-1-image') ), wfMessage('wikitolearnskin-departments-1-link'));
+              self::makeDepartment( wfMessage('wikitolearnskin-departments-2-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-2-image') ), wfMessage('wikitolearnskin-departments-2-link'));
+              self::makeDepartment( wfMessage('wikitolearnskin-departments-3-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-3-image') ), wfMessage('wikitolearnskin-departments-3-link'));
+              self::makeDepartment( wfMessage('wikitolearnskin-departments-4-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-4-image') ), wfMessage('wikitolearnskin-departments-4-link'));
+              self::makeDepartment( wfMessage('wikitolearnskin-departments-5-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-5-image') ), wfMessage('wikitolearnskin-departments-5-link'));
+              echo '<div class="clearfix"></div>';
+              self::makeDepartment( wfMessage('wikitolearnskin-departments-6-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-6-image') ), wfMessage('wikitolearnskin-departments-6-link'));
+              self::makeDepartment( wfMessage('wikitolearnskin-departments-7-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-7-image') ), wfMessage('wikitolearnskin-departments-7-link'));
+              self::makeDepartment( wfMessage('wikitolearnskin-departments-8-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-8-image') ), wfMessage('wikitolearnskin-departments-8-link'));
+              self::makeDepartment( wfMessage('wikitolearnskin-departments-9-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-9-image') ), wfMessage('wikitolearnskin-departments-9-link'));
+              self::makeDepartment( wfMessage('wikitolearnskin-departments-10-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-10-image') ), wfMessage('wikitolearnskin-departments-10-link'));
+              echo '<div class="clearfix"></div>';
+
+            ?>
           </ul>
         </section>
         <section class="join-us">
@@ -804,5 +757,16 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       foreach($supportedLanguages as $lang => $flag) {
         echo '<a class="dropdown-item" href="' . $lang . '"><span class="flag-icon flag-icon-' . $flag . '"></span>&nbsp;' . $lang . '</a>';
       }
+    }
+
+    private function makeDepartment($name, $imageUrl, $link){
+      ?>
+      <li class="departments__wrapper departments__wrapper--first">
+        <a class="departments__item" href="<?php echo $link ?>">
+          <img class="departments__image" src="<?php echo $imageUrl ?>" alt="">
+          <span class="departments__name"><?php echo $name ?></span>
+        </a>
+      </li>
+      <?php
     }
 }
