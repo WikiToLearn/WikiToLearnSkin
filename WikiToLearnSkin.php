@@ -505,7 +505,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         $titleComponent = $titleComponents[$i];
         $partialLink .= $titleComponent;
         $linkObj = Title::newFromText($partialLink);
-        $link = Linker::linkKnown($linkObj, htmlspecialchars( $titleComponent, ["class" => "breadcrumb__item"] ));
+        $link = Linker::linkKnown($linkObj, htmlspecialchars( $titleComponent ), ["class" => "breadcrumb__item"]);
         echo $link;
         if($i !== (sizeof($titleComponents) - 1)) { //we don't add the slash on last link
           echo "<span class='breadcrumb__divider'> <i class='fa fa-angle-right'></i> </span>";
