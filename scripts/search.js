@@ -3,7 +3,8 @@ $(document).ready(function() {
     $('#searchForm').submit(function(e) {
         e.preventDefault();
         var len = $('#searchInput').val().length;
-        return len > 0;
+        if(len > 0)
+            this.submit();
     });
 
 });
