@@ -498,7 +498,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               </ul>
               <ul>
                 <li>info@wikitolearn.org</li>
-                <li>Other communication Channels</li>
+                <li>Communication Channels</li>
               </ul>
             </li>
           </ul>
