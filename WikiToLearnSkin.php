@@ -212,17 +212,17 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         <section class="departments">
           <ul class="departments__content">
             <?php
-              self::makeDepartment( wfMessage('wikitolearnskin-departments-1-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-1-image') ), wfMessage('wikitolearnskin-departments-1-link'));
-              self::makeDepartment( wfMessage('wikitolearnskin-departments-2-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-2-image') ), wfMessage('wikitolearnskin-departments-2-link'));
-              self::makeDepartment( wfMessage('wikitolearnskin-departments-3-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-3-image') ), wfMessage('wikitolearnskin-departments-3-link'));
-              self::makeDepartment( wfMessage('wikitolearnskin-departments-4-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-4-image') ), wfMessage('wikitolearnskin-departments-4-link'));
-              self::makeDepartment( wfMessage('wikitolearnskin-departments-5-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-5-image') ), wfMessage('wikitolearnskin-departments-5-link'));
+              self::makeDepartment( wfMessage('wikitolearnskin-departments-1-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-1-image')->plain() ), wfMessage('wikitolearnskin-departments-1-link')->plain());
+              self::makeDepartment( wfMessage('wikitolearnskin-departments-2-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-2-image')->plain() ), wfMessage('wikitolearnskin-departments-2-link')->plain());
+              self::makeDepartment( wfMessage('wikitolearnskin-departments-3-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-3-image') ), wfMessage('wikitolearnskin-departments-3-link')->plain());
+              self::makeDepartment( wfMessage('wikitolearnskin-departments-4-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-4-image')->plain() ), wfMessage('wikitolearnskin-departments-4-link')->plain());
+              self::makeDepartment( wfMessage('wikitolearnskin-departments-5-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-5-image')->plain() ), wfMessage('wikitolearnskin-departments-5-link')->plain());
               echo '<div class="clearfix"></div>';
-              self::makeDepartment( wfMessage('wikitolearnskin-departments-6-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-6-image') ), wfMessage('wikitolearnskin-departments-6-link'));
-              self::makeDepartment( wfMessage('wikitolearnskin-departments-7-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-7-image') ), wfMessage('wikitolearnskin-departments-7-link'));
-              self::makeDepartment( wfMessage('wikitolearnskin-departments-8-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-8-image') ), wfMessage('wikitolearnskin-departments-8-link'));
-              self::makeDepartment( wfMessage('wikitolearnskin-departments-9-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-9-image') ), wfMessage('wikitolearnskin-departments-9-link'));
-              self::makeDepartment( wfMessage('wikitolearnskin-departments-10-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-10-image') ), wfMessage('wikitolearnskin-departments-10-link'));
+              self::makeDepartment( wfMessage('wikitolearnskin-departments-6-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-6-image')->plain() ), wfMessage('wikitolearnskin-departments-6-link')->plain());
+              self::makeDepartment( wfMessage('wikitolearnskin-departments-7-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-7-image')->plain() ), wfMessage('wikitolearnskin-departments-7-link')->plain());
+              self::makeDepartment( wfMessage('wikitolearnskin-departments-8-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-8-image')->plain() ), wfMessage('wikitolearnskin-departments-8-link')->plain());
+              self::makeDepartment( wfMessage('wikitolearnskin-departments-9-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-9-image')->plain() ), wfMessage('wikitolearnskin-departments-9-link')->plain());
+              self::makeDepartment( wfMessage('wikitolearnskin-departments-10-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-10-image')->plain() ), wfMessage('wikitolearnskin-departments-10-link')->plain());
               echo '<div class="clearfix"></div>';
 
             ?>
