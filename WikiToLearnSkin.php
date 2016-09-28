@@ -450,21 +450,27 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               <h4>WikiToLearn</h4>
               <ul class="contacts-list">
                 <li>
-                  <a href="#">Modifiche Recenti</a>
+                  <a href="#">Recent Edits</a>
                 </li>
                 <li>
-                  <a href="#">Pagine Speciali</a>
+                  <a href="#">Special Pages</a>
                 </li>
                 <li>
-                  <a href="#">Creatore di libri</a>
+                  <a href="#">Book creator</a>
                 </li>
               </ul>
             </li>
             <li class="footer__learn-more clearfix">
-              <h4 class="learn-more__first-heading"></h4>
+              <h4 class="learn-more__first-heading">More</h4>
               <ul class="learn-more__list">
                 <li>
-                  <a class="learn-more__philosophy" href="#{{wikitolearn philosophy}}">{{ More WikiToLearn }}</a>
+                  <a class="learn-more__philosophy" href="#{{wikitolearn philosophy}}">About</a>
+                </li>
+                <li>
+                  <a class="learn-more__philosophy" href="#{{wikitolearn philosophy}}">F.A.Q.</a>
+                </li>
+                <li>
+                  <a class="learn-more__philosophy" href="#{{wikitolearn philosophy}}">Other link</a>
                 </li>
               </ul>
               <h4 class="learn-more__second-heading"><?php echo wfMessage('wikitolearnskin-footer-hosted-by'); ?></h4>

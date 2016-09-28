@@ -1,12 +1,14 @@
 .footer {
     background-color: $black-secondary;
     width: 100%;
-
+    
+    
     &__list {
         @extend .container;
         @include list-unstyled();
-
+        
         color: $gray;
+        margin-bottom: 0;
 
         @include media-breakpoint-down(sm) {
             display: inline;
@@ -85,6 +87,12 @@
     }
 
     &__learn-more {
+
+        .learn-more__second-heading{
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
         @include media-breakpoint-between(xs, sm) {
             clear: both;
         }
