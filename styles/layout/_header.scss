@@ -232,6 +232,7 @@
             // this has to keep the bootstrap class naming conventions.
             .dropdown {
                 display: inline-block;
+                padding: 0 0.2rem;
 
                 @include media-breakpoint-down(xs) {
                     text-align: center;
@@ -385,28 +386,33 @@
                         margin: 0;
                     }
                 }
-            }
 
-            &--languages {
-                @include media-breakpoint-down(xs) {
-                    @include make-col-ready();
-                    @include make-col(2);
-                    @include make-col-pull(8);
-                }
-
-                .dropdown-menu{
-                    line-height: 1.75rem;
-
+                &--languages {
+                    
+                    
+                    cursor: pointer;
+                    height: 100%;
+                        
                     @include media-breakpoint-down(xs) {
-                        width: 100vw;
-                        top: 44.6px;
-                        left: 0;
+                        @include make-col-ready();
+                        @include make-col(2);
+                        @include make-col-pull(8);
                     }
-                }
+                    
+                    .dropdown-menu{
+                        line-height: 1.75rem;
 
-                .dropdown-item a{
-                    display: block;
-                    text-transform: capitalize;
+                        @include media-breakpoint-down(xs) {
+                            width: 100vw;
+                            top: 44.6px;
+                            left: 0;
+                        }
+                    }
+
+                    .dropdown-item a{
+                        display: block;
+                        text-transform: capitalize;
+                    }
                 }
             }
 

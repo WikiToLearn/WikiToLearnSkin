@@ -170,57 +170,20 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                   ?>
                 </div>
               </div>
-              <div class="dropdown dropdown--notifications">
+              <div class="dropdown dropdown--notifications nav__link--hover-mwblue">
                 <a id="notifications" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="fa fa-bell"></i>
+                  <i class="fa fa-bell"></i> <i class="fa fa-angle-down"></i>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="notifications">
                   <div class="dropdown-header">
                     <span class="dropdown--notifications__notifications-count"><?php echo wfMessage('notifications') ?>&nbsp;<span id="badge-count" class="badge" style="display:none;"></span></span>
-                    <span class="dropdown--notifications__mark-read-notifications">
+                    <span>
                       <a href="#" id="mark-all-read-button" style="display:none;"><?php echo wfMessage('echo-mark-all-as-read') ?></a>
                     </span>
                   </div>
                   <div class="dropdown-divider"></div>
                   <div id="notifications-widget">
                   </div>
-                  <!-- <div class="dropdown-item">
-                    <div class="notifications-icon">
-                      <i class="fa fa-quote-left"></i>
-                    </div>
-                    <div class="notifications-content">
-                      <h5 class="notifications-title">{{ notifications.title }}</h5>
-                      <p class="notifications-message"> {{ notifications.message }} </p>
-                      <div class="notifications-details">
-                        <span> <i class="fa fa-user"></i> {{ Author }} </span>
-                        <span> <i class="fa fa-comment"></i> {{ File }} </span>
-                        <span>
-                          <a href="#something" class="notifications-check" title="{{ Segna come già letto }}">
-                            <i class="fa fa-check"></i>
-                          </a>
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="dropdown-divider"></div>
-                  <div class="dropdown-item">
-                    <div class="notifications-icon">
-                      <i class="fa fa-quote-left"></i>
-                    </div>
-                    <div class="notifications-content">
-                      <h5 class="notifications-title">{{ notifications.title }}</h5>
-                      <p class="notifications-message"> {{ notifications.message }} </p>
-                      <div class="notifications-details">
-                        <span> <i class="fa fa-user"></i> {{ Author }} </span>
-                        <span> <i class="fa fa-comment"></i> {{ File }} </span>
-                        <span>
-                          <a href="#something" class="notifications-check" title="{{ Segna come già letto }}">
-                            <i class="fa fa-check"></i>
-                          </a>
-                        </span>
-                      </div>
-                    </div>
-                  </div> -->
                   <div class="dropdown-divider"></div>
                   <div class="dropdown-footer">
                     <a id="notifications-view-all"><?php echo wfMessage('echo-overlay-link') ?></a>
@@ -228,10 +191,9 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 </div>
               </div>
             <?php } ?>
-            &nbsp;
-            <div class="dropdown dropdown--languages">
-              <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fa fa-language"></i>
+            <div class="dropdown dropdown--languages nav__link--hover-mwblue">
+              <a class="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-globe"></i> <i class="fa fa-angle-down"></i>
               </a>
               <div class="dropdown-menu">
                 <?php self::generateLanguageSelectorItems(); ?>
@@ -485,27 +447,24 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               <img src="/skins/WikiToLearnSkin/images/wikitolearn-logo.png">
             </li>
             <li class="footer__contacts">
-              <h4><?php echo wfMessage('wikitolearnskin-footer-contacs'); ?></h4>
+              <h4>WikiToLearn</h4>
               <ul class="contacts-list">
                 <li>
-                  <a href="mailto:info@wikitolearn.org"> info@wikitolearn.org </a>
+                  <a href="#">Modifiche Recenti</a>
                 </li>
                 <li>
-                  <a href="#{{mailing-list}}"> mailing list </a>
+                  <a href="#">Pagine Speciali</a>
                 </li>
                 <li>
-                  <a href="#{{communications-channels}}"> communications channels </a>
-                </li>
-                <li>
-                  <a href="#{{F.A.Q}}"> F.A.Q </a>
+                  <a href="#">Creatore di libri</a>
                 </li>
               </ul>
             </li>
             <li class="footer__learn-more clearfix">
-              <h4 class="learn-more__first-heading"><?php echo wfMessage('wikitolearnskin-footer-learn-more'); ?></h4>
+              <h4 class="learn-more__first-heading"></h4>
               <ul class="learn-more__list">
                 <li>
-                  <a class="learn-more__philosophy" href="#{{wikitolearn philosophy}}">{{ WikiToLearn philosophy }}</a>
+                  <a class="learn-more__philosophy" href="#{{wikitolearn philosophy}}">{{ More WikiToLearn }}</a>
                 </li>
               </ul>
               <h4 class="learn-more__second-heading"><?php echo wfMessage('wikitolearnskin-footer-hosted-by'); ?></h4>
@@ -519,7 +478,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               </ul>
             </li>
             <li class="footer__social">
-              <h4><?php echo wfMessage('wikitolearnskin-footer-follow-us'); ?></h4>
+              <h4>Keep in touch</h4>
               <ul class="social-icons">
                 <li>
                   <i class="fa fa-facebook fa-2x" aria-hidden="true"></i>
@@ -531,23 +490,12 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                   <i class="fa fa-linkedin fa-2x" aria-hidden="true"></i>
                 </li>
               </ul>
+              <ul>
+                <li>info@wikitolearn.org</li>
+                <li>Other communication Channels</li>
+              </ul>
             </li>
           </ul>
-          <div class="wikitolearn-divider"></div>
-          <div class="last-modified">
-            <?php
-            foreach ( $this->getFooterLinks() as $category => $links ) { ?>
-            <ul class="last-modified__<?php echo $category; ?>">
-            <?php
-              foreach ( $links as $key ) { ?>
-              <li><?php $this->html( $key ) ?></li>
-
-            <?php
-              } ?>
-            </ul>
-            <?php
-            } ?>
-          </div>
         </footer>
     <?php }
 
