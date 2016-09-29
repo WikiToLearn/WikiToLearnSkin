@@ -356,7 +356,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       $fullTitle = $this->get('title'); //we do this so special page have their proper pretty name, no more UserLogin or UserRegister but "Login" "Register"
       $components = explode("/", $fullTitle);
       $displayTitle = $components[count($components)-1];
-      $components = explode(":", $fullTitle); //remove namespace?
+      $components = explode(":", $displayTitle); //remove namespace?
       $displayTitle = $components[count($components)-1];
 
       ?>
