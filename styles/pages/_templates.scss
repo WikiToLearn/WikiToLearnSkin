@@ -1,15 +1,15 @@
-
 .ssection{    
     counter-increment: ssection; 
     margin-bottom: 0.75rem;
+    box-sizing: border-box;
     h2{
-        display: inline-block;
+        display: inline;
         margin-right: 0.25rem;
         margin-bottom: 0;
 
         &::before{
             content: counter(ssection)"." ; /* Use the counter as content */
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             margin-right: 0.25rem;
         }
     }
@@ -20,5 +20,6 @@
 
     h2+a+ul{
         margin-top: 0;
+        margin-left: 1.9rem;
     }
 }
