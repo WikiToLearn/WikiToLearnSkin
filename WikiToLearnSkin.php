@@ -768,7 +768,12 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     }
 
     /**
-    * Generate the HTML of the languages dropdown
+    * Generate the HTML of the languages dropdown using the officially supported
+    * language codes to make the subdomain urls and display the language names
+    * in the proper language.
+    * Cause we deploy WikiToLearn on different domains (staging, testing, ...),
+    * I exploited the $wiki_domain variabile to get the domain string in order
+    * to make the subdomain urls.
     */
     private function generateLanguageSelectorItems(){
       $supportedLanguages = $this->supportedLanguages;
@@ -780,6 +785,9 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       }
     }
 
+    /**
+    * Generate the HTML of the department badges in the static homepage.
+    */
     private function makeDepartment($name, $imageUrl, $link){
       ?>
       <li class="departments__wrapper departments__wrapper--first">
