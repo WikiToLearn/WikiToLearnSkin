@@ -2,24 +2,44 @@
     counter-increment: ssection; 
     margin-bottom: 0.75rem;
     box-sizing: border-box;
+    
+    &:nth-of-type(odd){
+        text-align: right;
+
+        ul{
+            margin-right: 1.25rem;
+        }
+    }
+
+    &__heading{
+        margin-bottom: 0.25rem;
+
+        padding-bottom: 0.25rem;   
+        padding-left: 0.5rem;        
+        border-bottom: 1px solid #eee;
+    }
     h2{
         display: inline;
-        margin-right: 0.25rem;
-        margin-bottom: 0;
+        margin-right: 0.5rem;
 
         &::before{
-            content: counter(ssection)"." ; /* Use the counter as content */
+            //content: counter(ssection)"." ; /* Use the counter as content */
             font-size: 1.25rem;
             margin-right: 0.25rem;
         }
+    }
+    
+    a.external.text{
+        //display: none;
     }
 
     h2+a{
         vertical-align: text-bottom;
     }
-
-    h2+a+ul{
+    
+    ul{
         margin-top: 0;
-        margin-left: 1.9rem;
+        list-style-type: none;
+        margin-left: 1.25rem;
     }
 }
