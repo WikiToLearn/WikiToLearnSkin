@@ -51,3 +51,34 @@
         text-align: right;
     }
 }
+
+.citation{
+    
+    //https://css-tricks.com/snippets/css/simple-and-nice-blockquote-styling/
+
+    blockquote {
+        border-left: 3px solid #ddd;
+        
+        margin: 1.5em 10px;
+        padding: 0.5em 10px;
+        quotes: "\201C""\201D""\2018""\2019";
+        
+        font-style: italic;
+
+        small{
+            display: block;
+            font-style: normal;
+            text-align: right;
+        }
+    }
+
+    blockquote:before {
+        color: #ddd;
+        content: open-quote;
+        font-size: 4em;
+        line-height: 0.1em;
+        margin-right: 0.25em;
+        vertical-align: -0.4em;
+    }
+    
+}
