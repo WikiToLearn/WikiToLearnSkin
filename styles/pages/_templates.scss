@@ -3,34 +3,29 @@
     margin-bottom: 0.75rem;
     box-sizing: border-box;
     
-    &:nth-of-type(odd){
-        text-align: right;
-
-        ul{
-            margin-right: 1.25rem;
-        }
-    }
+    padding-left: 0;
 
     &__heading{
         margin-bottom: 0.25rem;
 
         padding-bottom: 0.25rem;   
         padding-left: 0.5rem;        
-        border-bottom: 1px solid #eee;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
     }
+
     h2{
         display: inline;
         margin-right: 0.5rem;
 
-        &::before{
-            //content: counter(ssection)"." ; /* Use the counter as content */
+        /*&::before{
+            content: counter(ssection)"." ;
             font-size: 1.25rem;
             margin-right: 0.25rem;
-        }
+        }*/
     }
     
     a.external.text{
-        //display: none;
+        color: #333;
     }
 
     h2+a{
@@ -40,6 +35,19 @@
     ul{
         margin-top: 0;
         list-style-type: none;
-        margin-left: 1.25rem;
+        margin-left: 0.75rem;
+    }
+
+}
+
+.ccourse{
+    margin-top: -1.25rem;
+
+    &__edit{
+        margin-bottom: 1rem;
+    }
+
+    &__metadata{
+        text-align: right;
     }
 }
