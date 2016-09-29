@@ -358,9 +358,14 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       $displayTitle = $components[count($components)-1];
       $components = explode(":", $displayTitle); //remove namespace?
       $displayTitle = $components[count($components)-1];
-
+      $user = $this->skin->getUser();
+      if($user->isAnon()){
+        $additionalClass="user--anon";
+      } else {
+        $additionalClass="user--logged";
+      }
       ?>
-      <main class="page page--article">
+      <main class="page page--article <?php echo $additionalClass ?>">
         <div class="article__wrapper">
           <?php self::executeBreadcrumb($pageTitle); //build the breadcrumb?>
           <div class="article__main"> <!-- This is needed to wrap the "sheet" and the tools so we can display them one next to another-->

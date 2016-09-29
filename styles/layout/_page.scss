@@ -11,3 +11,10 @@
     }
 }
 
+.page{
+    &.user--anon{
+        .hideAnon{
+            display: none;
+        }
+    }
+}
