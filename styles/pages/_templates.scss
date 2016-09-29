@@ -1,0 +1,24 @@
+
+.ssection{    
+    counter-increment: ssection; 
+    margin-bottom: 0.75rem;
+    h2{
+        display: inline-block;
+        margin-right: 0.25rem;
+        margin-bottom: 0;
+
+        &::before{
+            content: counter(ssection)"." ; /* Use the counter as content */
+            font-size: 1.5rem;
+            margin-right: 0.25rem;
+        }
+    }
+
+    h2+a{
+        vertical-align: text-bottom;
+    }
+
+    h2+a+ul{
+        margin-top: 0;
+    }
+}
