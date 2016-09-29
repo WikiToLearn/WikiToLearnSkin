@@ -138,31 +138,7 @@ main.page--article{
             margin-bottom: 1rem;
         }
 
-        &__text{
-            font-size: 13pt;
-            line-height: 1.5em;
-
-            p:empty {
-                display: none;
-            }
-
-            p:last-of-type{
-                margin-bottom: 0;
-            }
-
-            .mwe-math-fallback-image-display{ //margin at the bottom of formulas
-                margin-bottom: 1rem;
-            }
-
-            .mw-editsection{ //hide [Edit | Edit Wikitext]
-                display: none;
-            }
-
-
-            h2, h3, h4, h5, h6{
-                font-weight: 300;
-            }
-        }
+        
 
         &__breadcrumb{
             .breadcrumb{
@@ -234,5 +210,36 @@ main.page--article{
                 margin-top: 1rem;
             }
         }
+    }
+}
+
+
+.article__text {
+    font-size: 13pt;
+    line-height: 1.5em;
+
+    p:empty {
+        display: none;
+    }
+
+    p:last-of-type{
+        margin-bottom: 0;
+    }
+
+    .mwe-math-fallback-image-display{ //margin at the bottom of formulas
+        margin-bottom: 1rem;
+    }
+
+    .mw-editsection{ //hide [Edit | Edit Wikitext]
+        display: none;
+    }
+
+
+    h2, h3, h4, h5, h6{
+        font-weight: 300;
+    }   
+
+    .center{
+        text-align: center;
     }
 }
