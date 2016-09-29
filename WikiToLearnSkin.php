@@ -642,11 +642,18 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     * @return boolean
     */
     private function isEditableNamespace(){
-      $id = $this->namespaceId;
+      $namespaceId = $this->namespaceId;
       $user = $this->user;
-      if($id === NS_COURSE || $id === NS_USER){
+      if ($namespaceId === NS_COURSE) {
+        $fullTitle = $this->get('title');
+        if(substr_count($fullTitle, "/") < 2){ //dont show tools on course root and section pages
+          return false;
+        } else {
+          return true;
+        }
+      } elseif ($namespaceId === NS_USER) {
         return true;
-      }elseif ($id === NS_MAIN || $id === NS_TEMPLATE || $id === NS_PROJECT) {
+      } elseif ($namespaceId === NS_MAIN || $namespaceId === NS_TEMPLATE || $namespaceId === NS_PROJECT) {
         if($this->pageTitle->userCan('delete', $user, 'secure')){
           return true;
         }
