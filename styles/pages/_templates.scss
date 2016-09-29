@@ -53,12 +53,9 @@
 }
 
 .citation{
-    
     //https://css-tricks.com/snippets/css/simple-and-nice-blockquote-styling/
-
     blockquote {
         border-left: 3px solid #ddd;
-        
         margin: 1.5em 10px;
         padding: 0.5em 10px;
         quotes: "\201C""\201D""\2018""\2019";
@@ -81,4 +78,24 @@
         vertical-align: -0.4em;
     }
     
+}
+
+.infobox{
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+
+.coursebackend{
+    &__title{
+        font-size: 2rem;
+        margin-bottom: 0;
+        padding-left: 0.25rem;
+
+    }
+
+    &__description{
+        border-left: 1px solid #eee;
+        padding-left: 0.5rem;
+    }
 }
