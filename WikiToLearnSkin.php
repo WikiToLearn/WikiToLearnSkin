@@ -69,13 +69,14 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     public function execute()
     {
       //Declare useful variables for the whole template functions
-      global $wgOut, $wgRequest, $wgUser;
+      global $wgOut, $wgRequest, $wgUser, $wgSupportedLanguages, $wiki_domain;
       $this->skin = $this->getSkin();
       $this->namespaceId = $wgOut->getTitle()->getNamespace();
       $this->pageTitle = $wgOut->getTitle();
       $this->user = $wgUser;
       $this->contentNavigation = $this->data['content_navigation'];
-
+      $this->supportedLanguages = $wgSupportedLanguages;
+      $this->domain = $wiki_domain;
       $this->html( 'headelement' ); ?>
             <?php $this->html( 'newtalk' ); ?>
 
@@ -406,17 +407,17 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               <h4>WikiToLearn</h4>
               <ul class="contacts-list">
                 <li>
-                  <?php 
+                  <?php
                     $linkObj = Title::newFromText("Special:RecentChanges");
                     echo Linker::linkKnown($linkObj, wfMessage("wikitolearnskin-footer-changes")); ?>
                 </li>
                 <li>
-                  <?php 
+                  <?php
                     $linkObj = Title::newFromText("Special:SpecialPages");
                     echo Linker::linkKnown($linkObj, wfMessage("wikitolearnskin-footer-special-pages")); ?>
                 </li>
                 <li>
-                  <?php 
+                  <?php
                     $collectionTools = $this->data['sidebar']['coll-print_export'];
                     if(!is_null($collectionTools)) {
                       echo "<a href=" . $collectionTools[0]['href'] . ">" . $collectionTools[0]['text'] . "</a>";
@@ -770,10 +771,12 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     * Generate the HTML of the languages dropdown
     */
     private function generateLanguageSelectorItems(){
-      $supportedLanguages = array('it' => 'it', 'en' => 'gb', 'de' => 'de', 'fr' => 'fr', 'ca' => 'es', 'es' => 'es');
+      $supportedLanguages = $this->supportedLanguages;
+      $domain = $this->domain;
       asort($supportedLanguages);
-      foreach($supportedLanguages as $lang => $flag) {
-        echo '<a class="dropdown-item" href="' . $lang . '"><span class="flag-icon flag-icon-' . $flag . '"></span>&nbsp;' . $lang . '</a>';
+      foreach($supportedLanguages as $langCode) {
+        $domainLink = '//' . $langCode . '.' . $domain;
+        echo '<a class="dropdown-item" href="' . $domainLink . '">' . Language::fetchLanguageName($langCode) .'</a>';
       }
     }
 
