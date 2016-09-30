@@ -1,0 +1,11 @@
+<includeonly><div class="citation"><blockquote>{{{text}}}<small>{{{source}}}</small></blockquote></div></includeonly>
+<noinclude>[[Category:Official Templates]]
+Usage:
+
+This template has to be used only for quotes in the homepage of a department. For quotes inside a chapter use the template quote.
+
+<code><nowiki>{{Citation|text=This is a citation|source=Mr. Author}}</nowiki></code>
+
+Result:
+{{Citation|text=This is a citation|source=Mr. Author}}
+</noinclude>

@@ -1,0 +1,10 @@
+<includeonly><div class="col-xs-6 ssection"><div class="ssection__heading"><h2 class="sectionTitle">{{{1}}}</h2>[{{fullurl:Special:CourseEditor|actiontype=editsection&amp;pagename={{FULLPAGENAMEE}}/{{urlencode:{{{1}}}}} }} <i class="fa fa-pencil"></i>]</div>
+{{:{{FULLPAGENAME}}/{{{1}}}}}
+</div></includeonly>
+<noinclude>
+To activate CE:
+
+<div class="col-xs-6"><h2 class="sectionTitle">{{{1}}}</h2>
+{{:{{FULLPAGENAME}}/{{{1}}}}}
+[{{fullurl:Special:CourseEditor|actiontype=editsection&amp;pagename={{FULLPAGENAMEE}}/{{urlencode:{{{1}}}}} }} {{i18n|editsection}}]</div>
+</noinclude>

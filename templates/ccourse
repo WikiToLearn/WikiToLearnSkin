@@ -1,0 +1,13 @@
+<includeonly><div class="ccourse"><div class="ccourse__edit" style="text-align:center; width:100%;">[{{fullurl:Special:CourseEditor|actiontype=editcourse&amp;pagename={{FULLPAGENAMEE}} }} {{i18n|editcourse}}]</div>
+{{{1}}}
+{{ForceBreak}}
+<hr />
+<div class="ccourse__metadata">[{{fullurl:Special:CourseEditor|actiontype=managemetadata&amp;pagename={{PAGENAMEE}}}} {{i18n|editmetadata}}]</div></div>
+</includeonly><noinclude>
+This templates represents the internal structure of a course.
+To activate CourseEditor, add: 
+
+<nowiki>
+</nowiki>
+
+</noinclude>
