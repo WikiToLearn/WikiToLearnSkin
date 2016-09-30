@@ -114,7 +114,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         <div class="header__wrapper" >
           <div href="/" class="logo">
             <a href="/">
-              <img class="logo__img" src="/skins/WikiToLearnSkin/images/wikitolearn-logo.png">
+              <img class="logo__img" src="<?php echo $this->getSkin()->getSkinStylePath("images/wikitolearn-logo.png") ?>">
 
               <div class="logo__title">
                 <span class="text-wtl--red">wiki</span><span class="text-wtl--yellow">to</span><span class="text-wtl--green">learn</span>
@@ -300,14 +300,14 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             <h3 class="contributors__title"><?php echo wfMessage('wikitolearnskin-contributions-from'); ?></h3>
             <ul class="contributors__list">
               <div class="row">
-                <li class="contributors__item"><img src="https://upload.wikimedia.org/wikipedia/it/a/a2/Logo_Universit%C3%A0_Milano-Bicocca.jpg" alt=""></li>
-                <li class="contributors__item"><img src="http://design-guidelines.web.cern.ch/sites/design-guidelines.web.cern.ch/files/u6/CERN-logo.jpg" alt=""></li>
-                <li class="contributors__item"><img src="https://upload.wikimedia.org/wikipedia/it/thumb/5/54/Logo_Scuola_Internazionale_Superiore_di_Studi_Avanzati.svg/1280px-Logo_Scuola_Internazionale_Superiore_di_Studi_Avanzati.svg.png" alt=""></li>
+                <a href="http://www.unimib.it/" rel="nofollow" class="contributors__item"><img src="<?php echo $this->getSkin()->getSkinStylePath("images/logos/bicocca.jpg") ?>" alt=""></a>
+                <a href="https://home.cern/" rel="nofollow" class="contributors__item"><img src="<?php echo $this->getSkin()->getSkinStylePath("images/logos/cern.jpg") ?>" alt=""></a>
+                <a href="https://www.sissa.it/" rel="nofollow" class="contributors__item"><img src="<?php echo $this->getSkin()->getSkinStylePath("images/logos/sissa.png") ?>" alt=""></a>
               </div>
               <div class="row">
-                <li class="contributors__item"><img src="http://wikitolearn.org/images/it-wikimedia.png" alt=""></li>
-                <li class="contributors__item"><img src="http://wikitolearn.org/images/hep-logo.png" alt=""></li>
-                <li class="contributors__item"><img src="http://www.kde.org/stuff/clipart/klogo-official-lineart_simple.svg" alt=""></li>
+                <a href="http://www.wikimedia.it/" rel="nofollow" class="contributors__item"><img src="<?php echo $this->getSkin()->getSkinStylePath("images/logos/wikimedia.png") ?>" alt=""></a>
+                <a href="http://hepsoftwarefoundation.org/" rel="nofollow" class="contributors__item"><img src="<?php echo $this->getSkin()->getSkinStylePath("images/logos/hep.png") ?>" alt=""></a>
+                <a href="https://www.kde.org/" rel="nofollow" class="contributors__item"><img src="<?php echo $this->getSkin()->getSkinStylePath("images/logos/kde.svg") ?>" alt=""></a>
               </div>
             </ul>
           </div>
