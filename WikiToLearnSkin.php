@@ -353,11 +353,14 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     public function executeContentPage() {
       $pageTitle = $this->pageTitle;
 
-      $fullTitle = $this->get('title'); //we do this so special page have their proper pretty name, no more UserLogin or UserRegister but "Login" "Register"
-      $components = explode("/", $fullTitle);
-      $displayTitle = $components[count($components)-1];
-      $components = explode(":", $displayTitle); //remove namespace?
-      $displayTitle = $components[count($components)-1];
+      if ($this->namespaceId === NS_SPECIAL) {
+         $fullTitle = $this->get('title'); //we do this so special page have their proper pretty name, no more UserLogin or UserRegister but "Login" "Register"
+        $components = explode("/", $fullTitle);
+        $displayTitle = $components[count($components)-1];
+      } else {
+        $displayTitle = $pageTitle->getSubpageText(); //Get the lowest-level subpage name, i.e. the rightmost part after any slashes.
+      }
+
       $user = $this->skin->getUser();
       if($user->isAnon()){
         $additionalClass="user--anon";
@@ -634,7 +637,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             if ($value['id'] === "ca-talk") {
               self::makeTool($value['href'], $value['text'], $value['id'], "tool--black", "fa-comments-o" );
               break;
-            }
+            } 
           }
           echo '</div>';
         echo '</div>';
