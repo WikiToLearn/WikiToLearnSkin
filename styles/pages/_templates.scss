@@ -6,9 +6,10 @@
     padding-left: 0;
 
     &__heading{
-        margin-bottom: 0.25rem;
+        position: relative;
+        margin-bottom: 0.125rem;
 
-        padding-bottom: 0.25rem;   
+        padding-bottom: 0.125rem;   
         padding-left: 0.5rem;        
         border-bottom: 1px solid rgba(0,0,0,0.1);
     }
@@ -18,18 +19,19 @@
         margin-right: 0.5rem;
     }
     
-    a.external.text{
-        color: #333;
-    }
-
     h2+a{
-        vertical-align: text-bottom;
+        position: absolute;
+        right: 0;
+        top: 0.6rem;
+        color: #333;
+        
     }
     
     ul{
         margin-top: 0;
-        list-style-type: none;
-        margin-left: 0.75rem;
+        list-style-type: circle;
+        margin-left: 1.5rem;
+        padding-left: 0.5rem;
     }
 
 }
@@ -40,7 +42,7 @@
     &__edit{
         margin-bottom: 1rem;
     }
-
+ 
     &__metadata{
         text-align: right;
     }
