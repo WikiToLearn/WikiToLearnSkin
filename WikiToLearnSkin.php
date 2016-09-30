@@ -602,8 +602,13 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           <?php
           foreach ($subpages as $subpage){
             $subpageLink = Skin::makeUrl($partialLink . '/' . $subpage);
+            if($subpageLink === $this->pageTitle->getLocalURL()){
+              $additionalClass = "active";
+            } else {
+              $additionalClass = "";
+            }
             ?>
-            <a class="dropdown-item" href="<?php echo $subpageLink ?>"><?php echo $subpage ?></a>
+            <a class="dropdown-item <?php echo $additionalClass ?>" href="<?php echo $subpageLink ?>"><?php echo $subpage ?></a>
             <?php
           }
           ?>
