@@ -1,0 +1,33 @@
+body.mw-special-CourseEditor{
+    //general
+    .form-control{
+        color: $black;
+    }
+    
+    //create course
+    #createCourseButton{
+        display: block;
+        padding: 0.5rem 3rem;
+        margin: 0 auto;
+        margin-top: 1rem;
+    }
+    
+    #mw-content-text > p:first-of-type{
+        display: none;
+    }
+    //section editor
+    #parentName{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+    #saveDiv{
+        text-align: center;
+    }
+
+    .oo-ui-fieldLayout.oo-ui-fieldLayout-align-left > .oo-ui-fieldLayout-body > .oo-ui-fieldLayout-field{
+        width: 100%;
+    }
+}
