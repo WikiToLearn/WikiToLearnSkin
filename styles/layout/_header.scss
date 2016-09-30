@@ -402,7 +402,8 @@
                     
                     .dropdown-menu{
                         line-height: 1.75rem;
-
+                        left: auto;
+                        right: 0;
                         @include media-breakpoint-down(xs) {
                             width: 100vw;
                             top: 44.6px;
