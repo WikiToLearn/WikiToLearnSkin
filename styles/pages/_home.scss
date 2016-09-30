@@ -67,7 +67,7 @@
     &__name{
         color: $black;
         display: inline-block;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         font-weight: lighter;
         @include media-breakpoint-down(sm) {
             font-size: 1.2rem;
@@ -156,7 +156,7 @@
     }   
 
     &__title{
-        font-size: 2rem;
+        font-size: 1.9rem;
         font-weight: 300;
         //font-family: "Roboto Slab"
     }
