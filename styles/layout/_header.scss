@@ -419,6 +419,9 @@
 
             // Extension of the Mediawiki Echo classes
             #notifications-widget {
+                max-height: 50vh;
+                overflow-y: auto;
+
                 .mw-echo-ui-overlay {
                     position: relative;
                     top: -.3rem;
