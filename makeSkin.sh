@@ -52,13 +52,34 @@ fi
 
 if [[ "$USE_DOCKER" -eq "1" ]] ; then
     echo "Running with docker"
+    if test ! -d bower_components
+    then
+        mkdir bower_components
+    fi
+    if test ! -d build
+    then
+        mkdir build
+    fi
+    if test ! -d node_modules
+    then
+        mkdir node_modules
+    fi
+
     docker run \
       -e HOME=/tmp/ \
       --rm \
       -v wikitolearnskin-npm-home:/tmp/ \
-      -v $(pwd):/opt \
+      -v $(pwd)/bower_components:/opt/bower_components \
+      -v $(pwd)/build:/opt/build \
+      -v $(pwd)/node_modules:/opt/node_modules \
+      -v $(pwd)/bower.json:/opt/bower.json \
+      -v $(pwd)/package.json:/opt/package.json \
+      -v $(pwd)/scripts:/opt/scripts \
+      -v $(pwd)/styles:/opt/styles \
+      -v $(pwd)/gulpfile.js:/opt/gulpfile.js \
+      -v $(pwd)/makeSkin.sh:/opt/makeSkin.sh \
       node:6 \
-      /bin/bash -c "groupadd --gid `id -g` node && useradd -d /tmp/ --uid "`id -u`" --gid "`id -g`" node && su -s /bin/bash -c 'cd /opt && $NPM_COMMAND && $BOWER_COMMAND && $COMPILES_SASS_COMMAND' node"
+      /bin/bash -c "groupadd --gid `id -g` node && useradd -d /tmp/ --uid "`id -u`" --gid "`id -g`" node && su -s /bin/bash -c '/opt/makeSkin.sh' node"
 else
     echo "Running with system node"
     $NPM_COMMAND && $BOWER_COMMAND && $COMPILES_SASS_COMMAND
