@@ -22,8 +22,15 @@ body.mw-special-CourseEditor{
         text-align: center;
         font-size: 1.5rem;
     }
+    
+    #parentName + .row{
+        border: 1px solid #eee;
+        border-radius: $border-radius;    
+        padding: 1rem;
+    }
 
     #saveDiv{
+        margin-top: -1.5rem;
         text-align: center;
     }
 
