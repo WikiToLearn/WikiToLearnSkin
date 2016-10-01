@@ -31,10 +31,13 @@
     padding-bottom: 1.5rem; //should be 2 but 0.5 is from the margin-bottom of the deps
 
     &__content {
-        @extend .container;
-
         display: block;
         list-style: none;
+
+        @include make-container();
+        @include media-breakpoint-up(sm) {
+            @include make-container-max-widths();
+        }
     }
 
     &__wrapper{
@@ -47,10 +50,19 @@
             @include make-col-ready($gutter: $pages-home-grid-gutter-width-departments/2);
         }*/
 
-        float: left; //we have to do this since bootstrap does not allow 5cols per row
-        width: 20%;
-        padding: 0 0.5rem;
-        padding-bottom: 1rem;
+        @include media-breakpoint-down(xs) {
+            margin: .5rem 0;
+
+            @include make-col-ready($gutter: 0);
+            @include make-col(12);
+        }
+
+        @include media-breakpoint-up(sm) {
+            float: left; //we have to do this since bootstrap does not allow 5cols per row
+            width: 20%;
+            padding: 0 0.5rem;
+            padding-bottom: 1rem;            
+        }
     }
 
     &__item {
