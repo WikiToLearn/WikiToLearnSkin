@@ -199,7 +199,7 @@
                     padding: 0;
 
                     @include media-breakpoint-down(xs) {
-                        @include make-col-ready();
+                        @include make-col-ready($gutter: 0);
                         @include make-col(10);
                     }
 
@@ -223,7 +223,7 @@
                     background-color: transparent;
 
                     @include media-breakpoint-down(xs) {
-                        @include make-col-ready();
+                        @include make-col-ready($gutter: 0);
                         @include make-col(2);
                     }
                 }
@@ -399,7 +399,7 @@
                     height: 100%;
                         
                     @include media-breakpoint-down(xs) {
-                        @include make-col-ready();
+                        @include make-col-ready($gutter: 0);
                         @include make-col(2);
                     }
                     

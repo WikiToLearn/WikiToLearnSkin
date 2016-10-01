@@ -6,6 +6,7 @@
     &__list {
         @extend .container;
         @include list-unstyled();
+        @include clearfix();
         
         color: $gray;
         margin-bottom: 0;
@@ -32,13 +33,18 @@
             }
 
             h4 {
-                padding-top: 2rem;
-                padding-bottom: 2rem;
+                @include media-breakpoint-up(sm) {
+                    padding-top: 2rem;
+                    padding-bottom: 2rem;                    
+                }
                 @include media-breakpoint-down(xl) {
                     font-size: $font-size-h4 - .1rem;
                 }
                 @include media-breakpoint-down(lg) {
                     font-size: $font-size-h4 - .2rem;
+                }
+                @include media-breakpoint-down(xs) {
+                    font-size: $font-size-h4 - .5rem;
                 }
             }
 
@@ -50,6 +56,9 @@
             ul {
                 margin-bottom: 0rem;
                 padding-top: 1rem;
+                @include media-breakpoint-down(xs) {
+                    padding-bottom: 1rem;
+                }
                 @include list-unstyled();
             }
         }
@@ -83,18 +92,28 @@
         li {
             padding-top: 0.3rem;
             padding-bottom: 0.3rem;
+
+            @include media-breakpoint-down(xs) {
+                font-size: .7rem;
+            }
         }
     }
 
     &__learn-more {
 
-        .learn-more__second-heading{
+        &__second-heading{
             padding-bottom: 0;
             margin-bottom: 0;
+            @include media-breakpoint-down(xs) {
+                font-size: .5rem;
+            }
         }
 
-        .learn-more__sponsors{
+        &__sponsors{
             padding-top: 0rem;
+            @include media-breakpoint-down(xs) {
+                font-size: .7rem;
+            }
         }
 
         @include media-breakpoint-between(xs, sm) {
@@ -106,6 +125,12 @@
         h4 {
             border-bottom: 0.1rem solid $green;
             //color: $green;
+        }
+
+        ul {
+            @include media-breakpoint-down(xs) {
+                font-size: .7rem;
+            }
         }
 
         .social-icons {
@@ -124,6 +149,14 @@
             //color: $yellow;
             border-bottom: 0.1rem solid $yellow;
         }
+
+        &__list {
+            li {
+                @include media-breakpoint-down(xs) {
+                    font-size: .7rem;
+                }
+            }
+        }   
     }
 
     .last-modified {

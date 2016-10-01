@@ -412,7 +412,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             </li>
             <li class="footer__contacts">
               <h4>WikiToLearn</h4>
-              <ul class="contacts-list">
+              <ul class="footer__contacts-list">
                 <li>
                   <?php
                     $linkObj = Title::newFromText("Special:RecentChanges");
