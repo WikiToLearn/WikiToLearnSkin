@@ -273,7 +273,7 @@
                         @include media-breakpoint-down(xs) {
                             width: 100vw;
                             //top: 44.6px;
-                            left: 0;
+                            //left: 0;
                         }
                     }
 
@@ -412,6 +412,12 @@
                     @include media-breakpoint-up(sm) {
                         display: none;
                     }
+
+                    .dropdown-menu {
+                        position: fixed;
+                        width: 100vw;
+                        top: 46.5px;
+                    }
                 }
 
                 &--languages {
@@ -432,7 +438,7 @@
                         @include media-breakpoint-down(xs) {
                             width: 100vw;
                             //top: 44.6px;
-                            left: 0;
+                            //left: 0;
                         }
                     }
 
