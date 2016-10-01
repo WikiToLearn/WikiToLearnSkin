@@ -468,13 +468,13 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               </h4>
               <ul class="social-icons">
                 <li>
-                  <a href="#" class="fa fa-facebook fa-2x" aria-hidden="true"></a>
+                  <a href="https://www.facebook.com/WikiToLearn" class="fa fa-facebook fa-2x" aria-hidden="true"></a>
                 </li>
                 <li>
-                  <a href="#" class="fa fa-twitter fa-2x" aria-hidden="true"></a>
+                  <a href="https://twitter.com/wikitolearn" class="fa fa-twitter fa-2x" aria-hidden="true"></a>
                 </li>
                 <li>
-                  <a href="#" class="fa fa-linkedin fa-2x" aria-hidden="true"></a>
+                  <a href="https://www.linkedin.com/company/wikitolearn" class="fa fa-linkedin fa-2x" aria-hidden="true"></a>
                 </li>
               </ul>
               <ul>
