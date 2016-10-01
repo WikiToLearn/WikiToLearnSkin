@@ -299,16 +299,12 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           <div class="contributors__content">
             <h3 class="contributors__title"><?php echo wfMessage('wikitolearnskin-contributions-from'); ?></h3>
             <ul class="contributors__list">
-              <div class="row">
                 <a href="http://www.unimib.it/" rel="nofollow" class="contributors__item"><img src="<?php echo $this->getSkin()->getSkinStylePath("images/logos/bicocca.jpg") ?>" alt=""></a>
                 <a href="https://home.cern/" rel="nofollow" class="contributors__item"><img src="<?php echo $this->getSkin()->getSkinStylePath("images/logos/cern.jpg") ?>" alt=""></a>
                 <a href="https://www.sissa.it/" rel="nofollow" class="contributors__item"><img src="<?php echo $this->getSkin()->getSkinStylePath("images/logos/sissa.png") ?>" alt=""></a>
-              </div>
-              <div class="row">
                 <a href="http://www.wikimedia.it/" rel="nofollow" class="contributors__item"><img src="<?php echo $this->getSkin()->getSkinStylePath("images/logos/wikimedia.png") ?>" alt=""></a>
                 <a href="http://hepsoftwarefoundation.org/" rel="nofollow" class="contributors__item"><img src="<?php echo $this->getSkin()->getSkinStylePath("images/logos/hep.png") ?>" alt=""></a>
                 <a href="https://www.kde.org/" rel="nofollow" class="contributors__item"><img src="<?php echo $this->getSkin()->getSkinStylePath("images/logos/kde.svg") ?>" alt=""></a>
-              </div>
             </ul>
           </div>
         </section>

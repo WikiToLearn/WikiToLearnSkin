@@ -98,7 +98,9 @@
 
     &__content{
         @include make-container();
-        @include make-container-max-widths();
+        @include media-breakpoint-up(sm) {
+            @include make-container-max-widths();
+        }
 
         text-align: center;
 
@@ -130,10 +132,17 @@
 }
 
 .media {
-    @extend .container;
     
     background-color: #f8f8fb;
     padding: $pages-home-content-padding;
+
+    @include media-breakpoint-down(xs) {
+        @include make-container($gutter: 0)
+    }
+    @include media-breakpoint-up(sm) {
+        @include make-container();
+        @include make-container-max-widths();
+    }
     
     &__wrapper{
         overflow: hidden;
@@ -151,6 +160,7 @@
 
     &__video {
         border: none;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.15);
         height: 100%;
         left: 0;
         position: absolute;
@@ -167,6 +177,10 @@
 
         @include media-breakpoint-down(lg) {
             font-size: .8rem; // TODO: make text aligned with video
+        }
+
+        @include media-breakpoint-down(xs) {
+            padding-top: .5rem;
         }
     }   
 
@@ -209,7 +223,10 @@
     box-shadow: 0 1px 3px rgba(0,0,0,0.15);
     
     &__content{
-        @extend .container;
+        @include make-container();
+        @include media-breakpoint-up(sm) {
+            @include make-container-max-widths();
+        }
         
         padding: $pages-home-content-padding;
         text-align: center;
@@ -278,7 +295,9 @@
     
     &__content{
         @include make-container();
-        @include make-container-max-widths();
+        @include media-breakpoint-up(sm) {
+            @include make-container-max-widths();
+        }
 
         padding: $pages-home-content-padding;
     }
@@ -296,7 +315,10 @@
         padding: 0;
         text-align: center;
         
-        max-width: 40%;
+        @include clearfix;
+        @include media-breakpoint-up(sm) {
+            max-width: 40%;
+        }
 
         .row:first-of-type{
             margin-bottom: 2rem;
@@ -304,11 +326,17 @@
     }
     
     &__item {
+        padding: .5rem;
+
         @include make-col-ready();
         @include make-col(4);
 
+        @include media-breakpoint-down(xs) {
+            @include make-col(6);
+        }
+
         img {
-            height: 6rem;
+            height: 4rem;
         }
     }
 }
