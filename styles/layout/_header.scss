@@ -138,6 +138,15 @@
 
                     &--createaccount, &--login {
                         display: inline-block;
+                        &:hover {
+                            background-color: transparent;
+                        }
+                    }
+                }
+
+                &--createaccount, &--login {
+                    &:hover {
+                        background-color: transparent;
                     }
                 }
 

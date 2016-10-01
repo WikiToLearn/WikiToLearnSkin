@@ -3,9 +3,11 @@ main.page--article{
 
         &__wrapper{
             @include make-container();
-            @include make-container-max-widths();
+            @include media-breakpoint-up(sm) {
+                @include make-container-max-widths();
+                padding: 0 3rem;
+            }
 
-            padding: 0 3rem;
         }
         
         &__main{
@@ -21,8 +23,12 @@ main.page--article{
         &__content{
             background-color: white;
             box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
-            padding: 3rem;
             position: relative;
+            padding: 3rem;
+
+            @include media-breakpoint-down(xs) {
+                padding: 1rem;
+            }
         }
         
         &__navigation{
@@ -217,6 +223,10 @@ main.page--article{
 .article__text {
     font-size: 13pt;
     line-height: 1.5em;
+
+    @include media-breakpoint-down(xs) {
+        font-size: .9rem;
+    }
 
     p:empty {
         display: none;
