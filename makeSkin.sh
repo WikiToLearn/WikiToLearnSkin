@@ -15,7 +15,7 @@ cd "$HACKING_DIR"
 USE_DOCKER="0"
 NODE_REQUIRED_VERSION="6.0" #lts
 NPM_REQUIRED_VERSION="3.0" #version running on node:6
-NPM_COMMAND="npm install --dev"
+NPM_COMMAND="npm install"
 BOWER_COMMAND="node_modules/bower/bin/bower install"
 COMPILES_SASS_COMMAND="node_modules/gulp/bin/gulp.js sass"
 
