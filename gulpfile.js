@@ -3,6 +3,8 @@ var sass = require('gulp-sass');
 var plumber = require('gulp-plumber');
 var autoprefixer = require('gulp-autoprefixer');
 
+var browserSync = require('browser-sync').create();
+
 var src = {
     sass: './styles/skin.scss',
     images: './images/**/*',
@@ -32,3 +34,13 @@ gulp.task('sass', function() {
 gulp.task('watch', ['sass'], function () {
     gulp.watch('styles/**/*.scss', ['sass'])
 })
+
+gulp.task('browser-sync', function() {
+    browserSync.init({
+        proxy: "it.tuttorotto.biz"
+    });
+
+    gulp.watch("WikiToLearnSkin.php").on('change', browserSync.reload);
+    gulp.watch("build/**/*").on('change', browserSync.reload);
+    gulp.watch("images/**/*").on('change', browserSync.reload);
+});
