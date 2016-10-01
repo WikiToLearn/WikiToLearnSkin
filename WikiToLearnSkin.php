@@ -39,8 +39,8 @@ class SkinWikiToLearnSkin extends SkinTemplate
     function setupSkinUserCss( OutputPage $out )
     {
         parent::setupSkinUserCss( $out );
-        $out->addStyle("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
-        $out->addStyle("https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700");
+        $out->addStyle("//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
+        $out->addStyle("//fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700");
         $out->addModuleStyles( 'skin.wikitolearn' );
 
     }
