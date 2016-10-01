@@ -27,6 +27,8 @@
 
         .logo{
             padding: 0;
+            padding-left: .5rem;
+            padding-right: .5rem;
 
             /*@include make-col-ready();
             @include make-col(4);
@@ -66,6 +68,10 @@
                 font-size: 2.5em;
                 font-family: "DinC";
                 vertical-align: middle;
+
+                @include media-breakpoint-down(md) {
+                    display: none;
+                }
 
                 @include media-breakpoint-down(md) {
                     font-size: 1.1rem;
@@ -180,7 +186,6 @@
                     display: inline-block;
                     @include make-col-ready();
                     @include make-col(8);
-                    @include make-col-push(2);
                 }
 
                 form {
@@ -390,14 +395,12 @@
 
                 &--languages {
                     
-                    
                     cursor: pointer;
                     height: 100%;
                         
                     @include media-breakpoint-down(xs) {
                         @include make-col-ready();
                         @include make-col(2);
-                        @include make-col-pull(8);
                     }
                     
                     .dropdown-menu{

@@ -1,9 +1,12 @@
 .title {
-    @extend .container;
     
     background-color: #f8f8fb;
     padding: $pages-home-content-padding;
 
+    @include media-breakpoint-up(sm) {
+        @include make-container();
+        @include make-container-max-widths();
+    }
     h1 {
         font-weight: lighter;
         margin-bottom: 0;

@@ -3,6 +3,10 @@
 
     &-home{
         padding-top: 3.2rem;
+
+        @include media-breakpoint-down(xs) {
+            @include make-container();
+        }
     }
 
     &--article{
