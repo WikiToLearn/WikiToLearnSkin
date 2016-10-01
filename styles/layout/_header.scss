@@ -184,6 +184,13 @@
                 }
             }
 
+            &__desktop-login {
+                display: inline-flex;
+                @include media-breakpoint-down(xs) {
+                    display: none;
+                }
+            }
+
             &__search {
 
                 @include media-breakpoint-down(xs) {
@@ -265,7 +272,7 @@
 
                         @include media-breakpoint-down(xs) {
                             width: 100vw;
-                            top: 44.6px;
+                            //top: 44.6px;
                             left: 0;
                         }
                     }
@@ -295,7 +302,7 @@
                         top: 3.2rem;
 
                         @include media-breakpoint-down(xs) {
-                            top: 44.6px; //TODO: change in rem
+                            //top: 44.6px; //TODO: change in rem
                             width: 100vw;
                         }
 
@@ -402,6 +409,9 @@
                 &--mobile-login {
                     @include make-col-ready($gutter: 0);
                     @include make-col(2);
+                    @include media-breakpoint-up(sm) {
+                        display: none;
+                    }
                 }
 
                 &--languages {
@@ -417,10 +427,11 @@
                     .dropdown-menu{
                         line-height: 1.75rem;
                         left: auto;
+                        margin: 0;
                         right: 0;
                         @include media-breakpoint-down(xs) {
                             width: 100vw;
-                            top: 44.6px;
+                            //top: 44.6px;
                             left: 0;
                         }
                     }

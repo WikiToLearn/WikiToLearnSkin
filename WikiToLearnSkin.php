@@ -145,6 +145,14 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               $user = $this->skin->getUser();
             ?>
             <?php if($user->isAnon()){ ?>
+              <div class="nav__desktop-login">
+                <a href="<?php echo $this->skin->makeSpecialUrl('UserLogin'); ?>" class="nav__link nav__link--login nav__link--hover-mwblue dropdown-item">
+                  <?php $this->msg( 'login' ) ?>
+                </a>
+                <a href="<?php echo $this->skin->makeSpecialUrl('CreateAccount'); ?>" class="nav__link nav__link--createaccount nav__link--hover-mwblue dropdown-item">
+                  <?php $this->msg( 'createaccount' ) ?>
+                </a>
+              </div>
               <div class="dropdown dropdown--mobile-login">
                 <a data-toggle="dropdown" id="dropdownMobileLogin" aria-haspopup="true" aria-expanded="false">
                   <i class="fa fa-user"></i>
