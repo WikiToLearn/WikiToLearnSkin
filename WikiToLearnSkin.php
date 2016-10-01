@@ -145,12 +145,20 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               $user = $this->skin->getUser();
             ?>
             <?php if($user->isAnon()){ ?>
-              <a href="<?php echo $this->skin->makeSpecialUrl('UserLogin'); ?>" class="nav__link nav__link--hover-mwblue">
-                <?php $this->msg( 'login' ) ?>
-              </a>
-              <a href="<?php echo $this->skin->makeSpecialUrl('CreateAccount'); ?>" class="nav__link nav__link--hover-mwblue">
-                <?php $this->msg( 'createaccount' ) ?>
-              </a>
+              <div class="dropdown dropdown--mobile-login">
+                <a data-toggle="dropdown" id="dropdownMobileLogin" aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-user"></i>
+                  <i class="fa fa-angle-down"></i>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMobileLogin">
+                  <a href="<?php echo $this->skin->makeSpecialUrl('UserLogin'); ?>" class="nav__link nav__link--login nav__link--hover-mwblue dropdown-item">
+                    <?php $this->msg( 'login' ) ?>
+                  </a>
+                  <a href="<?php echo $this->skin->makeSpecialUrl('CreateAccount'); ?>" class="nav__link nav__link--createaccount nav__link--hover-mwblue dropdown-item">
+                    <?php $this->msg( 'createaccount' ) ?>
+                  </a>
+                </div>
+              </div>
             <?php } else { ?>
               <div class="dropdown dropdown--personal-tools">
                 <a class="nav__link nav__link--hamburger nav__link--hover-mwblue" href="#" id="dropdownToolbox" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

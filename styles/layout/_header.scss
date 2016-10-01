@@ -135,6 +135,10 @@
 
                 @include media-breakpoint-down(xs) {
                     display: none;
+
+                    &--createaccount, &--login {
+                        display: inline-block;
+                    }
                 }
 
                 &--hamburger {
@@ -186,6 +190,8 @@
                     display: inline-block;
                     @include make-col-ready();
                     @include make-col(8);
+
+                    padding-right: .5rem;
                 }
 
                 form {
@@ -391,6 +397,11 @@
                     .dropdown-divider {
                         margin: 0;
                     }
+                }
+
+                &--mobile-login {
+                    @include make-col-ready($gutter: 0);
+                    @include make-col(2);
                 }
 
                 &--languages {
