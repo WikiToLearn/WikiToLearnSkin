@@ -131,7 +131,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             <a href="<?php echo wfMessage('wikitolearnskin-navbar-third-option-link')->plain(); ?>"  class="nav__link nav__link--hover-green">
               <?php echo wfMessage('wikitolearnskin-navbar-third-option'); ?>
             </a>
-            <span class="nav__search">
+            <span class="nav__search nav__<?php echo self::getAnonClass(); ?>">
             <form id="searchForm" action="<?php $this->text( 'wgScript' ); ?>" autocomplete="off">
               <input type="hidden" name="title" value="<?php $this->text( 'searchtitle' ) ?>" />
               <?php echo $this->makeSearchInput( array( 'id' => 'searchInput' ) ); ?>
@@ -208,7 +208,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 </div>
               </div>
             <?php } ?>
-            <div class="dropdown dropdown--languages nav__link--hover-mwblue">
+            <div class="dropdown dropdown--languages dropdown--languages__desktop languages__<?php echo self::getAnonClass(); ?> nav__link--hover-mwblue">
               <a class="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fa fa-globe"></i> <i class="fa fa-angle-down"></i>
               </a>
@@ -372,15 +372,8 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       } else {
         $displayTitle = $pageTitle->getSubpageText(); //Get the lowest-level subpage name, i.e. the rightmost part after any slashes.
       }
-
-      $user = $this->skin->getUser();
-      if($user->isAnon()){
-        $additionalClass="user--anon";
-      } else {
-        $additionalClass="user--logged";
-      }
       ?>
-      <main class="page page--article <?php echo $additionalClass ?>">
+      <main class="page page--article <?php echo self::getAnonClass(); ?>">
         <div class="article__wrapper">
           <?php self::executeBreadcrumb($pageTitle); //build the breadcrumb?>
           <div class="article__main"> <!-- This is needed to wrap the "sheet" and the tools so we can display them one next to another-->
@@ -832,5 +825,19 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         </a>
       </li>
       <?php
+    }
+
+    /**
+     * Get the respective class for both the logged 
+     * and not logged user
+     * @return  string the name of the class
+     */
+    private function getAnonClass()
+    {
+      if($this->skin->getUser()->isAnon()){
+        return "user--anon";
+      }
+
+      return "user--logged";
     }
 }

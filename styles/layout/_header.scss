@@ -265,15 +265,16 @@
                 @include media-breakpoint-down(xs) {
                     text-align: center;
 
-                    @include make-col-ready();
+                    @include make-col-ready($gutter: 0);
                     @include make-col(2);
                 }
 
                 &--personal-tools {
                     @include media-breakpoint-down(xs) {
-                        @include make-col-ready();
+                        @include make-col-ready($gutter: 0);
                         @include make-col(2);
-                        @include make-col-pull(8);
+                        @include make-col-push(2);
+                        //@include make-col-pull(8);
                     }
 
                     .dropdown-menu{
@@ -296,6 +297,10 @@
 
                     [class^="ve-"], [class^="oo-"], [class^="mw-"]{
                         box-sizing: border-box;
+                    }
+
+                    @include media-breakpoint-down(xs) {
+                        @include make-col-pull(2);
                     }
 
                     cursor: pointer;
@@ -454,6 +459,16 @@
                     a.dropdown-item{
                         display: block;
                         text-transform: capitalize;
+                    }
+                }
+            }
+
+            .languages {
+                &__user
+                    &--logged {
+                        @include media-breakpoint-down(xs) {
+                            display: none;
+                        }
                     }
                 }
             }
