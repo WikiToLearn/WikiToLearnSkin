@@ -461,14 +461,37 @@
                         text-transform: capitalize;
                     }
                 }
+
+                &--user-menu {
+                    @include media-breakpoint-down(xs) {
+                        position: fixed;
+                        top: 46.6px; //TODO: use rem
+                    }
+                }
             }
 
             .languages {
-                &__user
+                &__user {
                     &--logged {
                         @include media-breakpoint-down(xs) {
                             display: none;
                         }
+                    }
+                }
+
+                &__selector {
+                    color: $dark-green;
+                }
+
+                &__divider {
+                    margin-top: .5rem;
+                    margin-bottom: .5rem;
+                }
+
+                &--mobile {
+                    .dropdown-item {
+                        color: $green;
+                        padding-left: 2rem;
                     }
                 }
             }

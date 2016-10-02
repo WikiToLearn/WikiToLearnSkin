@@ -173,7 +173,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                     <span><?php echo $user->getName() ?></span>
                     <i class="fa fa-bars"></i>
                 </a>
-                <div class="dropdown-menu" aria-labelledby="dropdownToolbox">
+                <div class="dropdown-menu dropdown--user-menu" aria-labelledby="dropdownToolbox">
                   <?php
                     $toolbar = $this->getPersonalTools();
                     unset($toolbar['notifications-alert']);
@@ -185,6 +185,11 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                       //$personalToolsCount++;
                     }
                   ?>
+                  <span class="dropdown-item languages__selector"><?php echo wfMessage( "wikitolearnskin-navbar-language-selector" ); ?></span>
+                  <hr class="languages__divider"></hr>
+                  <div class="languages--mobile">
+                    <?php echo self::generateLanguageSelectorItems(); ?>
+                  </div>
                 </div>
               </div>
               <div class="dropdown dropdown--notifications nav__link--hover-mwblue">
