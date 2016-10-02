@@ -10,9 +10,6 @@
     }
 
     &--article{
-        @include media-breakpoint-up(sm) {
-            padding: 2rem;
-        }
         padding-top: 5rem;
         padding-bottom: 2rem;
     }
