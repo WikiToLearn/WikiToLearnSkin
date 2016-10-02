@@ -12,6 +12,10 @@ main.page--article{
         
         &__main{
             display: flex;
+
+            @include media-breakpoint-down(xs) {
+                display: block;
+            }
         }
         
         &__sheet{
@@ -64,7 +68,12 @@ main.page--article{
             padding-left: 1rem;
             
             position: relative;
-            
+            max-width: 100%;
+            @include media-breakpoint-down(xs) {
+                padding-left: 0rem;
+                padding-top: 0.5rem;
+            }
+
             .tool--divider{
                 display: block;
                 margin-bottom: 2rem;
@@ -84,6 +93,11 @@ main.page--article{
                 position: relative;
 
                 box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
+                
+                @include media-breakpoint-down(xs) {
+                    width: 100%;
+                    border-radius: 3rem;
+                }
 
                 &:hover{
                     text-decoration: none;
@@ -97,6 +111,12 @@ main.page--article{
                 @mixin colorTool($color){
                     border: 2px solid $color;
                     color: $color;
+
+                    @include media-breakpoint-down(xs) {
+                        border: 1px solid $color;
+                    }
+
+
                     &:hover, &.active{
                         color: white;
                         background-color: $color;
@@ -126,15 +146,32 @@ main.page--article{
                 &--blue{
                     @include colorTool($mwblue);
                 }
-
-                &__icon{
-                    font-size: 1.25rem;
+                
+                &__content{
                     position: absolute;
-
+                    
+                    display: inline-block;
                     left: 0;
                     right: 0;
                     top: 50%;
                     transform: translateY(-50%);
+                }
+
+                &__icon{
+                    font-size: 1.25rem;
+
+                    @include media-breakpoint-down(xs) {
+                        display: inline-block;
+                        vertical-align: middle;
+                    }
+                }
+
+                &__title{
+                    display: none;
+                    @include media-breakpoint-down(xs) {
+                        display: inline-block;
+                        vertical-align: middle;
+                    }
                 }
             }
         }

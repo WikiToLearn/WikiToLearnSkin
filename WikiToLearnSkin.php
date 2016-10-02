@@ -716,7 +716,10 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       if(!is_null($collectionTools)) { ?>
         <div class="multitool horizontal click-to-toggle">
           <span title="<?php echo wfMessage('wikitolearnskin-download-button-title') ?>" class="tool tool--green multitool__trigger">
-            <i class="tool__icon fa fa-download"></i>
+            <div class="tool__content">
+              <i class="tool__icon fa fa-download"></i>
+              <span class="tool__title"><?php echo wfMessage('wikitolearnskin-download-button-title') ?></span> 
+            </div>
           </span>
           <ul>
             <li>
@@ -743,7 +746,10 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     ?>
       <div class="multitool horizontal click-to-toggle">
         <span title="<?php echo wfMessage('wikitolearnskin-advanced-button-title') ?>" class="tool tool--yellow multitool__trigger">
-          <i class="tool__icon fa fa-wrench"></i>
+          <div class="tool__content">
+            <i class="tool__icon fa fa-wrench"></i>
+            <span class="tool__title"><? echo wfMessage('wikitolearnskin-advanced-button-title') ?></span>
+          </div>
         </span>
         <ul>
         <?php foreach ($actionsTools as $key => $toolAttributes){ ?>
@@ -795,7 +801,9 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     private function makeTool($href, $title, $id, $classes, $icon) {
       ?>
       <a <?php if($id !== NULL){ echo ('id="' . $id . '"'); }?> title="<?php echo $title ?>" class="tool <?php echo $classes?>" href="<?php echo $href ?>">
-          <i class="tool__icon fa <?php echo $icon ?>"></i>
+          <div class="tool__content"> 
+            <i class="tool__icon fa <?php echo $icon ?>"></i> <span class="tool__title"><? echo $title ?></span>
+          </div>
       </a>
       <?php
     }
