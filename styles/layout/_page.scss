@@ -9,8 +9,9 @@ body {
     flex: 1;
 
     &-home{
-        padding-top: 3.2rem;
 
+        padding-top: 3.2rem;
+            
         @include media-breakpoint-down(xs) {
             @include make-container();
         }

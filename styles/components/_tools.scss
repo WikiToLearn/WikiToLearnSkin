@@ -17,11 +17,21 @@
             height: 100%;
             left: auto;
             width: 500px; /*width 100% only goes to width of button container */
+            
+            @include media-breakpoint-down(xs) {
+                width: 100%;
+                transform: none;
+            }
 
             li {
                 display: inline-block;
                 padding-top: 0.35rem;
                 margin-left: 0.25rem;
+    
+                @include media-breakpoint-down(xs) {
+                    display: block;
+                    margin-left: 0;
+                }
             }
         }
     }
@@ -34,5 +44,14 @@
         bottom: 64px;
         margin: 0;
         visibility: hidden;
+
+        @include media-breakpoint-down(xs) {
+            position: static;
+            left: auto;
+            right: auto;
+            bottom: auto;
+            visibility: visible;
+            padding-left: 0;
+        }
     }
 }

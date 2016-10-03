@@ -2,6 +2,11 @@
 // https://github.com/Dogfalo/materialize/blob/master/LICENSE
 // tweaked for our needs
 $(document).ready(function() {
+      
+    function isToolFloating(){
+        return $(window).width() > 544;
+    }
+
     // jQuery reverse
     $.fn.reverse = [].reverse;
 
@@ -53,17 +58,19 @@ $(document).ready(function() {
       $this.addClass('active');
       $this.find('.multitool__trigger').addClass('active');
 
-      $this.find('ul .tool').velocity(
-        { scaleY: ".4", scaleX: ".4", translateY: offsetY + 'px', translateX: offsetX + 'px'},
-        { duration: 0 });
+      if(isToolFloating()){
+        $this.find('ul .tool').velocity(
+          { scaleY: ".4", scaleX: ".4", translateY: offsetY + 'px', translateX: offsetX + 'px'},
+          { duration: 0 });
 
-      var time = 0;
-      $this.find('ul .tool').reverse().each( function () {
-        $(this).velocity(
-          { opacity: "1", scaleX: "1", scaleY: "1", translateY: "0", translateX: '0'},
-          { duration: 80, delay: time });
-        time += 40;
-      });
+        var time = 0;
+        $this.find('ul .tool').reverse().each( function () {
+          $(this).velocity(
+            { opacity: "1", scaleX: "1", scaleY: "1", translateY: "0", translateX: '0'},
+            { duration: 80, delay: time });
+          time += 40;
+        });
+      }
     }
   };
 

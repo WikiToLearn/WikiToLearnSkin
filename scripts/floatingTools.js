@@ -1,16 +1,21 @@
-function isToolFloating(){
-    return $(window).width() > 544;
-}
+
 
 $( document ).ready(function() {
+
+    function isToolFloating(){
+        return $(window).width() > 544;
+    }
 
     var shouldFloat = isToolFloating();
     $(window).resize(function() {
         shouldFloat = isToolFloating();
     });
 
-    toolsWidth = $(".article__tools").width();
-    $(".article__tools").width(toolsWidth);
+    if(shouldFloat){
+        toolsWidth = $(".article__tools").width();
+        $(".article__tools").width(toolsWidth);
+    } else {
+    }
 
     toolsContainer = $("#tools_container");
 
