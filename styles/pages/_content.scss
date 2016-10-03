@@ -72,6 +72,10 @@ main.page--article{
             @include media-breakpoint-down(xs) {
                 padding-left: 0rem;
                 padding-top: 0.5rem;
+                position: fixed;
+                bottom: 0.5rem;
+                width: 100%;
+
             }
 
             .tool--divider{
@@ -95,8 +99,8 @@ main.page--article{
                 box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
                 
                 @include media-breakpoint-down(xs) {
-                    width: 100%;
-                    border-radius: 3rem;
+                    display: inline-block;
+                    margin-bottom: 0;
                 }
 
                 &:hover{
@@ -106,11 +110,6 @@ main.page--article{
                 &--smaller{
                     height: $toolSize*0.75;
                     width: $toolSize*0.75;
-
-                    @include media-breakpoint-down(xs) {
-                        width: 100%;
-                        margin-bottom: 0;
-                    }
                 }
 
                 @mixin colorTool($color){
@@ -173,10 +172,10 @@ main.page--article{
 
                 &__title{
                     display: none;
-                    @include media-breakpoint-down(xs) {
+                    /*@include media-breakpoint-down(xs) {
                         display: inline-block;
                         vertical-align: middle;
-                    }
+                    }*/
                 }
             }
         }

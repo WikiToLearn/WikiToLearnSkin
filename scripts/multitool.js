@@ -3,7 +3,7 @@
 // tweaked for our needs
 $(document).ready(function() {
       
-    function isToolFloating(){
+    function isMobile(){
         return $(window).width() > 544;
     }
 
@@ -58,7 +58,7 @@ $(document).ready(function() {
       $this.addClass('active');
       $this.find('.multitool__trigger').addClass('active');
 
-      if(isToolFloating()){
+      if(isMobile()){
         $this.find('ul .tool').velocity(
           { scaleY: ".4", scaleX: ".4", translateY: offsetY + 'px', translateX: offsetX + 'px'},
           { duration: 0 });
@@ -89,12 +89,15 @@ $(document).ready(function() {
     $this.removeClass('active');
     $this.find('.multitool__trigger').removeClass('active');
 
-    var time = 0;
-    $this.find('ul .tool').velocity("stop", true);
-    $this.find('ul .tool').velocity(
-      { opacity: "0", scaleX: ".4", scaleY: ".4", translateY: offsetY + 'px', translateX: offsetX + 'px'},
-      { duration: 80 }
-    );
+    
+    if(isMobile()){
+      var time = 0;
+      $this.find('ul .tool').velocity("stop", true);
+      $this.find('ul .tool').velocity(
+        { opacity: "0", scaleX: ".4", scaleY: ".4", translateY: offsetY + 'px', translateX: offsetX + 'px'},
+        { duration: 80 }
+      );
+    }
   };
 
 });

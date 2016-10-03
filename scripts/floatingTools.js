@@ -13,8 +13,10 @@ $( document ).ready(function() {
 
     if(shouldFloat){
         toolsWidth = $(".article__tools").width();
-        $(".article__tools").width(toolsWidth);
+        if(toolsWidth)
+            $(".article__tools").width(toolsWidth);
     } else {
+        $(".multitool").removeClass("horizontal");
     }
 
     toolsContainer = $("#tools_container");
