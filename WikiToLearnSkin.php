@@ -650,6 +650,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           self::buildCollectionTools();
           foreach ($namespaceAndTalk as $value) {
             if ($value['id'] === "ca-talk") {
+              echo "<div class='tool--divider'></div>";
               self::makeTool($value['href'], $value['text'], $value['id'], "tool--black", "fa-comments-o" );
               break;
             }
