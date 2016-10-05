@@ -267,7 +267,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             <p class="media__text">
               <?php echo wfMessage('wikitolearnskin-media-text'); ?>
             </p>
-            <a href="<?php echo wfMessage('wikitolearnskin-join-us-button-link')->plain(); ?>" class="media__button">
+            <a href="<?php echo wfMessage('wikitolearnskin-media-learn-more-link')->plain(); ?>" class="media__button">
               <?php echo wfMessage('wikitolearnskin-media-learn-more'); ?>
             </a>
           </div>
