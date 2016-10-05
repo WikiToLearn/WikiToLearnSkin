@@ -185,9 +185,9 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                       //$personalToolsCount++;
                     }
                   ?>
-                  <span class="dropdown-item languages__selector"><?php echo wfMessage( "wikitolearnskin-navbar-language-selector" ); ?></span>
-                  <hr class="languages__divider"></hr>
-                  <div class="languages--mobile">
+                  <span class="dropdown-item languages__selector hidden-sm-up"><?php echo wfMessage( "wikitolearnskin-navbar-language-selector" ); ?></span>
+                  <hr class="languages__divider hidden-sm-up"></hr>
+                  <div class="languages--mobile hidden-sm-up">
                     <?php echo self::generateLanguageSelectorItems(); ?>
                   </div>
                 </div>
@@ -213,7 +213,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 </div>
               </div>
             <?php } ?>
-            <div class="dropdown dropdown--languages dropdown--languages__desktop languages__<?php echo self::getAnonClass(); ?> nav__link--hover-mwblue">
+            <div class="dropdown dropdown--languages dropdown--languages__desktop languages__<?php echo self::getAnonClass(); ?> nav__link--hover-mwblue hidden-xs-down">
               <a class="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fa fa-globe"></i> <i class="fa fa-angle-down"></i>
               </a>
