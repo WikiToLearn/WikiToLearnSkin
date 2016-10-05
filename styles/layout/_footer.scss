@@ -99,11 +99,12 @@
         }
     }
 
-    &__learn-more {
+    .learn-more {
 
         &__second-heading{
             padding-bottom: 0;
             margin-bottom: 0;
+            
             @include media-breakpoint-down(xs) {
                 font-size: .5rem;
             }
