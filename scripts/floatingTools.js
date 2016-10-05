@@ -2,13 +2,13 @@
 
 $( document ).ready(function() {
 
-    function isToolFloating(){
-        return $(window).width() > 544;
+    function isMobile(){
+        return $(window).width() < 544;
     }
 
-    var shouldFloat = isToolFloating();
+    var shouldFloat = !isMobile();
     $(window).resize(function() {
-        shouldFloat = isToolFloating();
+        shouldFloat = !isMobile();
     });
 
     if(shouldFloat){
