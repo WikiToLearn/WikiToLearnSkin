@@ -566,7 +566,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     // FIXME: This function it's a mess! Should be refactored, but it works!
     public function executeCourseBreadcrumb($titleComponents, $partialLink) {
       $partialLink .= $titleComponents[0];
-      $subpages = CourseEditorUtils::getSections($partialLink);
+      $subpages = CourseEditorUtils::getLevelsTwo($partialLink);
       $linkObj = Title::newFromText($partialLink);
       $link = Linker::linkKnown($linkObj, htmlspecialchars( $titleComponents[0] ), ["class" => "breadcrumb__item"]);
       echo $link;
@@ -652,7 +652,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             if ($value['id'] === "ca-talk") {
               self::makeTool($value['href'], $value['text'], $value['id'], "tool--black", "fa-comments-o" );
               break;
-            } 
+            }
           }
           echo '</div>';
         echo '</div>';
@@ -718,7 +718,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           <span title="<?php echo wfMessage('wikitolearnskin-download-button-title') ?>" class="tool tool--green multitool__trigger">
             <div class="tool__content">
               <i class="tool__icon fa fa-download"></i>
-              <span class="tool__title"><?php echo wfMessage('wikitolearnskin-download-button-title') ?></span> 
+              <span class="tool__title"><?php echo wfMessage('wikitolearnskin-download-button-title') ?></span>
             </div>
           </span>
           <ul>
@@ -801,7 +801,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     private function makeTool($href, $title, $id, $classes, $icon) {
       ?>
       <a <?php if($id !== NULL){ echo ('id="' . $id . '"'); }?> title="<?php echo $title ?>" class="tool <?php echo $classes?>" href="<?php echo $href ?>">
-          <div class="tool__content"> 
+          <div class="tool__content">
             <i class="tool__icon fa <?php echo $icon ?>"></i> <span class="tool__title"><? echo $title ?></span>
           </div>
       </a>
@@ -841,7 +841,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     }
 
     /**
-     * Get the respective class for both the logged 
+     * Get the respective class for both the logged
      * and not logged user
      * @return  string the name of the class
      */
