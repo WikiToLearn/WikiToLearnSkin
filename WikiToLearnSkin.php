@@ -75,6 +75,11 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       $this->pageTitle = $wgOut->getTitle();
       $this->user = $wgUser;
       $this->contentNavigation = $this->data['content_navigation'];
+      $this->toolBox = $this->getToolbox();
+      foreach ($this->toolBox as $key => $value) {
+        MWDebug::log($key);
+        MWDebug::log($value);
+      }
       $this->supportedLanguages = $wgSupportedLanguages;
       $this->domain = $wiki_domain;
       $this->html( 'headelement' ); ?>
@@ -584,7 +589,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         $linkObj = Title::newFromText($partialLink);
         $link = Linker::linkKnown($linkObj, htmlspecialchars( $titleComponents[1] ), ["class" => "breadcrumb__item"]);
         echo $link;
-        $subpages = CourseEditorUtils::getChapters($partialLink);
+        $subpages = CourseEditorUtils::getLevelsThree($partialLink);
         if (sizeof($subpages) !== 0){
           self::buildBreadcrumbDropdown($subpages, $partialLink);
         }
