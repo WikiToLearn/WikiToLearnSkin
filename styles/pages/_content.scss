@@ -293,4 +293,33 @@ main.page--article{
     .center{
         text-align: center;
     }
+
+    .reference{
+        a{
+            display: inline-block;
+            padding-top: 4rem;
+            margin-top: -4rem;
+        }
+    }
+
+    .references{
+        margin-left: 0;
+        list-style-type: none;
+        li{
+            margin: 0;
+            padding: 0;
+            display: inline-block;
+            padding-top: 4rem;
+            margin-top: -4rem;
+            
+            &::before{
+                counter-increment: references;
+                content: counter(references) ". ";
+            }
+        }
+    }
+
+    ol.references li:target, sup.reference:target{
+        background-color: transparent;
+    }
 }
