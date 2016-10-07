@@ -157,5 +157,11 @@ body{
         & .oo-ui-fieldLayout-body{ //https://phabricator.kde.org/T3956
             display: block; //why? because it works
         }
+
+        meta.mwe-math-fallback-image-inline { //https://phabricator.kde.org/T3955
+            display: inline-block;
+        }
     }
+
+    
 }
