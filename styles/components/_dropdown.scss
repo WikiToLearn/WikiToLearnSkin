@@ -5,4 +5,10 @@
             color: $black;
         }    
     }
+
+    &.left{
+        left: auto;
+        margin: 0;
+        right: 0;
+    }
 }
