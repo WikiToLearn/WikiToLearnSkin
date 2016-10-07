@@ -280,6 +280,27 @@ main.page--article{
         margin-bottom: 0;
     }
 
+    h2, h3, h4, h5, h6{
+        margin-top: 1rem;
+    }   
+    
+    .center{
+        text-align: center;
+    }
+
+    ol, ul{
+        margin: 0;
+        margin-bottom: 1rem;
+        padding-left: 2rem;
+    }
+
+    img{
+        box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+        height: auto;
+        max-width: 100%;
+        padding: 1rem;
+    }
+
     .mwe-math-fallback-image-display{ //margin at the bottom of formulas
         margin-bottom: 1rem;
     }
@@ -287,16 +308,7 @@ main.page--article{
     .mw-editsection{ //hide [Edit | Edit Wikitext]
         display: none;
     }
-
-
-    h2, h3, h4, h5, h6{
-        font-weight: 300;
-    }   
-
-    .center{
-        text-align: center;
-    }
-
+    
     .reference{
         a{
             display: inline-block;
