@@ -123,6 +123,11 @@ main.page--article{
                         border: 1px solid $color;
                     }
 
+                    &--filled{
+                        color: white;
+                        background-color: $color;
+                        border: 0;
+                    }
 
                     &:hover, &.active{
                         color: white;
@@ -271,7 +276,7 @@ main.page--article{
     @include media-breakpoint-down(xs) {
         font-size: .9rem;
     }
-
+    
     p:empty {
         display: none;
     }

@@ -650,7 +650,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             /*if($key === "view"){
               self::makeTool($toolAttributes['href'], $toolAttributes['text'], $toolAttributes['id'], "tool--green", "fa-book" );
             }else*/ if($key === "ve-edit"){
-              self::makeTool($toolAttributes['href'], $toolAttributes['text'], $toolAttributes['id'], "tool--red", "fa-pencil" );
+              self::makeTool($toolAttributes['href'], $toolAttributes['text'], $toolAttributes['id'], "tool--red--filled", "fa-pencil" );
             }
           }
           self::buildAdvancedTools();
@@ -661,7 +661,8 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               self::makeTool($value['href'], $value['text'], $value['id'], "tool--black", "fa-comments-o" );
               break;
             }
-          }
+          } ?>
+          <?php 
           echo '</div>';
         echo '</div>';
       }
@@ -723,7 +724,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       $collectionTools = $this->data['sidebar']['coll-print_export'];
       if(!is_null($collectionTools)) { ?>
         <div class="multitool horizontal click-to-toggle">
-          <span title="<?php echo wfMessage('wikitolearnskin-download-button-title') ?>" class="tool tool--green multitool__trigger">
+          <span title="<?php echo wfMessage('wikitolearnskin-download-button-title') ?>" class="tool tool--green--filled multitool__trigger">
             <div class="tool__content">
               <i class="tool__icon fa fa-download"></i>
               <span class="tool__title"><?php echo wfMessage('wikitolearnskin-download-button-title') ?></span>
@@ -753,7 +754,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       $editTools = $this->contentNavigation['views'];
     ?>
       <div class="multitool horizontal click-to-toggle">
-        <span title="<?php echo wfMessage('wikitolearnskin-advanced-button-title') ?>" class="tool tool--yellow multitool__trigger">
+        <span title="<?php echo wfMessage('wikitolearnskin-advanced-button-title') ?>" class="tool tool--yellow--filled multitool__trigger">
           <div class="tool__content">
             <i class="tool__icon fa fa-wrench"></i>
             <span class="tool__title"><? echo wfMessage('wikitolearnskin-advanced-button-title') ?></span>
