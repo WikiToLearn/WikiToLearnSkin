@@ -231,7 +231,9 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       </header>
     <?php }
 
-    public function executeHome() { ?>
+    public function executeHome() { 
+      global $wiki_domain, $wiki; 
+      ?>
       <main class="page page-home">
         <section class="title">
           <h1> <?php echo wfMessage('wikitolearnskin-home-claim'); ?> </h1>
@@ -257,7 +259,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         </section>
         <section class="join-us">
           <div class="join-us__content">
-            <a href="<?php echo wfMessage('wikitolearnskin-join-us-button-link')->plain(); ?>" class="join-us__link"><?php echo wfMessage('wikitolearnskin-join-us-button'); ?></a>
+            <a href="//join.<?php echo $wiki_domain ."/" . $wiki ?>" class="join-us__link"><?php echo wfMessage('wikitolearnskin-join-us-button'); ?></a>
             <div class="join-us__this-week">
                 {{This week on WikiToLearn: 32 new edits, 6 new pages and 2 new users.}}
             </div>
