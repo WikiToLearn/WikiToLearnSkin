@@ -148,4 +148,13 @@ body{
             display: block;
         }
     }
+
+    //visual editor
+    .ve-ui-overlay{
+        font-size: 0.8em;
+
+        & .oo-ui-fieldLayout-body{ //https://phabricator.kde.org/T3956
+            display: block; //why? because it works
+        }
+    }
 }
