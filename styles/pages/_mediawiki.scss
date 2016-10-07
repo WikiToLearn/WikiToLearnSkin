@@ -115,7 +115,7 @@ body{
     }
 
 
-    &.action-edit{
+    &.action-edit, &.action-submit{
         .editButtons{
             input[type="submit"]{
                 background-color: $mwblue;
@@ -151,6 +151,7 @@ body{
 
     //visual editor
     .ve-ui-overlay{
+        z-index: 10;
         font-size: 0.8em;
 
         & .oo-ui-fieldLayout-body{ //https://phabricator.kde.org/T3956
