@@ -965,16 +965,16 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     private function pageHasCategory($searchCategoryName) {
       global $wgOut;
       $title = $wgOut->getTitle();
+      $wikiPage = WikiPage::factory($title);
+      $text = $wikiPage->getText();
 
-      foreach ($title->getParentCategories() as $fullCategoryName => $value) {
-        $cleanCurrentCategoryName = str_replace(' ', '_', explode(":", $fullCategoryName)[1]);
-        $cleanSearchCategoryName = str_replace(' ', '_', $searchCategoryName);
+      //HACK: we need to do this because of the async nature of categories
+      $toSearch = "[[Category:" . $searchCategoryName . "]]"; //TODO: localize category
 
-        if(Category::newFromName($cleanCurrentCategoryName)->getID() === Category::newFromName($cleanSearchCategoryName)->getID())
-        {
-          return true;
-        }
+      if (strstr($text, $toSearch)) { //HACK
+        return true;
+      } else {
+        return false;
       }
-      return false;
     }
 }
