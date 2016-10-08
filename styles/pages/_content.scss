@@ -28,10 +28,7 @@ main.page--article{
             background-color: white;
             box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
             position: relative;
-            padding-top: 2rem;
-            padding-left: 4rem;
-            padding-right: 4rem;
-            padding-bottom: 4rem;
+            padding: 2rem 4rem;
 
             @include media-breakpoint-down(xs) {
                 padding: 1rem;
