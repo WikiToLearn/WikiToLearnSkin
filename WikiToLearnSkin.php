@@ -754,7 +754,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       global $wgOut;
       $title = $wgOut->getTitle();
       $url = CourseEditorUtils::makeDownloadCourseUrl($title);
-      self::makeTool($url, wfMessage('wikitolearnskin-download-button-title'), NULL, "tool--green--filled", "fa-download" );
+      self::makeTool($url, wfMessage('coll-download'), NULL, "tool--green--filled", "fa-download" );
     }
 
     private function makeDownloadPageTool(){
@@ -783,7 +783,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       } elseif ($namespaceId === NS_USER) {
         return true;
       } elseif ($namespaceId === NS_MAIN || $namespaceId === NS_TEMPLATE || $namespaceId === NS_PROJECT) {
-        if($this->pageTitle->userCan('delete', $user, 'secure')){
+        if(self::userHasEnoughRights()){
           return true;
         }
       }
