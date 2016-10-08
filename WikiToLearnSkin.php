@@ -76,10 +76,10 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       $this->user = $wgUser;
       $this->contentNavigation = $this->data['content_navigation'];
       $this->toolBox = $this->getToolbox();
-      foreach ($this->toolBox as $key => $value) {
+      /*foreach ($this->toolBox as $key => $value) {
         MWDebug::log($key);
         MWDebug::log($value);
-      }
+      }*/
       $this->supportedLanguages = $wgSupportedLanguages;
       $this->domain = $wiki_domain;
       $this->html( 'headelement' ); ?>
@@ -854,12 +854,31 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
      * and not logged user
      * @return  string the name of the class
      */
-    private function getAnonClass()
-    {
+    private function getAnonClass() {
       if($this->skin->getUser()->isAnon()){
         return "user--anon";
       }
 
       return "user--logged";
+    }
+
+    /**
+    * Checks if a title object has a category
+    * @return boolean if the title has a category
+    */
+    private function pageHasCategory($searchCategoryName) {
+      global $wgOut;
+      $title = $wgOut->getTitle();
+
+      foreach ($title->getParentCategories() as $fullCategoryName => $value) {
+        $cleanCurrentCategoryName = str_replace(' ', '_', explode(":", $fullCategoryName)[1]);
+        $cleanSearchCategoryName = str_replace(' ', '_', $searchCategoryName);
+
+        if(Category::newFromName($cleanCurrentCategoryName)->getID() === Category::newFromName($cleanSearchCategoryName)->getID())
+        {
+          return true;
+        }
+      }
+      return false;
     }
 }
