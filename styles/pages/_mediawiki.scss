@@ -162,4 +162,14 @@ body{
             display: inline-block;
         }
     }
+
+    // Mediawiki hack: they  use a tag <meta> that contains math
+    // We ensure that this tag is displayed correctly everytime
+    meta.mwe-math-fallback-image-display {
+        display: block;
+        margin: 0 auto;
+    }
+    meta.mwe-math-fallback-image-inline,  {
+        display: inline-block;
+    } 
 }
