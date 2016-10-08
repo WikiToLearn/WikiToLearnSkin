@@ -76,6 +76,8 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       $this->user = $wgUser;
       $this->contentNavigation = $this->data['content_navigation'];
       $this->toolBox = $this->getToolbox();
+      MWDebug::log(wfMessage('createacct-benefit-body1')->text());
+      MWDebug::log(wfMessage('createacct-benefit-head1')->text());
       /*foreach ($this->toolBox as $key => $value) {
         MWDebug::log($key);
         MWDebug::log($value);
@@ -231,8 +233,8 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       </header>
     <?php }
 
-    public function executeHome() { 
-      global $wiki_domain, $wiki; 
+    public function executeHome() {
+      global $wiki_domain, $wiki;
       ?>
       <main class="page page-home">
         <section class="title">
@@ -261,8 +263,13 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           <div class="join-us__content">
             <a href="//join.<?php echo $wiki_domain ."/" . $wiki ?>" class="join-us__link"><?php echo wfMessage('wikitolearnskin-join-us-button'); ?></a>
             <div class="join-us__this-week">
-                {{This week on WikiToLearn: 32 new edits, 6 new pages and 2 new users.}}
-            </div>
+              <?php
+              echo wfMessage('createacct-benefit-head2')->text() . "&nbsp;" . wfMessage('createacct-benefit-body2')->text();
+              echo " - ";
+              echo wfMessage('createacct-benefit-head1')->text() . "&nbsp;" . wfMessage('createacct-benefit-body1')->text();
+              echo " - ";
+              echo wfMessage('createacct-benefit-head3')->text() . "&nbsp;" . wfMessage('createacct-benefit-body3')->text();
+              ?>
           </div>
         </section>
         <section class="media">
@@ -655,7 +662,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           self::executeSecondaryNamespacePageTools();
           break;
 
-        default: 
+        default:
           break; //nothing on purpose
       }
     }
@@ -692,7 +699,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     }
 
     private function executeSecondaryNamespacePageTools(){
-      if(self::userHasEnoughRights()){ 
+      if(self::userHasEnoughRights()){
         echo '<div class="article__tools">';
           echo '<div id="tools_container">';
             self::makeEditAsWikitextTool();
@@ -747,7 +754,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           self::makeTool($value['href'], $value['text'], $value['id'], "tool--yellow--filled", "fa-comments-o" );
           break;
         }
-      } 
+      }
     }
 
     private function makeDownloadCourseTool(){
@@ -759,7 +766,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
 
     private function makeDownloadPageTool(){
       $collectionTools = $this->data['sidebar']['coll-print_export'];
-      
+
       if(!is_null($collectionTools)){
         self::makeTool($collectionTools[1]['href'], $collectionTools[1]['text'], $collectionTools[1]['id'], "tool--green--filled", "fa-download" );
       }
