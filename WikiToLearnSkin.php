@@ -264,11 +264,11 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             <a href="//join.<?php echo $wiki_domain ."/" . $wiki ?>" class="join-us__link"><?php echo wfMessage('wikitolearnskin-join-us-button'); ?></a>
             <div class="join-us__stats">
               <?php
-              echo "<span class='stats__count'>" . wfMessage('createacct-benefit-head2')->text() . "</span> " . wfMessage('createacct-benefit-body2')->text();
+              echo "<i class='fa fa-file-text-o'></i> <span class='stats__count'>" . wfMessage('createacct-benefit-head2')->text() . "</span> " . wfMessage('createacct-benefit-body2')->text();
               echo "<span class='stats__divider'> </span>";
-              echo "<span class='stats__count'>" . wfMessage('createacct-benefit-head3')->text() . "</span> " . wfMessage('createacct-benefit-body3')->text();
+              echo "<i class='fa fa-user'></i> <span class='stats__count'>" . wfMessage('createacct-benefit-head3')->text() . "</span> " . wfMessage('createacct-benefit-body3')->text();
               echo "<span class='stats__divider'> </span>";
-              echo "<span class='stats__count'>" . wfMessage('createacct-benefit-head1')->text() . "</span> " . wfMessage('createacct-benefit-body1')->text();
+              echo "<i class='fa fa-pencil'></i> <span class='stats__count'>" . wfMessage('createacct-benefit-head1')->text() . "</span> " . wfMessage('createacct-benefit-body1')->text();
               ?>
           </div>
         </section>
@@ -676,6 +676,8 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           if(self::pageHasCategory("Department")){ //on departments show discussion
             self::makeDisussionTool();
           }
+
+          self::makeAdvancedTools();
         echo '</div>';
       echo '</div>';
     }
@@ -853,7 +855,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     /**
     * Generate the HTML of the advanced tools
     */
-    private function buildAdvancedTools(){
+    private function makeAdvancedTools(){
       $actionsTools = $this->contentNavigation['actions'];
       $editTools = $this->contentNavigation['views'];
     ?>
