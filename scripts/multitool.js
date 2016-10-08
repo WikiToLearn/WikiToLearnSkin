@@ -22,14 +22,22 @@ $(document).ready(function() {
 
     // Toggle-on-click behaviour.
     $('.multitool.click-to-toggle > .multitool__trigger').on('click', function(e) {
+      e.stopPropagation();
       var $this = $(this);
       var $menu = $this.parent();
       if ($menu.hasClass('active')) {
+        $('html').unbind( "click.FABMenu" );
         closeFABMenu($menu);
       } else {
+        $('html').bind( "click.FABMenu", function(){
+          $('html').unbind( "click.FABMenu" );
+          closeFABMenu($menu);
+        });
         openFABMenu($menu);
       }
     });
+
+
 
     $.fn.extend({
       openFAB: function() {
