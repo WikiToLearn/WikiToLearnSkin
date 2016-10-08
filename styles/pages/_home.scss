@@ -108,7 +108,7 @@
     }
 
     &__this-week{
-            margin-top: 1rem;
+        margin-top: 1rem;
     }
 
     &__link {
@@ -123,10 +123,14 @@
         @include media-breakpoint-down(md) {
             font-size: $pages-home-join-us-link-font-size - .2rem;
         }
+        
+        transition: 0.2s linear transform;
 
         &:hover, &:focus {
             color: white;
             text-decoration: none;
+            transform: scale(1.2);
+            transition: 0.2s linear transform;
         }
     }
 }
