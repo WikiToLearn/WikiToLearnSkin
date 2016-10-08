@@ -266,9 +266,9 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               <?php
               echo "<span class='stats__count'>" . wfMessage('createacct-benefit-head2')->text() . "</span> " . wfMessage('createacct-benefit-body2')->text();
               echo "<span class='stats__divider'> </span>";
-              echo "<span class='stats__count'>" . wfMessage('createacct-benefit-head1')->text() . "</span> " . wfMessage('createacct-benefit-body1')->text();
-              echo "<span class='stats__divider'> </span>";
               echo "<span class='stats__count'>" . wfMessage('createacct-benefit-head3')->text() . "</span> " . wfMessage('createacct-benefit-body3')->text();
+              echo "<span class='stats__divider'> </span>";
+              echo "<span class='stats__count'>" . wfMessage('createacct-benefit-head1')->text() . "</span> " . wfMessage('createacct-benefit-body1')->text();
               ?>
           </div>
         </section>

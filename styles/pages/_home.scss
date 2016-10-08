@@ -122,10 +122,10 @@
     &__stats{
         margin-top: 1rem;
         
-        text-transform: capitalize;
 
         .stats__count{
-            font-size: 1.3rem;
+            font-weight: 600;
+            font-size: 1.2rem;
         }
 
         .stats__divider{
