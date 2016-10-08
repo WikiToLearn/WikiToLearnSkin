@@ -418,7 +418,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               </article>
               <?php self::executePreviousNext(); //build previos and next ?>
             </div>
-            <?php self::executePageTools($fullTitle) //build the tools?>
+            <?php self::executePageTools() //build the tools?>
           </div>
         </div>
 
@@ -641,30 +641,127 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     * and advaced tools.
     */
     public function executePageTools() {
-      if (self::isEditableNamespace()) {
+      $namespace = $this->namespaceId;
+      switch ($namespace) {
+        case NS_MAIN:
+          self::executeMainPageTools();
+          break;
+
+        case NS_COURSE: case NS_USER: //they have the same actions
+          self::executeCoursePageTools();
+          break;
+
+        case NS_TEMPLATE: case NS_PROJECT:
+          self::executeSecondaryNamespacePageTools();
+          break;
+
+        default: 
+          break; //nothing on purpose
+      }
+    }
+
+    private function executeMainPageTools(){
+      echo '<div class="article__tools">';
+        echo '<div id="tools_container">';
+          if(self::userHasEnoughRights()){ //only allow admin to see the visual editor edit button on these pages
+            self::makeEditTool();
+          }
+          if(self::pageHasCategory("Department")){ //on departments show discussion
+            self::makeDisussionTool();
+          }
+        echo '</div>';
+      echo '</div>';
+    }
+
+    private function executeCoursePageTools(){
+      echo '<div class="article__tools">';
+        echo '<div id="tools_container">';
+          if(self::pageHasCategory("CourseRoot")) {
+            self::makeEditCourseRootTool();
+            self::makeDisussionTool();
+            self::makeDownloadCourseTool();
+          } else if(self::pageHasCategory("CourseLevelTwo")) {
+              self::makeEditCourseLevelTwoTool();
+          } else {
+            self::makeEditTool();
+            self::makeDisussionTool();
+            self::makeDownloadPageTool();
+          }
+        echo '</div>';
+      echo '</div>';
+    }
+
+    private function executeSecondaryNamespacePageTools(){
+      if(self::userHasEnoughRights()){ 
         echo '<div class="article__tools">';
           echo '<div id="tools_container">';
-          $editTools = $this->contentNavigation['views'];
-          $namespaceAndTalk = $this->contentNavigation['namespaces'];
-          foreach ($editTools as $key => $toolAttributes) {
-            /*if($key === "view"){
-              self::makeTool($toolAttributes['href'], $toolAttributes['text'], $toolAttributes['id'], "tool--green", "fa-book" );
-            }else*/ if($key === "ve-edit"){
-              self::makeTool($toolAttributes['href'], $toolAttributes['text'], $toolAttributes['id'], "tool--red--filled", "fa-pencil" );
-            }
-          }
-          self::buildAdvancedTools();
-          self::buildCollectionTools();
-          foreach ($namespaceAndTalk as $value) {
-            if ($value['id'] === "ca-talk") {
-              echo "<div class='tool--divider'></div>";
-              self::makeTool($value['href'], $value['text'], $value['id'], "tool--black", "fa-comments-o" );
-              break;
-            }
-          } ?>
-          <?php 
+            self::makeEditAsWikitextTool();
           echo '</div>';
         echo '</div>';
+      }
+    }
+
+    /**
+    * Return true if an user has enough rights (aka admin)
+    * Might need improvements
+    */
+    private function userHasEnoughRights(){
+      global $wgOut, $wgUser;
+      $title = $wgOut->getTitle();
+      $user = $wgUser;
+      return $title->userCan('delete', $user, 'secure');
+    }
+
+    private function makeEditTool(){
+      $editTools = $this->contentNavigation['views'];
+      foreach ($editTools as $key => $toolAttributes) {
+        if($key === "ve-edit"){
+          self::makeTool($toolAttributes['href'], $toolAttributes['text'], $toolAttributes['id'], "tool--red--filled", "fa-pencil" );
+        }
+      }
+    }
+
+    private function makeEditCourseRootTool(){
+      global $wgOut;
+      $title = $wgOut->getTitle();
+      $link = CourseEditorUtils::makeEditCourseUrl($title);
+      self::makeTool($link['href'], $link['text'], NULL, "tool--red--filled", "fa-pencil");
+    }
+
+    private function makeEditCourseLevelTwoTool(){
+      global $wgOut;
+      $title = $wgOut->getTitle();
+      $link = CourseEditorUtils::makeEditLevelTwoUrl($title);
+      self::makeTool($link['href'], $link['text'], NULL, "tool--red--filled", "fa-pencil");
+    }
+
+    private function makeEditAsWikitextTool(){
+      $editTools = $this->contentNavigation['views'];
+      self::makeTool($editTools['edit']['href'], $editTools['edit']['text'], $editTools['edit']['id'], "tool--red--filled", "fa-pencil");
+    }
+
+    private function makeDisussionTool(){
+      $namespaceAndTalk = $this->contentNavigation['namespaces'];
+      foreach ($namespaceAndTalk as $value) {
+        if ($value['id'] === "ca-talk") {
+          self::makeTool($value['href'], $value['text'], $value['id'], "tool--yellow--filled", "fa-comments-o" );
+          break;
+        }
+      } 
+    }
+
+    private function makeDownloadCourseTool(){
+      global $wgOut;
+      $title = $wgOut->getTitle();
+      $url = CourseEditorUtils::makeDownloadCourseUrl($title);
+      self::makeTool($url, wfMessage('wikitolearnskin-download-button-title'), NULL, "tool--green--filled", "fa-download" );
+    }
+
+    private function makeDownloadPageTool(){
+      $collectionTools = $this->data['sidebar']['coll-print_export'];
+      
+      if(!is_null($collectionTools)){
+        self::makeTool($collectionTools[1]['href'], $collectionTools[1]['text'], $collectionTools[1]['id'], "tool--green--filled", "fa-download" );
       }
     }
 
@@ -858,7 +955,6 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       if($this->skin->getUser()->isAnon()){
         return "user--anon";
       }
-
       return "user--logged";
     }
 
