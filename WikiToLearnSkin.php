@@ -175,6 +175,26 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 </div>
               </div>
             <?php } else { ?>
+              <div class="dropdown dropdown--notifications nav__link--hover-mwblue">
+                <a id="notifications" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-bell"></i> <i class="fa fa-angle-down"></i>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="notifications">
+                  <div class="dropdown-header">
+                    <span class="dropdown--notifications__notifications-count"><?php echo wfMessage('notifications') ?>&nbsp;<span id="badge-count" class="badge" style="display:none;"></span></span>
+                    <span>
+                      <a href="#" id="mark-all-read-button" style="display:none;"><?php echo wfMessage('echo-mark-all-as-read') ?></a>
+                    </span>
+                  </div>
+                  <div class="dropdown-divider"></div>
+                  <div id="notifications-widget">
+                  </div>
+                  <div class="dropdown-divider"></div>
+                  <div class="dropdown-footer">
+                    <a id="notifications-view-all"><?php echo wfMessage('echo-overlay-link') ?></a>
+                  </div>
+                </div>
+              </div>
               <div class="dropdown dropdown--personal-tools">
                 <a class="nav__link nav__link--hamburger nav__link--hover-mwblue" href="#" id="dropdownToolbox" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span><?php echo $user->getName() ?></span>
@@ -199,32 +219,12 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                   </div>
                 </div>
               </div>
-              <div class="dropdown dropdown--notifications nav__link--hover-mwblue">
-                <a id="notifications" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="fa fa-bell"></i> <i class="fa fa-angle-down"></i>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="notifications">
-                  <div class="dropdown-header">
-                    <span class="dropdown--notifications__notifications-count"><?php echo wfMessage('notifications') ?>&nbsp;<span id="badge-count" class="badge" style="display:none;"></span></span>
-                    <span>
-                      <a href="#" id="mark-all-read-button" style="display:none;"><?php echo wfMessage('echo-mark-all-as-read') ?></a>
-                    </span>
-                  </div>
-                  <div class="dropdown-divider"></div>
-                  <div id="notifications-widget">
-                  </div>
-                  <div class="dropdown-divider"></div>
-                  <div class="dropdown-footer">
-                    <a id="notifications-view-all"><?php echo wfMessage('echo-overlay-link') ?></a>
-                  </div>
-                </div>
-              </div>
             <?php } ?>
-            <div class="dropdown dropdown--languages dropdown--languages__desktop languages__<?php echo self::getAnonClass(); ?> nav__link--hover-mwblue hidden-xs-down">
+            <div class="dropdown dropdown--languages dropdown--languages__desktop languages__<?php echo self::getAnonClass(); ?> nav__link--hover-mwblue">
               <a class="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fa fa-globe"></i> <i class="fa fa-angle-down"></i>
               </a>
-              <div class="dropdown-menu">
+              <div class="dropdown-menu left">
                 <?php self::generateLanguageSelectorItems(); ?>
               </div>
             </div>
@@ -872,7 +872,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       <div class="multitool horizontal click-to-toggle">
         <span title="<?php echo wfMessage('wikitolearnskin-advanced-button-title') ?>" class="tool tool--black multitool__trigger">
           <div class="tool__content">
-            <i class="tool__icon fa fa-ellipsis-v"></i>
+            <i class="tool__icon fa fa-ellipsis-v fa-fw"></i>
             <span class="tool__title"><? echo wfMessage('wikitolearnskin-advanced-button-title') ?></span>
           </div>
         </span>
@@ -935,7 +935,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       ?>
       <a <?php if($id !== NULL){ echo ('id="' . $id . '"'); }?> title="<?php echo $title ?>" class="tool <?php echo $classes?>" href="<?php echo $href ?>">
           <div class="tool__content">
-            <i class="tool__icon fa <?php echo $icon ?>"></i> <span class="tool__title"><? echo $title ?></span>
+            <i class="tool__icon fa <?php echo $icon ?> fa-fw"></i> <span class="tool__title"><? echo $title ?></span>
           </div>
       </a>
       <?php

@@ -9,17 +9,16 @@ body {
     flex: 1;
 
     &-home{
-
         padding-top: 3.2rem;
-            
-        @include media-breakpoint-down(xs) {
-            @include make-container();
-        }
     }
 
     &--article{
         padding-top: 5rem;
         padding-bottom: 2rem;
+
+        @include media-breakpoint-down(xs) {
+            padding-top: 3rem;
+        }
     }
 }
 

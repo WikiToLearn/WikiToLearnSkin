@@ -25,12 +25,14 @@
 
             li {
                 display: inline-block;
-                padding-top: 0.35rem;
+                margin-top: 0.35rem;
                 margin-left: 0.25rem;
     
                 @include media-breakpoint-down(xs) {
                     display: block;
                     margin-left: 0;
+                    margin-top: 0;
+                    margin-bottom: 0.35rem;
                 }
             }
         }

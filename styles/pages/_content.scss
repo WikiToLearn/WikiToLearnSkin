@@ -1,4 +1,5 @@
 main.page--article{
+
     .article{
 
         &__wrapper{
@@ -7,7 +8,10 @@ main.page--article{
                 @include make-container-max-widths();
                 padding: 0 3rem;
             }
-
+            
+            @include media-breakpoint-down(xs) {
+                padding: 0;
+            }
         }
         
         &__main{
@@ -69,14 +73,20 @@ main.page--article{
             
             position: relative;
             max-width: 100%;
+
             @include media-breakpoint-down(xs) {
-                padding-left: 0rem;
                 padding-top: 0.5rem;
+                padding-left: 1rem;
+                padding-right: 1rem;
+
             }
 
             .tool--divider{
                 display: block;
                 margin-bottom: 1.5rem;
+                @include media-breakpoint-down(xs) {
+                    display: none;
+                }
             }
 
             .tool{
@@ -96,6 +106,7 @@ main.page--article{
                 @include media-breakpoint-down(xs) {
                     width: 100%;
                     border-radius: 3rem;
+                    margin-bottom: 0.5rem;
                 }
 
                 &:hover{
@@ -107,8 +118,8 @@ main.page--article{
                     width: $toolSize*0.75;
 
                     @include media-breakpoint-down(xs) {
-                        width: 100%;
-                        margin-bottom: 0;
+                        width: 90%;
+                        margin: 0 auto;
                     }
                 }
 
@@ -208,6 +219,7 @@ main.page--article{
                     width: 1.5rem; 
                     margin: 0 0.15rem;
                     color: $black-secondary;
+
                 }
 
                 .breadcrumb__item{

@@ -5,6 +5,13 @@
             color: $black;
         }    
     }
+    
+    @include media-breakpoint-down(xs) {
+        position: fixed;
+        left: 0;
+        right: 0;
+        width: 100%;
+    }
 
     &.left{
         left: auto;
