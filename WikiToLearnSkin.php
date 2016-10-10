@@ -684,14 +684,18 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     }
 
     private function executeCoursePageTools(){
+      $namespace = $this->namespaceId;
       echo '<div class="article__tools">';
         echo '<div id="tools_container">';
           if(self::pageHasCategory("CourseRoot")) {
             self::makeEditCourseRootTool();
             self::makeDisussionTool();
             self::makeDownloadCourseTool();
+
             if(self::userHasEnoughRights()){
               self::makeAdvancedTools();
+              if($namespace === NS_USER)
+                self::makePublishButton();
             }
           } else if(self::pageHasCategory("CourseLevelTwo")) {
             self::makeEditCourseLevelTwoTool();
@@ -781,6 +785,11 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         self::makeTool($collectionTools[1]['href'], $collectionTools[1]['text'], $collectionTools[1]['id'], "tool--green--filled", "fa-download" );
       }
     }
+
+    private function makePublishButton(){
+      self::makeTool("#", "Publish", NULL, "tool--black", "fa-reply fa-rotate-45" );
+    }
+
 
     /**
     * Check the namespace in order to confirm or not the

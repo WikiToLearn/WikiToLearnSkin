@@ -14,9 +14,7 @@ $( document ).ready(function() {
     if(shouldFloat){
         toolsWidth = $(".article__tools").width();
         $(".article__tools").width(toolsWidth);
-    } else {
     }
-
     toolsContainer = $("#tools_container");
 
     articleMain = $(".article__main");
