@@ -318,6 +318,7 @@
                         @include media-breakpoint-down(xs) {
                             //top: 44.6px; //TODO: change in rem
                             width: 100vw;
+                            min-width: auto;
                         }
 
                         /*// To be changed using autoprefixer
