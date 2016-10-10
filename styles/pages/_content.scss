@@ -75,7 +75,7 @@ main.page--article{
             max-width: 100%;
 
             @include media-breakpoint-down(xs) {
-                padding-top: 0.5rem;
+                padding-top: 1rem;
                 padding-left: 1rem;
                 padding-right: 1rem;
 
@@ -137,7 +137,16 @@ main.page--article{
                         border: 0;
                     }
 
-                    &:hover, &.active{
+                    &:hover{
+                        @include media-breakpoint-up(sm) {
+                            color: white;
+                            background-color: $color;
+
+                            transition: all .1s linear;
+                        }
+                    }
+                    
+                    &.active{
                         color: white;
                         background-color: $color;
 
@@ -243,7 +252,7 @@ main.page--article{
 
                 &__dropdown{
                     text-align: center;
-                    
+
                     .dropdown__toggle{
                         border: 1px solid #eee;
                         border-radius: $border-radius;

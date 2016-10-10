@@ -18,6 +18,7 @@ body {
 
         @include media-breakpoint-down(xs) {
             padding-top: 3rem;
+            padding-bottom: 1rem;
         }
     }
 }

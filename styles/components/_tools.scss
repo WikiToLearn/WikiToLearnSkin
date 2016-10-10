@@ -5,6 +5,9 @@
     &.active {
         ul {
             visibility: visible;
+            @include media-breakpoint-down(xs) {
+                display: block;
+            }
         }
     }
 
@@ -52,8 +55,9 @@
             left: auto;
             right: auto;
             bottom: auto;
-            visibility: visible;
             padding-left: 0;
+            visibility: visible;
+            display: none;
         }
     }
 }

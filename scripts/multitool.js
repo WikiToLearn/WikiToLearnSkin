@@ -3,8 +3,8 @@
 // tweaked for our needs
 $(document).ready(function() {
       
-    function isToolFloating(){
-        return $(window).width() > 544;
+    function isMobile(){
+        return $(window).width() < 544;
     }
 
     // jQuery reverse
@@ -26,12 +26,12 @@ $(document).ready(function() {
       var $this = $(this);
       var $menu = $this.parent();
       if ($menu.hasClass('active')) {
-        $('html').unbind( "click.FABMenu" );
         closeFABMenu($menu);
+        $('html').unbind( "click.FABMenu" );
       } else {
         $('html').bind( "click.FABMenu", function(){
-          $('html').unbind( "click.FABMenu" );
           closeFABMenu($menu);
+          $('html').unbind( "click.FABMenu" );
         });
         openFABMenu($menu);
       }
@@ -66,7 +66,7 @@ $(document).ready(function() {
       $this.addClass('active');
       $this.find('.multitool__trigger').addClass('active');
 
-      if(isToolFloating()){
+      if(!isMobile()){
         $this.find('ul .tool').velocity(
           { scaleY: ".4", scaleX: ".4", translateY: offsetY + 'px', translateX: offsetX + 'px'},
           { duration: 0 });
@@ -97,12 +97,14 @@ $(document).ready(function() {
     $this.removeClass('active');
     $this.find('.multitool__trigger').removeClass('active');
 
-    var time = 0;
-    $this.find('ul .tool').velocity("stop", true);
-    $this.find('ul .tool').velocity(
-      { opacity: "0", scaleX: ".4", scaleY: ".4", translateY: offsetY + 'px', translateX: offsetX + 'px'},
-      { duration: 80 }
-    );
+      if(!isMobile()){
+        var time = 0;
+        $this.find('ul .tool').velocity("stop", true);
+        $this.find('ul .tool').velocity(
+          { opacity: "0", scaleX: ".4", scaleY: ".4", translateY: offsetY + 'px', translateX: offsetX + 'px'},
+          { duration: 80 }
+        );
+      }
   };
 
 });
