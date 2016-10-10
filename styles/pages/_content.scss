@@ -204,6 +204,11 @@ main.page--article{
         
 
         &__breadcrumb{
+
+            @include media-breakpoint-down(xs) {
+                background-color: white;
+            }
+
             .breadcrumb{
 
                 background-color: white;
@@ -212,7 +217,11 @@ main.page--article{
                 padding: 0.25rem 1rem;
                 margin: 0;
                 text-align: left;
-                    
+                
+                @include media-breakpoint-down(xs) {
+                    box-shadow: none;
+                }
+
                 &__divider{
                     text-align: center;
                     display: inline-block;
@@ -234,6 +243,7 @@ main.page--article{
 
                 &__dropdown{
                     text-align: center;
+                    
                     .dropdown__toggle{
                         border: 1px solid #eee;
                         border-radius: $border-radius;
