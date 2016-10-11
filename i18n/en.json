@@ -52,6 +52,13 @@
   "wikitolearnskin-join-us-readmore" : "Read more...",
   "wikitolearnskin-join-us-button-link" : "/Special:CreateAccount",
 
+  "wikitolearnskin-tools-chat" : "Chat",
+  "wikitolearnskin-tools-guide" : "User guides",
+  "wikitolearnskin-tools-guide-link" : "Manual",
+  "wikitolearnskin-tools-createbook" : "Manual/Create a book",
+  "wikitolearnskin-tools-createbook-link" : "Create a book",
+  "wikitolearnskin-tools-community-portal" : "Community portal",
+  "wikitolearnskin-tools-reports" : "Reports",
 
   "wikitolearnskin-home-claim": "Learn with the best. Create books. Share <i>knowledge</i>.",
 

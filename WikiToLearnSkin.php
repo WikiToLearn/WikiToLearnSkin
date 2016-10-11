@@ -144,10 +144,32 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             <a href="<?php echo wfMessage('wikitolearnskin-navbar-contribute-link')->plain(); ?>"  class="nav__link nav__link--hover-yellow">
               <?php echo wfMessage('wikitolearnskin-navbar-contribute'); ?>
             </a>
-            <a href="<?php echo wfMessage('wikitolearnskin-navbar-third-option-link')->plain(); ?>"  class="nav__link nav__link--hover-green">
+            <!-- <a href="<?php echo wfMessage('wikitolearnskin-navbar-third-option-link')->plain(); ?>"  class="nav__link nav__link--hover-green">
               <?php echo wfMessage('wikitolearnskin-navbar-third-option'); ?>
-            </a>
-
+            </a> -->
+            <div class="dropdown dropdown--languages nav__link--hover-green">
+              <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-wrench"></i> <i class="fa fa-angle-down"></i>
+              </a>
+              <div class="dropdown-menu">
+                <a href="<?php echo wfMessage('wikitolearnskin-tools-guide-link')->plain(); ?>"  class="dropdown-item">
+                  <i class="fa fa-info-circle"></i>&nbsp;<?php echo wfMessage('wikitolearnskin-tools-guide'); ?>
+                </a>
+                <a href="<?php echo wfMessage('wikitolearnskin-tools-createbook-link')->plain(); ?>"  class="dropdown-item">
+                  <i class="fa fa-book"></i>&nbsp;<?php echo wfMessage('wikitolearnskin-tools-createbook'); ?>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="https://chat.wikitolearn.org" class="dropdown-item">
+                  <i class="fa fa-comments"></i>&nbsp;<?php echo wfMessage('wikitolearnskin-tools-chat'); ?>
+                </a>
+                <a href="//meta.wikitolearn.org" class="dropdown-item">
+                  <i class="fa fa-users"></i>&nbsp;<?php echo wfMessage('wikitolearnskin-tools-community-portal'); ?>
+                </a>
+                <a href="https://reports.wikitolearn.org" class="dropdown-item">
+                  <i class="fa fa-bar-chart"></i>&nbsp;<?php echo wfMessage('wikitolearnskin-tools-reports'); ?>
+                </a>
+              </div>
+            </div>
             <?php
               $user = $this->skin->getUser();
             ?>
