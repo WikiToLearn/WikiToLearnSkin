@@ -4,10 +4,14 @@
   "wikitolearnskin-download-button-title" : "Download",
   "wikitolearnskin-advanced-button-title" : "Advanced",
 
-  "wikitolearnskin-footer-contacs" : "Contacts",
+  "wikitolearnskin-footer-contacts" : "Contacts",
   "wikitolearnskin-footer-learn-more" : "Learn more",
   "wikitolearnskin-footer-hosted-by" : "Hosted by",
   "wikitolearnskin-footer-follow-us" : "Follow us",
+
+  "wikitolearnskin-footer-tools" : "Tools",
+  "wikitolearnskin-footer-tools-1-text" : "User uide",
+  "wikitolearnskin-footer-tools-1-link" : "/Manual",
 
   "wikitolearnskin-navbar-about" : "About",
   "wikitolearnskin-navbar-about-link": "#",
@@ -53,12 +57,15 @@
   "wikitolearnskin-join-us-button-link" : "/Special:CreateAccount",
 
   "wikitolearnskin-tools-chat" : "Chat",
+  "wikitolearnskin-tools-chat-link" : "https://chat.wikitolearn.org",
   "wikitolearnskin-tools-guide" : "User guides",
   "wikitolearnskin-tools-guide-link" : "Manual",
   "wikitolearnskin-tools-createbook" : "Create a book",
   "wikitolearnskin-tools-createbook-link" : "Manual/Create a book",
   "wikitolearnskin-tools-community-portal" : "Community portal",
+  "wikitolearnskin-tools-community-portal-link" : "//meta.wikitolearn.org",
   "wikitolearnskin-tools-reports" : "Reports",
+  "wikitolearnskin-tools-reports-link" : "//reports.wikitolearn.org",
 
   "wikitolearnskin-home-claim": "Learn with the best. Create books. Share <i>knowledge</i>.",
 

@@ -159,13 +159,13 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                   <i class="fa fa-book"></i>&nbsp;<?php echo wfMessage('wikitolearnskin-tools-createbook'); ?>
                 </a>
                 <div class="dropdown-divider"></div>
-                <a href="https://chat.wikitolearn.org" class="dropdown-item">
-                  <i class="fa fa-comments"></i>&nbsp;<?php echo wfMessage('wikitolearnskin-tools-chat'); ?>
+                <a href="<?php echo wfMessage('wikitolearnskin-tools-chat-link')->plain(); ?>" class="dropdown-item">
+                  <i class="fa fa-comments"></i>&nbsp;<?php echo wfMessage('wikitolearnskin-tools-chat')->plain(); ?>
                 </a>
-                <a href="//meta.wikitolearn.org" class="dropdown-item">
+                <a href="<?php echo wfMessage('wikitolearnskin-tools-community-portal-link'); ?>" class="dropdown-item">
                   <i class="fa fa-users"></i>&nbsp;<?php echo wfMessage('wikitolearnskin-tools-community-portal'); ?>
                 </a>
-                <a href="https://reports.wikitolearn.org" class="dropdown-item">
+                <a href="<?php echo wfMessage('wikitolearnskin-tools-reports-link')->plain(); ?>" class="dropdown-item">
                   <i class="fa fa-bar-chart"></i>&nbsp;<?php echo wfMessage('wikitolearnskin-tools-reports'); ?>
                 </a>
               </div>
@@ -483,23 +483,30 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             </li>
             <li class="footer__learn-more clearfix">
               <h4 class="learn-more__first-heading">
-                <?php echo wfMessage("wikitolearnskin-footer-more"); ?>
+                <?php echo wfMessage("wikitolearnskin-footer-tools"); ?>
               </h4>
               <ul class="learn-more__list">
                 <li>
-                  <a class="learn-more__philosophy" href="<?php echo wfMessage("wikitolearnskin-footer-more-1-link")->plain(); ?>"><?php echo wfMessage("wikitolearnskin-footer-more-1-text"); ?></a>
+                  <a class="learn-more__philosophy" href="<?php echo wfMessage("wikitolearnskin-footer-tools-1-link")->plain(); ?>"><i class="fa fa-info-circle">&nbsp;</i><?php echo wfMessage("wikitolearnskin-tools-guide"); ?></a>
                 </li>
                 <li>
-                  <a class="learn-more__philosophy" href="<?php echo wfMessage("wikitolearnskin-footer-more-2-link")->plain(); ?>"><?php echo wfMessage("wikitolearnskin-footer-more-2-text"); ?></a>
+                  <a class="learn-more__philosophy" href="<?php echo wfMessage("wikitolearnskin-tools-createbook-link")->plain(); ?>"><i class="fa fa-book">&nbsp;</i><?php echo wfMessage("wikitolearnskin-tools-createbook"); ?></a>
+                </li>
+                <li><hr /></li>
+                <li>
+                  <a class="learn-more__philosophy" href="<?php echo wfMessage("wikitolearnskin-tools-chat-link")->plain(); ?>"><i class="fa fa-comments">&nbsp;</i><?php echo wfMessage("wikitolearnskin-tools-chat"); ?></a>
                 </li>
                 <li>
-                  <a class="learn-more__philosophy" href="<?php echo wfMessage("wikitolearnskin-footer-more-3-link")->plain(); ?>"><?php echo wfMessage("wikitolearnskin-footer-more-3-text"); ?></a>
+                  <a class="learn-more__philosophy" href="<?php echo wfMessage("wikitolearnskin-tools-community-portal-link")->plain(); ?>"><i class="fa fa-user">&nbsp;</i><?php echo wfMessage("wikitolearnskin-tools-community-portal"); ?></a>
+                </li>
+                <li>
+                  <a class="learn-more__philosophy" href="<?php echo wfMessage("wikitolearnskin-tools-reports-link")->plain(); ?>"><i class="fa fa-bar-chart">&nbsp;</i><?php echo wfMessage("wikitolearnskin-tools-reports"); ?></a>
                 </li>
               </ul>
               <h4 class="learn-more__second-heading"><?php echo wfMessage('wikitolearnskin-footer-hosted-by'); ?></h4>
               <ul class="learn-more__sponsors">
                 <li>
-                  <a href="http://www.garr.it/">Garr</a>
+                  <a href="http://www.garr.it/">GARR</a>
                 </li>
                 <li>
                   <a href="https://www.neodigit.net/">Neodigit</a>
