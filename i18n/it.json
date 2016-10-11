@@ -9,7 +9,7 @@
   "wikitolearnskin-navbar-about" : "Cos'è",
   "wikitolearnskin-navbar-contribute" : "Collabora",
   "wikitolearnskin-navbar-language-selector": "Lingua",
-  
+
   "wikitolearnskin-departments-1-name": "Chimica",
   "wikitolearnskin-departments-1-image": "images/badges/chemistry.png",
   "wikitolearnskin-departments-1-link": "/Chimica",
@@ -44,7 +44,7 @@
   "wikitolearnskin-join-us-button" : "Unisciti",
 
   "wikitolearnskin-media-title": "Collaborative Textbooks",
-  "wikitolearnskin-media-text": "WikiToLearn vuole creare libri di testo liberi, collaborativi e facilmente accessibili. La nostra filosofia è riassunta nel motto “Il sapere si accresce solo se condiviso”. Nella nostra piattaforma l'insegnamento e l'apprendimento convergono nella stesura e nel perfezionamento cooperativo di note, appunti e libri di testo, organizzabili e ri-assemblabili secondo le esigenze specifiche degli utenti.",  
+  "wikitolearnskin-media-text": "WikiToLearn vuole creare libri di testo liberi, collaborativi e facilmente accessibili. La nostra filosofia è riassunta nel motto “Il sapere si accresce solo se condiviso”. Nella nostra piattaforma l'insegnamento e l'apprendimento convergono nella stesura e nel perfezionamento cooperativo di note, appunti e libri di testo, organizzabili e ri-assemblabili secondo le esigenze specifiche degli utenti.",
   "wikitolearnskin-media-video-url": "//www.youtube.com/embed/13wqNKkXWNU?rel=0",
 
   "wikitolearnskin-read-more-stories-button" : "Leggi altre storie su WikiToLearn",
@@ -53,5 +53,7 @@
   "wikitolearnskin-footer-contacs" : "Contatti",
   "wikitolearnskin-footer-learn-more" : "Di più",
   "wikitolearnskin-footer-hosted-by" : "Ospitati da",
-  "wikitolearnskin-footer-follow-us" : "Seguici"
+  "wikitolearnskin-footer-follow-us" : "Seguici",
+
+  "wikitolearnskin-publish-course-tool" : "Publish course"
 }

@@ -29,6 +29,7 @@ class SkinWikiToLearnSkin extends SkinTemplate
         parent::initPage( $out );
         $out->addMeta( 'viewport', 'width=device-width, initial-scale=1' );
         $out->addModules( 'skin.wikitolearn.js' );
+        $out->addModules('ext.courseEditor.publish');
     }
 
     /**
@@ -787,7 +788,8 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     }
 
     private function makePublishButton(){
-      self::makeTool("#", "Publish", NULL, "tool--black", "fa-reply fa-rotate-45" );
+      $title = wfMessage('wikitolearnskin-publish-course-tool')->text();
+      self::makeTool('#', $title, 'publishCourseButton', 'tool--black', 'fa-reply fa-rotate-45' );
     }
 
 
@@ -896,7 +898,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         <?php } ?>
         <?php foreach ($actionsTools as $key => $toolAttributes){ ?>
           <li>
-            <?php 
+            <?php
             switch ($key) {
               case 'watch':
                 self::makeTool($toolAttributes['href'], $toolAttributes['text'], $toolAttributes['id'], "tool--smaller tool--black", "fa-eye" );
