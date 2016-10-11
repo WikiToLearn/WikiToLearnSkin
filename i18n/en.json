@@ -4,6 +4,15 @@
   "wikitolearnskin-download-button-title" : "Download",
   "wikitolearnskin-advanced-button-title" : "Advanced",
 
+  "wikitolearnskin-footer-changes" : "Recent changes",
+  "wikitolearnskin-footer-special-pages" : "Special pages",
+  "wikitolearnskin-footer-academic" : "Academic institutions",
+  "wikitolearnskin-footer-academic-link" : "//meta.wikitolearn.org/Academic_institutions",
+  "wikitolearnskin-footer-kit-channels-link": "https://chat.wikitolearn.org",
+  "wikitolearnskin-footer-kit-channels-text": "chat.wikitolearn.org",
+
+  "wikitolearnskin-footer-keep-in-touch" : "Follow us",
+
   "wikitolearnskin-footer-contacts" : "Contacts",
   "wikitolearnskin-footer-learn-more" : "Learn more",
   "wikitolearnskin-footer-hosted-by" : "Hosted by",
