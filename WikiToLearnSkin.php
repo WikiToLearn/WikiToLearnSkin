@@ -129,6 +129,15 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             </a>
           </div>
           <nav class="nav">
+          <span class="nav__search nav__<?php echo self::getAnonClass(); ?>">
+          <form id="searchForm" action="<?php $this->text( 'wgScript' ); ?>" autocomplete="off">
+            <input type="hidden" name="title" value="<?php $this->text( 'searchtitle' ) ?>" />
+            <?php echo $this->makeSearchInput( array( 'id' => 'searchInput' ) ); ?>
+            <button type="submit" class="nav__search-button">
+              <i class="fa fa-search"></i>
+            </button>
+          </form>
+          </span>
             <a href="<?php echo wfMessage('wikitolearnskin-navbar-about-link')->plain(); ?>" class="nav__link nav__link--hover-red">
               <?php echo wfMessage('wikitolearnskin-navbar-about'); ?>
             </a>
@@ -138,15 +147,6 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             <a href="<?php echo wfMessage('wikitolearnskin-navbar-third-option-link')->plain(); ?>"  class="nav__link nav__link--hover-green">
               <?php echo wfMessage('wikitolearnskin-navbar-third-option'); ?>
             </a>
-            <span class="nav__search nav__<?php echo self::getAnonClass(); ?>">
-            <form id="searchForm" action="<?php $this->text( 'wgScript' ); ?>" autocomplete="off">
-              <input type="hidden" name="title" value="<?php $this->text( 'searchtitle' ) ?>" />
-              <?php echo $this->makeSearchInput( array( 'id' => 'searchInput' ) ); ?>
-              <button type="submit" class="nav__search-button">
-                <i class="fa fa-search"></i>
-              </button>
-            </form>
-            </span>
 
             <?php
               $user = $this->skin->getUser();
@@ -260,30 +260,26 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           </ul>
         </section>
         <section class="join-us">
-          <div class="join-us__content">
-            <a href="//join.<?php echo $wiki_domain ."/" . $wiki ?>" class="join-us__link"><?php echo wfMessage('wikitolearnskin-join-us-button'); ?></a>
-            <div class="join-us__stats">
-              <?php
-              echo "<i class='fa fa-file-text-o'></i> <span class='stats__count'>" . wfMessage('createacct-benefit-head2')->text() . "</span> " . wfMessage('createacct-benefit-body2')->text();
-              echo "<span class='stats__divider'> </span>";
-              echo "<i class='fa fa-user'></i> <span class='stats__count'>" . wfMessage('createacct-benefit-head3')->text() . "</span> " . wfMessage('createacct-benefit-body3')->text();
-              echo "<span class='stats__divider'> </span>";
-              echo "<i class='fa fa-pencil'></i> <span class='stats__count'>" . wfMessage('createacct-benefit-head1')->text() . "</span> " . wfMessage('createacct-benefit-body1')->text();
-              ?>
-          </div>
+
         </section>
         <section class="media">
           <div class="media__wrapper">
             <iframe class="media__video" src="<?php echo wfMessage('wikitolearnskin-media-video-url'); ?>" allowfullscreen></iframe>
           </div>
           <div class="media__description">
-            <h3 class="media__title"><?php echo wfMessage('wikitolearnskin-media-title'); ?></h3>
-            <p class="media__text">
-              <?php echo wfMessage('wikitolearnskin-media-text'); ?>
-            </p>
-            <a href="<?php echo wfMessage('wikitolearnskin-media-learn-more-link')->plain(); ?>" class="media__button">
-              <?php echo wfMessage('wikitolearnskin-media-learn-more'); ?>
-            </a>
+            <div class="join-us__content">
+              <div class="join-us__stats">
+              <?php
+              echo "<i class='fa fa-file-text-o'></i> <span class='stats__count'>" . wfMessage('createacct-benefit-head2')->text() . "</span> " . wfMessage('createacct-benefit-body2')->text();
+              echo " <br/><span class='stats__divider'></span>";
+              echo "<i class='fa fa-user'></i> <span class='stats__count'>" . wfMessage('createacct-benefit-head3')->text() . "</span> " . wfMessage('createacct-benefit-body3')->text();
+              echo " <br/><span class='stats__divider'></span>";
+              echo "<i class='fa fa-pencil'></i> <span class='stats__count'>" . wfMessage('createacct-benefit-head1')->text() . "</span> " . wfMessage('createacct-benefit-body1')->text();
+              ?>
+              </div>
+              <div class="join-us__readmore"><?php echo wfMessage('wikitolearnskin-join-us-readmore'); ?></div>
+              <a href="//join.<?php echo $wiki_domain ."/" . $wiki ?>" class="join-us__link"><?php echo wfMessage('wikitolearnskin-join-us-button'); ?></a>
+
           </div>
         </section>
         <section class="testimonials">
@@ -896,7 +892,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         <?php } ?>
         <?php foreach ($actionsTools as $key => $toolAttributes){ ?>
           <li>
-            <?php 
+            <?php
             switch ($key) {
               case 'watch':
                 self::makeTool($toolAttributes['href'], $toolAttributes['text'], $toolAttributes['id'], "tool--smaller tool--black", "fa-eye" );

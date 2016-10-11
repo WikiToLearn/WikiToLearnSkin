@@ -3,7 +3,7 @@
   "wikitolearnskin-previous-button-title" : "Previous",
   "wikitolearnskin-download-button-title" : "Download",
   "wikitolearnskin-advanced-button-title" : "Advanced",
-  
+
   "wikitolearnskin-footer-contacs" : "Contacts",
   "wikitolearnskin-footer-learn-more" : "Learn more",
   "wikitolearnskin-footer-hosted-by" : "Hosted by",
@@ -13,7 +13,7 @@
   "wikitolearnskin-navbar-about-link": "#",
   "wikitolearnskin-navbar-contribute" : "Contribute",
   "wikitolearnskin-navbar-contribute-link": "#",
-  "wikitolearnskin-navbar-third-option" : "???",
+  "wikitolearnskin-navbar-third-option" : "Tools",
   "wikitolearnskin-navbar-third-option-link": "#",
   "wikitolearnskin-navbar-language-selector": "Language",
 
@@ -49,23 +49,24 @@
   "wikitolearnskin-departments-10-link": "/#",
 
   "wikitolearnskin-join-us-button" : "Join us",
+  "wikitolearnskin-join-us-readmore" : "Read more...",
   "wikitolearnskin-join-us-button-link" : "/Special:CreateAccount",
 
-  
-  "wikitolearnskin-home-claim": "Knowledge only grows if shared",
-  
+
+  "wikitolearnskin-home-claim": "Learn with the best. Create books. Share <i>knowledge</i>.",
+
   "wikitolearnskin-media-title": "Collaborative Textbooks",
   "wikitolearnskin-media-text": "WikiToLearn wants to provide free, collaborative and accessible text books to the whole world. Our philosophy is synthetized in the sentence: “knowledge only grows if shared”. We provide a platform where learners and teachers can together complete, refine and re-assemble notes, lecture notes in order to create text books, tailored precisely to their needs, so that you can “stand on the shoulders of giants”.",
   "wikitolearnskin-media-video-url": "//www.youtube.com/embed/NpEaa2P7qZI?rel=0",
   "wikitolearnskin-media-learn-more": "Read more",
   "wikitolearnskin-media-learn-more-link" : "/#",
-  
+
 
   "wikitolearnskin-testimonials-first-image-path": "images/placeholder-user.png",
   "wikitolearnskin-testimonials-second-image-path": "images/placeholder-user.png",
   "wikitolearnskin-testimonials-third-image-path": "images/placeholder-user.png",
   "wikitolearnskin-read-more-stories-button" : "Read more stories about WikiToLearn",
   "wikitolearnskin-read-more-stories-button-link" : "#",
-  
+
   "wikitolearnskin-contributions-from" : "Contributions from"
 }
