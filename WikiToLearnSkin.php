@@ -234,12 +234,14 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                       //$personalToolsCount++;
                     }
                   ?>
+
                   <span class="dropdown-item languages__selector hidden-sm-up"><?php echo wfMessage( "wikitolearnskin-navbar-language-selector" ); ?></span>
                   <hr class="languages__divider hidden-sm-up"></hr>
                   <div class="languages--mobile hidden-sm-up">
                     <?php echo self::generateLanguageSelectorItems(); ?>
                   </div>
                 </div>
+                <i class="fa fa-angle-down"></i>
               </div>
             <?php } ?>
             <div class="dropdown dropdown--languages dropdown--languages__desktop languages__<?php echo self::getAnonClass(); ?> nav__link--hover-mwblue">
