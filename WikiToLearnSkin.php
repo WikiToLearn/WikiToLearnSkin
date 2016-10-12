@@ -85,7 +85,8 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       }*/
       $this->supportedLanguages = $wgSupportedLanguages;
       $this->domain = $wiki_domain;
-      $this->html( 'headelement' ); ?>
+      $this->html( 'headelement' );
+      $this->executeCookies(); ?>
         <?php
           $this->executeHeader();
           if ($this->getSkin()->getTitle()->isMainPage()) {
@@ -103,6 +104,24 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         </html>
     <?php }
 
+    public function executeCookies() { 
+      global $wiki_domain; ?>
+      <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
+      <script type="text/javascript">
+        window.cookieconsent_options = {
+          "message":"<?php echo wfMessage('wikitolearnskin-cookies-text'); ?>",
+          "dismiss":"<?php echo wfMessage('wikitolearnskin-cookies-dismiss'); ?>",
+          "learnMore":"<?php echo wfMessage('wikitolearnskin-cookies-learn-more'); ?>",
+          "link":null,
+          "theme":"light-bottom",
+          "domain": "<?php echo $wiki_domain ?>"
+        };
+      </script>
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+    <?php
+    }
+
+    
     public function executeHeader() { ?>
       <header class="header">
         <div class="header__wrapper" >
