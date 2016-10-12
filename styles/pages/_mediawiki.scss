@@ -185,6 +185,10 @@ body{
     }
 
     &.mw-special-Book{
+        
+        #mw-collection-title-table{
+            width: 100%;
+        }
 
         #mw-collection-title-form{ //let's align the labels on the left
             .mw-label{
