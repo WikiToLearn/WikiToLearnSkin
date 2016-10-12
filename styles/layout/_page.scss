@@ -11,16 +11,6 @@ body {
     &-home{
         padding-top: 3.2rem;
     }
-
-    &--article{
-        padding-top: 5rem;
-        padding-bottom: 2rem;
-
-        @include media-breakpoint-down(xs) {
-            padding-top: 3rem;
-            padding-bottom: 1rem;
-        }
-    }
 }
 
 .page{

@@ -86,32 +86,18 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       $this->supportedLanguages = $wgSupportedLanguages;
       $this->domain = $wiki_domain;
       $this->html( 'headelement' ); ?>
-            <?php $this->html( 'newtalk' ); ?>
+        <?php
+          $this->executeHeader();
+          if ($this->getSkin()->getTitle()->isMainPage()) {
+            MWDebug::log('Generating Homepage');
+            $this->executeHome();
+          } else {
+            MWDebug::log('Generating Content page');
+            $this->executeContentPage();
+          }
+          $this->executeFooter();
 
-            <?php if ( $this->data['newtalk'] ) { ?>
-              <div class="usermessage"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
-                <?php $this->html( 'newtalk' );?>
-              </div>
-            <?php } ?>
-
-            <?php if ( $this->data['sitenotice'] ) { ?>
-              <div id="siteNotice"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
-                <?php $this->html( 'sitenotice' ); ?>
-              </div>
-            <?php } ?>
-
-            <?php
-              $this->executeHeader();
-              if ($this->getSkin()->getTitle()->isMainPage()) {
-                MWDebug::log('Generating Homepage');
-                $this->executeHome();
-              } else {
-                MWDebug::log('Generating Content page');
-                $this->executeContentPage();
-              }
-              $this->executeFooter();
-
-              $this->printTrail(); ?>
+          $this->printTrail(); ?>
 
           </body>
         </html>
@@ -394,6 +380,13 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       }
       ?>
       <main class="page page--article <?php echo self::getAnonClass(); ?>">
+        <?php if ( $this->data['sitenotice'] ) { ?>
+          <div class="sitenotice__wrapper"> 
+            <div class="sitenotice__content"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
+              <?php $this->html( 'sitenotice' ); ?>
+            </div>
+          </div>
+        <?php } ?>
         <div class="article__wrapper">
           <?php self::executeBreadcrumb($pageTitle); //build the breadcrumb?>
           <div class="article__main"> <!-- This is needed to wrap the "sheet" and the tools so we can display them one next to another-->

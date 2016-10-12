@@ -1,4 +1,32 @@
 main.page--article{
+    
+    padding-top: 5rem;
+    padding-bottom: 2rem;
+    
+    @include media-breakpoint-down(xs) {
+        padding-top: 3rem;
+        padding-bottom: 1rem;
+    }
+    
+    .sitenotice__wrapper{
+        margin-bottom: 1rem;
+
+        @include make-container();
+        @include media-breakpoint-up(sm) {
+            @include make-container-max-widths();
+            padding: 0 3rem;
+        }
+        
+        @include media-breakpoint-down(xs) {
+            padding: 0;
+        }
+
+        .sitenotice__content{
+            padding: 0.5rem;
+            background-color: white;
+            box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
+        }
+    }
 
     .article{
 
