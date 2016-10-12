@@ -688,8 +688,13 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
 
             if(self::userHasEnoughRights()){
               self::makeAdvancedTools();
-              if($namespace === NS_USER)
-                self::makePublishButton();
+              if($namespace === NS_USER){
+                if(self::pageHasCategory("ReadyToBePublished")) {
+                  self::makeUndoPublishButton();
+                } else {
+                  self::makePublishButton();
+                }
+              }
             }
           } else if(self::pageHasCategory("CourseLevelTwo")) {
             self::makeEditCourseLevelTwoTool();
@@ -785,6 +790,10 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       self::makeTool('#', $title, 'publishCourseButton', 'tool--black', 'fa-reply fa-rotate-45' );
     }
 
+     private function makeUndoPublishButton(){
+      $title = wfMessage('wikitolearnskin-undo-publish-course-tool')->text();
+      self::makeTool('#', $title, 'undoPublishCourseButton', 'tool--black', 'fa-undo' );
+    }
 
     /**
     * Check the namespace in order to confirm or not the
