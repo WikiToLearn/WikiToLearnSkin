@@ -86,6 +86,7 @@
 
   "wikitolearnskin-footer-hosted-by" : "Used within the footer for the hosted by column",
 
-  "wikitolearnskin-publish-course-tool" : "the title of the public course tool button"
+  "wikitolearnskin-publish-course-tool" : "the title of the public course tool button",
+  "wikitolearnskin-undo-publish-course-tool" : "the title of the public course tool button"
 
 }
