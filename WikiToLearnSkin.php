@@ -144,14 +144,12 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             <a href="<?php echo wfMessage('wikitolearnskin-navbar-contribute-link')->plain(); ?>"  class="nav__link nav__link--hover-yellow">
               <?php echo wfMessage('wikitolearnskin-navbar-contribute'); ?>
             </a>
-            <!-- <a href="<?php echo wfMessage('wikitolearnskin-navbar-third-option-link')->plain(); ?>"  class="nav__link nav__link--hover-green">
+            <!--  -->
+            <div class="dropdown dropdown--more-links">
+              <a class="nav__link nav__link--hover-green" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <?php echo wfMessage('wikitolearnskin-navbar-third-option'); ?>
-            </a> -->
-            <div class="dropdown dropdown--languages nav__link--hover-green">
-              <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fa fa-wrench"></i> <i class="fa fa-angle-down"></i>
               </a>
-              <div class="dropdown-menu">
+              <div class="dropdown-menu left">
                 <a href="<?php echo wfMessage('wikitolearnskin-tools-guide-link')->plain(); ?>"  class="dropdown-item">
                   <i class="fa fa-question-circle"></i>&nbsp;<?php echo wfMessage('wikitolearnskin-tools-guide'); ?>
                 </a>
@@ -170,6 +168,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 </a>
               </div>
             </div>
+            <span class="nav__separator"></span>
             <?php
               $user = $this->skin->getUser();
             ?>
@@ -197,6 +196,31 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 </div>
               </div>
             <?php } else { ?>
+              <div class="dropdown dropdown--personal-tools">
+                <a class="nav__link nav__link--hamburger nav__link--hover-mwblue" href="#" id="dropdownToolbox" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span><?php echo $user->getName() ?></span>
+                    <i class="fa fa-bars"></i>
+                </a>
+                <div class="dropdown-menu dropdown--user-menu left" aria-labelledby="dropdownToolbox">
+                  <?php
+                    $toolbar = $this->getPersonalTools();
+                    unset($toolbar['notifications-alert']);
+                    unset($toolbar['notifications-message']);
+                    unset($toolbar['newmessages']);
+                    foreach ( $toolbar as $key => $tool ) {
+                      $tool['class'] = 'dropdown-item';
+                      echo $this->makeListItem( $key, $tool, ["tag" => "span"] );
+                      //$personalToolsCount++;
+                    }
+                  ?>
+
+                  <span class="dropdown-item languages__selector hidden-sm-up"><?php echo wfMessage( "wikitolearnskin-navbar-language-selector" ); ?></span>
+                  <hr class="languages__divider hidden-sm-up"></hr>
+                  <div class="languages--mobile hidden-sm-up">
+                    <?php echo self::generateLanguageSelectorItems(); ?>
+                  </div>
+                </div>
+              </div>
               <div class="dropdown dropdown--notifications nav__link--hover-mwblue">
                 <a id="notifications" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="fa fa-bell"></i> <i class="fa fa-angle-down"></i>
@@ -216,32 +240,6 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                     <a id="notifications-view-all"><?php echo wfMessage('echo-overlay-link') ?></a>
                   </div>
                 </div>
-              </div>
-              <div class="dropdown dropdown--personal-tools">
-                <a class="nav__link nav__link--hamburger nav__link--hover-mwblue" href="#" id="dropdownToolbox" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span><?php echo $user->getName() ?></span>
-                    <i class="fa fa-bars"></i>
-                </a>
-                <div class="dropdown-menu dropdown--user-menu" aria-labelledby="dropdownToolbox">
-                  <?php
-                    $toolbar = $this->getPersonalTools();
-                    unset($toolbar['notifications-alert']);
-                    unset($toolbar['notifications-message']);
-                    unset($toolbar['newmessages']);
-                    foreach ( $toolbar as $key => $tool ) {
-                      $tool['class'] = 'dropdown-item';
-                      echo $this->makeListItem( $key, $tool, ["tag" => "span"] );
-                      //$personalToolsCount++;
-                    }
-                  ?>
-
-                  <span class="dropdown-item languages__selector hidden-sm-up"><?php echo wfMessage( "wikitolearnskin-navbar-language-selector" ); ?></span>
-                  <hr class="languages__divider hidden-sm-up"></hr>
-                  <div class="languages--mobile hidden-sm-up">
-                    <?php echo self::generateLanguageSelectorItems(); ?>
-                  </div>
-                </div>
-                <i class="fa fa-angle-down"></i>
               </div>
             <?php } ?>
             <div class="dropdown dropdown--languages dropdown--languages__desktop languages__<?php echo self::getAnonClass(); ?> nav__link--hover-mwblue">
