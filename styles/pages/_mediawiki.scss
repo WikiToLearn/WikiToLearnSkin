@@ -183,4 +183,53 @@ body{
         margin: 0;
         border: 0;
     }
+
+    &.mw-special-Book{
+
+        #mw-collection-title-form{ //let's align the labels on the left
+            .mw-label{
+                text-align: left;
+            }
+        }
+        
+        #coll-downloadbox{
+            h2{
+                margin-top: 0;
+            }
+        }
+        
+        #collectionListContainer{
+            #collectionList{
+                padding-left: 0;
+                margin-bottom: 0;
+
+                li{
+                    cursor: move;
+                    border-bottom: 1px solid #eee;
+                }
+
+                .title{ //they give the page names in the "reorder" section the "title" class, which conflicts with bootstrap...
+                    background-color: transparent;
+                    max-width: none;
+                    padding: 0;
+                    margin: 0;
+                    margin-left: 0;
+                }
+            }
+
+        }
+        #coll-orderbox{ //it does not work, let's not display
+            display: none;
+        }
+
+        
+
+        #mw-content-text{
+            font-size: 0; //because there is a "Update" text in the page that really breaks the design, we hide it
+
+            .collection-column{
+                font-size: 1rem;
+            }
+        }
+    }
 }
