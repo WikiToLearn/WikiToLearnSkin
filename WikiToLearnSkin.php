@@ -1,13 +1,13 @@
 <?php
 /**
- * Skin file for skin Foo Bar.
+ * Skin file for skin WikiToLearnSkin
  *
  * @file
  * @ingroup Skins
  */
 
 /**
- * SkinTemplate class for Foo Bar skin
+ * SkinTemplate class for WikiToLearnSkin skin
  * @ingroup Skins
  */
 class SkinWikiToLearnSkin extends SkinTemplate
@@ -43,12 +43,11 @@ class SkinWikiToLearnSkin extends SkinTemplate
         $out->addStyle("//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
         $out->addStyle("//fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700");
         $out->addModuleStyles( 'skin.wikitolearn' );
-
     }
 }
 
 /**
- * BaseTemplate class for Foo Bar skin
+ * BaseTemplate class for WikiToLearnSkin skin
  *
  * @ingroup Skins
  */
@@ -121,14 +120,12 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     <?php
     }
 
-    
     public function executeHeader() { ?>
       <header class="header">
         <div class="header__wrapper" >
           <div href="/" class="logo">
             <a href="/">
               <img class="logo__img" src="<?php echo $this->getSkin()->getSkinStylePath("images/wikitolearn-logo.png") ?>">
-
               <div class="logo__title">
                 <span class="text-wtl--red">wiki</span><span class="text-wtl--yellow">to</span><span class="text-wtl--green">learn</span>
               </div>
