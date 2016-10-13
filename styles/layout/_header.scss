@@ -120,6 +120,8 @@
                 padding: 0 0.2rem;
                 text-align: center;
                 vertical-align: middle;
+                
+                cursor: pointer;
 
                 &:hover, &:focus{
                     text-decoration: none;
@@ -192,9 +194,22 @@
 
                 }
             }
+            
+            &__separator{
+                display: inline-block;
+                border-left: 1px solid #eee;
+                height: 100%;
+                vertical-align: middle;
+                margin: 0 0.2rem;
+                @include media-breakpoint-down(xs) {
+                    display: none;
+                }
+            }
 
             &__desktop-login {
                 display: inline-flex;
+                height: 100%;
+                vertical-align: middle;
                 @include media-breakpoint-down(xs) {
                     display: none;
                 }
@@ -219,7 +234,8 @@
                     border: none;
                     outline: none;
                     padding: 0;
-
+                    vertical-align: middle;
+                    
                     @include media-breakpoint-down(xs) {
                         @include make-col-ready($gutter: 0);
                         @include make-col(10);
@@ -260,7 +276,6 @@
             // this has to keep the bootstrap class naming conventions.
             .dropdown {
                 display: inline-block;
-                padding: 0 0.2rem;
 
                 @include media-breakpoint-down(xs) {
                     text-align: center;
@@ -294,16 +309,13 @@
                 }
 
                 &--notifications {
+                    padding: 0 0.2rem;
+                    cursor: pointer;
 
                     [class^="ve-"], [class^="oo-"], [class^="mw-"]{
                         box-sizing: border-box;
                     }
 
-                    @include media-breakpoint-down(xs) {
-                        //@include make-col-pull(2);
-                    }
-
-                    cursor: pointer;
                     .dropdown-menu {
                         border-right: 1rem;
                         border: 1px solid rgba(0,0,0,0.15);
@@ -320,25 +332,6 @@
                             width: 100vw;
                             min-width: auto;
                         }
-
-                        /*// To be changed using autoprefixer
-                        &::-webkit-scrollbar {
-                          width: 0.2rem;
-                        }
-
-                        &::-webkit-scrollbar {
-                          width: 0.2rem;
-                        }
-
-                        &::-webkit-scrollbar-track {
-                          background-color:$lighter-green;
-                          border-radius: 0.2rem;
-                        }
-
-                        &::-webkit-scrollbar-thumb {
-                          border-radius: 0.2rem;
-                          background-color: $dark-green;
-                        }*/
                     }
 
                     &__mark-read-notifications{
@@ -438,15 +431,15 @@
                 &--languages {
                     
                     cursor: pointer;
+                    padding: 0 0.2rem;
                     height: 100%;
-                        
+                    
                     @include media-breakpoint-down(xs) {
                         @include make-col-ready($gutter: 0);
                         @include make-col(2);
                     }
                     
                     .dropdown-menu{
-                        line-height: 1.75rem;
                         @include media-breakpoint-down(xs) {
                             width: 100vw;
                             //top: 44.6px;
@@ -464,6 +457,12 @@
                     @include media-breakpoint-down(xs) {
                         position: fixed;
                         top: 46.6px; //TODO: use rem
+                    }
+                }
+
+                &--more-links{
+                    @include media-breakpoint-down(xs) {
+                        display: none;
                     }
                 }
             }

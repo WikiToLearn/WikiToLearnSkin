@@ -138,9 +138,30 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             <a href="<?php echo wfMessage('wikitolearnskin-navbar-contribute-link')->plain(); ?>"  class="nav__link nav__link--hover-yellow">
               <?php echo wfMessage('wikitolearnskin-navbar-contribute'); ?>
             </a>
-            <a href="<?php echo wfMessage('wikitolearnskin-navbar-third-option-link')->plain(); ?>"  class="nav__link nav__link--hover-green">
+            <!--  -->
+            <div class="dropdown dropdown--more-links">
+              <a class="nav__link nav__link--hover-green" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <?php echo wfMessage('wikitolearnskin-navbar-third-option'); ?>
-            </a>
+              </a>
+              <div class="dropdown-menu left">
+                <a href="<?php echo wfMessage('wikitolearnskin-tools-guide-link')->plain(); ?>"  class="dropdown-item">
+                  <i class="fa fa-question-circle"></i>&nbsp;<?php echo wfMessage('wikitolearnskin-tools-guide'); ?>
+                </a>
+                <a href="<?php echo wfMessage('wikitolearnskin-tools-createbook-link')->plain(); ?>"  class="dropdown-item">
+                  <i class="fa fa-book"></i>&nbsp;<?php echo wfMessage('wikitolearnskin-tools-createbook'); ?>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="<?php echo wfMessage('wikitolearnskin-tools-chat-link')->plain(); ?>" class="dropdown-item">
+                  <i class="fa fa-comments"></i>&nbsp;<?php echo wfMessage('wikitolearnskin-tools-chat')->plain(); ?>
+                </a>
+                <a href="<?php echo wfMessage('wikitolearnskin-tools-community-portal-link'); ?>" class="dropdown-item">
+                  <i class="fa fa-users"></i>&nbsp;<?php echo wfMessage('wikitolearnskin-tools-community-portal'); ?>
+                </a>
+                <a href="<?php echo wfMessage('wikitolearnskin-tools-reports-link')->plain(); ?>" class="dropdown-item">
+                  <i class="fa fa-bar-chart"></i>&nbsp;<?php echo wfMessage('wikitolearnskin-tools-reports'); ?>
+                </a>
+              </div>
+            </div>
             <span class="nav__search nav__<?php echo self::getAnonClass(); ?>">
             <form id="searchForm" action="<?php $this->text( 'wgScript' ); ?>" autocomplete="off">
               <input type="hidden" name="title" value="<?php $this->text( 'searchtitle' ) ?>" />
@@ -150,7 +171,6 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               </button>
             </form>
             </span>
-
             <?php
               $user = $this->skin->getUser();
             ?>
@@ -178,6 +198,31 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 </div>
               </div>
             <?php } else { ?>
+              <div class="dropdown dropdown--personal-tools">
+                <a class="nav__link nav__link--hamburger nav__link--hover-mwblue" href="#" id="dropdownToolbox" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span><?php echo $user->getName() ?></span>
+                    <i class="fa fa-bars"></i>
+                </a>
+                <div class="dropdown-menu dropdown--user-menu left" aria-labelledby="dropdownToolbox">
+                  <?php
+                    $toolbar = $this->getPersonalTools();
+                    unset($toolbar['notifications-alert']);
+                    unset($toolbar['notifications-message']);
+                    unset($toolbar['newmessages']);
+                    foreach ( $toolbar as $key => $tool ) {
+                      $tool['class'] = 'dropdown-item';
+                      echo $this->makeListItem( $key, $tool, ["tag" => "span"] );
+                      //$personalToolsCount++;
+                    }
+                  ?>
+
+                  <span class="dropdown-item languages__selector hidden-sm-up"><?php echo wfMessage( "wikitolearnskin-navbar-language-selector" ); ?></span>
+                  <hr class="languages__divider hidden-sm-up"></hr>
+                  <div class="languages--mobile hidden-sm-up">
+                    <?php echo self::generateLanguageSelectorItems(); ?>
+                  </div>
+                </div>
+              </div>
               <div class="dropdown dropdown--notifications nav__link--hover-mwblue">
                 <a id="notifications" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="fa fa-bell"></i> <i class="fa fa-angle-down"></i>
@@ -195,30 +240,6 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                   <div class="dropdown-divider"></div>
                   <div class="dropdown-footer">
                     <a id="notifications-view-all"><?php echo wfMessage('echo-overlay-link') ?></a>
-                  </div>
-                </div>
-              </div>
-              <div class="dropdown dropdown--personal-tools">
-                <a class="nav__link nav__link--hamburger nav__link--hover-mwblue" href="#" id="dropdownToolbox" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span><?php echo $user->getName() ?></span>
-                    <i class="fa fa-bars"></i>
-                </a>
-                <div class="dropdown-menu dropdown--user-menu" aria-labelledby="dropdownToolbox">
-                  <?php
-                    $toolbar = $this->getPersonalTools();
-                    unset($toolbar['notifications-alert']);
-                    unset($toolbar['notifications-message']);
-                    unset($toolbar['newmessages']);
-                    foreach ( $toolbar as $key => $tool ) {
-                      $tool['class'] = 'dropdown-item';
-                      echo $this->makeListItem( $key, $tool, ["tag" => "span"] );
-                      //$personalToolsCount++;
-                    }
-                  ?>
-                  <span class="dropdown-item languages__selector hidden-sm-up"><?php echo wfMessage( "wikitolearnskin-navbar-language-selector" ); ?></span>
-                  <hr class="languages__divider hidden-sm-up"></hr>
-                  <div class="languages--mobile hidden-sm-up">
-                    <?php echo self::generateLanguageSelectorItems(); ?>
                   </div>
                 </div>
               </div>
@@ -263,30 +284,26 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           </ul>
         </section>
         <section class="join-us">
-          <div class="join-us__content">
-            <a href="//join.<?php echo $wiki_domain ."/" . $wiki ?>" class="join-us__link"><?php echo wfMessage('wikitolearnskin-join-us-button'); ?></a>
-            <div class="join-us__stats">
-              <?php
-              echo "<i class='fa fa-file-text-o'></i> <span class='stats__count'>" . wfMessage('createacct-benefit-head2')->text() . "</span> " . wfMessage('createacct-benefit-body2')->text();
-              echo "<span class='stats__divider'> </span>";
-              echo "<i class='fa fa-user'></i> <span class='stats__count'>" . wfMessage('createacct-benefit-head3')->text() . "</span> " . wfMessage('createacct-benefit-body3')->text();
-              echo "<span class='stats__divider'> </span>";
-              echo "<i class='fa fa-pencil'></i> <span class='stats__count'>" . wfMessage('createacct-benefit-head1')->text() . "</span> " . wfMessage('createacct-benefit-body1')->text();
-              ?>
-          </div>
+
         </section>
         <section class="media">
           <div class="media__wrapper">
             <iframe class="media__video" src="<?php echo wfMessage('wikitolearnskin-media-video-url'); ?>" allowfullscreen></iframe>
           </div>
           <div class="media__description">
-            <h3 class="media__title"><?php echo wfMessage('wikitolearnskin-media-title'); ?></h3>
-            <p class="media__text">
-              <?php echo wfMessage('wikitolearnskin-media-text'); ?>
-            </p>
-            <a href="<?php echo wfMessage('wikitolearnskin-media-learn-more-link')->plain(); ?>" class="media__button">
-              <?php echo wfMessage('wikitolearnskin-media-learn-more'); ?>
-            </a>
+            <div class="join-us__content">
+              <div class="join-us__stats">
+              <?php
+              echo "<i class='fa fa-file-text-o'></i> <span class='stats__count'>" . wfMessage('createacct-benefit-head2')->text() . "</span> " . wfMessage('createacct-benefit-body2')->text();
+              echo " <br/><span class='stats__divider'></span>";
+              echo "<i class='fa fa-user'></i> <span class='stats__count'>" . wfMessage('createacct-benefit-head3')->text() . "</span> " . wfMessage('createacct-benefit-body3')->text();
+              echo " <br/><span class='stats__divider'></span>";
+              echo "<i class='fa fa-pencil'></i> <span class='stats__count'>" . wfMessage('createacct-benefit-head1')->text() . "</span> " . wfMessage('createacct-benefit-body1')->text();
+              ?>
+              </div>
+              <div class="join-us__readmore"><?php echo wfMessage('wikitolearnskin-join-us-readmore'); ?></div>
+              <a href="//join.<?php echo $wiki_domain ."/" . $wiki ?>" class="join-us__link"><?php echo wfMessage('wikitolearnskin-join-us-button'); ?></a>
+
           </div>
         </section>
         <section class="testimonials">
@@ -452,6 +469,16 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               <h4>WikiToLearn</h4>
               <ul class="footer__contacts-list">
                 <li>
+                  <a class="learn-more__philosophy" href="<?php echo wfMessage("wikitolearnskin-navbar-about-link")->plain(); ?>"><i class="fa fa-info-circle">&nbsp;</i><?php echo wfMessage("wikitolearnskin-navbar-about"); ?></a>
+                </li>
+                <li>
+                  <a class="learn-more__philosophy" href="<?php echo wfMessage("wikitolearnskin-navbar-contribute-link")->plain(); ?>"><i class="fa fa-check-square-o">&nbsp;</i><?php echo wfMessage("wikitolearnskin-navbar-contribute"); ?></a>
+                </li>
+                <li>
+                  <a class="learn-more__philosophy" href="<?php echo wfMessage("wikitolearnskin-footer-academic-link")->plain(); ?>"><i class="fa fa-university">&nbsp;</i><?php echo wfMessage("wikitolearnskin-footer-academic"); ?></a>
+                </li>
+                <li><hr /></li>
+                <li>
                   <?php
                     $linkObj = Title::newFromText("Special:RecentChanges");
                     echo Linker::linkKnown($linkObj, wfMessage("wikitolearnskin-footer-changes")); ?>
@@ -473,23 +500,30 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             </li>
             <li class="footer__learn-more clearfix">
               <h4 class="learn-more__first-heading">
-                <?php echo wfMessage("wikitolearnskin-footer-more"); ?>
+                <?php echo wfMessage("wikitolearnskin-footer-tools"); ?>
               </h4>
               <ul class="learn-more__list">
                 <li>
-                  <a class="learn-more__philosophy" href="<?php echo wfMessage("wikitolearnskin-footer-more-1-link")->plain(); ?>"><?php echo wfMessage("wikitolearnskin-footer-more-1-text"); ?></a>
+                  <a class="learn-more__philosophy" href="<?php echo wfMessage("wikitolearnskin-footer-tools-1-link")->plain(); ?>"><i class="fa fa-question-circle">&nbsp;</i><?php echo wfMessage("wikitolearnskin-tools-guide"); ?></a>
                 </li>
                 <li>
-                  <a class="learn-more__philosophy" href="<?php echo wfMessage("wikitolearnskin-footer-more-2-link")->plain(); ?>"><?php echo wfMessage("wikitolearnskin-footer-more-2-text"); ?></a>
+                  <a class="learn-more__philosophy" href="<?php echo wfMessage("wikitolearnskin-tools-createbook-link")->plain(); ?>"><i class="fa fa-book">&nbsp;</i><?php echo wfMessage("wikitolearnskin-tools-createbook"); ?></a>
+                </li>
+                <li><hr /></li>
+                <li>
+                  <a class="learn-more__philosophy" href="<?php echo wfMessage("wikitolearnskin-tools-chat-link")->plain(); ?>"><i class="fa fa-comments">&nbsp;</i><?php echo wfMessage("wikitolearnskin-tools-chat"); ?></a>
                 </li>
                 <li>
-                  <a class="learn-more__philosophy" href="<?php echo wfMessage("wikitolearnskin-footer-more-3-link")->plain(); ?>"><?php echo wfMessage("wikitolearnskin-footer-more-3-text"); ?></a>
+                  <a class="learn-more__philosophy" href="<?php echo wfMessage("wikitolearnskin-tools-community-portal-link")->plain(); ?>"><i class="fa fa-users">&nbsp;</i><?php echo wfMessage("wikitolearnskin-tools-community-portal"); ?></a>
+                </li>
+                <li>
+                  <a class="learn-more__philosophy" href="<?php echo wfMessage("wikitolearnskin-tools-reports-link")->plain(); ?>"><i class="fa fa-bar-chart">&nbsp;</i><?php echo wfMessage("wikitolearnskin-tools-reports"); ?></a>
                 </li>
               </ul>
               <h4 class="learn-more__second-heading"><?php echo wfMessage('wikitolearnskin-footer-hosted-by'); ?></h4>
               <ul class="learn-more__sponsors">
                 <li>
-                  <a href="http://www.garr.it/">Garr</a>
+                  <a href="http://www.garr.it/">GARR</a>
                 </li>
                 <li>
                   <a href="https://www.neodigit.net/">Neodigit</a>
@@ -514,7 +548,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               <ul>
                 <li><a href="mailto:info@wikitolearn.org">info@wikitolearn.org</a></li>
                 <li>
-                  <a href="<?php echo wfMessage("wikitolearnskin-footer-kit-channels-link"); ?>"><?php echo wfMessage("wikitolearnskin-footer-kit-channels-text"); ?></a>
+                  <a href="<?php echo wfMessage("wikitolearnskin-footer-kit-channels-link")->plain(); ?>"><?php echo wfMessage("wikitolearnskin-footer-kit-channels-text"); ?></a>
                 </li>
               </ul>
             </li>

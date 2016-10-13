@@ -4,16 +4,26 @@
   "wikitolearnskin-download-button-title" : "Download",
   "wikitolearnskin-advanced-button-title" : "Advanced",
 
-  "wikitolearnskin-footer-contacs" : "Contacts",
+  "wikitolearnskin-footer-changes" : "Recent changes",
+  "wikitolearnskin-footer-special-pages" : "Special pages",
+  "wikitolearnskin-footer-academic" : "Academic institutions",
+  "wikitolearnskin-footer-academic-link" : "//meta.wikitolearn.org/Academic_institutions",
+  "wikitolearnskin-footer-kit-channels-link": "https://chat.wikitolearn.org",
+  "wikitolearnskin-footer-kit-channels-text": "chat.wikitolearn.org",
+  "wikitolearnskin-footer-keep-in-touch" : "Follow us",
+  "wikitolearnskin-footer-contacts" : "Contacts",
   "wikitolearnskin-footer-learn-more" : "Learn more",
   "wikitolearnskin-footer-hosted-by" : "Hosted by",
   "wikitolearnskin-footer-follow-us" : "Follow us",
+  "wikitolearnskin-footer-tools" : "Tools",
+  "wikitolearnskin-footer-tools-1-text" : "User uide",
+  "wikitolearnskin-footer-tools-1-link" : "/Manual",
 
   "wikitolearnskin-navbar-about" : "About",
   "wikitolearnskin-navbar-about-link": "#",
-  "wikitolearnskin-navbar-contribute" : "Contribute",
+  "wikitolearnskin-navbar-contribute" : "Join Us",
   "wikitolearnskin-navbar-contribute-link": "#",
-  "wikitolearnskin-navbar-third-option" : "???",
+  "wikitolearnskin-navbar-third-option" : "More",
   "wikitolearnskin-navbar-third-option-link": "#",
   "wikitolearnskin-navbar-language-selector": "Language",
 
@@ -49,17 +59,27 @@
   "wikitolearnskin-departments-10-link": "/#",
 
   "wikitolearnskin-join-us-button" : "Join us",
+  "wikitolearnskin-join-us-readmore" : "Read more...",
   "wikitolearnskin-join-us-button-link" : "/Special:CreateAccount",
 
+  "wikitolearnskin-tools-chat" : "Chat",
+  "wikitolearnskin-tools-chat-link" : "https://chat.wikitolearn.org",
+  "wikitolearnskin-tools-guide" : "User guides",
+  "wikitolearnskin-tools-guide-link" : "Manual",
+  "wikitolearnskin-tools-createbook" : "Create a book",
+  "wikitolearnskin-tools-createbook-link" : "Manual/Create a book",
+  "wikitolearnskin-tools-community-portal" : "Community portal",
+  "wikitolearnskin-tools-community-portal-link" : "//meta.wikitolearn.org",
+  "wikitolearnskin-tools-reports" : "Reports",
+  "wikitolearnskin-tools-reports-link" : "//reports.wikitolearn.org",
 
-  "wikitolearnskin-home-claim": "Knowledge only grows if shared",
+  "wikitolearnskin-home-claim": "Learn with the best. Create books. Share <i>knowledge</i>.",
 
   "wikitolearnskin-media-title": "Collaborative Textbooks",
   "wikitolearnskin-media-text": "WikiToLearn wants to provide free, collaborative and accessible text books to the whole world. Our philosophy is synthetized in the sentence: “knowledge only grows if shared”. We provide a platform where learners and teachers can together complete, refine and re-assemble notes, lecture notes in order to create text books, tailored precisely to their needs, so that you can “stand on the shoulders of giants”.",
   "wikitolearnskin-media-video-url": "//www.youtube.com/embed/NpEaa2P7qZI?rel=0",
   "wikitolearnskin-media-learn-more": "Read more",
   "wikitolearnskin-media-learn-more-link" : "/#",
-
 
   "wikitolearnskin-testimonials-first-image-path": "images/placeholder-user.png",
   "wikitolearnskin-testimonials-second-image-path": "images/placeholder-user.png",
@@ -71,6 +91,8 @@
 
   "wikitolearnskin-publish-course-tool" : "Publish course",
   "wikitolearnskin-undo-publish-course-tool" : "Undo course publication",
+
+  "wikitolearnskin-contributions-from" : "Contributions from",
 
   "wikitolearnskin-cookies-text": "This website uses cookies to ensure you get the best experience on our website",
   "wikitolearnskin-cookies-dismiss": "Got it!",
