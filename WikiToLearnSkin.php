@@ -875,20 +875,24 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     */
     private function executePreviousNext(){
       $previousAndNext = CourseEditorUtils::getPreviousAndNext($this->pageTitle);
-      $previous = $previousAndNext['previous'];
-      $next = $previousAndNext['next'];
-      if ($previous !== NULL || $next != NULL){
+      if (array_key_exists('previous', $previousAndNext) ||
+          array_key_exists('next', $previousAndNext)) {
         echo '<div class="article__navigation">';
-        if ($previous !== NULL) {
-          $href = Skin::makeUrl($previous);
-          $title = wfMessage('wikitolearnskin-previous-button-title');
-          echo "<a href='$href' title='$title' class='navigation__button navigation__button--previous'><i class='fa fa-angle-double-left'></i>&nbsp;$title</a>";
-
+        if (array_key_exists('previous', $previousAndNext)) {
+          $previous = $previousAndNext['previous'];
+          if($previous != NULL){
+            $href = Skin::makeUrl($previous);
+            $title = wfMessage('wikitolearnskin-previous-button-title');
+            echo "<a href='$href' title='$title' class='navigation__button navigation__button--previous'><i class='fa fa-angle-double-left'></i>&nbsp;$title</a>";
+          }
         }
-        if ($next !== NULL) {
-          $href = Skin::makeUrl($next);
-          $title = wfMessage('wikitolearnskin-next-button-title');
-          echo "<a href='$href' title='$title' class='navigation__button navigation__button--next'>$title&nbsp;<i class='fa fa-angle-double-right'></i></a>";
+        if (array_key_exists('next', $previousAndNext)) {
+          $next = $previousAndNext['next'];
+          if($next != NULL){
+            $href = Skin::makeUrl($next);
+            $title = wfMessage('wikitolearnskin-next-button-title');
+            echo "<a href='$href' title='$title' class='navigation__button navigation__button--next'>$title&nbsp;<i class='fa fa-angle-double-right'></i></a>";
+          }
         }
         echo '</div>';
       }
