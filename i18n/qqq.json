@@ -8,10 +8,10 @@
 
   "wikitolearnskin-navbar-about" : "Used within the navbar for the about button",
   "wikitolearnskin-navbar-contribute" : "Used within the navbar for the contribute button",
-  "wikitolearnskin-navbar-third-option" : "Used within the navbar for the third button",
+  "wikitolearnskin-navbar-tools" : "Used within the navbar for the third button",
   "wikitolearnskin-navbar-about-link" : "wikitolearnskin-navbar-about-link",
   "wikitolearnskin-navbar-contribute-link" : "wikitolearnskin-navbar-contribute-link",
-  "wikitolearnskin-navbar-third-option-link" : "wikitolearnskin-navbar-contribute-link",
+  "wikitolearnskin-navbar-tools-link" : "wikitolearnskin-navbar-contribute-link",
   "wikitolearnskin-navbar-language-selector" : "Used in xs devices to display the language link",
 
   "wikitolearnskin-departments-1-name": "wikitolearnskin-departments-1-name",

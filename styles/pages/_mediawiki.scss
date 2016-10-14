@@ -225,15 +225,5 @@ body{
         #coll-orderbox{ //it does not work, let's not display
             display: none;
         }
-
-        
-
-        #mw-content-text{
-            font-size: 0; //because there is a "Update" text in the page that really breaks the design, we hide it
-
-            .collection-column{
-                font-size: 1rem;
-            }
-        }
     }
 }

@@ -141,24 +141,28 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             <!--  -->
             <div class="dropdown dropdown--more-links">
               <a class="nav__link nav__link--hover-green" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <?php echo wfMessage('wikitolearnskin-navbar-third-option'); ?>
+              <?php echo wfMessage('wikitolearnskin-navbar-tools'); ?>
               </a>
               <div class="dropdown-menu left">
                 <a href="<?php echo wfMessage('wikitolearnskin-tools-guide-link')->plain(); ?>"  class="dropdown-item">
-                  <i class="fa fa-question-circle"></i>&nbsp;<?php echo wfMessage('wikitolearnskin-tools-guide'); ?>
+                  <i class="fa fa-fw fa-question-circle"></i>&nbsp;<?php echo wfMessage('wikitolearnskin-tools-guide'); ?>
                 </a>
-                <a href="<?php echo wfMessage('wikitolearnskin-tools-createbook-link')->plain(); ?>"  class="dropdown-item">
-                  <i class="fa fa-book"></i>&nbsp;<?php echo wfMessage('wikitolearnskin-tools-createbook'); ?>
-                </a>
+                <?php 
+                  $collectionTools = $this->data['sidebar']['coll-print_export'];
+                  if(!is_null($collectionTools)) { ?>
+                    <a href="<?php echo $collectionTools[0]['href'] ?>"  class="dropdown-item">
+                    <i class="fa fa-fw fa-book"></i>&nbsp;<?php echo $collectionTools[0]['text'] ?>
+                  </a>
+                <?php } ?> 
                 <div class="dropdown-divider"></div>
                 <a href="<?php echo wfMessage('wikitolearnskin-tools-chat-link')->plain(); ?>" class="dropdown-item">
-                  <i class="fa fa-comments"></i>&nbsp;<?php echo wfMessage('wikitolearnskin-tools-chat')->plain(); ?>
+                  <i class="fa fa-fw fa-comments"></i>&nbsp;<?php echo wfMessage('wikitolearnskin-tools-chat')->plain(); ?>
                 </a>
                 <a href="<?php echo wfMessage('wikitolearnskin-tools-community-portal-link'); ?>" class="dropdown-item">
-                  <i class="fa fa-users"></i>&nbsp;<?php echo wfMessage('wikitolearnskin-tools-community-portal'); ?>
+                  <i class="fa fa-fw fa-users"></i>&nbsp;<?php echo wfMessage('wikitolearnskin-tools-community-portal'); ?>
                 </a>
                 <a href="<?php echo wfMessage('wikitolearnskin-tools-reports-link')->plain(); ?>" class="dropdown-item">
-                  <i class="fa fa-bar-chart"></i>&nbsp;<?php echo wfMessage('wikitolearnskin-tools-reports'); ?>
+                  <i class="fa fa-fw fa-bar-chart"></i>&nbsp;<?php echo wfMessage('wikitolearnskin-tools-reports'); ?>
                 </a>
               </div>
             </div>
@@ -899,35 +903,6 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     }
 
     /**
-    * Generate the HTML of the collection tools
-    */
-    private function buildCollectionTools(){
-      $collectionTools = $this->data['sidebar']['coll-print_export'];
-      if(!is_null($collectionTools)) { ?>
-        <div class="multitool horizontal click-to-toggle">
-          <span title="<?php echo wfMessage('wikitolearnskin-download-button-title') ?>" class="tool tool--green--filled multitool__trigger">
-            <div class="tool__content">
-              <i class="tool__icon fa fa-download"></i>
-              <span class="tool__title"><?php echo wfMessage('wikitolearnskin-download-button-title') ?></span>
-            </div>
-          </span>
-          <ul>
-            <li>
-              <?php self::makeTool($collectionTools[2]['href'], $collectionTools[2]['text'], $collectionTools[2]['id'], "tool--smaller tool--green", "fa-file-text-o" ); ?>
-            </li>
-            <li>
-              <?php self::makeTool($collectionTools[3]['href'], $collectionTools[3]['text'], $collectionTools[3]['id'], "tool--smaller tool--green", "fa-print" ); ?>
-            </li>
-            <li>
-              <?php self::makeTool($collectionTools[1]['href'], $collectionTools[1]['text'], $collectionTools[1]['id'], "tool--smaller tool--green", "fa-file-pdf-o" ); ?>
-            </li>
-          </ul>
-        </div>
-        <?php
-      }
-    }
-
-    /**
     * Generate the HTML of the advanced tools
     */
     private function makeAdvancedTools(){
@@ -944,14 +919,15 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           </div>
         </span>
         <ul>
-        <?php if(!is_null($collectionTools)) { ?>
-          <li>
-            <?php self::makeTool($collectionTools[2]['href'], $collectionTools[2]['text'], $collectionTools[2]['id'], "tool--smaller tool--black", "fa-file-text-o" ); ?>
-          </li>
-          <li>
-            <?php self::makeTool($collectionTools[3]['href'], $collectionTools[3]['text'], $collectionTools[3]['id'], "tool--smaller tool--black", "fa-print" ); ?>
-          </li>
-        <?php } ?>
+        <?php 
+        if(!is_null($collectionTools)) {
+          echo "<li>";
+            self::makeTool($collectionTools[2]['href'], $collectionTools[2]['text'], $collectionTools[2]['id'], "tool--smaller tool--black", "fa-file-text-o" );
+          echo "</li>";
+          echo "<li>";
+            self::makeTool($collectionTools[3]['href'], $collectionTools[3]['text'], $collectionTools[3]['id'], "tool--smaller tool--black", "fa-print" );
+          echo "</li>";
+        } ?>
         <?php foreach ($actionsTools as $key => $toolAttributes){ ?>
           <li>
             <?php
