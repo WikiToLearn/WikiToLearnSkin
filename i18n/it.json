@@ -7,39 +7,62 @@
   "wikitolearnskin-home-claim": "Il sapere si accresce solo se condiviso",
 
   "wikitolearnskin-navbar-about" : "Cos'è",
-  "wikitolearnskin-navbar-contribute" : "Collabora",
+  "wikitolearnskin-navbar-contribute" : "Unisciti",
+  "wikitolearnskin-navbar-tools" : "Strumenti",
   "wikitolearnskin-navbar-language-selector": "Lingua",
+
+  "wikitolearnskin-navbar-tools-guide" : "Guide",
+  "wikitolearnskin-navbar-tools-community-portal" : "Portale comunità",
 
   "wikitolearnskin-departments-1-name": "Chimica",
   "wikitolearnskin-departments-1-image": "images/badges/chemistry.png",
   "wikitolearnskin-departments-1-link": "/Chimica",
+  "wikitolearnskin-departments-1-status": "disabled",
+
   "wikitolearnskin-departments-2-name": "Economia",
   "wikitolearnskin-departments-2-image": "images/badges/business.png",
   "wikitolearnskin-departments-2-link": "/Economia",
+  "wikitolearnskin-departments-2-status": "enabled",
+
   "wikitolearnskin-departments-3-name": "Fisica",
   "wikitolearnskin-departments-3-image": "images/badges/physics.png",
   "wikitolearnskin-departments-3-link": "/Fisica",
+  "wikitolearnskin-departments-3-status": "enabled",
+
   "wikitolearnskin-departments-4-name": "Informatica",
   "wikitolearnskin-departments-4-image": "images/badges/computerscience.png",
   "wikitolearnskin-departments-4-link": "/Informatica",
+  "wikitolearnskin-departments-4-status": "enabled",
+
   "wikitolearnskin-departments-5-name": "Ingegneria",
   "wikitolearnskin-departments-5-image": "images/badges/engineering.png",
   "wikitolearnskin-departments-5-link": "/Ingegneria",
+  "wikitolearnskin-departments-5-status": "enabled",
+
   "wikitolearnskin-departments-6-name": "Matematica",
   "wikitolearnskin-departments-6-image": "images/badges/math.png",
   "wikitolearnskin-departments-6-link": "/Matematica",
+  "wikitolearnskin-departments-6-status": "enabled",
+
   "wikitolearnskin-departments-7-name": "Medicina",
   "wikitolearnskin-departments-7-image": "images/badges/medicine.png",
   "wikitolearnskin-departments-7-link": "/Medicina",
-  "wikitolearnskin-departments-8-name": "Psicologia?",
+  "wikitolearnskin-departments-7-status": "disabled",
+
+  "wikitolearnskin-departments-8-name": "Scienze Umane",
   "wikitolearnskin-departments-8-image": "images/badges/placeholder.png",
   "wikitolearnskin-departments-8-link": "/#",
-  "wikitolearnskin-departments-9-name": "Scienze Sociali?",
+  "wikitolearnskin-departments-8-status": "disabled",
+
+  "wikitolearnskin-departments-9-name": "Scienze Sociali",
   "wikitolearnskin-departments-9-image": "images/badges/placeholder.png",
   "wikitolearnskin-departments-9-link": "/#",
+  "wikitolearnskin-departments-9-status": "disabled",
+
   "wikitolearnskin-departments-10-name": "Pre-Università",
   "wikitolearnskin-departments-10-image": "images/badges/beforeuni.png",
   "wikitolearnskin-departments-10-link": "/#",
+  "wikitolearnskin-departments-10-status": "disabled",
 
   "wikitolearnskin-join-us-button" : "Unisciti",
 
@@ -54,6 +77,11 @@
   "wikitolearnskin-footer-learn-more" : "Di più",
   "wikitolearnskin-footer-hosted-by" : "Ospitati da",
   "wikitolearnskin-footer-follow-us" : "Seguici",
+  "wikitolearnskin-footer-academic" : "Istituzioni accademiche",
+  "wikitolearnskin-footer-tools" : "Strumenti",
+  "wikitolearnskin-footer-changes" : "Ultime modifiche",
+  "wikitolearnskin-footer-special-pages" : "Pagine speciali",
+  "wikitolearnskin-footer-keep-in-touch" : "Seguici",
 
   "wikitolearnskin-publish-course-tool" : "Pubblica corso",
   "wikitolearnskin-undo-publish-course-tool" : "Annullare pubblicazione corso"

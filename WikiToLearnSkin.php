@@ -144,8 +144,8 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               <?php echo wfMessage('wikitolearnskin-navbar-tools'); ?>
               </a>
               <div class="dropdown-menu left">
-                <a href="<?php echo wfMessage('wikitolearnskin-tools-guide-link')->plain(); ?>"  class="dropdown-item">
-                  <i class="fa fa-fw fa-question-circle"></i>&nbsp;<?php echo wfMessage('wikitolearnskin-tools-guide'); ?>
+                <a href="<?php echo wfMessage('wikitolearnskin-navbar-tools-guide-link')->plain(); ?>"  class="dropdown-item">
+                  <i class="fa fa-fw fa-question-circle"></i>&nbsp;<?php echo wfMessage('wikitolearnskin-navbar-tools-guide'); ?>
                 </a>
                 <?php 
                   $collectionTools = $this->data['sidebar']['coll-print_export'];
@@ -155,14 +155,14 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                   </a>
                 <?php } ?> 
                 <div class="dropdown-divider"></div>
-                <a href="<?php echo wfMessage('wikitolearnskin-tools-chat-link')->plain(); ?>" class="dropdown-item">
-                  <i class="fa fa-fw fa-comments"></i>&nbsp;<?php echo wfMessage('wikitolearnskin-tools-chat')->plain(); ?>
+                <a href="<?php echo wfMessage('wikitolearnskin-navbar-tools-chat-link')->plain(); ?>" class="dropdown-item">
+                  <i class="fa fa-fw fa-comments"></i>&nbsp;<?php echo wfMessage('wikitolearnskin-navbar-tools-chat')->plain(); ?>
                 </a>
-                <a href="<?php echo wfMessage('wikitolearnskin-tools-community-portal-link'); ?>" class="dropdown-item">
-                  <i class="fa fa-fw fa-users"></i>&nbsp;<?php echo wfMessage('wikitolearnskin-tools-community-portal'); ?>
+                <a href="<?php echo wfMessage('wikitolearnskin-navbar-tools-community-portal-link'); ?>" class="dropdown-item">
+                  <i class="fa fa-fw fa-users"></i>&nbsp;<?php echo wfMessage('wikitolearnskin-navbar-tools-community-portal'); ?>
                 </a>
-                <a href="<?php echo wfMessage('wikitolearnskin-tools-reports-link')->plain(); ?>" class="dropdown-item">
-                  <i class="fa fa-fw fa-bar-chart"></i>&nbsp;<?php echo wfMessage('wikitolearnskin-tools-reports'); ?>
+                <a href="<?php echo wfMessage('wikitolearnskin-navbar-tools-reports-link')->plain(); ?>" class="dropdown-item">
+                  <i class="fa fa-fw fa-bar-chart"></i>&nbsp;<?php echo wfMessage('wikitolearnskin-navbar-tools-reports'); ?>
                 </a>
               </div>
             </div>
@@ -496,20 +496,20 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               <h4><?php echo wfMessage("wikitolearnskin-footer-tools"); ?></h4>
               <ul class="footer__tools-list">
                 <li>
-                  <a href="<?php echo wfMessage("wikitolearnskin-footer-tools-1-link")->plain(); ?>"><i class="fa fa-question-circle">&nbsp;</i><?php echo wfMessage("wikitolearnskin-tools-guide"); ?></a>
+                  <a href="<?php echo wfMessage("wikitolearnskin-footer-tools-1-link")->plain(); ?>"><i class="fa fa-question-circle">&nbsp;</i><?php echo wfMessage("wikitolearnskin-navbar-tools-guide"); ?></a>
                 </li>
-                <li>
-                  <a href="<?php echo wfMessage("wikitolearnskin-tools-createbook-link")->plain(); ?>"><i class="fa fa-book">&nbsp;</i><?php echo wfMessage("wikitolearnskin-tools-createbook"); ?></a>
-                </li>
+                <!--<li>
+                  <a href="<?php echo wfMessage("wikitolearnskin-navbar-tools-createbook-link")->plain(); ?>"><i class="fa fa-book">&nbsp;</i><?php echo wfMessage("wikitolearnskin-navbar-tools-createbook"); ?></a>
+                </li>-->
                 <li><hr /></li>
                 <li>
-                  <a href="<?php echo wfMessage("wikitolearnskin-tools-chat-link")->plain(); ?>"><i class="fa fa-comments">&nbsp;</i><?php echo wfMessage("wikitolearnskin-tools-chat"); ?></a>
+                  <a href="<?php echo wfMessage("wikitolearnskin-navbar-tools-chat-link")->plain(); ?>"><i class="fa fa-comments">&nbsp;</i><?php echo wfMessage("wikitolearnskin-navbar-tools-chat"); ?></a>
                 </li>
                 <li>
-                  <a href="<?php echo wfMessage("wikitolearnskin-tools-community-portal-link")->plain(); ?>"><i class="fa fa-users">&nbsp;</i><?php echo wfMessage("wikitolearnskin-tools-community-portal"); ?></a>
+                  <a href="<?php echo wfMessage("wikitolearnskin-navbar-tools-community-portal-link")->plain(); ?>"><i class="fa fa-users">&nbsp;</i><?php echo wfMessage("wikitolearnskin-navbar-tools-community-portal"); ?></a>
                 </li>
                 <li>
-                  <a href="<?php echo wfMessage("wikitolearnskin-tools-reports-link")->plain(); ?>"><i class="fa fa-bar-chart">&nbsp;</i><?php echo wfMessage("wikitolearnskin-tools-reports"); ?></a>
+                  <a href="<?php echo wfMessage("wikitolearnskin-navbar-tools-reports-link")->plain(); ?>"><i class="fa fa-bar-chart">&nbsp;</i><?php echo wfMessage("wikitolearnskin-navbar-tools-reports"); ?></a>
                 </li>
                 <hr>
                 <li>

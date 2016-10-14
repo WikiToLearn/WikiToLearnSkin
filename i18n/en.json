@@ -16,8 +16,6 @@
   "wikitolearnskin-footer-hosted-by" : "Hosted by",
   "wikitolearnskin-footer-follow-us" : "Follow us",
   "wikitolearnskin-footer-tools" : "Tools",
-  "wikitolearnskin-footer-tools-1-text" : "User uide",
-  "wikitolearnskin-footer-tools-1-link" : "/Manual",
 
   "wikitolearnskin-navbar-about" : "About",
   "wikitolearnskin-navbar-about-link": "#",
@@ -26,6 +24,14 @@
   "wikitolearnskin-navbar-tools" : "Tools",
   "wikitolearnskin-navbar-tools-link": "#",
   "wikitolearnskin-navbar-language-selector": "Language",
+  "wikitolearnskin-navbar-tools-chat" : "Chat",
+  "wikitolearnskin-navbar-tools-chat-link" : "https://chat.wikitolearn.org",
+  "wikitolearnskin-navbar-tools-guide" : "User guides",
+  "wikitolearnskin-navbar-tools-guide-link" : "Manual",
+  "wikitolearnskin-navbar-tools-community-portal" : "Community portal",
+  "wikitolearnskin-navbar-tools-community-portal-link" : "//meta.wikitolearn.org",
+  "wikitolearnskin-navbar-tools-reports" : "Reports",
+  "wikitolearnskin-navbar-tools-reports-link" : "//reports.wikitolearn.org",
 
   "wikitolearnskin-departments-1-name": "Business",
   "wikitolearnskin-departments-1-image": "images/badges/business.png",
@@ -40,17 +46,17 @@
   "wikitolearnskin-departments-3-name": "Computer Science",
   "wikitolearnskin-departments-3-image": "images/badges/computerscience.png",
   "wikitolearnskin-departments-3-link": "/Computer_Science",
-  "wikitolearnskin-departments-3-status": "disabled",
+  "wikitolearnskin-departments-3-status": "enabled",
 
   "wikitolearnskin-departments-4-name": "Engineering",
   "wikitolearnskin-departments-4-image": "images/badges/engineering.png",
   "wikitolearnskin-departments-4-link": "/Engineering",
-  "wikitolearnskin-departments-4-status": "enabled",
+  "wikitolearnskin-departments-4-status": "disabled",
 
   "wikitolearnskin-departments-5-name": "Humanities",
   "wikitolearnskin-departments-5-image": "images/badges/placeholder.png",
   "wikitolearnskin-departments-5-link": "/#",
-  "wikitolearnskin-departments-5-status": "enabled",
+  "wikitolearnskin-departments-5-status": "disabled",
 
   "wikitolearnskin-departments-6-name": "Mathematics",
   "wikitolearnskin-departments-6-image": "images/badges/math.png",
@@ -65,12 +71,12 @@
   "wikitolearnskin-departments-8-name": "Physics",
   "wikitolearnskin-departments-8-image": "images/badges/physics.png",
   "wikitolearnskin-departments-8-link": "/Physics",
-  "wikitolearnskin-departments-8-status": "disabled",
+  "wikitolearnskin-departments-8-status": "enabled",
 
   "wikitolearnskin-departments-9-name": "Social Sciences",
   "wikitolearnskin-departments-9-image": "images/badges/placeholder.png",
   "wikitolearnskin-departments-9-link": "/#",
-  "wikitolearnskin-departments-9-status": "enabled",
+  "wikitolearnskin-departments-9-status": "disabled",
 
   "wikitolearnskin-departments-10-name": "Before University",
   "wikitolearnskin-departments-10-image": "images/badges/beforeuni.png",
@@ -80,17 +86,6 @@
   "wikitolearnskin-join-us-button" : "Join us",
   "wikitolearnskin-join-us-readmore" : "Read more...",
   "wikitolearnskin-join-us-button-link" : "/Special:CreateAccount",
-
-  "wikitolearnskin-tools-chat" : "Chat",
-  "wikitolearnskin-tools-chat-link" : "https://chat.wikitolearn.org",
-  "wikitolearnskin-tools-guide" : "User guides",
-  "wikitolearnskin-tools-guide-link" : "Manual",
-  "wikitolearnskin-tools-createbook" : "Create a book",
-  "wikitolearnskin-tools-createbook-link" : "Manual/Create a book",
-  "wikitolearnskin-tools-community-portal" : "Community portal",
-  "wikitolearnskin-tools-community-portal-link" : "//meta.wikitolearn.org",
-  "wikitolearnskin-tools-reports" : "Reports",
-  "wikitolearnskin-tools-reports-link" : "//reports.wikitolearn.org",
 
   "wikitolearnskin-home-claim": "Learn with the best. Create books. Share <i>knowledge</i>.",
 
