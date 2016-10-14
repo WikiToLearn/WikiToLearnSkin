@@ -115,5 +115,9 @@
 
   "wikitolearnskin-cookies-text": "This website uses cookies to ensure you get the best experience on our website",
   "wikitolearnskin-cookies-dismiss": "Got it!",
-  "wikitolearnskin-cookies-learn-more": "Learn More"
+  "wikitolearnskin-cookies-learn-more": "Learn More",
+
+  "wikitolearnskin-user-tools-title": "User",
+  "wikitolearnskin-user-tools-logs-title": "Logs",
+  "wikitolearnskin-user-tools-emailuser-title": "Email User"
 }

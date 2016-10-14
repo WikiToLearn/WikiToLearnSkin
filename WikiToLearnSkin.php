@@ -413,7 +413,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         $components = explode("/", $fullTitle);
         $displayTitle = $components[count($components)-1];
       } else {
-        $displayTitle = $pageTitle->getSubpageText(); //Get the lowest-level subpage name, i.e. the rightmost part after any slashes.
+        $displayTitle = $pageTitle->getPrefixedText(); //Get the lowest-level subpage name, i.e. the rightmost part after any slashes.
       }
       ?>
       <main class="page page--article <?php echo self::getAnonClass(); ?>">
@@ -696,6 +696,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     * and advaced tools.
     */
     public function executePageTools() {
+      
       $namespace = $this->namespaceId;
       switch ($namespace) {
         case NS_MAIN:
@@ -741,14 +742,15 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             self::makeDownloadCourseTool();
 
             if(self::userHasEnoughRights()){
-              self::makeAdvancedTools();
               if($namespace === NS_USER){
+                echo '<div class="tool--divider"></div>';
                 if(self::pageHasCategory("ReadyToBePublished")) {
                   self::makeUndoPublishButton();
                 } else {
                   self::makePublishButton();
                 }
               }
+              self::makeAdvancedTools();
             }
           } else if(self::pageHasCategory("CourseLevelTwo")) {
             self::makeEditCourseLevelTwoTool();
@@ -759,7 +761,14 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             self::makeEditTool();
             self::makeDisussionTool();
             self::makeDownloadPageTool();
-            self::makeAdvancedTools();
+            if($namespace === NS_USER && self::pageIsRootLevel()){
+              echo '<div class="tool--divider"></div>';
+              self::makeUserTools();
+              self::makeAdvancedTools();
+            } else {
+              echo '<div class="tool--divider"></div>';
+              self::makeAdvancedTools();
+            }
           }
         echo '</div>';
       echo '</div>';
@@ -773,6 +782,12 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           echo '</div>';
         echo '</div>';
       }
+    }
+
+    public function pageIsRootLevel(){
+      global $wgOut;
+      $title = $wgOut->getTitle();
+      return $title->getRootTitle()->equals($title);
     }
 
     /**
@@ -902,6 +917,50 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       }
     }
 
+    private function makeUserTools(){ ?>
+      <div class="multitool horizontal click-to-toggle">
+        <span title="<?php echo wfMessage('wikitolearnskin-user-tools-title') ?>" class="tool tool--black multitool__trigger">
+          <div class="tool__content">
+            <i class="tool__icon fa fa-user fa-fw"></i>
+            <span class="tool__title"><? echo wfMessage('wikitolearnskin-user-tools-title') ?></span>
+          </div>
+        </span>
+        <ul>
+          <?php
+            $toolbox = $this->getToolbox(); 
+            $toolbox = array_reverse($toolbox);
+            foreach ($toolbox as $key => $tool){
+              switch ($key) {
+                case 'contributions':
+                  echo "<li>";
+                  self::makeTool($tool['href'], $tool['text'], $tool['id'], "tool--smaller tool--black", "fa-certificate" );
+                  echo "</li>";
+                  break;
+                case 'log':
+                  echo "<li>";
+                  self::makeTool($tool['href'], wfMessage('wikitolearnskin-user-tools-logs-title'), $tool['id'], "tool--smaller tool--black", "fa-tasks" );
+                  echo "</li>";
+                  break;
+                case 'blockip':
+                  echo "<li>";
+                  self::makeTool($tool['href'], $tool['text'], $tool['id'], "tool--smaller tool--black", "fa-ban" );
+                  echo "</li>";
+                  break;
+                case 'emailuser':
+                  echo "<li>";
+                  self::makeTool($tool['href'], wfMessage('wikitolearnskin-user-tools-emailuser-title'), $tool['id'], "tool--smaller tool--black", "fa-envelope-o" );
+                  echo "</li>";
+                  break;
+                default:
+                  # code...
+                  break;
+              }
+            }
+          ?>
+        </ul>
+      </div>
+    <?php }
+
     /**
     * Generate the HTML of the advanced tools
     */
@@ -910,7 +969,6 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       $editTools = $this->contentNavigation['views'];
       $collectionTools = $this->data['sidebar']['coll-print_export'];
     ?>
-      <div class="tool--divider"></div>
       <div class="multitool horizontal click-to-toggle">
         <span title="<?php echo wfMessage('wikitolearnskin-advanced-button-title') ?>" class="tool tool--black multitool__trigger">
           <div class="tool__content">
