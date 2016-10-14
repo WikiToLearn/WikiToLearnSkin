@@ -63,7 +63,7 @@
             }
         }
     }
-
+    
     &__logo {
         display: block;
         img {
@@ -80,15 +80,42 @@
             }
         }
     }
+    
+    &__wikitolearn, &__tools{
+        hr{
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
 
-    &__contacts {
-        h4 {
-            //color: $red;
-            border-bottom: 0.1rem solid $red;
+        .footer__second-heading{
+            padding: 0;
+            margin: 0;
+            margin-top: 1rem;
+            padding-top: 1rem;
+
+            margin-bottom: 0.5rem;
+            border-bottom: none;
+            border-top: 1px solid #333;
+        }
+
+        .footer__second-list{
+            padding-top: 0;
         }
     }
 
-    &__contacts-list {
+    &__wikitolearn {
+        h4 {
+            border-bottom: 0.1rem solid $red;
+        }
+    }
+    
+    &__tools {
+        h4 {
+            border-bottom: 0.1rem solid $yellow;
+        }
+    }
+
+    &__wikitolearn-list, &__tools-list {
         li {
             padding-top: 0.3rem;
             padding-bottom: 0.3rem;
@@ -96,33 +123,6 @@
             @include media-breakpoint-down(xs) {
                 font-size: .7rem;
             }
-        }
-    }
-
-    .learn-more {
-
-        &__second-heading{
-            padding-bottom: 0;
-            margin-bottom: 0;
-            
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(0,0,0,0.1);
-            
-            @include media-breakpoint-down(xs) {
-                font-size: .5rem;
-            }
-        }
-
-        &__sponsors{
-            padding-top: 0rem;
-            @include media-breakpoint-down(xs) {
-                font-size: .7rem;
-            }
-        }
-
-        @include media-breakpoint-between(xs, sm) {
-            clear: both;
         }
     }
 
@@ -147,41 +147,6 @@
                 @include make-col(4);
                 text-align: center;
                 padding: 0;
-            }
-        }
-    }
-
-    .learn-more {
-        &__first-heading {
-            //color: $yellow;
-            border-bottom: 0.1rem solid $yellow;
-        }
-
-        &__list {
-            li {
-                @include media-breakpoint-down(xs) {
-                    font-size: .7rem;
-                }
-            }
-        }   
-    }
-
-    .last-modified {
-        color: whitesmoke;
-        
-        ul {
-            @include list-unstyled();
-        }
-
-        &__info {
-            text-align: center;
-        }
-
-        &__places {
-            margin-bottom: 0;
-            text-align: center;
-            li {
-                @include list-inline();
             }
         }
     }

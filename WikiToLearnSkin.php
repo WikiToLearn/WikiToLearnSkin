@@ -469,19 +469,49 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             <li class="footer__logo">
               <img src="/skins/WikiToLearnSkin/images/wikitolearn-logo.png">
             </li>
-            <li class="footer__contacts">
+            <li class="footer__wikitolearn">
               <h4>WikiToLearn</h4>
-              <ul class="footer__contacts-list">
+              <ul class="footer__wikitolearn-list">
                 <li>
-                  <a class="learn-more__philosophy" href="<?php echo wfMessage("wikitolearnskin-navbar-about-link")->plain(); ?>"><i class="fa fa-info-circle">&nbsp;</i><?php echo wfMessage("wikitolearnskin-navbar-about"); ?></a>
+                  <a href="<?php echo wfMessage("wikitolearnskin-navbar-about-link")->plain(); ?>"><i class="fa fa-info-circle">&nbsp;</i><?php echo wfMessage("wikitolearnskin-navbar-about"); ?></a>
                 </li>
                 <li>
-                  <a class="learn-more__philosophy" href="<?php echo wfMessage("wikitolearnskin-navbar-contribute-link")->plain(); ?>"><i class="fa fa-check-square-o">&nbsp;</i><?php echo wfMessage("wikitolearnskin-navbar-contribute"); ?></a>
+                  <a href="<?php echo wfMessage("wikitolearnskin-navbar-contribute-link")->plain(); ?>"><i class="fa fa-check-square-o">&nbsp;</i><?php echo wfMessage("wikitolearnskin-navbar-contribute"); ?></a>
                 </li>
                 <li>
-                  <a class="learn-more__philosophy" href="<?php echo wfMessage("wikitolearnskin-footer-academic-link")->plain(); ?>"><i class="fa fa-university">&nbsp;</i><?php echo wfMessage("wikitolearnskin-footer-academic"); ?></a>
+                  <a href="<?php echo wfMessage("wikitolearnskin-footer-academic-link")->plain(); ?>"><i class="fa fa-university">&nbsp;</i><?php echo wfMessage("wikitolearnskin-footer-academic"); ?></a>
+                </li>
+              </ul>
+              <h4 class="footer__second-heading"><?php echo wfMessage('wikitolearnskin-footer-hosted-by'); ?></h4>
+              <ul class="footer__second-list">
+                <li>
+                  <a href="http://www.garr.it/">GARR</a>
+                </li>
+                <li>
+                  <a href="https://www.neodigit.net/">Neodigit</a>
+                </li>
+              </ul>
+            </li>
+            <li class="footer__tools clearfix">
+              <h4><?php echo wfMessage("wikitolearnskin-footer-tools"); ?></h4>
+              <ul class="footer__tools-list">
+                <li>
+                  <a href="<?php echo wfMessage("wikitolearnskin-footer-tools-1-link")->plain(); ?>"><i class="fa fa-question-circle">&nbsp;</i><?php echo wfMessage("wikitolearnskin-tools-guide"); ?></a>
+                </li>
+                <li>
+                  <a href="<?php echo wfMessage("wikitolearnskin-tools-createbook-link")->plain(); ?>"><i class="fa fa-book">&nbsp;</i><?php echo wfMessage("wikitolearnskin-tools-createbook"); ?></a>
                 </li>
                 <li><hr /></li>
+                <li>
+                  <a href="<?php echo wfMessage("wikitolearnskin-tools-chat-link")->plain(); ?>"><i class="fa fa-comments">&nbsp;</i><?php echo wfMessage("wikitolearnskin-tools-chat"); ?></a>
+                </li>
+                <li>
+                  <a href="<?php echo wfMessage("wikitolearnskin-tools-community-portal-link")->plain(); ?>"><i class="fa fa-users">&nbsp;</i><?php echo wfMessage("wikitolearnskin-tools-community-portal"); ?></a>
+                </li>
+                <li>
+                  <a href="<?php echo wfMessage("wikitolearnskin-tools-reports-link")->plain(); ?>"><i class="fa fa-bar-chart">&nbsp;</i><?php echo wfMessage("wikitolearnskin-tools-reports"); ?></a>
+                </li>
+                <hr>
                 <li>
                   <?php
                     $linkObj = Title::newFromText("Special:RecentChanges");
@@ -491,46 +521,6 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                   <?php
                     $linkObj = Title::newFromText("Special:SpecialPages");
                     echo Linker::linkKnown($linkObj, wfMessage("wikitolearnskin-footer-special-pages")); ?>
-                </li>
-                <li>
-                  <?php
-                    $collectionTools = $this->data['sidebar']['coll-print_export'];
-                    if(!is_null($collectionTools)) {
-                      echo "<a href=" . $collectionTools[0]['href'] . ">" . $collectionTools[0]['text'] . "</a>";
-                    }
-                    ?>
-                </li>
-              </ul>
-            </li>
-            <li class="footer__learn-more clearfix">
-              <h4 class="learn-more__first-heading">
-                <?php echo wfMessage("wikitolearnskin-footer-tools"); ?>
-              </h4>
-              <ul class="learn-more__list">
-                <li>
-                  <a class="learn-more__philosophy" href="<?php echo wfMessage("wikitolearnskin-footer-tools-1-link")->plain(); ?>"><i class="fa fa-question-circle">&nbsp;</i><?php echo wfMessage("wikitolearnskin-tools-guide"); ?></a>
-                </li>
-                <li>
-                  <a class="learn-more__philosophy" href="<?php echo wfMessage("wikitolearnskin-tools-createbook-link")->plain(); ?>"><i class="fa fa-book">&nbsp;</i><?php echo wfMessage("wikitolearnskin-tools-createbook"); ?></a>
-                </li>
-                <li><hr /></li>
-                <li>
-                  <a class="learn-more__philosophy" href="<?php echo wfMessage("wikitolearnskin-tools-chat-link")->plain(); ?>"><i class="fa fa-comments">&nbsp;</i><?php echo wfMessage("wikitolearnskin-tools-chat"); ?></a>
-                </li>
-                <li>
-                  <a class="learn-more__philosophy" href="<?php echo wfMessage("wikitolearnskin-tools-community-portal-link")->plain(); ?>"><i class="fa fa-users">&nbsp;</i><?php echo wfMessage("wikitolearnskin-tools-community-portal"); ?></a>
-                </li>
-                <li>
-                  <a class="learn-more__philosophy" href="<?php echo wfMessage("wikitolearnskin-tools-reports-link")->plain(); ?>"><i class="fa fa-bar-chart">&nbsp;</i><?php echo wfMessage("wikitolearnskin-tools-reports"); ?></a>
-                </li>
-              </ul>
-              <h4 class="learn-more__second-heading"><?php echo wfMessage('wikitolearnskin-footer-hosted-by'); ?></h4>
-              <ul class="learn-more__sponsors">
-                <li>
-                  <a href="http://www.garr.it/">GARR</a>
-                </li>
-                <li>
-                  <a href="https://www.neodigit.net/">Neodigit</a>
                 </li>
               </ul>
             </li>
