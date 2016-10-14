@@ -267,43 +267,43 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         <section class="departments">
           <ul class="departments__content">
             <?php
-              self::makeDepartment( wfMessage('wikitolearnskin-departments-1-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-1-image')->plain() ), wfMessage('wikitolearnskin-departments-1-link')->plain());
-              self::makeDepartment( wfMessage('wikitolearnskin-departments-2-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-2-image')->plain() ), wfMessage('wikitolearnskin-departments-2-link')->plain());
-              self::makeDepartment( wfMessage('wikitolearnskin-departments-3-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-3-image') ), wfMessage('wikitolearnskin-departments-3-link')->plain());
-              self::makeDepartment( wfMessage('wikitolearnskin-departments-4-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-4-image')->plain() ), wfMessage('wikitolearnskin-departments-4-link')->plain());
-              self::makeDepartment( wfMessage('wikitolearnskin-departments-5-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-5-image')->plain() ), wfMessage('wikitolearnskin-departments-5-link')->plain());
-              echo '<div class="clearfix"></div>';
-              self::makeDepartment( wfMessage('wikitolearnskin-departments-6-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-6-image')->plain() ), wfMessage('wikitolearnskin-departments-6-link')->plain());
-              self::makeDepartment( wfMessage('wikitolearnskin-departments-7-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-7-image')->plain() ), wfMessage('wikitolearnskin-departments-7-link')->plain());
-              self::makeDepartment( wfMessage('wikitolearnskin-departments-8-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-8-image')->plain() ), wfMessage('wikitolearnskin-departments-8-link')->plain());
-              self::makeDepartment( wfMessage('wikitolearnskin-departments-9-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-9-image')->plain() ), wfMessage('wikitolearnskin-departments-9-link')->plain());
-              self::makeDepartment( wfMessage('wikitolearnskin-departments-10-name'), $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-departments-10-image')->plain() ), wfMessage('wikitolearnskin-departments-10-link')->plain());
-              echo '<div class="clearfix"></div>';
-
+            for($i=1;$i<11;$i++){
+              self::makeDepartment( 
+                wfMessage("wikitolearnskin-departments-$i-name"), 
+                $this->getSkin()->getSkinStylePath( wfMessage("wikitolearnskin-departments-$i-image")->plain() ),
+                wfMessage("wikitolearnskin-departments-$i-link")->plain(),
+                wfMessage("wikitolearnskin-departments-$i-status")
+              );
+              if($i==5){
+                echo '<div class="clearfix"></div>';
+              }
+            }
+            echo '<div class="clearfix"></div>';
             ?>
           </ul>
         </section>
-        <section class="join-us">
+        <!--<section class="join-us">
 
-        </section>
+        </section>-->
         <section class="media">
-          <div class="media__wrapper">
-            <iframe class="media__video" src="<?php echo wfMessage('wikitolearnskin-media-video-url'); ?>" allowfullscreen></iframe>
-          </div>
-          <div class="media__description">
-            <div class="join-us__content">
-              <div class="join-us__stats">
-              <?php
-              echo "<i class='fa fa-file-text-o'></i> <span class='stats__count'>" . wfMessage('createacct-benefit-head2')->text() . "</span> " . wfMessage('createacct-benefit-body2')->text();
-              echo " <br/><span class='stats__divider'></span>";
-              echo "<i class='fa fa-user'></i> <span class='stats__count'>" . wfMessage('createacct-benefit-head3')->text() . "</span> " . wfMessage('createacct-benefit-body3')->text();
-              echo " <br/><span class='stats__divider'></span>";
-              echo "<i class='fa fa-pencil'></i> <span class='stats__count'>" . wfMessage('createacct-benefit-head1')->text() . "</span> " . wfMessage('createacct-benefit-body1')->text();
-              ?>
-              </div>
-              <div class="join-us__readmore"><?php echo wfMessage('wikitolearnskin-join-us-readmore'); ?></div>
-              <a href="//join.<?php echo $wiki_domain ."/" . $wiki ?>" class="join-us__link"><?php echo wfMessage('wikitolearnskin-join-us-button'); ?></a>
-
+          <div class="media__content">
+            <div class="media__wrapper">
+              <iframe class="media__video" src="<?php echo wfMessage('wikitolearnskin-media-video-url'); ?>" allowfullscreen></iframe>
+            </div>
+            <div class="media__description">
+              <div class="join-us__content">
+                <div class="join-us__stats">
+                <?php
+                echo "<i class='fa fa-file-text-o'></i> <span class='stats__count'>" . wfMessage('createacct-benefit-head2')->text() . "</span> " . wfMessage('createacct-benefit-body2')->text();
+                echo " <br/><span class='stats__divider'></span>";
+                echo "<i class='fa fa-user'></i> <span class='stats__count'>" . wfMessage('createacct-benefit-head3')->text() . "</span> " . wfMessage('createacct-benefit-body3')->text();
+                echo " <br/><span class='stats__divider'></span>";
+                echo "<i class='fa fa-pencil'></i> <span class='stats__count'>" . wfMessage('createacct-benefit-head1')->text() . "</span> " . wfMessage('createacct-benefit-body1')->text();
+                ?>
+                </div>
+                <div class="join-us__readmore"><?php echo wfMessage('wikitolearnskin-join-us-readmore'); ?></div>
+                <a href="//join.<?php echo $wiki_domain ."/" . $wiki ?>" class="join-us__link"><?php echo wfMessage('wikitolearnskin-join-us-button'); ?></a>
+            </div>
           </div>
         </section>
         <section class="testimonials">
@@ -347,7 +347,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 </footer>
               </div>
             </div>
-            <a href="<?php echo wfMessage('wikitolearnskin-read-more-stories-button-link')->plain(); ?>" class="testimonials__read-more"><?php echo wfMessage('wikitolearnskin-read-more-stories-button'); ?></a>
+            <!--<a href="<?php echo wfMessage('wikitolearnskin-read-more-stories-button-link')->plain(); ?>" class="testimonials__read-more"><?php echo wfMessage('wikitolearnskin-read-more-stories-button'); ?></a>-->
           </div>
         </section>
         <section class="contributors">
@@ -1025,12 +1025,12 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     /**
     * Generate the HTML of the department badges in the static homepage.
     */
-    private function makeDepartment($name, $imageUrl, $link){
+    private function makeDepartment($name, $imageUrl, $link, $status){
       ?>
       <li class="departments__wrapper departments__wrapper--first">
-        <a class="departments__item" href="<?php echo $link ?>">
-          <img class="departments__image" src="<?php echo $imageUrl ?>" alt="">
-          <span class="departments__name"><?php echo $name ?></span>
+        <a class="departments__item <?php echo $status ?>" href="<?php echo $link ?>">
+          <img class="departments__image <?php echo $status ?>" src="<?php echo $imageUrl ?>" alt="">
+          <span class="departments__name <?php echo $status ?>"><?php echo $name ?></span>
         </a>
       </li>
       <?php
