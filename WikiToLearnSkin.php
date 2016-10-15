@@ -1,4 +1,6 @@
 <?php
+
+require_once("HelperFunctions.php");
 /**
  * Skin file for skin WikiToLearnSkin
  *
@@ -148,7 +150,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                   <i class="fa fa-fw fa-question-circle"></i>&nbsp;<?php echo wfMessage('wikitolearnskin-navbar-tools-guide'); ?>
                 </a>
                 <?php 
-                  $collectionTools = $this->data['sidebar']['coll-print_export'];
+                  $collectionTools = array_get($this->data['sidebar'], 'coll-print_export');
                   if(!is_null($collectionTools)) { ?>
                     <a href="<?php echo $collectionTools[0]['href'] ?>"  class="dropdown-item">
                     <i class="fa fa-fw fa-book"></i>&nbsp;<?php echo $collectionTools[0]['text'] ?>
@@ -837,8 +839,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     }
 
     private function makeDownloadPageTool(){
-      $collectionTools = $this->data['sidebar']['coll-print_export'];
-
+      $collectionTools = array_get($this->data['sidebar'], 'coll-print_export');
       if(!is_null($collectionTools)){
         self::makeTool($collectionTools[1]['href'], $collectionTools[1]['text'], $collectionTools[1]['id'], "tool--green--filled", "fa-download" );
       }
@@ -957,7 +958,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     private function makeAdvancedTools(){
       $actionsTools = $this->contentNavigation['actions'];
       $editTools = $this->contentNavigation['views'];
-      $collectionTools = $this->data['sidebar']['coll-print_export'];
+      $collectionTools = array_get($this->data['sidebar'], 'coll-print_export');
     ?>
       <div class="multitool horizontal click-to-toggle">
         <span title="<?php echo wfMessage('wikitolearnskin-advanced-button-title') ?>" class="tool tool--black multitool__trigger">
@@ -969,12 +970,16 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         <ul>
         <?php 
         if(!is_null($collectionTools)) {
-          echo "<li>";
-            self::makeTool($collectionTools[2]['href'], $collectionTools[2]['text'], $collectionTools[2]['id'], "tool--smaller tool--black", "fa-file-text-o" );
-          echo "</li>";
-          echo "<li>";
-            self::makeTool($collectionTools[3]['href'], $collectionTools[3]['text'], $collectionTools[3]['id'], "tool--smaller tool--black", "fa-print" );
-          echo "</li>";
+          if(!is_null(array_get($collectionTools, 2))){
+            echo "<li>";
+              self::makeTool($collectionTools[2]['href'], $collectionTools[2]['text'], $collectionTools[2]['id'], "tool--smaller tool--black", "fa-file-text-o" );
+            echo "</li>";
+          }
+          if(!is_null(array_get($collectionTools, 3))){
+            echo "<li>";
+              self::makeTool($collectionTools[3]['href'], $collectionTools[3]['text'], $collectionTools[3]['id'], "tool--smaller tool--black", "fa-print" );
+            echo "</li>";
+          }
         } ?>
         <?php foreach ($actionsTools as $key => $toolAttributes){ ?>
           <li>
