@@ -411,11 +411,22 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       $pageTitle = $this->pageTitle;
 
       if ($this->namespaceId === NS_SPECIAL) {
-         $fullTitle = $this->get('title'); //we do this so special page have their proper pretty name, no more UserLogin or UserRegister but "Login" "Register"
+        $fullTitle = $this->get('title'); //we do this so special page have their proper pretty name, no more UserLogin or UserRegister but "Login" "Register"
         $components = explode("/", $fullTitle);
         $displayTitle = $components[count($components)-1];
       } else {
-        $displayTitle = $pageTitle->getPrefixedText(); //Get the lowest-level subpage name, i.e. the rightmost part after any slashes.
+        $baseTitle = $pageTitle->getBaseText(); //the part before the subpage name, without namespace
+        $linkObj = Title::newFromText( $baseTitle, $this->namespaceId);
+        if ( is_object( $linkObj ) && $linkObj->isKnown() ) {
+          $displayTitle = $pageTitle->getSubpageText(); //the rightmost part after any slashes.
+        } else { //there is a slash in the title
+          //HACK: this function is badly written, will need a fix in the future, right now it handles only one slash, better than neverland where the full title is printed
+          //TODO: handle two or more slashes in the title
+          $fullTitle=$pageTitle->getText();
+          $components = explode("/", $fullTitle);
+          $displayTitle = array_pop($components);
+          $displayTitle = array_pop($components) . "/" . $displayTitle;
+        }
       }
       ?>
       <main class="page page--article <?php echo self::getAnonClass(); ?>">
