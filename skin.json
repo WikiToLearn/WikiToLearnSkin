@@ -41,7 +41,8 @@
                 "scripts/NotificationsWidget.js",
                 "scripts/app.js",
                 "scripts/multitool.js",
-                "scripts/floatingTools.js"
+                "scripts/floatingTools.js",
+                "scripts/visualEditor.js" 
             ],
             "dependencies": [
                 "oojs-ui",
@@ -50,10 +51,11 @@
                 "mediawiki.util"
             ],
             "messages":[
-              "echo-none",
-  						"notifications",
-  						"echo-overlay-link",
-  						"echo-mark-all-as-read-confirmation"
+                "echo-none",
+    			"notifications",
+    			"echo-overlay-link",
+    			"echo-mark-all-as-read-confirmation",
+                "view", "edit"
             ]
         }
     },
