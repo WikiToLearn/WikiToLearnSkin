@@ -1109,7 +1109,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       //HACK: we need to do this because of the async nature of categories
       $toSearch = "[[" . $wgContLang->getNsText( NS_CATEGORY ) . ":" . $searchCategoryName . "]]";
       $toSearchFallback = "[[Category:" . $searchCategoryName . "]]";
-      if (strstr($text, $toSearch)) { //HACK
+      if (strstr($text, $toSearch) || strstr($text, $toSearchFallback)) { //HACK
         return true;
       } else {
         return false;
