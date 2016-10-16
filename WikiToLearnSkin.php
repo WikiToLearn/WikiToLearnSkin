@@ -105,7 +105,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         </html>
     <?php }
 
-    public function executeCookies() { 
+    public function executeCookies() {
       global $wiki_domain; ?>
       <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
       <script type="text/javascript">
@@ -149,13 +149,13 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 <a href="<?php echo wfMessage('wikitolearnskin-navbar-tools-guide-link')->plain(); ?>"  class="dropdown-item">
                   <i class="fa fa-fw fa-question-circle"></i>&nbsp;<?php echo wfMessage('wikitolearnskin-navbar-tools-guide'); ?>
                 </a>
-                <?php 
+                <?php
                   $collectionTools = array_get($this->data['sidebar'], 'coll-print_export');
                   if(!is_null($collectionTools)) { ?>
                     <a href="<?php echo $collectionTools[0]['href'] ?>"  class="dropdown-item">
                     <i class="fa fa-fw fa-book"></i>&nbsp;<?php echo $collectionTools[0]['text'] ?>
                   </a>
-                <?php } ?> 
+                <?php } ?>
                 <div class="dropdown-divider"></div>
                 <a href="<?php echo wfMessage('wikitolearnskin-navbar-tools-chat-link')->plain(); ?>" class="dropdown-item">
                   <i class="fa fa-fw fa-comments"></i>&nbsp;<?php echo wfMessage('wikitolearnskin-navbar-tools-chat')->plain(); ?>
@@ -274,8 +274,8 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           <ul class="departments__content">
             <?php
             for($i=1;$i<11;$i++){
-              self::makeDepartment( 
-                wfMessage("wikitolearnskin-departments-$i-name"), 
+              self::makeDepartment(
+                wfMessage("wikitolearnskin-departments-$i-name"),
                 $this->getSkin()->getSkinStylePath( wfMessage("wikitolearnskin-departments-$i-image")->plain() ),
                 wfMessage("wikitolearnskin-departments-$i-link")->plain(),
                 wfMessage("wikitolearnskin-departments-$i-status")
@@ -302,7 +302,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               <div class="join-us__content">
                 <div class="join-us__text">
                   <?php echo wfMessage('wikitolearnskin-media-text'); ?>
-                </div> 
+                </div>
                 <div class="join-us__stats">
                 <?php
                 echo "<i class='fa fa-file-text-o'></i> <span class='stats__count'>" . wfMessage('createacct-benefit-head2')->text() . "</span> " . wfMessage('createacct-benefit-body2')->text();
@@ -435,7 +435,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       ?>
       <main class="page page--article <?php echo self::getAnonClass(); ?>">
         <?php if ( $this->data['sitenotice'] ) { ?>
-          <div class="sitenotice__wrapper"> 
+          <div class="sitenotice__wrapper">
             <div class="sitenotice__content"> <!-- The CSS class used in Monobook and Vector, if you want to follow a similar design -->
               <?php $this->html( 'sitenotice' ); ?>
             </div>
@@ -703,7 +703,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     * and advaced tools.
     */
     public function executePageTools() {
-      
+
       $namespace = $this->namespaceId;
       switch ($namespace) {
         case NS_MAIN:
@@ -933,7 +933,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         </span>
         <ul>
           <?php
-            $toolbox = $this->getToolbox(); 
+            $toolbox = $this->getToolbox();
             $toolbox = array_reverse($toolbox);
             foreach ($toolbox as $key => $tool){
               switch ($key) {
@@ -983,7 +983,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           </div>
         </span>
         <ul>
-        <?php 
+        <?php
         if(!is_null($collectionTools)) {
           if(!is_null(array_get($collectionTools, 2))){
             echo "<li>";
@@ -1101,14 +1101,13 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     * @return boolean if the title has a category
     */
     private function pageHasCategory($searchCategoryName) {
-      global $wgOut;
+      global $wgOut, $wgContLang;
       $title = $wgOut->getTitle();
       $wikiPage = WikiPage::factory($title);
       $text = $wikiPage->getText();
 
       //HACK: we need to do this because of the async nature of categories
-      $toSearch = "[[Category:" . $searchCategoryName . "]]"; //TODO: localize category
-
+      $toSearch = "[[" . $wgContLang->getNsText( NS_CATEGORY ) . ":" . $searchCategoryName . "]]";
       if (strstr($text, $toSearch)) { //HACK
         return true;
       } else {
