@@ -301,7 +301,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             <div class="media__description">
               <div class="join-us__content">
                 <div class="join-us__text">
-                  WikiToLearn provides free, collaborative and accessible text books. Academics worldwide contribute in sharing knowledge by creating high quality content.
+                  <?php echo wfMessage('wikitolearnskin-media-text'); ?>
                 </div> 
                 <div class="join-us__stats">
                 <?php
