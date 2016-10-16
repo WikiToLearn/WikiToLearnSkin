@@ -2,6 +2,7 @@
     
     background-color: #f8f8fb;
     padding: $pages-home-content-padding;
+    
 
     @include media-breakpoint-up(sm) {
         @include make-container();
@@ -28,7 +29,6 @@
 
 .departments {
     background-color: #f8f8fb;
-    padding-bottom: 1.5rem; //should be 2 but 0.5 is from the margin-bottom of the deps
 
     &__content {
         display: block;
@@ -38,6 +38,8 @@
         @include media-breakpoint-up(sm) {
             @include make-container-max-widths();
         }
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
     }
 
     &__wrapper{
@@ -72,7 +74,7 @@
         display: inline-block;
         text-align: center;
         width: 100%;
-
+        overflow: hidden;
         transition: 0.3s ease-in all;
         &:hover:not(.disabled){
             box-shadow: 0 2px 3px 0 rgba(0,0,0,0.16), 0 2px 6px 0 rgba(0,0,0,0.12);
@@ -102,28 +104,30 @@
             font-size: 1.2rem;
         }
     }
+
+    ul{
+        margin-top: 0;
+        margin-bottom: 0;
+    }
 }
 
 .join-us {
-    background-color: white;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
-    
-    position: relative;
 
     &__content{
-        @include make-container();
-        @include media-breakpoint-up(sm) {
-            @include make-container-max-widths();
-        }
-
-        text-align: center;
-
-        padding: $pages-home-content-padding;
+        background-color: white;
+        box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
+        border-radius: $border-radius;
+        padding: 1.5rem 2rem;
+    }
+    
+    &__text{
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
     }
 
     &__stats{
-        margin-top: 1rem;
-        
+        text-align: center;
+        margin-bottom: 2rem;
         .stats__count{
             font-weight: 600;
             font-size: 1.2rem;
@@ -142,7 +146,9 @@
         cursor: pointer;
         display: inline-block;
         font-size: $pages-home-join-us-link-font-size;
-        padding: 0.5rem 7rem;
+        padding: 0.5rem 0;
+        text-align: center;
+        width: 100%;
 
         @include media-breakpoint-down(md) {
             font-size: $pages-home-join-us-link-font-size - .2rem;
@@ -163,7 +169,7 @@
 
     &__content{
         padding: $pages-home-content-padding;
-    
+        
         @include media-breakpoint-down(xs) {
             @include make-container($gutter: 0)
         }
@@ -171,21 +177,25 @@
             @include make-container();
             @include make-container-max-widths();
         }
+        
+        display: block;
+        @include media-breakpoint-up(lg) {
+            display: flex;
+        }        
     }
     
+    &__videocolumn{
+        @include media-breakpoint-up(lg) {
+            flex: 0 0 percentage(2/3);
+        }
+    }
     
-    &__wrapper{
+    &__videowrapper{
+        @include aspect-ratio(16, 9);
         overflow: hidden;
-        padding-bottom: 33.33%;
-        padding-top: 2rem;
         position: relative;
         box-shadow: rgba(0,0,0,0.1) 0px 1px 3px; // TODO: remove hard coded values
         
-        @include make-col-ready();
-        @include make-col(12);
-        @include media-breakpoint-up(md) {
-            @include make-col(8);
-        }
     }
 
     &__video {
@@ -199,52 +209,18 @@
     }
 
     &__description{
-        @include make-col-ready();
-        @include make-col(12);
-        @include media-breakpoint-up(md) {
-            @include make-col(4);
-        }
-
-        @include media-breakpoint-down(lg) {
-            font-size: .8rem; // TODO: make text aligned with video
-        }
+        margin-top: 1rem;
 
         @include media-breakpoint-down(xs) {
-            padding-top: .5rem;
+            margin-top: 0;
+        }
+
+        @include media-breakpoint-up(lg) {
+            margin-top: 0;
+            flex: 0 0 percentage(1/3);
+            padding-left: 1rem;
         }
     }   
-
-    &__title{
-        font-size: 1.9rem;
-        font-weight: 300;
-        //font-family: "Roboto Slab"
-    }
-    
-    &__text{
-        margin: 0;
-    }
-    
-    &__button{
-        background-color: $green;
-        border-radius: $border-radius;
-        border: 0;
-        color: white;
-        cursor: pointer;
-        display: table;
-
-        @include media-breakpoint-down(lg) {
-            font-size: .8rem;
-        }
-        margin: 1rem auto;
-        outline: 0;
-        padding: 0.5rem 1rem;
-
-        &:hover{
-            text-decoration: none;
-            color: white;
-        }
-    }
-
 }
 
 .testimonials {

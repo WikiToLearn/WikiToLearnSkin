@@ -293,11 +293,16 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         </section>-->
         <section class="media">
           <div class="media__content">
-            <div class="media__wrapper">
-              <iframe class="media__video" src="<?php echo wfMessage('wikitolearnskin-media-video-url'); ?>" allowfullscreen></iframe>
+            <div class="media__videocolumn">
+              <div class="media__videowrapper">
+                <iframe class="media__video" src="<?php echo wfMessage('wikitolearnskin-media-video-url'); ?>" allowfullscreen></iframe>
+              </div>
             </div>
             <div class="media__description">
               <div class="join-us__content">
+                <div class="join-us__text">
+                  WikiToLearn provides free, collaborative and accessible text books. Academics worldwide contribute in sharing knowledge by creating high quality content.
+                </div> 
                 <div class="join-us__stats">
                 <?php
                 echo "<i class='fa fa-file-text-o'></i> <span class='stats__count'>" . wfMessage('createacct-benefit-head2')->text() . "</span> " . wfMessage('createacct-benefit-body2')->text();
@@ -307,7 +312,6 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 echo "<i class='fa fa-pencil'></i> <span class='stats__count'>" . wfMessage('createacct-benefit-head1')->text() . "</span> " . wfMessage('createacct-benefit-body1')->text();
                 ?>
                 </div>
-                <div class="join-us__readmore"><?php echo wfMessage('wikitolearnskin-join-us-readmore'); ?></div>
                 <a href="//join.<?php echo $wiki_domain ."/" . $wiki ?>" class="join-us__link"><?php echo wfMessage('wikitolearnskin-join-us-button'); ?></a>
             </div>
           </div>
@@ -640,25 +644,25 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       }
       switch (count($titleComponents)) {
         case 2:
-        $linkObj = Title::newFromText($partialLink . "/" . $titleComponents[1]);
-        $link = Linker::linkKnown($linkObj, htmlspecialchars( $titleComponents[1] ), ["class" => "breadcrumb__item"]);
-        echo $link;
-        break;
+          $linkObj = Title::newFromText($partialLink . "/" . $titleComponents[1]);
+          $link = Linker::linkKnown($linkObj, htmlspecialchars( $titleComponents[1] ), ["class" => "breadcrumb__item"]);
+          echo $link;
+          break;
         case 3:
-        $partialLink .= "/" . $titleComponents[1];
-        $linkObj = Title::newFromText($partialLink);
-        $link = Linker::linkKnown($linkObj, htmlspecialchars( $titleComponents[1] ), ["class" => "breadcrumb__item"]);
-        echo $link;
-        $subpages = CourseEditorUtils::getLevelsThree($partialLink);
-        if (sizeof($subpages) !== 0){
-          self::buildBreadcrumbDropdown($subpages, $partialLink);
-        }
-        $linkObj = Title::newFromText($partialLink . "/" . $titleComponents[2]);
-        $link = Linker::linkKnown($linkObj, htmlspecialchars( $titleComponents[2] ), ["class" => "breadcrumb__item"]);
-        echo $link;
-        break;
+          $partialLink .= "/" . $titleComponents[1];
+          $linkObj = Title::newFromText($partialLink);
+          $link = Linker::linkKnown($linkObj, htmlspecialchars( $titleComponents[1] ), ["class" => "breadcrumb__item"]);
+          echo $link;
+          $subpages = CourseEditorUtils::getLevelsThree($partialLink);
+          if (sizeof($subpages) !== 0){
+            self::buildBreadcrumbDropdown($subpages, $partialLink);
+          }
+          $linkObj = Title::newFromText($partialLink . "/" . $titleComponents[2]);
+          $link = Linker::linkKnown($linkObj, htmlspecialchars( $titleComponents[2] ), ["class" => "breadcrumb__item"]);
+          echo $link;
+          break;
         default:
-        break;
+          break;
       }
     }
 
