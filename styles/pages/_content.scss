@@ -324,7 +324,6 @@ main.page--article{
     }
 }
 
-
 .article__text {
     font-size: 13pt;
     line-height: 1.5em;
@@ -355,13 +354,6 @@ main.page--article{
         padding-left: 2rem;
     }
 
-    img{
-        /*box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
-        height: auto;
-        max-width: 100%;
-        padding: 1rem;*/
-    }
-
     .mwe-math-fallback-image-display{ //margin at the bottom of formulas
         margin-bottom: 1rem;
     }
@@ -370,6 +362,7 @@ main.page--article{
         display: none;
     }
     
+    //references
     .reference{
         a{
             display: inline-block;
@@ -401,5 +394,26 @@ main.page--article{
 
     ol.references li:target, sup.reference:target{
         background-color: transparent;
+    }
+
+    //style for various kind of wikimages
+    .thumb, a.image .thumbborder{
+        box-shadow: rgba(0,0,0,0.3) 0px 1px 3px;
+        padding: 0.5rem;
+        margin: 1rem;
+        display: inline-block;
+        max-width: 100%;
+
+    }
+
+    .thumbinner{
+        max-width: 100%;
+    }
+
+    a.image{
+        img{
+            max-width: 100%;
+            height: auto;
+        }
     }
 }
