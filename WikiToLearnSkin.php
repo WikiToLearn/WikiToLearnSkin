@@ -72,6 +72,8 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     {
       //Declare useful variables for the whole template functions
       global $wgOut, $wgRequest, $wgUser, $wgSupportedLanguages, $wiki_domain, $wiki;
+      
+      self::prepareOverrideMessages();
 
       $this->skin = $this->getSkin();
       $this->namespaceId = $wgOut->getTitle()->getNamespace();
@@ -182,10 +184,10 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             <?php if($user->isAnon()){ ?>
               <div class="nav__desktop-login">
                 <a href="<?php echo $this->skin->makeSpecialUrl('UserLogin'); ?>" class="nav__link nav__link--login nav__link--hover-mwblue dropdown-item">
-                  <?php $this->msg( 'login' ) ?>
+                  <?php wfMessage( 'login' ) ?>
                 </a>
                 <a href="<?php echo $this->skin->makeSpecialUrl('CreateAccount'); ?>" class="nav__link nav__link--createaccount nav__link--hover-mwblue dropdown-item">
-                  <?php $this->msg( 'createaccount' ) ?>
+                  <?php wfMessage( 'createaccount' ) ?>
                 </a>
               </div>
               <div class="dropdown dropdown--mobile-login">
@@ -195,10 +197,10 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownMobileLogin">
                   <a href="<?php echo $this->skin->makeSpecialUrl('UserLogin'); ?>" class="nav__link nav__link--login nav__link--hover-mwblue dropdown-item">
-                    <?php $this->msg( 'login' ) ?>
+                    <?php wfMessage( 'login' ) ?>
                   </a>
                   <a href="<?php echo $this->skin->makeSpecialUrl('CreateAccount'); ?>" class="nav__link nav__link--createaccount nav__link--hover-mwblue dropdown-item">
-                    <?php $this->msg( 'createaccount' ) ?>
+                    <?php wfMessage( 'createaccount' ) ?>
                   </a>
                 </div>
               </div>
@@ -1112,6 +1114,32 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         return true;
       } else {
         return false;
+      }
+    }
+
+    //prepare the override messages, works only on the main page, where the content is mostl likely to change
+    private function prepareOverrideMessages(){
+      $title = $this->getSkin()->getTitle();
+      if($title->isMainPage()){ //only allow on main pages
+        $wikiPage = WikiPage::factory($title);
+        $text = $wikiPage->getText();
+        $this->overrideMessages = json_decode($text, true);
+      }
+    }
+
+    /*
+    This is to allow to override localization keys, right from content page
+    The default param will override wfMessageKey 
+    */
+    private function getMessage($key){
+      if(isset($this->overrideMessages) && $this->overrideMessages != null){
+        $messageText = array_get($this->overrideMessages, $key);
+        if($messageText)
+          return $messageText;
+        else
+          return wfMessage($key)->plain();
+      } else {
+        return wfMessage($key)->plain();
       }
     }
 }
