@@ -71,26 +71,24 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     public function execute()
     {
       //Declare useful variables for the whole template functions
-      global $wgOut, $wgRequest, $wgUser, $wgSupportedLanguages, $wiki_domain;
+      global $wgOut, $wgRequest, $wgUser, $wgSupportedLanguages, $wiki_domain, $wiki;
+
       $this->skin = $this->getSkin();
       $this->namespaceId = $wgOut->getTitle()->getNamespace();
       $this->pageTitle = $wgOut->getTitle();
       $this->user = $wgUser;
       $this->contentNavigation = $this->data['content_navigation'];
       $this->toolBox = $this->getToolbox();
-      MWDebug::log(wfMessage('createacct-benefit-body1')->text());
-      MWDebug::log(wfMessage('createacct-benefit-head1')->text());
-      /*foreach ($this->toolBox as $key => $value) {
-        MWDebug::log($key);
-        MWDebug::log($value);
-      }*/
       $this->supportedLanguages = $wgSupportedLanguages;
       $this->domain = $wiki_domain;
+
       $this->html( 'headelement' );
       $this->executeCookies(); ?>
         <?php
           $this->executeHeader();
-          if ($this->getSkin()->getTitle()->isMainPage()) {
+          if ($wiki != 'meta' && //TODO: allow configurable variable
+              $wiki != 'pool' && 
+              $this->getSkin()->getTitle()->isMainPage()) {
             MWDebug::log('Generating Homepage');
             $this->executeHome();
           } else {
