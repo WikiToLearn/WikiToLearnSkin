@@ -88,7 +88,8 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           $this->executeHeader();
           if ($wiki != 'meta' && //TODO: allow configurable variable
               $wiki != 'pool' && 
-              $this->getSkin()->getTitle()->isMainPage()) {
+              $this->getSkin()->getTitle()->isMainPage() &&
+              !$wgRequest->getText("action")) {  //if an action is set we don't render the home page
             MWDebug::log('Generating Homepage');
             $this->executeHome();
           } else {
