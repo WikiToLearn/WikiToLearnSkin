@@ -2,7 +2,8 @@ main.page--article{
     
     padding-top: 5rem;
     padding-bottom: 2rem;
-    
+    min-height: 100vh;
+
     @include media-breakpoint-down(xs) {
         padding-top: 3rem;
         padding-bottom: 1rem;
