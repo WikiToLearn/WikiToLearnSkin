@@ -91,7 +91,7 @@ main.page--article{
                 }
 
 
-           } 
+           }
         }
 
         &__tools{
@@ -262,7 +262,7 @@ main.page--article{
                 &__divider{
                     text-align: center;
                     display: inline-block;
-                    width: 1.5rem; 
+                    width: 1.5rem;
                     margin: 0 0.15rem;
                     color: $black-secondary;
 
@@ -287,16 +287,16 @@ main.page--article{
                         color: $mwblue;
                         cursor: pointer;
                         display: inline-block;
-                        width: 1.5rem; 
+                        width: 1.5rem;
                         margin: 0 0.15rem;
 
-                        transition: 0.1s linear all; 
+                        transition: 0.1s linear all;
                         &:hover{
                             background-color: #eee;
-                            transition: 0.1s linear all; 
+                            transition: 0.1s linear all;
                         }
                         .fa{
-                            transition: 0.1s linear all; 
+                            transition: 0.1s linear all;
                         }
                     }
 
@@ -305,7 +305,7 @@ main.page--article{
                             background-color: #eee;
                             .fa{
                                 transform: rotate(90deg);
-                                transition: 0.1s linear all; 
+                                transition: 0.1s linear all;
                             }
                         }
                     }
@@ -342,7 +342,7 @@ main.page--article{
 
     h2, h3, h4, h5, h6{
         margin-top: 1rem;
-    }   
+    }
     
     .center{
         text-align: center;
