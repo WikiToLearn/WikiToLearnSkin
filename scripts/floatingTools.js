@@ -16,10 +16,10 @@ $( document ).ready(function() {
     toolsContainer = $("#tools_container");
 
     articleMain = $(".article__main");
-    articleSheet = $(".article__sheet");
+    articleContent = $(".article__content");
 
     if(toolsContainer.length > 0 && articleMain.length > 0){
-        if(articleSheet.height() > toolsContainer.height()){
+        if(articleContent.height() > toolsContainer.height()){
             $(document).scroll(function() {
                 if(shouldFloat){
                     toolsContainer.css("position", "fixed");
