@@ -1,7 +1,0 @@
-<div class="coursebackend"><h2 class="coursebackend__title">[[{{{linkPage}}}|{{{1}}}]]</h2><div class="coursebackend__description">{{GetCourseMetadata|{{{metadataPage}}}|description}}</div>
-{{#if: {{GetCourseMetadata|{{{metadataPage}}}|hasBadges}}|<small>{{#if: {{GetCourseMetadata|{{{metadataPage}}}|reviewedBadge}}|REVIEWED|}}{{#if: {{GetCourseMetadata|{{{metadataPage}}}|importedBadge}}|IMPORTED|}}</small>|}}
-</div>
-{{#if: {{GetCourseMetadata|{{{metadataPage}}}|externalReferences}} |
-{{i18n|externalReferences}}:
-{{GetCourseMetadata|{{{metadataPage}}}|externalReferences}}|
-}}
