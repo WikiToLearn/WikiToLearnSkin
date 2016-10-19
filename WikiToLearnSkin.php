@@ -1,5 +1,13 @@
 <?php
-
+/**
+* SQL Performance
+* Right now Neverland does around 30 SQL queries for each page generation, this skin does around 46 queries per page render.
+* 4 of these queries are done by generatePreviousAndNext
+* 8 by the executeBreadcrumb function //TODO: improve performance
+* The others by the hasCategory, getMessage and around the code
+* Both hasCategory and getMessage were optimized to save some queries on average each.
+* I don't know how big of an issue this is but if someone wants to investigate please do.
+*/
 require_once("HelperFunctions.php");
 /**
  * Skin file for skin WikiToLearnSkin
@@ -73,8 +81,6 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       //Declare useful variables for the whole template functions
       global $wgOut, $wgRequest, $wgUser, $wgSupportedLanguages, $wiki_domain, $wiki;
       
-      self::prepareOverrideMessages();
-
       $this->skin = $this->getSkin();
       $this->namespaceId = $wgOut->getTitle()->getNamespace();
       $this->pageTitle = $wgOut->getTitle();
@@ -83,6 +89,11 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       $this->toolBox = $this->getToolbox();
       $this->supportedLanguages = $wgSupportedLanguages;
       $this->domain = $wiki_domain;
+
+      $wikiPage = WikiPage::factory($this->pageTitle);
+      $this->pageText = $wikiPage->getText();
+      self::prepareOverrideMessages();
+      self::prepareCategory();
 
       $this->html( 'headelement' );
       $this->executeCookies(); ?>
@@ -1097,18 +1108,20 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       return "user--logged";
     }
 
+
+    private function prepareCategory(){
+      global $wgContLang;
+      $this->localizedCategoryString = $wgContLang->getNsText(NS_CATEGORY);
+    }
     /**
     * Checks if a title object has a category
     * @return boolean if the title has a category
     */
     private function pageHasCategory($searchCategoryName) {
-      global $wgOut, $wgContLang;
-      $title = $wgOut->getTitle();
-      $wikiPage = WikiPage::factory($title);
-      $text = $wikiPage->getText();
-
+      $text = $this->pageText;
+      $localizedCategoryString = $this->localizedCategoryString;
       //HACK: we need to do this because of the async nature of categories
-      $toSearch = "[[" . $wgContLang->getNsText( NS_CATEGORY ) . ":" . $searchCategoryName . "]]";
+      $toSearch = "[[" . $localizedCategoryString . ":" . $searchCategoryName . "]]";
       $toSearchFallback = "[[Category:" . $searchCategoryName . "]]";
       if (strstr($text, $toSearch) || strstr($text, $toSearchFallback)) { //HACK
         return true;
@@ -1119,10 +1132,9 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
 
     //prepare the override messages, works only on the main page, where the content is mostl likely to change
     private function prepareOverrideMessages(){
-      $title = $this->getSkin()->getTitle();
+      $title = $this->pageTitle;
       if($title->isMainPage()){ //only allow on main pages
-        $wikiPage = WikiPage::factory($title);
-        $text = $wikiPage->getText();
+        $text = $this->pageText;
         $this->overrideMessages = json_decode($text, true);
       }
     }
