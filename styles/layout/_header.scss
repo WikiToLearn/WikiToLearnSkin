@@ -288,8 +288,6 @@
                     @include media-breakpoint-down(xs) {
                         @include make-col-ready($gutter: 0);
                         @include make-col(2);
-                        //@include make-col-push(2);
-                        //@include make-col-pull(8);
                     }
 
                     .dropdown-menu{
@@ -297,8 +295,6 @@
 
                         @include media-breakpoint-down(xs) {
                             width: 100vw;
-                            //top: 44.6px;
-                            //left: 0;
                         }
                     }
 
@@ -315,7 +311,7 @@
                     [class^="ve-"], [class^="oo-"], [class^="mw-"]{
                         box-sizing: border-box;
                     }
-
+                    
                     .dropdown-menu {
                         border-right: 1rem;
                         border: 1px solid rgba(0,0,0,0.15);
@@ -326,9 +322,8 @@
                         padding: 0;
                         right: 0;
                         top: 3.2rem;
-
+                        
                         @include media-breakpoint-down(xs) {
-                            //top: 44.6px; //TODO: change in rem
                             width: 100vw;
                             min-width: auto;
                         }
@@ -493,16 +488,34 @@
                 }
             }
 
-            // Extension of the Mediawiki Echo classes
-            #notifications-widget {
-                max-height: 50vh;
-                overflow-y: auto;
 
-                .mw-echo-ui-overlay {
-                    position: relative;
-                    top: -.3rem;
-                }
+        }
+    }
+
+    // Extension of the Mediawiki Echo classes
+    #notifications-widget {
+        max-height: 50vh;
+        overflow-y: auto;
+
+        .mw-echo-ui-notificationItemWidget-content-actions-timestamp{
+            @include media-breakpoint-down(xs) {
+                display: none;
             }
+        }
+
+        .oo-ui-menuSelectWidget{
+            top: 0.25rem;
+            left: 0.25rem;
+            right: 0.25rem;
+
+            //display: block !important;
+        }
+        
+        .mw-echo-ui-actionMenuPopupWidget-menu .mw-echo-ui-menuItemWidget-content span.oo-ui-labelElement-label{
+            line-height: 1.4rem;
+        }
+        .mw-echo-ui-actionMenuPopupWidget-menu .mw-echo-ui-menuItemWidget{
+            margin: 0;
         }
     }
 }
