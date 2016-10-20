@@ -90,11 +90,12 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       $this->supportedLanguages = $wgSupportedLanguages;
       $this->domain = $wiki_domain;
 
-      $wikiPage = WikiPage::factory($this->pageTitle);
-      $this->pageText = $wikiPage->getText();
-      self::prepareOverrideMessages();
-      self::prepareCategory();
-
+      if($this->namespaceId != NS_SPECIAL && $this->namespaceId != NS_MEDIA){
+        $wikiPage = WikiPage::factory($this->pageTitle);
+        $this->pageText = $wikiPage->getText();
+        self::prepareOverrideMessages();
+        self::prepareCategory();
+      }
       $this->html( 'headelement' );
       $this->executeCookies(); ?>
         <?php
