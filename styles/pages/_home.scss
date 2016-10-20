@@ -63,7 +63,7 @@
             float: left; //we have to do this since bootstrap does not allow 5cols per row
             width: 20%;
             padding: 0 0.5rem;
-            padding-bottom: 1rem;            
+            padding-bottom: 1rem;
         }
     }
 
@@ -181,7 +181,7 @@
         display: block;
         @include media-breakpoint-up(lg) {
             display: flex;
-        }        
+        }
     }
     
     &__videocolumn{
@@ -192,6 +192,7 @@
     
     &__videowrapper{
         @include aspect-ratio(16, 9);
+        border-radius: $border-radius;
         overflow: hidden;
         position: relative;
         box-shadow: rgba(0,0,0,0.1) 0px 1px 3px; // TODO: remove hard coded values
@@ -220,7 +221,7 @@
             flex: 0 0 percentage(1/3);
             padding-left: 1rem;
         }
-    }   
+    }
 }
 
 .testimonials {
@@ -242,7 +243,7 @@
         @extend .btn;
         @extend .btn-outline-green;
         margin-top: 1.5rem;
-    }    
+    }
 }
 .testimonial {
     @extend .media;
