@@ -397,25 +397,40 @@ main.page--article{
     ol.references li:target, sup.reference:target{
         background-color: transparent;
     }
-
+    
     //style for various kind of wikimages
-    .thumb, a.image .thumbborder{
-        box-shadow: rgba(0,0,0,0.3) 0px 1px 3px;
-        padding: 0.5rem;
-        margin: 1rem;
-        display: inline-block;
-        max-width: 100%;
-
-    }
-
-    .thumbinner{
-        max-width: 100%;
-    }
-
     a.image{
+        display: inline-block;
         img{
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            
             max-width: 100%;
             height: auto;
+            
+            padding: 1rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
         }
     }
+    
+    div.thumb{
+        margin: 0.5rem;
+        padding: 0.5rem;
+        
+        box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+
+        max-width: 100%;
+        .thumbinner{
+            max-width: 100%;
+        }
+
+        a.image{
+            img{
+                margin: 0;
+                padding: 0;
+                box-shadow: none;
+            }
+        }
+    }
+
 }
