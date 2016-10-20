@@ -433,16 +433,20 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         $displayTitle = $components[count($components)-1];
       } else {
         $baseTitle = $pageTitle->getBaseText(); //the part before the subpage name, without namespace
-        $linkObj = Title::newFromText( $baseTitle, $this->namespaceId);
-        if ( is_object( $linkObj ) && $linkObj->isKnown() ) {
-          $displayTitle = $pageTitle->getSubpageText(); //the rightmost part after any slashes.
-        } else { //there is a slash in the title
-          //HACK: this function is badly written, will need a fix in the future, right now it handles only one slash, better than neverland where the full title is printed
-          //TODO: handle two or more slashes in the title
-          $fullTitle=$pageTitle->getText();
-          $components = explode("/", $fullTitle);
-          $displayTitle = array_pop($components);
-          $displayTitle = array_pop($components) . "/" . $displayTitle;
+        if($baseTitle === $pageTitle->getSubpageText()){ //root pages that does not exist
+          $displayTitle = $baseTitle;
+        } else {
+          $linkObj = Title::newFromText( $baseTitle, $this->namespaceId);
+          if ( is_object( $linkObj ) && $linkObj->isKnown() ) {
+            $displayTitle = $pageTitle->getSubpageText(); //the rightmost part after any slashes.
+          } else { //there is a slash in the title
+            //HACK: this function is badly written, will need a fix in the future, right now it handles only one slash, better than neverland where the full title is printed
+            //TODO: handle two or more slashes in the title
+            $fullTitle=$pageTitle->getText();
+            $components = explode("/", $fullTitle);
+            $displayTitle = array_pop($components);
+            $displayTitle = array_pop($components) . "/" . $displayTitle;
+          }
         }
       }
       ?>
