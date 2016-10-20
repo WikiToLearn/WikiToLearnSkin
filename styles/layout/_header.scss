@@ -481,9 +481,10 @@
                 }
 
                 &--mobile {
-                    .dropdown-item {
+                    a.dropdown-item {
                         color: $green;
-                        padding-left: 2rem;
+                        text-transform: capitalize;
+                        //padding-left: 2rem;
                     }
                 }
             }
