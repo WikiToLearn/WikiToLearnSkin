@@ -15,7 +15,7 @@ main.page--article{
         @include make-container();
         @include media-breakpoint-up(sm) {
             @include make-container-max-widths();
-            padding: 0 3rem;
+            padding: 0 2rem;
         }
         
         @include media-breakpoint-down(xs) {
@@ -35,7 +35,7 @@ main.page--article{
             @include make-container();
             @include media-breakpoint-up(sm) {
                 @include make-container-max-widths();
-                padding: 0 3rem;
+                padding: 0 2rem;
             }
             
             @include media-breakpoint-down(xs) {
