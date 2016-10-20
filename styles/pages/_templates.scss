@@ -133,6 +133,7 @@
 
     a{
         color: $dark-green;
+        font-weight: bold;
     }
 }
 
@@ -154,6 +155,7 @@
 
     a{
         color: $yellow;
+        font-weight: bold;
     }
 }
 
@@ -188,4 +190,13 @@
 
 .template.topic{
 
+}
+
+.tdg-editscreen-main{
+    &-helplink a .oo-ui-labelElement-label{
+        color: $mwblue !important;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
 }
