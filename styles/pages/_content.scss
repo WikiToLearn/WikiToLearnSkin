@@ -355,8 +355,9 @@ main.page--article{
         padding-left: 2rem;
     }
 
-    .mwe-math-fallback-image-display{ //margin at the bottom of formulas
+    .mwe-math-fallback-image-display{ //math fallback elements
         margin-bottom: 1rem;
+        max-width: 100%; //this will help mitigating out of bounds images by scaling them to fit the page
     }
 
     .mw-editsection{ //hide [Edit | Edit Wikitext]
