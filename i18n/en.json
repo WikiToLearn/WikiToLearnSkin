@@ -33,6 +33,8 @@
   "wikitolearnskin-navbar-tools-reports" : "Reports",
   "wikitolearnskin-navbar-tools-reports-link" : "//reports.wikitolearn.org",
 
+  "wikitolearnskin-departments-count": "10",
+
   "wikitolearnskin-departments-1-name": "Business",
   "wikitolearnskin-departments-1-image": "images/badges/business.png",
   "wikitolearnskin-departments-1-link": "/Business",

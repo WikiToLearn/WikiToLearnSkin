@@ -287,17 +287,21 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         <section class="departments">
           <ul class="departments__content">
             <?php
-            for($i=1;$i<11;$i++){
+            $departmentsCount = intval($this->getMessage("wikitolearnskin-departments-count"));
+            echo "<div class='departments__row'>";
+            for($i = 1; $i < ($departmentsCount+1); $i++){
               self::makeDepartment(
                 $this->getMessage("wikitolearnskin-departments-$i-name"),
                 $this->getImagePath( $this->getMessage("wikitolearnskin-departments-$i-image") ),
                 $this->getMessage("wikitolearnskin-departments-$i-link"),
                 $this->getMessage("wikitolearnskin-departments-$i-status")
               );
-              if($i==5){
-                echo '<div class="clearfix"></div>';
+              if($i==(round($departmentsCount/2)) && $departmentsCount>5){
+                echo "</div>";
+                echo "<div class='departments__row'>";
               }
             }
+            echo "</div>";
             echo '<div class="clearfix"></div>';
             ?>
           </ul>

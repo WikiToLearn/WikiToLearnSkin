@@ -31,37 +31,36 @@
     background-color: #f8f8fb;
 
     &__content {
-        display: block;
         list-style: none;
-
+        
         @include make-container();
         @include media-breakpoint-up(sm) {
             @include make-container-max-widths();
         }
         padding-left: 0.5rem;
         padding-right: 0.5rem;
+
+        & .clearfix{
+            flex-basis: 100%;
+        }
+    }
+    
+    &__row{
+        @include media-breakpoint-up(sm) {
+            display: flex;
+            justify-content: center;
+        }
     }
 
     &__wrapper{
         display: block;
 
-        /*@include make-col-ready($gutter: $pages-home-grid-gutter-width-departments);
-        @include make-col(3);
-
-        @include media-breakpoint-down(md) {
-            @include make-col-ready($gutter: $pages-home-grid-gutter-width-departments/2);
-        }*/
-
         @include media-breakpoint-down(xs) {
             margin: .5rem 0;
-
-            @include make-col-ready($gutter: 0);
-            @include make-col(12);
         }
 
         @include media-breakpoint-up(sm) {
-            float: left; //we have to do this since bootstrap does not allow 5cols per row
-            width: 20%;
+            flex: 0 0 20%;
             padding: 0 0.5rem;
             padding-bottom: 1rem;
         }
@@ -97,12 +96,12 @@
     &__name{
         color: $black;
         display: inline-block;
-        font-size: 1.3rem;
-        font-weight: lighter;
-
-        @include media-breakpoint-down(sm) {
-            font-size: 1.2rem;
+        font-size: 1.5rem;
+        @include media-breakpoint-up(sm) {
+            font-size: 1.5vw;
         }
+        font-weight: lighter;
+        word-break: break-word;
     }
 
     ul{
