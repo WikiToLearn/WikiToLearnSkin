@@ -107,6 +107,18 @@
   "wikitolearnskin-undo-publish-course-tool" : "Undo course publication",
 
   "wikitolearnskin-contributions-from" : "Contributions from",
+  "wikitolearnskin-contributors-1-link": "http://www.unimib.it/",
+  "wikitolearnskin-contributors-1-image": "images/logos/bicocca.jpg",
+  "wikitolearnskin-contributors-2-link": "https://home.cern/",
+  "wikitolearnskin-contributors-2-image": "images/logos/cern.jpg",
+  "wikitolearnskin-contributors-3-link": "https://www.sissa.it/",
+  "wikitolearnskin-contributors-3-image": "images/logos/sissa.png",
+  "wikitolearnskin-contributors-4-link": "http://www.wikimedia.it/",
+  "wikitolearnskin-contributors-4-image": "images/logos/wikimedia.png",
+  "wikitolearnskin-contributors-5-link": "http://hepsoftwarefoundation.org/",
+  "wikitolearnskin-contributors-5-image": "images/logos/hep.png",
+  "wikitolearnskin-contributors-6-link": "https://www.kde.org/",
+  "wikitolearnskin-contributors-6-image": "images/logos/kde.svg",
 
   "wikitolearnskin-cookies-text": "This website uses cookies to ensure you get the best experience on our website",
   "wikitolearnskin-cookies-dismiss": "Got it!",
