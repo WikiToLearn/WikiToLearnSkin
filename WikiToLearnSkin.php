@@ -282,17 +282,17 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       ?>
       <main class="page page-home">
         <section class="title">
-          <h1> <?php echo wfMessage('wikitolearnskin-home-claim'); ?> </h1>
+          <h1> <?php echo $this->getMessage('wikitolearnskin-home-claim'); ?> </h1>
         </section>
         <section class="departments">
           <ul class="departments__content">
             <?php
             for($i=1;$i<11;$i++){
               self::makeDepartment(
-                wfMessage("wikitolearnskin-departments-$i-name"),
-                $this->getSkin()->getSkinStylePath( wfMessage("wikitolearnskin-departments-$i-image")->plain() ),
-                wfMessage("wikitolearnskin-departments-$i-link")->plain(),
-                wfMessage("wikitolearnskin-departments-$i-status")
+                $this->getMessage("wikitolearnskin-departments-$i-name"),
+                $this->getSkin()->getSkinStylePath( $this->getMessage("wikitolearnskin-departments-$i-image") ),
+                $this->getMessage("wikitolearnskin-departments-$i-link"),
+                $this->getMessage("wikitolearnskin-departments-$i-status")
               );
               if($i==5){
                 echo '<div class="clearfix"></div>';
@@ -309,13 +309,13 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           <div class="media__content">
             <div class="media__videocolumn">
               <div class="media__videowrapper">
-                <iframe class="media__video" src="<?php echo wfMessage('wikitolearnskin-media-video-url'); ?>" allowfullscreen></iframe>
+                <iframe class="media__video" src="<?php echo $this->getMessage('wikitolearnskin-media-video-url'); ?>" allowfullscreen></iframe>
               </div>
             </div>
             <div class="media__description">
               <div class="join-us__content">
                 <div class="join-us__text">
-                  <?php echo wfMessage('wikitolearnskin-media-text'); ?>
+                  <?php echo $this->getMessage('wikitolearnskin-media-text'); ?>
                 </div>
                 <div class="join-us__stats">
                 <?php
@@ -334,40 +334,40 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           <div class="testimonials__content">
             <div class="testimonial">
               <a class="testimonial__link" href="#">
-                <img class="testimonial__image" src="<?php echo $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-testimonials-first-image-path') ); ?>" alt="<?php echo wfMessage('wikitolearnskin-testimonials-first-name'); ?>">
+                <img class="testimonial__image" src="<?php echo $this->getSkin()->getSkinStylePath( $this->getMessage('wikitolearnskin-testimonials-first-image-path') ); ?>" alt="<?php echo $this->getMessage('wikitolearnskin-testimonials-first-name'); ?>">
               </a>
               <div class="testimonial__body">
                 <blockquote class="testimonial__quote">
-                  <?php echo wfMessage('wikitolearnskin-testimonials-first-quote'); ?>
+                  <?php echo $this->getMessage('wikitolearnskin-testimonials-first-quote'); ?>
                 </blockquote>
                 <footer class="testimonial__footer">
-                  <cite> <?php echo wfMessage('wikitolearnskin-testimonials-first-name'); ?></cite>
+                  <cite> <?php echo $this->getMessage('wikitolearnskin-testimonials-first-name'); ?></cite>
                 </footer>
               </div>
             </div>
             <div class="testimonial">
               <a class="testimonial__link" href="#">
-                <img class="testimonial__image" src="<?php echo $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-testimonials-second-image-path') ); ?>" alt="<?php echo wfMessage('wikitolearnskin-testimonials-second-name'); ?>">
+                <img class="testimonial__image" src="<?php echo $this->getSkin()->getSkinStylePath( $this->getMessage('wikitolearnskin-testimonials-second-image-path') ); ?>" alt="<?php echo $this->getMessage('wikitolearnskin-testimonials-second-name'); ?>">
               </a>
               <div class="testimonial__body">
                 <blockquote class="testimonial__quote">
-                  <?php echo wfMessage('wikitolearnskin-testimonials-second-quote'); ?>
+                  <?php echo $this->getMessage('wikitolearnskin-testimonials-second-quote'); ?>
                 </blockquote>
                 <footer class="testimonial__footer">
-                  <cite><?php echo wfMessage('wikitolearnskin-testimonials-second-name'); ?></cite>
+                  <cite><?php echo $this->getMessage('wikitolearnskin-testimonials-second-name'); ?></cite>
                 </footer>
               </div>
             </div>
             <div class="testimonial">
               <a class="testimonial__link" href="#">
-                <img class="testimonial__image" src="<?php echo $this->getSkin()->getSkinStylePath( wfMessage('wikitolearnskin-testimonials-third-image-path') ); ?>" alt="<?php echo wfMessage('wikitolearnskin-testimonials-third-name'); ?>">
+                <img class="testimonial__image" src="<?php echo $this->getSkin()->getSkinStylePath( $this->getMessage('wikitolearnskin-testimonials-third-image-path') ); ?>" alt="<?php echo $this->getMessage('wikitolearnskin-testimonials-third-name'); ?>">
               </a>
               <div class="testimonial__body">
                 <blockquote class="testimonial__quote">
-                  <?php echo wfMessage('wikitolearnskin-testimonials-third-quote'); ?>
+                  <?php echo $this->getMessage('wikitolearnskin-testimonials-third-quote'); ?>
                 </blockquote>
                 <footer class="testimonial__footer">
-                  <cite><?php echo wfMessage('wikitolearnskin-testimonials-third-name'); ?></cite>
+                  <cite><?php echo $this->getMessage('wikitolearnskin-testimonials-third-name'); ?></cite>
                 </footer>
               </div>
             </div>
@@ -1138,9 +1138,10 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
 
     //prepare the override messages, works only on the main page, where the content is mostl likely to change
     private function prepareOverrideMessages(){
-      $title = $this->pageTitle;
-      if($title->isMainPage()){ //only allow on main pages
-        $text = $this->pageText;
+      if($this->pageTitle->isMainPage()){ //only allow on main page
+        $title = Title::newFromText( "Main_Page", NS_PROJECT);
+        $wikiPage = WikiPage::factory($title);
+        $text = $wikiPage->getText();
         $this->overrideMessages = json_decode($text, true);
       }
     }
@@ -1152,12 +1153,10 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     private function getMessage($key){
       if(isset($this->overrideMessages) && $this->overrideMessages != null){
         $messageText = array_get($this->overrideMessages, $key);
-        if($messageText)
+        if($messageText) {
           return $messageText;
-        else
-          return wfMessage($key)->plain();
-      } else {
-        return wfMessage($key)->plain();
+        }
       }
+      return htmlspecialchars(wfMessage($key)->plain());
     }
 }
