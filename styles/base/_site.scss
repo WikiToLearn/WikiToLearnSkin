@@ -1,8 +1,10 @@
-.hidden{
-    display: none;
-}
-
 body{
     counter-reset: references;
     counter-reset: courseleveltwo;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
+
+

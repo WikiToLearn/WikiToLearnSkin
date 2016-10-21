@@ -1,0 +1,27 @@
+.hidden{
+    display: none;
+}
+
+.page{
+    &.user--anon{
+        .hideAnon{
+            display: none;
+        }
+    }
+}
+
+html{
+    .show-only-in-ve, .show-only-in-ve-block{
+        display: none;
+    }
+
+    &.ve-active{
+        .show-only-in-ve-block{
+            display: block;
+        }
+        .show-only-in-ve{
+            display: inline-block;
+        }
+    }
+    
+}
