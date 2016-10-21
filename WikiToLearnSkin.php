@@ -140,7 +140,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         <div class="header__wrapper" >
           <div href="/" class="logo">
             <a href="/">
-              <img class="logo__img" src="<?php echo $this->getSkin()->getSkinStylePath("images/wikitolearn-logo.png") ?>">
+              <img class="logo__img" src="<?php echo $this->getImagePath("images/wikitolearn-logo.png") ?>">
               <div class="logo__title">
                 <span class="text-wtl--red">wiki</span><span class="text-wtl--yellow">to</span><span class="text-wtl--green">learn</span>
               </div>
@@ -290,7 +290,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             for($i=1;$i<11;$i++){
               self::makeDepartment(
                 $this->getMessage("wikitolearnskin-departments-$i-name"),
-                $this->getSkin()->getSkinStylePath( $this->getMessage("wikitolearnskin-departments-$i-image") ),
+                $this->getImagePath( $this->getMessage("wikitolearnskin-departments-$i-image") ),
                 $this->getMessage("wikitolearnskin-departments-$i-link"),
                 $this->getMessage("wikitolearnskin-departments-$i-status")
               );
@@ -334,7 +334,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           <div class="testimonials__content">
             <div class="testimonial">
               <a class="testimonial__link" href="#">
-                <img class="testimonial__image" src="<?php echo $this->getSkin()->getSkinStylePath( $this->getMessage('wikitolearnskin-testimonials-first-image-path') ); ?>" alt="<?php echo $this->getMessage('wikitolearnskin-testimonials-first-name'); ?>">
+                <img class="testimonial__image" src="<?php echo $this->getImagePath( $this->getMessage('wikitolearnskin-testimonials-first-image-path') ); ?>" alt="<?php echo $this->getMessage('wikitolearnskin-testimonials-first-name'); ?>">
               </a>
               <div class="testimonial__body">
                 <blockquote class="testimonial__quote">
@@ -347,7 +347,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             </div>
             <div class="testimonial">
               <a class="testimonial__link" href="#">
-                <img class="testimonial__image" src="<?php echo $this->getSkin()->getSkinStylePath( $this->getMessage('wikitolearnskin-testimonials-second-image-path') ); ?>" alt="<?php echo $this->getMessage('wikitolearnskin-testimonials-second-name'); ?>">
+                <img class="testimonial__image" src="<?php echo $this->getImagePath( $this->getMessage('wikitolearnskin-testimonials-second-image-path') ); ?>" alt="<?php echo $this->getMessage('wikitolearnskin-testimonials-second-name'); ?>">
               </a>
               <div class="testimonial__body">
                 <blockquote class="testimonial__quote">
@@ -360,7 +360,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             </div>
             <div class="testimonial">
               <a class="testimonial__link" href="#">
-                <img class="testimonial__image" src="<?php echo $this->getSkin()->getSkinStylePath( $this->getMessage('wikitolearnskin-testimonials-third-image-path') ); ?>" alt="<?php echo $this->getMessage('wikitolearnskin-testimonials-third-name'); ?>">
+                <img class="testimonial__image" src="<?php echo $this->getImagePath( $this->getMessage('wikitolearnskin-testimonials-third-image-path') ); ?>" alt="<?php echo $this->getMessage('wikitolearnskin-testimonials-third-name'); ?>">
               </a>
               <div class="testimonial__body">
                 <blockquote class="testimonial__quote">
@@ -378,12 +378,12 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           <div class="contributors__content">
             <h3 class="contributors__title"><?php echo wfMessage('wikitolearnskin-contributions-from'); ?></h3>
             <ul class="contributors__list">
-                <a href="http://www.unimib.it/" rel="nofollow" class="contributors__item"><img src="<?php echo $this->getSkin()->getSkinStylePath("images/logos/bicocca.jpg") ?>" alt=""></a>
-                <a href="https://home.cern/" rel="nofollow" class="contributors__item"><img src="<?php echo $this->getSkin()->getSkinStylePath("images/logos/cern.jpg") ?>" alt=""></a>
-                <a href="https://www.sissa.it/" rel="nofollow" class="contributors__item"><img src="<?php echo $this->getSkin()->getSkinStylePath("images/logos/sissa.png") ?>" alt=""></a>
-                <a href="http://www.wikimedia.it/" rel="nofollow" class="contributors__item"><img src="<?php echo $this->getSkin()->getSkinStylePath("images/logos/wikimedia.png") ?>" alt=""></a>
-                <a href="http://hepsoftwarefoundation.org/" rel="nofollow" class="contributors__item"><img src="<?php echo $this->getSkin()->getSkinStylePath("images/logos/hep.png") ?>" alt=""></a>
-                <a href="https://www.kde.org/" rel="nofollow" class="contributors__item"><img src="<?php echo $this->getSkin()->getSkinStylePath("images/logos/kde.svg") ?>" alt=""></a>
+                <a href="http://www.unimib.it/" rel="nofollow" class="contributors__item"><img src="<?php echo $this->getImagePath("images/logos/bicocca.jpg") ?>" alt=""></a>
+                <a href="https://home.cern/" rel="nofollow" class="contributors__item"><img src="<?php echo $this->getImagePath("images/logos/cern.jpg") ?>" alt=""></a>
+                <a href="https://www.sissa.it/" rel="nofollow" class="contributors__item"><img src="<?php echo $this->getImagePath("images/logos/sissa.png") ?>" alt=""></a>
+                <a href="http://www.wikimedia.it/" rel="nofollow" class="contributors__item"><img src="<?php echo $this->getImagePath("images/logos/wikimedia.png") ?>" alt=""></a>
+                <a href="http://hepsoftwarefoundation.org/" rel="nofollow" class="contributors__item"><img src="<?php echo $this->getImagePath("images/logos/hep.png") ?>" alt=""></a>
+                <a href="https://www.kde.org/" rel="nofollow" class="contributors__item"><img src="<?php echo $this->getImagePath("images/logos/kde.svg") ?>" alt=""></a>
             </ul>
           </div>
         </section>
@@ -1158,5 +1158,16 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         }
       }
       return htmlspecialchars(wfMessage($key)->plain());
+    }
+
+    private function getImagePath($imagePath){
+      if(strpos($imagePath, '//') === 0) { //protocol relative
+        //TODO: validate domains
+        return $imagePath;
+      } else if(strpos($imagePath, '/') === 0) { //site relative, it's ok
+        return $imagePath;
+      } else { //get skin path
+        return $this->getSkin()->getSkinStylePath($imagePath);
+      }
     }
 }
