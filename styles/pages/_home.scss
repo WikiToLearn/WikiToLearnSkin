@@ -114,10 +114,12 @@
 .join-us {
 
     &__content{
+        position: relative;
         background-color: white;
         box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
         border-radius: $border-radius;
         padding: 1.5rem 2rem;
+        min-height: 100%;
     }
     
     &__text{
@@ -127,7 +129,7 @@
 
     &__stats{
         text-align: center;
-        margin-bottom: 2rem;
+        margin-bottom: 5rem;
         .stats__count{
             font-weight: 600;
             font-size: 1.2rem;
@@ -148,8 +150,11 @@
         font-size: $pages-home-join-us-link-font-size;
         padding: 0.5rem 0;
         text-align: center;
-        width: 100%;
-
+        
+        position: absolute; //stick to bottom
+        bottom: 1.6rem;
+        left: 2rem;
+        right: 2rem;
         @include media-breakpoint-down(md) {
             font-size: $pages-home-join-us-link-font-size - .2rem;
         }
