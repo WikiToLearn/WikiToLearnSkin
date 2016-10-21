@@ -1162,8 +1162,14 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
 
     private function getImagePath($imagePath){
       if(strpos($imagePath, '//') === 0) { //protocol relative
-        //TODO: validate domains
-        return $imagePath;
+        $re = '/^\/\/.+\.\$domain\//';
+        if(preg_match($re, $imagePath)){
+          global $wiki_domain;
+          $imagePath = str_replace('$domain', $wiki_domain, $imagePath);
+          return $imagePath;
+        } else {
+          return $this->getSkin()->getSkinStylePath("images/badges/placeholder.png");
+        }
       } else if(strpos($imagePath, '/') === 0) { //site relative, it's ok
         return $imagePath;
       } else { //get skin path
