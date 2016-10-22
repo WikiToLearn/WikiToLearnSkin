@@ -55,7 +55,10 @@ class SkinWikiToLearnSkin extends SkinTemplate
         parent::setupSkinUserCss( $out );
         $out->addStyle("//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
         $out->addStyle("//fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700");
+        $out->addStyle("//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css");
+
         $out->addModuleStyles( 'skin.wikitolearn' );
+
     }
 }
 
@@ -99,6 +102,8 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         self::prepareOverrideMessages();
         self::prepareCategory();
       }
+
+
       $this->html( 'headelement' );
       $this->executeCookies(); ?>
         <?php
@@ -134,7 +139,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           "domain": "<?php echo $wiki_domain ?>"
         };
       </script>
-      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js"></script>
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js" async></script>
     <?php
     }
 
