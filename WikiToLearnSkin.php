@@ -40,6 +40,9 @@ class SkinWikiToLearnSkin extends SkinTemplate
         $out->addMeta( 'viewport', 'width=device-width, initial-scale=1' );
         $out->addModules( 'skin.wikitolearn.js' );
         $out->addModules('ext.courseEditor.publish');
+        if($out->getTitle()->isMainPage()){
+          $out->addMeta("description", wfMessage('wikitolearnskin-meta-tag-description'));
+        }
     }
 
     /**
