@@ -337,7 +337,7 @@ main.page--article{
         display: none;
     }
 
-    p:last-child{
+    & > p:last-child{
         margin-bottom: 0;
     }
 

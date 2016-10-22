@@ -31,6 +31,7 @@
         "skin.wikitolearn.js": {
             "position": "bottom",
             "scripts": [
+                "scripts/environments.js",
                 "scripts/createUser.js",
                 "scripts/search.js",
                 "bower_components/tether/dist/js/tether.js",

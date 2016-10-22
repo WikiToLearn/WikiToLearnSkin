@@ -201,8 +201,13 @@
     }
 }
 
-.beginenvironment + p{
+.beginenvironment + p, .environmentcontent p:first-child{
     br:first-child{
         display: none;
     }
+}
+
+.environmentcontent{
+    padding-left: 0.5rem;
+    border-left: 1px solid #eee;
 }
