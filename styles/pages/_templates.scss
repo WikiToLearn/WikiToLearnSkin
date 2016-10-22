@@ -200,3 +200,9 @@
         }
     }
 }
+
+.beginenvironment + p{
+    br:first-child{
+        display: none;
+    }
+}
