@@ -136,11 +136,11 @@ body{
         width: auto;
     }
 
-    #mw-content-text{ 
+    #mw-content-text{
         //this is to fix float:left on SSection
-        //this is actually our fault 
-        //but as long as we don't change the SSection template 
-        //we have to deal with the issue like this 
+        //this is actually our fault
+        //but as long as we don't change the SSection template
+        //we have to deal with the issue like this
         
         &::after{
             content: " ";
@@ -175,7 +175,7 @@ body{
     }
     meta.mwe-math-fallback-image-inline,  {
         display: inline-block;
-    } 
+    }
 
     //collection
     .collection-creatorbox{
@@ -224,6 +224,21 @@ body{
         }
         #coll-orderbox{ //it does not work, let's not display
             display: none;
+        }
+    }
+    
+    .tdg-editscreen-main{
+        &-helplink a .oo-ui-labelElement-label{
+            color: $mwblue !important;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .tdg-templateDataDialog-paramDetails{
+        .oo-ui-labelElement-label{
+            width: auto !important;
         }
     }
 }
