@@ -15,7 +15,7 @@ function getDisplayTitle($title, $fullTitle){
         if($baseTitle === $pageTitle->getSubpageText()){ //root pages that does not exist
             $displayTitle = $baseTitle;
         } else {
-            $linkObj = Title::newFromText( $baseTitle, $this->namespaceId);
+            $linkObj = Title::newFromText( $baseTitle, $pageTitle->getNamespace());
             if ( is_object( $linkObj ) && $linkObj->isKnown() ) {
                 $displayTitle = $pageTitle->getSubpageText(); //the rightmost part after any slashes.
             } else { //there is a slash in the title
