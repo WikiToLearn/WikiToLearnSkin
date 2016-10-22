@@ -94,6 +94,8 @@
     }
 
     &__name{
+        margin: 0;
+        padding: 0.25rem 0;
         color: $black;
         display: inline-block;
         font-size: 1.5rem;
@@ -122,8 +124,12 @@
     }
     
     &__text{
+        margin: 0;
+        padding: 0;
         margin-bottom: 2rem;
+        font-weight: normal;
         font-size: 1.1rem;
+        line-height: 1.4rem;
     }
 
     &__stats{

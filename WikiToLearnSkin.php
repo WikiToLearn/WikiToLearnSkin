@@ -149,9 +149,9 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           <div href="/" class="logo">
             <a href="/">
               <img class="logo__img" src="<?php echo $this->getImagePath("images/wikitolearn-logo.png") ?>">
-              <div class="logo__title">
+              <h1 class="logo__title">
                 <span class="text-wtl--red">wiki</span><span class="text-wtl--yellow">to</span><span class="text-wtl--green">learn</span>
-              </div>
+              </h1>
             </a>
           </div>
           <nav class="nav">
@@ -326,9 +326,9 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             </div>
             <div class="media__description">
               <div class="join-us__content">
-                <div class="join-us__text">
+                <h3 class="join-us__text">
                   <?php echo $this->getMessage('wikitolearnskin-media-text'); ?>
-                </div>
+                </h3>
                 <div class="join-us__stats">
                 <?php
                 echo "<i class='fa fa-file-text-o'></i> <span class='stats__count'>" . wfMessage('createacct-benefit-head2')->text() . "</span> " . wfMessage('createacct-benefit-body2')->text();
@@ -530,10 +530,10 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               <h4 class="footer__second-heading"><?php echo wfMessage('wikitolearnskin-footer-hosted-by'); ?></h4>
               <ul class="footer__second-list">
                 <li>
-                  <a href="http://www.garr.it/">GARR</a>
+                  <a rel="nofollow" href="http://www.garr.it/">GARR</a>
                 </li>
                 <li>
-                  <a href="https://www.neodigit.net/">Neodigit</a>
+                  <a rel="nofollow" href="https://www.neodigit.net/">Neodigit</a>
                 </li>
               </ul>
             </li>
@@ -1106,7 +1106,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       <li class="departments__wrapper departments__wrapper--first">
         <a class="departments__item <?php echo $status ?>" href="<?php echo $link ?>">
           <img class="departments__image <?php echo $status ?>" src="<?php echo $imageUrl ?>" alt="">
-          <span class="departments__name <?php echo $status ?>"><?php echo $name ?></span>
+          <h2 class="departments__name <?php echo $status ?>"><?php echo $name ?></h2>
         </a>
       </li>
       <?php
