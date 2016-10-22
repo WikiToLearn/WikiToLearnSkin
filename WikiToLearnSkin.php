@@ -16,6 +16,7 @@ require_once("HelperFunctions.php");
  * @ingroup Skins
  */
 
+
 /**
  * SkinTemplate class for WikiToLearnSkin skin
  * @ingroup Skins
@@ -36,13 +37,31 @@ class SkinWikiToLearnSkin extends SkinTemplate
 
     public function initPage( OutputPage $out )
     {
+        global $wiki_domain;
         parent::initPage( $out );
         $out->addMeta( 'viewport', 'width=device-width, initial-scale=1' );
         $out->addModules( 'skin.wikitolearn.js' );
         $out->addModules('ext.courseEditor.publish');
         if($out->getTitle()->isMainPage()){
           $out->addMeta("description", wfMessage('wikitolearnskin-meta-tag-description'));
+          $out->addMeta("og:description", wfMessage('wikitolearnskin-meta-tag-description'));
+          $out->addMeta("twitter:description", wfMessage('wikitolearnskin-meta-tag-description'));
+          
+          $out->addMeta("og:title", "WikiToLearn - collaborative textbooks");
+          $out->addMeta("twitter:title", "WikiToLearn - collaborative textbooks");
+        }else{
+          $displayTitle = getDisplayTitle($out->getTitle(), $out->getHTMLTitle());
+          $out->addMeta("og:title", $displayTitle);
+          $out->addMeta("twitter:title", $displayTitle);
+          $out->addMeta("og:type", "article");
         }
+        
+        $out->addMeta("og:site_name", "WikiToLearn");
+        $out->addMeta("twitter:card",'summary');
+        $out->addMeta("twitter:site", '@WikiToLearn');
+        $out->addMeta("twitter:image", "www." . $wiki_domain . "/logobig.png");
+        $out->addMeta("og:image", "www." . $wiki_domain . "/logobig.png");
+
     }
 
     /**
@@ -58,7 +77,6 @@ class SkinWikiToLearnSkin extends SkinTemplate
         $out->addStyle("//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css");
 
         $out->addModuleStyles( 'skin.wikitolearn' );
-
     }
 }
 
@@ -436,30 +454,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     <?php }
 
     public function executeContentPage() {
-      $pageTitle = $this->pageTitle;
-
-      if ($this->namespaceId === NS_SPECIAL) {
-        $fullTitle = $this->get('title'); //we do this so special page have their proper pretty name, no more UserLogin or UserRegister but "Login" "Register"
-        $components = explode("/", $fullTitle);
-        $displayTitle = $components[count($components)-1];
-      } else {
-        $baseTitle = $pageTitle->getBaseText(); //the part before the subpage name, without namespace
-        if($baseTitle === $pageTitle->getSubpageText()){ //root pages that does not exist
-          $displayTitle = $baseTitle;
-        } else {
-          $linkObj = Title::newFromText( $baseTitle, $this->namespaceId);
-          if ( is_object( $linkObj ) && $linkObj->isKnown() ) {
-            $displayTitle = $pageTitle->getSubpageText(); //the rightmost part after any slashes.
-          } else { //there is a slash in the title
-            //HACK: this function is badly written, will need a fix in the future, right now it handles only one slash, better than neverland where the full title is printed
-            //TODO: handle two or more slashes in the title
-            $fullTitle=$pageTitle->getText();
-            $components = explode("/", $fullTitle);
-            $displayTitle = array_pop($components);
-            $displayTitle = array_pop($components) . "/" . $displayTitle;
-          }
-        }
-      }
+      $displayTitle = getDisplayTitle($this->pageTitle, $this->get('title'));
       ?>
       <main class="page page--article <?php echo self::getAnonClass(); ?>">
         <?php if ( $this->data['sitenotice'] ) { ?>
@@ -470,7 +465,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           </div>
         <?php } ?>
         <div class="article__wrapper">
-          <?php self::executeBreadcrumb($pageTitle); //build the breadcrumb?>
+          <?php self::executeBreadcrumb($this->pageTitle); //build the breadcrumb?>
           <div class="article__main"> <!-- This is needed to wrap the "sheet" and the tools so we can display them one next to another-->
             <div class="article__sheet"> <!-- This is needed to wrap the content (rectangular sheet and the bottom navigations button (so they don't overlap the tools) -->
               <article class="article__content mw-body">
