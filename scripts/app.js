@@ -11,7 +11,13 @@
             $( '.nav__search' ).on({
                 mouseenter: function() {
                     $('#searchInput').removeClass('collapsed-search');
-                    $('#searchInput').addClass('expanded-search');
+                    if(!$("#searchInput").hasClass('expanded-search'))
+                        $('#searchInput').addClass('expanded-search');
+                },
+                click: function(){
+                    $('#searchInput').removeClass('collapsed-search');
+                    if(!$("#searchInput").hasClass('expanded-search'))
+                        $('#searchInput').addClass('expanded-search');
                 },
                 mouseleave: function () {
                     if (! $('#searchInput').is(':focus')) {
@@ -21,7 +27,8 @@
                 },
                 focus: function () {
                     $('#searchInput').removeClass('collapsed-search');
-                    $('#searchInput').addClass('expanded-search');
+                    if(!$("#searchInput").hasClass('expanded-search'))
+                        $('#searchInput').addClass('expanded-search');
                 },
                 focusout: function() {
                     $('#searchInput').removeClass('expanded-search');

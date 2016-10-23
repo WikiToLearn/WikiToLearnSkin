@@ -173,6 +173,15 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             </a>
           </div>
           <nav class="nav">
+            <span class="nav__search nav__<?php echo self::getAnonClass(); ?>">
+              <form id="searchForm" action="<?php $this->text( 'wgScript' ); ?>" autocomplete="off">
+                <input type="hidden" name="title" value="<?php $this->text( 'searchtitle' ) ?>" />
+                <?php echo $this->makeSearchInput( array( 'id' => 'searchInput' ) ); ?>
+                <button type="submit" class="nav__search-button">
+                  <i class="fa fa-search"></i>
+                </button>
+              </form>
+            </span>
             <a href="<?php echo wfMessage('wikitolearnskin-navbar-about-link')->plain(); ?>" class="nav__link nav__link--hover-red">
               <?php echo wfMessage('wikitolearnskin-navbar-about'); ?>
             </a>
@@ -207,25 +216,16 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 </a>
               </div>
             </div>
-            <span class="nav__search nav__<?php echo self::getAnonClass(); ?>">
-            <form id="searchForm" action="<?php $this->text( 'wgScript' ); ?>" autocomplete="off">
-              <input type="hidden" name="title" value="<?php $this->text( 'searchtitle' ) ?>" />
-              <?php echo $this->makeSearchInput( array( 'id' => 'searchInput' ) ); ?>
-              <button type="submit" class="nav__search-button">
-                <i class="fa fa-search"></i>
-              </button>
-            </form>
-            </span>
             <?php
               $user = $this->skin->getUser();
             ?>
             <?php if($user->isAnon()){ ?>
               <div class="nav__desktop-login">
                 <a href="<?php echo $this->skin->makeSpecialUrl('UserLogin'); ?>" class="nav__link nav__link--login nav__link--hover-mwblue dropdown-item">
-                  <?php $this->msg( 'login' ) ?>
+                  <?php echo wfMessage( 'wikitolearnskin-navbar-login' ) ?>
                 </a>
                 <a href="<?php echo $this->skin->makeSpecialUrl('CreateAccount'); ?>" class="nav__link nav__link--createaccount nav__link--hover-mwblue dropdown-item">
-                  <?php $this->msg( 'createaccount' ) ?>
+                  <?php echo wfMessage( 'wikitolearnskin-navbar-createaccount' ) ?>
                 </a>
               </div>
               <div class="dropdown dropdown--mobile-login">
@@ -235,10 +235,10 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownMobileLogin">
                   <a href="<?php echo $this->skin->makeSpecialUrl('UserLogin'); ?>" class="nav__link nav__link--login nav__link--hover-mwblue dropdown-item">
-                    <?php $this->msg( 'login' ) ?>
+                    <?php wfMessage( 'wikitolearnskin-navbar-login' ) ?>
                   </a>
                   <a href="<?php echo $this->skin->makeSpecialUrl('CreateAccount'); ?>" class="nav__link nav__link--createaccount nav__link--hover-mwblue dropdown-item">
-                    <?php $this->msg( 'createaccount' ) ?>
+                    <?php wfMessage( 'wikitolearnskin-navbar-createaccount' ) ?>
                   </a>
                 </div>
               </div>

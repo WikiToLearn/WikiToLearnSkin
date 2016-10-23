@@ -17,6 +17,9 @@
   "wikitolearnskin-footer-follow-us" : "Follow us",
   "wikitolearnskin-footer-tools" : "Tools",
 
+  "wikitolearnskin-navbar-login": "Login",
+  "wikitolearnskin-navbar-createaccount": "Register",
+
   "wikitolearnskin-navbar-about" : "About",
   "wikitolearnskin-navbar-about-link": "#",
   "wikitolearnskin-navbar-contribute" : "Join Us",
