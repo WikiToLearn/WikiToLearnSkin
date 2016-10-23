@@ -44,26 +44,29 @@ class SkinWikiToLearnSkin extends SkinTemplate
         $out->addModules('ext.courseEditor.publish');
         if($out->getTitle()->isMainPage()){
           $out->addMeta("description", wfMessage('wikitolearnskin-meta-tag-description'));
-          $out->addMeta("og:description", wfMessage('wikitolearnskin-meta-tag-description'));
           $out->addMeta("twitter:description", wfMessage('wikitolearnskin-meta-tag-description'));
+          $this->addMetaProperty($out, "og:description", wfMessage('wikitolearnskin-meta-tag-description'));
           
-          $out->addMeta("og:title", "WikiToLearn - collaborative textbooks");
           $out->addMeta("twitter:title", "WikiToLearn - collaborative textbooks");
+          $this->addMetaProperty($out, "og:title", "WikiToLearn - collaborative textbooks");
         }else{
           $displayTitle = getDisplayTitle($out->getTitle(), $out->getHTMLTitle());
-          $out->addMeta("og:title", $displayTitle);
           $out->addMeta("twitter:title", $displayTitle);
-          $out->addMeta("og:type", "article");
+          $this->addMetaProperty($out, "og:title", $displayTitle);
+          $this->addMetaProperty($out, "og:type", "article");
         }
         
-        $out->addMeta("og:site_name", "WikiToLearn");
+        $this->addMetaProperty($out, "og:site_name", "WikiToLearn");
         $out->addMeta("twitter:card",'summary');
         $out->addMeta("twitter:site", '@WikiToLearn');
         $out->addMeta("twitter:image", "www." . $wiki_domain . "/logobig.png");
-        $out->addMeta("og:image", "www." . $wiki_domain . "/logobig.png");
+        $this->addMetaProperty($out, "og:image", "www." . $wiki_domain . "/logobig.png");
 
     }
 
+    private function addMetaProperty($out, $property, $content){
+      $out->addHeadItem($property, "<meta property='$property' content='$content'/>");
+    }
     /**
      * Add CSS via ResourceLoader
      *
