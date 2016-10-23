@@ -201,13 +201,22 @@
     }
 }
 
-.beginenvironment + p, .environmentcontent p:first-child{
-    br:first-child{
-        display: none;
-    }
-}
-
 .environmentcontent{
     padding-left: 0.5rem;
     border-left: 1px solid #eee;
+
+    p:last-of-type{
+        margin-bottom: 0;
+    }
+
+    .beginenvironment{
+        margin-top: 0.5rem;
+    }
+    .endenvironment{
+        margin-bottom: 0.5rem;
+    }
+}
+
+.endenvironment{
+    margin-bottom: 1rem;
 }
