@@ -241,4 +241,10 @@ body{
             width: auto !important;
         }
     }
+
+    .progress-bar{
+        border-radius: $border-radius;
+        text-align: center;
+        color: white;
+    }
 }
