@@ -188,8 +188,15 @@
     }
 }
 
-.template.topic{
-
+.template.book{
+    display: inline-block;
+    .book__image{
+      display: inline-block;
+      margin-right: 0.5rem;
+    }
+    .book__details{
+      display: inline-block;
+    }
 }
 
 .tdg-editscreen-main{
