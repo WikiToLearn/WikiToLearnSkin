@@ -313,7 +313,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       ?>
       <main class="page page-home">
         <section class="title">
-          <h1> <?php echo $this->getMessage('wikitolearnskin-home-claim'); ?> </h1>
+          <h1> <?php echo $this->getMessage('wikitolearnskin-home-claim', false); ?> </h1>
         </section>
         <section class="departments">
           <ul class="departments__content">
@@ -1160,14 +1160,17 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     This is to allow to override localization keys, right from content page
     The default param will override wfMessageKey
     */
-    private function getMessage($key){
+    private function getMessage($key, $clean = true){
       if(isset($this->overrideMessages) && $this->overrideMessages != null){
         $messageText = array_get($this->overrideMessages, $key);
         if($messageText) {
           return $messageText;
         }
       }
-      return htmlspecialchars(wfMessage($key)->plain());
+      if($clean)
+        return htmlspecialchars(wfMessage($key)->plain());
+      else
+        return wfMessage($key)->plain();
     }
 
     private function getImagePath($imagePath){
