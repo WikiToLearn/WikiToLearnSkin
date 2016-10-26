@@ -165,7 +165,8 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     <?php
     }
 
-    public function executeHeader() { ?>
+    public function executeHeader() {
+      global $wiki, $wiki_domain?>
       <header class="header">
         <div class="header__wrapper" >
           <div href="/" class="logo">
@@ -189,7 +190,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             <a href="<?php echo wfMessage('wikitolearnskin-navbar-about-link')->plain(); ?>" class="nav__link nav__link--hover-red">
               <?php echo wfMessage('wikitolearnskin-navbar-about'); ?>
             </a>
-            <a href="<?php echo wfMessage('wikitolearnskin-navbar-contribute-link')->plain(); ?>"  class="nav__link nav__link--hover-yellow">
+            <a href="//join.<?php echo $wiki_domain ."/" . $wiki ?>"  class="nav__link nav__link--hover-yellow">
               <?php echo wfMessage('wikitolearnskin-navbar-contribute'); ?>
             </a>
             <!--  -->

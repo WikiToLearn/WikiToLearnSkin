@@ -24,9 +24,9 @@
   "wikitolearnskin-navbar-createaccount": "Register",
 
   "wikitolearnskin-navbar-about" : "About",
-  "wikitolearnskin-navbar-about-link": "#",
+  "wikitolearnskin-navbar-about-link": "/About",
   "wikitolearnskin-navbar-contribute" : "Join Us",
-  "wikitolearnskin-navbar-contribute-link": "#",
+  "wikitolearnskin-navbar-contribute-link": "//join.wikitolearn.org",
   "wikitolearnskin-navbar-tools" : "Tools",
   "wikitolearnskin-navbar-tools-link": "#",
   "wikitolearnskin-navbar-language-selector": "Language",
@@ -141,4 +141,5 @@
   "wikitolearnskin-testimonials-second-image-path": "images/users/srijan.jpg",
 
   "wikitolearnskin-meta-tag-description": "WikiToLearn provides free, collaborative and accessible text books. Academics worldwide contribute in sharing knowledge by creating high quality content."
+
 }
