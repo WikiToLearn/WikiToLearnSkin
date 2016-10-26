@@ -113,7 +113,7 @@
 }
 
 .join-us {
-
+    
     &__content{
         position: relative;
         background-color: white;
@@ -169,6 +169,13 @@
             color: white;
             text-decoration: none;
             background-color: darken($green, 2%)
+        }
+    }
+
+    &__report{
+        color: $green;
+        &:hover{
+            color: darken($green, 2%);
         }
     }
 }

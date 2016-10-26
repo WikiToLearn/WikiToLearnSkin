@@ -359,6 +359,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 echo "<i class='fa fa-user'></i> <span class='stats__count'>" . wfMessage('createacct-benefit-head3')->text() . "</span> " . wfMessage('createacct-benefit-body3')->text();
                 echo " <br/><span class='stats__divider'></span>";
                 echo "<i class='fa fa-pencil'></i> <span class='stats__count'>" . wfMessage('createacct-benefit-head1')->text() . "</span> " . wfMessage('createacct-benefit-body1')->text();
+                echo "<br/><a class='join-us__report' href=". $this->getMessage('wikitolearnskin-latest-report-link'). ">" . $this->getMessage('wikitolearnskin-latest-report-text') . "</a>"
                 ?>
                 </div>
                 <a href="//join.<?php echo $wiki_domain ."/" . $wiki ?>" class="join-us__link"><?php echo wfMessage('wikitolearnskin-join-us-button'); ?></a>

@@ -142,6 +142,8 @@
   "wikitolearnskin-testimonials-first-image-path": "images/users/dan.jpg",
   "wikitolearnskin-testimonials-second-image-path": "images/users/srijan.jpg",
 
-  "wikitolearnskin-meta-tag-description": "WikiToLearn provides free, collaborative and accessible text books. Academics worldwide contribute in sharing knowledge by creating high quality content."
+  "wikitolearnskin-meta-tag-description": "WikiToLearn provides free, collaborative and accessible text books. Academics worldwide contribute in sharing knowledge by creating high quality content.",
 
+  "wikitolearnskin-latest-report-link": "https://reports.wikitolearn.org",
+  "wikitolearnskin-latest-report-text": "Read latest report"
 }
