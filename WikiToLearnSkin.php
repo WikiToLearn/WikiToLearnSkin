@@ -392,7 +392,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 </footer>
               </div>
             </div>
-            <div class="testimonial">
+            <!--<div class="testimonial">
               <a class="testimonial__link" href="#">
                 <img class="testimonial__image" src="<?php echo $this->getImagePath( $this->getMessage('wikitolearnskin-testimonials-third-image-path') ); ?>" alt="<?php echo $this->getMessage('wikitolearnskin-testimonials-third-name'); ?>">
               </a>
@@ -404,7 +404,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                   <cite><?php echo $this->getMessage('wikitolearnskin-testimonials-third-name'); ?></cite>
                 </footer>
               </div>
-            </div>
+            </div>-->
             <!--<a href="<?php echo wfMessage('wikitolearnskin-read-more-stories-button-link')->plain(); ?>" class="testimonials__read-more"><?php echo wfMessage('wikitolearnskin-read-more-stories-button'); ?></a>-->
           </div>
         </section>
