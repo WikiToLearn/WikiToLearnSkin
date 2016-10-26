@@ -587,7 +587,10 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               <ul>
                 <li><a href="mailto:info@wikitolearn.org">info@wikitolearn.org</a></li>
                 <li>
-                  <a href="<?php echo wfMessage("wikitolearnskin-footer-kit-channels-link")->plain(); ?>"><?php echo wfMessage("wikitolearnskin-footer-kit-channels-text"); ?></a>
+                  <a href="<?php echo wfMessage("wikitolearnskin-footer-chat-link")->plain(); ?>"><?php echo wfMessage("wikitolearnskin-footer-chat-text"); ?></a>
+                </li>
+                <li>
+                  <a href="<?php echo wfMessage("wikitolearnskin-footer-blog-link")->plain(); ?>"><?php echo wfMessage("wikitolearnskin-footer-blog-text"); ?></a>
                 </li>
               </ul>
             </li>
