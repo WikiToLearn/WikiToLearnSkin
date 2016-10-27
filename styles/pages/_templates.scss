@@ -226,4 +226,10 @@
 
 .endenvironment{
     margin-bottom: 1rem;
+
+    
+}
+
+.ve-active .endenvironment::after{
+    content: attr(data-endenvstring);
 }
