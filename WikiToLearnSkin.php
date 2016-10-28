@@ -43,9 +43,9 @@ class SkinWikiToLearnSkin extends SkinTemplate
         $out->addModules( 'skin.wikitolearn.js' );
         $out->addModules('ext.courseEditor.publish');
         if($out->getTitle()->isMainPage()){
-          $out->addMeta("description", $this->getMessage('wikitolearnskin-meta-tag-description'));
-          $out->addMeta("twitter:description", $this->getMessage('wikitolearnskin-meta-tag-description'));
-          $this->addMetaProperty($out, "og:description", $this->getMessage('wikitolearnskin-meta-tag-description'));
+          $out->addMeta("description", wfMessage('wikitolearnskin-meta-tag-description'));
+          $out->addMeta("twitter:description", wfMessage('wikitolearnskin-meta-tag-description'));
+          $this->addMetaProperty($out, "og:description", wfMessage('wikitolearnskin-meta-tag-description'));
           
           $out->addMeta("twitter:title", "WikiToLearn - collaborative textbooks");
           $this->addMetaProperty($out, "og:title", "WikiToLearn - collaborative textbooks");
