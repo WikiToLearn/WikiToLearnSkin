@@ -233,3 +233,17 @@
 .ve-active .endenvironment::after{
     content: attr(data-endenvstring);
 }
+
+.template.importedbadge .label{
+    background-color: #5bc0de;
+    color: white;
+    padding: 0 0.5rem;
+    border-radius: $border-radius;
+}
+
+.template.reviewedbadge .label{
+    background-color: $green;
+    color: white;
+    padding: 0 0.5rem;
+    border-radius: $border-radius;
+}

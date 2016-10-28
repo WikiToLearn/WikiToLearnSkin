@@ -383,12 +383,12 @@ main.page--article{
         li{
             margin: 0;
             padding: 0;
-            display: inline-block;
+            display: block;
             padding-top: 4rem;
             margin-top: -4rem;
-            
+
+            counter-increment: references;
             &::before{
-                counter-increment: references;
                 content: counter(references) ". ";
             }
         }
