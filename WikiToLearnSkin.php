@@ -42,7 +42,9 @@ class SkinWikiToLearnSkin extends SkinTemplate
         $out->addMeta( 'viewport', 'width=device-width, initial-scale=1' );
         $out->addModules( 'skin.wikitolearn.js' );
         $out->addModules('ext.courseEditor.publish');
-        if($out->getTitle()->isMainPage()){
+        if($out->getTitle()->isMainPage() ||
+          $this->getSkin()->getTitle()->getFullText() == wfMessage('wikitolearnskin-join-page') //join page
+        ){
           $out->addMeta("description", wfMessage('wikitolearnskin-meta-tag-description'));
           $out->addMeta("twitter:description", wfMessage('wikitolearnskin-meta-tag-description'));
           $this->addMetaProperty($out, "og:description", wfMessage('wikitolearnskin-meta-tag-description'));
@@ -136,6 +138,8 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               !$wgRequest->getText("action")) {  //if an action is set we don't render the home page
             MWDebug::log('Generating Homepage');
             $this->executeHome();
+          } else if($this->isJoinPage()){
+            $this->executeJoinPage();
           } else {
             MWDebug::log('Generating Content page');
             $this->executeContentPage();
@@ -394,7 +398,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 </footer>
               </div>
             </div>
-            <!--<div class="testimonial">
+            <div class="testimonial">
               <a class="testimonial__link" href="#">
                 <img class="testimonial__image" src="<?php echo $this->getImagePath( $this->getMessage('wikitolearnskin-testimonials-third-image-path') ); ?>" alt="<?php echo $this->getMessage('wikitolearnskin-testimonials-third-name'); ?>">
               </a>
@@ -406,7 +410,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                   <cite><?php echo $this->getMessage('wikitolearnskin-testimonials-third-name'); ?></cite>
                 </footer>
               </div>
-            </div>-->
+            </div>
             <!--<a href="<?php echo wfMessage('wikitolearnskin-read-more-stories-button-link')->plain(); ?>" class="testimonials__read-more"><?php echo wfMessage('wikitolearnskin-read-more-stories-button'); ?></a>-->
           </div>
         </section>
@@ -601,6 +605,46 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         </footer>
     <?php }
 
+    public function executeJoinPage() { ?>
+      <main class="page page-join">
+        <section class="why">
+          <div class="why__content">
+            <div class="reason">
+              <div class="reason__image" style="background-image:url(/skins/WikiToLearnSkin/images/join/student.png);"></div>
+              <div class="reason__content">
+                <h2 class="reason__title">Student</h2>
+                <div class="reason__text">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla libero fugit dolorem minus atque ea asperiores, dolor ipsum architecto dignissimos itaque, provident inventore nihil voluptatem quia ab molestiae hic reiciendis!
+                </div>
+              </div>
+            </div>
+            <div class="reason">
+              <div class="reason__content">
+                <h2 class="reason__title">Teacher</h2>
+                <div class="reason__text">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla libero fugit dolorem minus atque ea asperiores, dolor ipsum architecto dignissimos itaque, provident inventore nihil voluptatem quia ab molestiae hic reiciendis!
+                </div>
+              </div>
+              <div class="reason__image" style="background-image:url(/skins/WikiToLearnSkin/images/join/teacher.png);"></div>
+            </div>
+            <div class="reason">
+              <div class="reason__image" style="background-image:url(/skins/WikiToLearnSkin/images/join/other.png);"></div>
+              <div class="reason__content">
+                <h2 class="reason__title">Other</h2>
+                <div class="reason__text">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla libero fugit dolorem minus atque ea asperiores, dolor ipsum architecto dignissimos itaque, provident inventore nihil voluptatem quia ab molestiae hic reiciendis!
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="create-account">
+          <div class="create-account__content">
+          <a href="#">Create an account</a>
+          </div>
+        </section>
+      </main>
+    <?php }
     /*
     * Wrapper for generating and printing all kinds of breadcrumbs
     */
@@ -1192,5 +1236,12 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       } else { //get skin path
         return $this->getSkin()->getSkinStylePath($imagePath);
       }
+    }
+
+    private function isJoinPage(){
+      if($this->getSkin()->getTitle()->getFullText() == wfMessage('wikitolearnskin-join-page'))
+        return true;
+
+      return false;
     }
 }

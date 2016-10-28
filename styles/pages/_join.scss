@@ -1,0 +1,74 @@
+.page-join .why__content{
+    padding: $pages-home-content-padding;
+        
+    @include media-breakpoint-down(xs) {
+        @include make-container($gutter: 0)
+    }
+    @include media-breakpoint-up(sm) {
+        @include make-container();
+        @include make-container-max-widths();
+    }
+    padding-bottom: 1rem;
+
+    .reason{
+        display: flex;
+
+        background-color: white;
+        border-radius: $border-radius;
+        box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
+        margin-bottom: 1rem;
+        overflow: hidden;
+        &__image{
+            flex: 0 0 percentage(1/4);
+            
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        &__content{
+            padding: 1rem 1.5rem;
+            flex: 0 0 percentage(3/4);
+        }
+
+        &__title{
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        &__text{
+            font-size: 1.1rem;
+            line-height: 1.5rem;
+        }
+    }
+   
+}
+
+.page-join .create-account__content{
+    padding: $pages-home-content-padding;
+        
+    @include media-breakpoint-down(xs) {
+        @include make-container($gutter: 0)
+    }
+    @include media-breakpoint-up(sm) {
+        @include make-container();
+        @include make-container-max-widths();
+    }
+    
+    padding-top: 0;
+
+    text-align: center;
+    a{
+        display: inline-block;
+        width: 60%;
+        padding: 0.5rem 3rem;
+        background-color: $green;
+        color: white;
+        border-radius: $border-radius;
+        font-size: 1.5rem;
+        &:hover{
+            background-color: darken($green, 2%);
+            text-decoration: none;
+        }
+    }
+}
