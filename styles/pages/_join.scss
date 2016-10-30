@@ -8,9 +8,11 @@
         @include make-container();
         @include make-container-max-widths();
     }
-    
+    padding-top: 1rem;
     .why__title{
         margin-bottom: 1rem;
+        font-size: 2.5rem;
+        text-align: center;
     }
     .reason{
         display: flex;
@@ -109,6 +111,8 @@
     }
 
     .step{
+        
+        
 
         &__wrapper{
             margin: 1rem 0.5rem;
@@ -116,12 +120,16 @@
             background-color: white;
             border-radius: $border-radius;
             overflow: hidden;
+            position: relative;
+            height: 100%;
         }
 
         flex: 0 0 percentage(1/3);
 
 
         &__image{
+            border-radius: $border-radius;
+            overflow: hidden;
             img{
                 width: 100%;
             }
@@ -132,7 +140,29 @@
             padding-top: 0.5rem;
 
             p{
-                margin-bottom: 0;
+                margin-bottom: 1.5rem;
+            }
+
+            a{
+                color: $green;
+            }
+        }
+
+        &__button{
+            position: absolute;
+            padding: 0.5rem;
+            left: 1rem;
+            right: 1rem;
+            bottom: 1rem;
+            color: white;
+            font-weight: 600;
+            border-radius: $border-radius;
+            background-color: $green;
+            display: block;
+            text-align: center;
+            &:hover{
+                background-color: darken($green, 2%);
+                text-decoration: none;
             }
         }
     }

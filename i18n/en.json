@@ -2,7 +2,6 @@
   "skinname-wikitolearnskin": "WikiToLearn",
   "wikitolearnskin-desc": "Our hand-made skin, with many custom functionalities and improvements that allows you to browse WikiToLearn how it was meant to be.",
 
-  "wikitolearnskin-join-page" : "Join",
 
   "wikitolearnskin-next-button-title" : "Next",
   "wikitolearnskin-previous-button-title" : "Previous",
@@ -100,5 +99,38 @@
   "wikitolearnskin-meta-tag-description": "WikiToLearn provides free, collaborative and accessible text books. Academics worldwide contribute in sharing knowledge by creating high quality content.",
 
   "wikitolearnskin-latest-report-link": "https://reports.wikitolearn.org",
-  "wikitolearnskin-latest-report-text": "Read latest report"
+  "wikitolearnskin-latest-report-text": "Read latest report",
+
+  "wikitolearnskin-join-page" : "Join",
+  "wikitolearnskin-join-title": "Join WikiToLearn!",
+  "wikitolearnskin-join-student": "Student",
+  "wikitolearnskin-join-student-text": "Do you want to share your notes with the whole world? Do you want to create books precisely tailored to your needs? WikiToLearn and its tools for book editing and importing are what you are looking for!",
+  "wikitolearnskin-join-student-link": "/Student",
+
+  "wikitolearnskin-join-professor": "Professor",
+  "wikitolearnskin-join-professor-text": "Are you looking for a way to be aware of your students' understanding of your lessons? Would you like to contribute to make educational material freely accessible, reliable and complete? Your knowledge is fundamental to ensure high standards for the content on WikiToLearn!",
+  "wikitolearnskin-join-professor-link": "/Professor",
+
+  "wikitolearnskin-join-other": "Hacker",
+  "wikitolearnskin-join-other-text": "WikiToLearn is a wide project, open to any kind of contribution. Are you an open-source enthusiast and do you want to support our community? Do you like coding or do you want to help us with translations? In our project anyone can give his help, do not hesitate anymore: find out more on how you can put your best efforts in WikiToLearn!",
+  "wikitolearnskin-join-other-link": "/Hacker",
+   
+
+  "wikitolearnskin-join-step-guide-title": "Read the guide",
+  "wikitolearnskin-join-step-guide-content": "We wrote a detailed and easy to read guide about the website. Please give it a look before contributing, so you can learn all the tips and tricks of WikiToLearn.",
+  "wikitolearnskin-join-step-guide-button-text": "Read now",
+  "wikitolearnskin-join-step-guide-button-link": "/Manual",
+
+  "wikitolearnskin-join-step-chat-title": "Chat with us",
+  "wikitolearnskin-join-step-chat-content": "Do you need support? Still unsure about how you can help? We communicate and coordinate our community via rocketchat. Press the button, register an account and you are to talk with us!",
+  "wikitolearnskin-join-step-chat-button-text": "Open chat",
+  "wikitolearnskin-join-step-chat-button-link": "//chat.wikitolearn.org",
+
+  "wikitolearnskin-join-step-social-title": "Keep in touch",
+  "wikitolearnskin-join-step-social-content": "Don't forget to follow us on social networks! You will always be up-to-date with the latest news and developments of WikiToLearn. If you have any further question you can also <a href='mailto:info@wikitolearn.org'>email us</a>.",
+
+  "wikitolearnskin-join-create-account": "Create an account",
+  "wikitolearnskin-join-read-more": "Read more",
+
+  "wikitolearnskin-join-next-steps": "Next steps"
 }

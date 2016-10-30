@@ -94,5 +94,38 @@
   "wikitolearnskin-testimonials-second-name": "Marco Paganoni, Direttore dipartimento di Fisica, Università di Milano Bicocca",
   
   "wikitolearnskin-publish-course-tool" : "Pubblica corso",
-  "wikitolearnskin-undo-publish-course-tool" : "Annullare pubblicazione corso"
+  "wikitolearnskin-undo-publish-course-tool" : "Annullare pubblicazione corso",
+
+  "wikitolearnskin-join-page" : "Unisciti",
+  "wikitolearnskin-join-title": "Unisciti a WikiToLearn!",
+  "wikitolearnskin-join-student": "Studente",
+  "wikitolearnskin-join-student-text": "Do you want to share your notes with the whole world? Do you want to create books precisely tailored to your needs? WikiToLearn and its tools for book editing and importing are what you are looking for!",
+  "wikitolearnskin-join-student-link": "/Studente",
+
+  "wikitolearnskin-join-professor": "Professore",
+  "wikitolearnskin-join-professor-text": "Are you looking for a way to be aware of your students' understanding of your lessons? Would you like to contribute to make educational material freely accessible, reliable and complete? Your knowledge is fundamental to ensure high standards for the content on WikiToLearn!",
+  "wikitolearnskin-join-professor-link": "/Professore",
+
+  "wikitolearnskin-join-other": "Hacker",
+  "wikitolearnskin-join-other-text": "WikiToLearn is a wide project, open to any kind of contribution. Are you an open-source enthusiast and do you want to support our community? Do you like coding or do you want to help us with translations? In our project anyone can give his help, do not hesitate anymore: find out more on how you can put your best efforts in WikiToLearn!",
+  "wikitolearnskin-join-other-link": "/Hacker",
+   
+
+  "wikitolearnskin-join-step-guide-title": "Leggi la guida",
+  "wikitolearnskin-join-step-guide-content": "Abbiamo scritto una semplice ma dettagliata guida sul sito. Per piacere dagli un'occhiata prima di contribuire in modo da imparare tutto sul funzionamento di WikiToLearn.",
+  "wikitolearnskin-join-step-guide-button-text": "Leggila ora",
+  "wikitolearnskin-join-step-guide-button-link": "/Manual",
+
+  "wikitolearnskin-join-step-chat-title": "Chatta con noi",
+  "wikitolearnskin-join-step-chat-content": "Hai bisogno di aiuto? Non sei ancora sicuro su come puoi aiutare? Comunichiamo e coordiniamo la community via rocketchat. Premi il bottone, registrati e sei pronto a parlare con noi!",
+  "wikitolearnskin-join-step-chat-button-text": "Apri chat",
+  "wikitolearnskin-join-step-chat-button-link": "//chat.wikitolearn.org",
+
+  "wikitolearnskin-join-step-social-title": "Resta in contatto",
+  "wikitolearnskin-join-step-social-content": "Non dimenticarti di seguirci sui social network! Sarai sempre aggiornato con le ultime novità e sviluppi di WikiToLearn. Se hai ulteriori domande puoi anche <a href='mailto:info@wikitolearn.org'>mandarci una mail</a>.",
+
+  "wikitolearnskin-join-create-account": "Crea un account",
+  "wikitolearnskin-join-read-more": "Leggi di più",
+
+  "wikitolearnskin-join-next-steps": "Prossimi step"
 }

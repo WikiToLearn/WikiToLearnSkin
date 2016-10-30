@@ -120,14 +120,12 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       $this->supportedLanguages = $wgSupportedLanguages;
       $this->domain = $wiki_domain;
 
+      self::prepareOverrideMessages();
       if($this->namespaceId != NS_SPECIAL && $this->namespaceId != NS_MEDIA){
         $wikiPage = WikiPage::factory($this->pageTitle);
         $this->pageText = $wikiPage->getText();
         self::prepareCategory();
-        self::prepareOverrideMessages();
       }
-
-
       $this->html( 'headelement' );
       $this->executeCookies(); ?>
         <?php
@@ -609,26 +607,27 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       <main class="page page-join">
         <section class="why">
           <div class="why__content">
+            <h2 class="why__title"><?php echo $this->getMessage('wikitolearnskin-join-title')?></h2>
             <div class="reason">
               <div class="reason__image" style="background-image:url(/skins/WikiToLearnSkin/images/join/student.png);"></div>
               <div class="reason__content">
-                <h2 class="reason__title">Student</h2>
+                <h2 class="reason__title"><?php echo $this->getMessage('wikitolearnskin-join-student');?></h2>
                 <div class="reason__text">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla libero fugit dolorem minus atque ea asperiores, dolor ipsum architecto dignissimos itaque, provident inventore nihil voluptatem quia ab molestiae hic reiciendis!
+                  <?php echo $this->getMessage('wikitolearnskin-join-student-text');?>
                 </div>
                 <div class="reason__more">
-                  <a href="#">Read More</a>
+                  <a href="<?php echo $this->getMessage('wikitolearnskin-join-student-link');?>"><?php echo $this->getMessage('wikitolearnskin-join-read-more');?></a>
                 </div>
               </div>
             </div>
             <div class="reason">
               <div class="reason__content">
-                <h2 class="reason__title">Teacher</h2>
+                <h2 class="reason__title"><?php echo $this->getMessage('wikitolearnskin-join-professor');?></h2>
                 <div class="reason__text">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, qui sed distinctio esse commodi impedit atque aliquam neque nisi corporis eum maxime, blanditiis, praesentium rerum laudantium cum quos totam provident.
+                  <?php echo $this->getMessage('wikitolearnskin-join-professor-text');?>
                 </div>
                 <div class="reason__more">
-                  <a href="#">Read More</a>
+                  <a href="<?php echo $this->getMessage('wikitolearnskin-join-professor-link');?>"><?php echo $this->getMessage('wikitolearnskin-join-read-more'); ?></a>
                 </div>
               </div>
               <div class="reason__image" style="background-image:url(/skins/WikiToLearnSkin/images/join/teacher.png);"></div>
@@ -636,12 +635,12 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             <div class="reason">
               <div class="reason__image" style="background-image:url(/skins/WikiToLearnSkin/images/join/other.png);"></div>
               <div class="reason__content">
-                <h2 class="reason__title">Other</h2>
+                <h2 class="reason__title"><?php echo $this->getMessage('wikitolearnskin-join-other'); ?></h2>
                 <div class="reason__text">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque saepe impedit labore illum assumenda, tempore distinctio. Placeat sit aspernatur tenetur ex officiis fugiat, eius quos ab, illo officia expedita? Doloribus.
+                  <?php echo $this->getMessage('wikitolearnskin-join-other-text'); ?>
                 </div>
                 <div class="reason__more">
-                  <a href="#">Read More</a>
+                  <a href="<?php echo $this->getMessage('wikitolearnskin-join-other-link');?>"><?php echo $this->getMessage('wikitolearnskin-join-read-more'); ?></a>
                 </div>
               </div>
             </div>
@@ -649,12 +648,12 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         </section>
         <section class="create-account">
           <div class="create-account__content">
-          <a href="#">Create an account</a>
+          <a href="<?php echo $this->skin->makeSpecialUrl('CreateAccount'); ?>"><?php echo $this->getMessage('wikitolearnskin-join-create-account'); ?></a>
           </div>
         </section>
         <section class="next-steps">
           <div class="next-steps__content">
-            <h1>Next steps</h1>
+            <h1><?php echo $this->getMessage('wikitolearnskin-join-next-steps'); ?></h1>
             <div class="steps">
               <div class="step">
                 <div class="step__wrapper">
@@ -662,31 +661,34 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                     <img src="/skins/WikiToLearnSkin/images/join/chat.png" alt="">
                   </div>
                   <div class="step__content">
-                    <h3>Chat with us</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt fuga at doloribus! Voluptates maiores aliquid velit officia amet doloremque necessitatibus. Similique dolorum fugiat, dolor suscipit? Omnis amet ullam pariatur. Excepturi.</p>
+                    <h3><?php echo $this->getMessage('wikitolearnskin-join-step-chat-title'); ?></h3>
+                    <p><?php echo $this->getMessage('wikitolearnskin-join-step-chat-content', false); ?></p>
                   </div>
+                  <a class="step__button" href="<?php echo $this->getMessage('wikitolearnskin-join-step-chat-button-link'); ?>"><?php echo $this->getMessage('wikitolearnskin-join-step-chat-button-text'); ?></a>
                 </div>
               </div>
               <div class="step">
                 <div class="step__wrapper">
                   <div class="step__image">
-                    <img src="/skins/WikiToLearnSkin/images/join/chat.png" alt="">
+                    <img src="/skins/WikiToLearnSkin/images/join/guide.png" alt="">
                   </div>
                   <div class="step__content">
-                    <h3>Read the guide</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt fuga at doloribus! Voluptates maiores aliquid velit officia amet doloremque necessitatibus. Similique dolorum fugiat, dolor suscipit? Omnis amet ullam pariatur. Excepturi.</p>
+                    <h3><?php echo $this->getMessage('wikitolearnskin-join-step-guide-title'); ?></h3>
+                    <p><?php echo $this->getMessage('wikitolearnskin-join-step-guide-content', false); ?></p>
                   </div>
+                  <a class="step__button" href="<?php echo $this->getMessage('wikitolearnskin-join-step-guide-button-link'); ?>"><?php echo $this->getMessage('wikitolearnskin-join-step-guide-button-text'); ?></a>
                 </div>
               </div>
               <div class="step">
                 <div class="step__wrapper">
                   <div class="step__image">
-                    <img src="/skins/WikiToLearnSkin/images/join/chat.png" alt="">
+                    <img src="/skins/WikiToLearnSkin/images/join/social.png" alt="">
                   </div>
                   <div class="step__content">
-                    <h3>Follow us</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum maiores sequi totam suscipit fugit tempore debitis architecto, autem sapiente illum veritatis praesentium ad et enim laboriosam similique, assumenda a amet.</p>
+                    <h3><?php echo $this->getMessage('wikitolearnskin-join-step-social-title'); ?></h3>
+                    <p><?php echo $this->getMessage('wikitolearnskin-join-step-social-content', false); ?></p>
                   </div>
+                  <!--<a class="step__button" href="#"><?php echo $this->getMessage('wikitolearnskin-join-step-social-button-text'); ?></a>-->
                 </div>
               </div>
             </div>
