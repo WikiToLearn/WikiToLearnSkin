@@ -608,9 +608,69 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
 
     public function executeJoinPage() { ?>
       <main class="page page-join">
+        <section class="first-steps">
+          <div class="first-steps__content">
+            <h1 class="first-steps__title"><?php echo $this->getMessage('wikitolearnskin-join-title')?></h1>
+            <div class="steps">
+              <div class="step">
+                <div class="step__wrapper">
+                  <div class="step__image">
+                    <img src="/skins/WikiToLearnSkin/images/join/social.png" alt="">
+                  </div>
+                  <div class="step__content">
+                    <h3><?php echo $this->getMessage('wikitolearnskin-join-step-account-title')?></h3>
+                    <p><?php echo $this->getMessage('wikitolearnskin-join-step-account-content', false)?></p>
+                  </div>
+                  <a class="step__button" href="<?php echo $this->skin->makeSpecialUrl('CreateAccount'); ?>"><?php echo $this->getMessage('wikitolearnskin-join-step-account-button-text'); ?></a>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step__wrapper">
+                  <div class="step__image">
+                    <img src="/skins/WikiToLearnSkin/images/join/guide.png" alt="">
+                  </div>
+                  <div class="step__content">
+                    <h3><?php echo $this->getMessage('wikitolearnskin-join-step-guide-title'); ?></h3>
+                    <p><?php echo $this->getMessage('wikitolearnskin-join-step-guide-content', false); ?></p>
+                  </div>
+                  <a class="step__button" href="<?php echo $this->getMessage('wikitolearnskin-join-step-guide-button-link'); ?>"><?php echo $this->getMessage('wikitolearnskin-join-step-guide-button-text'); ?></a>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step__wrapper">
+                  <div class="step__image">
+                    <img src="/skins/WikiToLearnSkin/images/join/chat.png" alt="">
+                  </div>
+                  <div class="step__content">
+                    <h3><?php echo $this->getMessage('wikitolearnskin-join-step-chat-title'); ?></h3>
+                    <p><?php echo $this->getMessage('wikitolearnskin-join-step-chat-content', false); ?></p>
+                  </div>
+                  <a class="step__button" href="<?php echo $this->getMessage('wikitolearnskin-join-step-chat-button-link'); ?>"><?php echo $this->getMessage('wikitolearnskin-join-step-chat-button-text'); ?></a>
+                </div>
+              </div>
+              <!--<div class="step">
+                <div class="step__wrapper">
+                  <div class="step__image">
+                    <img src="/skins/WikiToLearnSkin/images/join/social.png" alt="">
+                  </div>
+                  <div class="step__content">
+                    <h3><?php echo $this->getMessage('wikitolearnskin-join-step-social-title'); ?></h3>
+                    <p><?php echo $this->getMessage('wikitolearnskin-join-step-social-content', false); ?></p>
+                  </div>
+                  <div class="step__social-icons">
+                  <a href="https://facebook.com/WikiToLearn" class="fa fa-fw fa-facebook"></a>
+                  <a href="https://twitter.com/WikiToLearn" class="fa fa-fw fa-twitter"></a>
+                  <a href="https://telegram.me/WikiToLearnNews" class="fa fa-fw fa-telegram"></a>
+                  <a href="https://www.linkedin.com/company/wikitolearn" class="fa fa-fw fa-linkedin"></a>
+                  </div>
+                </div>
+              </div>-->
+            </div>
+          </div>
+        </section>
         <section class="why">
           <div class="why__content">
-            <h2 class="why__title"><?php echo $this->getMessage('wikitolearnskin-join-title')?></h2>
+            <h2 class="why__title"><?php echo $this->getMessage('wikitolearnskin-join-why-join');?></h2>
             <div class="reason">
               <div class="reason__image" style="background-image:url(/skins/WikiToLearnSkin/images/join/student.png);"></div>
               <div class="reason__content">
@@ -650,59 +710,12 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             </div>
           </div>
         </section>
-        <section class="create-account">
+        <!--<section class="create-account">
           <div class="create-account__content">
           <a href="<?php echo $this->skin->makeSpecialUrl('CreateAccount'); ?>"><?php echo $this->getMessage('wikitolearnskin-join-create-account'); ?></a>
           </div>
-        </section>
-        <section class="next-steps">
-          <div class="next-steps__content">
-            <h1><?php echo $this->getMessage('wikitolearnskin-join-next-steps'); ?></h1>
-            <div class="steps">
-              <div class="step">
-                <div class="step__wrapper">
-                  <div class="step__image">
-                    <img src="/skins/WikiToLearnSkin/images/join/chat.png" alt="">
-                  </div>
-                  <div class="step__content">
-                    <h3><?php echo $this->getMessage('wikitolearnskin-join-step-chat-title'); ?></h3>
-                    <p><?php echo $this->getMessage('wikitolearnskin-join-step-chat-content', false); ?></p>
-                  </div>
-                  <a class="step__button" href="<?php echo $this->getMessage('wikitolearnskin-join-step-chat-button-link'); ?>"><?php echo $this->getMessage('wikitolearnskin-join-step-chat-button-text'); ?></a>
-                </div>
-              </div>
-              <div class="step">
-                <div class="step__wrapper">
-                  <div class="step__image">
-                    <img src="/skins/WikiToLearnSkin/images/join/guide.png" alt="">
-                  </div>
-                  <div class="step__content">
-                    <h3><?php echo $this->getMessage('wikitolearnskin-join-step-guide-title'); ?></h3>
-                    <p><?php echo $this->getMessage('wikitolearnskin-join-step-guide-content', false); ?></p>
-                  </div>
-                  <a class="step__button" href="<?php echo $this->getMessage('wikitolearnskin-join-step-guide-button-link'); ?>"><?php echo $this->getMessage('wikitolearnskin-join-step-guide-button-text'); ?></a>
-                </div>
-              </div>
-              <div class="step">
-                <div class="step__wrapper">
-                  <div class="step__image">
-                    <img src="/skins/WikiToLearnSkin/images/join/social.png" alt="">
-                  </div>
-                  <div class="step__content">
-                    <h3><?php echo $this->getMessage('wikitolearnskin-join-step-social-title'); ?></h3>
-                    <p><?php echo $this->getMessage('wikitolearnskin-join-step-social-content', false); ?></p>
-                  </div>
-                  <div class="step__social-icons">
-                  <a href="https://facebook.com/WikiToLearn" class="fa fa-fw fa-facebook"></a>
-                  <a href="https://twitter.com/WikiToLearn" class="fa fa-fw fa-twitter"></a>
-                  <a href="https://telegram.me/WikiToLearnNews" class="fa fa-fw fa-telegram"></a>
-                  <a href="https://www.linkedin.com/company/wikitolearn" class="fa fa-fw fa-linkedin"></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        </section>-->
+       
       </main>
     <?php }
     /*

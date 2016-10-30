@@ -113,14 +113,18 @@
   "wikitolearnskin-join-other-link": "/Hacker",
    
 
+  "wikitolearnskin-join-step-account-title": "Crea un account",
+  "wikitolearnskin-join-step-account-content": "Il primo passo per unirsi a WikiToLearn è creare un account sul sito. E' semplice ed essenziale per ogni nuovo membro.",
+  "wikitolearnskin-join-step-account-button-text": "Crea un account",
+
   "wikitolearnskin-join-step-guide-title": "Leggi la guida",
   "wikitolearnskin-join-step-guide-content": "Abbiamo scritto una semplice ma dettagliata guida sul sito. Ti invitiamo a dargli un'occhiata prima di contribuire in modo da imparare tutto sul funzionamento di WikiToLearn.",
-  "wikitolearnskin-join-step-guide-button-text": "Leggila ora",
+  "wikitolearnskin-join-step-guide-button-text": "Leggi la guida",
   "wikitolearnskin-join-step-guide-button-link": "/Manual",
 
   "wikitolearnskin-join-step-chat-title": "Chatta con noi",
   "wikitolearnskin-join-step-chat-content": "Hai bisogno di aiuto? Non sei ancora sicuro su come puoi aiutare? Comunichiamo e coordiniamo la community via rocketchat. Premi il bottone, registrati e sei pronto a parlare con noi!",
-  "wikitolearnskin-join-step-chat-button-text": "Apri chat",
+  "wikitolearnskin-join-step-chat-button-text": "Apri la chat",
   "wikitolearnskin-join-step-chat-button-link": "//chat.wikitolearn.org",
 
   "wikitolearnskin-join-step-social-title": "Resta in contatto",
@@ -129,5 +133,6 @@
   "wikitolearnskin-join-create-account": "Crea un account",
   "wikitolearnskin-join-read-more": "Leggi di più",
 
-  "wikitolearnskin-join-next-steps": "Prossimi step"
+  "wikitolearnskin-join-next-steps": "Prossimi step",
+  "wikitolearnskin-join-why-join": "Perchè unirsi?"
 }

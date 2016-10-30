@@ -9,10 +9,10 @@
         @include make-container-max-widths();
     }
     padding-top: 1rem;
+    
     .why__title{
         margin-bottom: 1rem;
         font-size: 2.5rem;
-        text-align: center;
     }
     .reason{
 
@@ -102,7 +102,7 @@
     }
 }
 
-.page-join .next-steps__content{
+.page-join .first-steps__content{
     padding: $pages-home-content-padding;
         
     @include media-breakpoint-down(xs) {
@@ -112,7 +112,12 @@
         @include make-container();
         @include make-container-max-widths();
     }
-        
+    
+    .first-steps__title{
+        margin-bottom: 1rem;
+        font-size: 2.5rem;
+        text-align: center;
+    }
     .steps{
         display: flex;
 
@@ -140,7 +145,10 @@
             border-radius: $border-radius;
             overflow: hidden;
             img{
-                width: 100%;
+                max-height: 7rem;
+                max-width: 100%;
+                margin: 0.5rem auto;
+                display: block;
             }
         }
 

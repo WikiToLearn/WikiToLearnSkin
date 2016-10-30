@@ -115,6 +115,9 @@
   "wikitolearnskin-join-other-text": "WikiToLearn is a wide project, open to any kind of contribution. Are you an open-source enthusiast and do you want to support our community? Do you like coding or do you want to help us with translations? In our project anyone can give his help, do not hesitate anymore: find out more on how you can put your best efforts in WikiToLearn!",
   "wikitolearnskin-join-other-link": "/Hacker",
    
+  "wikitolearnskin-join-step-account-title": "Create an account",
+  "wikitolearnskin-join-step-account-content": "The first step in joining WikiTolearn is creating an account on the website. It's easy and essential for a new contributor.",
+  "wikitolearnskin-join-step-account-button-text": "Create an account",
 
   "wikitolearnskin-join-step-guide-title": "Read the guide",
   "wikitolearnskin-join-step-guide-content": "We wrote a detailed and easy to read guide about the website. Please give it a look before contributing, so you can learn all the tips and tricks of WikiToLearn.",
@@ -122,7 +125,7 @@
   "wikitolearnskin-join-step-guide-button-link": "/Manual",
 
   "wikitolearnskin-join-step-chat-title": "Chat with us",
-  "wikitolearnskin-join-step-chat-content": "Do you need support? Still unsure about how you can help? We communicate and coordinate our community via rocketchat. Press the button, register an account and you are to talk with us!",
+  "wikitolearnskin-join-step-chat-content": "Do you need support? Still unsure about how you can help? We communicate and coordinate our community via rocketchat. Press the button, register a chat account and you are to talk with us!",
   "wikitolearnskin-join-step-chat-button-text": "Open chat",
   "wikitolearnskin-join-step-chat-button-link": "//chat.wikitolearn.org",
 
@@ -132,5 +135,7 @@
   "wikitolearnskin-join-create-account": "Create an account",
   "wikitolearnskin-join-read-more": "Read more",
 
-  "wikitolearnskin-join-next-steps": "Next steps"
+  "wikitolearnskin-join-next-steps": "Next steps",
+  "wikitolearnskin-join-why-join": "Why join?"
+
 }
