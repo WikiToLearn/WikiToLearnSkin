@@ -151,7 +151,7 @@ body{
 
     //visual editor
     .ve-ui-overlay{
-        z-index: 10;
+        z-index: 5;
         font-size: 0.8em;
 
         & .oo-ui-fieldLayout-body{ //https://phabricator.kde.org/T3956
@@ -165,6 +165,7 @@ body{
     
     .ve-ui-toolbar-floating > .oo-ui-toolbar-bar {
         top: 3rem;
+        z-index: 10;
     }
 
     // Mediawiki hack: they  use a tag <meta> that contains math

@@ -11,7 +11,9 @@
   "wikitolearnskin-navbar-login": "Login",
   "wikitolearnskin-navbar-createaccount": "Registrati",
 
-  "wikitolearnskin-navbar-about" : "Cos'è",
+  "wikitolearnskin-navbar-about" : "Chi Siamo",
+  "wikitolearnskin-navbar-about-link": "/Chi Siamo",
+
   "wikitolearnskin-navbar-contribute" : "Unisciti",
   "wikitolearnskin-navbar-tools" : "Strumenti",
   "wikitolearnskin-navbar-language-selector": "Lingua",
@@ -88,9 +90,44 @@
   "wikitolearnskin-footer-keep-in-touch" : "Seguici",
 
   "wikitolearnskin-testimonials-first-quote": "Sono entrato in WikiToLearn per curiosità e per spirito di collaborazione. Adesso è come avere una famiglia su a Milano, da andare a trovare e con cui sto bene.",
+  "wikitolearnskin-testimonials-first-name": "Daniele Pannozzo, Università 'La Sapienza', Roma",
   "wikitolearnskin-testimonials-third-quote": "WikiToLearn, per me, è come una seconda famiglia! Mi ha insegnato che la passione per il sapere e l’apprendimento possono superare ogni tipo di barriera, anche quelle geografiche e culturali!",
-
+  "wikitolearnskin-testimonials-second-quote": "È davvero incoraggiante vedere una comunità di giovani, unita dal nobile fine di diffondere il sapere e la cultura. WikiToLearn è molto più che una semplice innovazione tecnologica!",
+  "wikitolearnskin-testimonials-second-name": "Marco Paganoni, Direttore dipartimento di Fisica, Università di Milano Bicocca",
   
   "wikitolearnskin-publish-course-tool" : "Pubblica corso",
-  "wikitolearnskin-undo-publish-course-tool" : "Annullare pubblicazione corso"
+  "wikitolearnskin-undo-publish-course-tool" : "Annullare pubblicazione corso",
+
+  "wikitolearnskin-join-page" : "Unisciti",
+  "wikitolearnskin-join-title": "Unisciti a WikiToLearn!",
+  "wikitolearnskin-join-student": "Studente",
+  "wikitolearnskin-join-student-text": "Vuoi condividere i tuoi appunti con tutto il mondo? Vuoi create libri assemblati perfettamente sui tuoi interessi? WikiToLearn e i suoi strumenti per la scrittura, importazione ed esportazione di appunti sono quello che stai cercando!",
+  "wikitolearnskin-join-student-link": "/Studente",
+
+  "wikitolearnskin-join-professor": "Insegnante",
+  "wikitolearnskin-join-professor-text": "Stai cercando un modo per monitorare l'apprendimento dei tuoi studenti? Vorresti contribuire alla creazione di materiale educativo libero, affidabile e completo? Le tue conoscenze sono fondamentali per assicurare ottima qualità al contenuto su WikiToLearn!",
+  "wikitolearnskin-join-professor-link": "/Insegnante",
+
+  "wikitolearnskin-join-other": "Hacker",
+  "wikitolearnskin-join-other-text": "WikiToLearn è un progetto di ampia portata, aperto ad ogni tipo di contributo. Sei un entusiasta di open-source? Ti piace programmare oppure vuoi aiutarci con le traduzioni? All'interno del nostro progetto chiunque può dare il suo aiuto, non aspettare oltre: scopri come poter collaborare con WikiToLearn!",
+  "wikitolearnskin-join-other-link": "/Hacker",
+   
+
+  "wikitolearnskin-join-step-guide-title": "Leggi la guida",
+  "wikitolearnskin-join-step-guide-content": "Abbiamo scritto una semplice ma dettagliata guida sul sito. Per piacere dagli un'occhiata prima di contribuire in modo da imparare tutto sul funzionamento di WikiToLearn.",
+  "wikitolearnskin-join-step-guide-button-text": "Leggila ora",
+  "wikitolearnskin-join-step-guide-button-link": "/Manual",
+
+  "wikitolearnskin-join-step-chat-title": "Chatta con noi",
+  "wikitolearnskin-join-step-chat-content": "Hai bisogno di aiuto? Non sei ancora sicuro su come puoi aiutare? Comunichiamo e coordiniamo la community via rocketchat. Premi il bottone, registrati e sei pronto a parlare con noi!",
+  "wikitolearnskin-join-step-chat-button-text": "Apri chat",
+  "wikitolearnskin-join-step-chat-button-link": "//chat.wikitolearn.org",
+
+  "wikitolearnskin-join-step-social-title": "Resta in contatto",
+  "wikitolearnskin-join-step-social-content": "Non dimenticarti di seguirci sui social network! Sarai sempre aggiornato con le ultime novità e sviluppi di WikiToLearn. Se hai ulteriori domande puoi anche <a href='mailto:info@wikitolearn.org'>mandarci una mail</a>.",
+
+  "wikitolearnskin-join-create-account": "Crea un account",
+  "wikitolearnskin-join-read-more": "Leggi di più",
+
+  "wikitolearnskin-join-next-steps": "Prossimi step"
 }

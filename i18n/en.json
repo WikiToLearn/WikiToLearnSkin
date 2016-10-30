@@ -2,7 +2,6 @@
   "skinname-wikitolearnskin": "WikiToLearn",
   "wikitolearnskin-desc": "Our hand-made skin, with many custom functionalities and improvements that allows you to browse WikiToLearn how it was meant to be.",
 
-  "wikitolearnskin-join-page" : "Join",
 
   "wikitolearnskin-next-button-title" : "Next",
   "wikitolearnskin-previous-button-title" : "Previous",
@@ -88,17 +87,50 @@
   "wikitolearnskin-user-tools-emailuser-title": "Email User",
 
   "wikitolearnskin-testimonials-first-quote": "I joined WikiToLearn not only out of curiosity, but also because of the  collaborational spirit. Now it's like having a second family in Milan, who I enjoy visiting and spending time with.",
-  "wikitolearnskin-testimonials-first-name": "Daniele Pannozzo, Roma, Università la Sapienza",
+  "wikitolearnskin-testimonials-first-name": "Daniele Pannozzo, 'La Sapienza' University, Rome",
   "wikitolearnskin-testimonials-first-image-path": "images/users/dan.jpg",
   "wikitolearnskin-testimonials-third-quote": "WikiToLearn, for me, is like a second family! It has taught me that love for knowledge and learning can overcome all kind of barriers, even geographical and cultural ones!",
   "wikitolearnskin-testimonials-third-name": "Srijan Agrawal, Amrita University, Amritapuri Campus",
   "wikitolearnskin-testimonials-third-image-path": "images/users/srijan.jpg",
-  "wikitolearnskin-testimonials-second-quote": "It is encouraging to see a wide community of young people moved by the noble aim of spreading knowledge and cuture. WTL is  much more than cutting edge technology!",
-  "wikitolearnskin-testimonials-second-name": "Marco Paganoni, Università degli studi Milano Bicocca",
+  "wikitolearnskin-testimonials-second-quote": "It is encouraging to see a wide community of young people moved by the noble aim of spreading knowledge and cuture. WikiTolearn is  much more than cutting edge technology!",
+  "wikitolearnskin-testimonials-second-name": "Marco Paganoni, Physics Department Director, University of Milano Bicocca",
   "wikitolearnskin-testimonials-second-image-path": "images/placeholder-user.png",
 
   "wikitolearnskin-meta-tag-description": "WikiToLearn provides free, collaborative and accessible text books. Academics worldwide contribute in sharing knowledge by creating high quality content.",
 
   "wikitolearnskin-latest-report-link": "https://reports.wikitolearn.org",
-  "wikitolearnskin-latest-report-text": "Read latest report"
+  "wikitolearnskin-latest-report-text": "Read latest report",
+
+  "wikitolearnskin-join-page" : "Join",
+  "wikitolearnskin-join-title": "Join WikiToLearn!",
+  "wikitolearnskin-join-student": "Student",
+  "wikitolearnskin-join-student-text": "Do you want to share your notes with the whole world? Do you want to create books precisely tailored to your needs? WikiToLearn and its tools for book editing, importing and exporting are what you are looking for!",
+  "wikitolearnskin-join-student-link": "/Student",
+
+  "wikitolearnskin-join-professor": "Teacher",
+  "wikitolearnskin-join-professor-text": "Are you looking for a way to be aware of your students' understanding of your lessons? Would you like to contribute to make educational material freely accessible, reliable and complete? Your knowledge is fundamental to ensure high standards for the content on WikiToLearn!",
+  "wikitolearnskin-join-professor-link": "/Teacher",
+
+  "wikitolearnskin-join-other": "Hacker",
+  "wikitolearnskin-join-other-text": "WikiToLearn is a wide project, open to any kind of contribution. Are you an open-source enthusiast and do you want to support our community? Do you like coding or do you want to help us with translations? In our project anyone can give his help, do not hesitate anymore: find out more on how you can put your best efforts in WikiToLearn!",
+  "wikitolearnskin-join-other-link": "/Hacker",
+   
+
+  "wikitolearnskin-join-step-guide-title": "Read the guide",
+  "wikitolearnskin-join-step-guide-content": "We wrote a detailed and easy to read guide about the website. Please give it a look before contributing, so you can learn all the tips and tricks of WikiToLearn.",
+  "wikitolearnskin-join-step-guide-button-text": "Read now",
+  "wikitolearnskin-join-step-guide-button-link": "/Manual",
+
+  "wikitolearnskin-join-step-chat-title": "Chat with us",
+  "wikitolearnskin-join-step-chat-content": "Do you need support? Still unsure about how you can help? We communicate and coordinate our community via rocketchat. Press the button, register an account and you are to talk with us!",
+  "wikitolearnskin-join-step-chat-button-text": "Open chat",
+  "wikitolearnskin-join-step-chat-button-link": "//chat.wikitolearn.org",
+
+  "wikitolearnskin-join-step-social-title": "Keep in touch",
+  "wikitolearnskin-join-step-social-content": "Don't forget to follow us on social networks! You will always be up-to-date with the latest news and developments of WikiToLearn. If you have any further question you can also <a href='mailto:info@wikitolearn.org'>email us</a>.",
+
+  "wikitolearnskin-join-create-account": "Create an account",
+  "wikitolearnskin-join-read-more": "Read more",
+
+  "wikitolearnskin-join-next-steps": "Next steps"
 }

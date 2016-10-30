@@ -135,6 +135,10 @@
     &__stats{
         text-align: center;
         margin-bottom: 5rem;
+        .stats__wrapper{
+            display: inline-block;
+            text-align: left;
+        }
         .stats__count{
             font-weight: 600;
             font-size: 1.2rem;
@@ -295,6 +299,7 @@
         @extend .media-body;
 
         text-align: justify;
+        overflow: visible;
     }
 
     &__quote {
@@ -306,6 +311,7 @@
         font-style: italic;
         margin-bottom: 0.5rem;
         padding: 0 1rem;
+        padding-right: 0;
         @include media-breakpoint-between(md, lg) {
             font-size: .8rem;
         }
