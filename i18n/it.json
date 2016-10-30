@@ -11,7 +11,9 @@
   "wikitolearnskin-navbar-login": "Login",
   "wikitolearnskin-navbar-createaccount": "Registrati",
 
-  "wikitolearnskin-navbar-about" : "Cos'è",
+  "wikitolearnskin-navbar-about" : "Chi Siamo",
+  "wikitolearnskin-navbar-about-link": "/Chi Siamo",
+
   "wikitolearnskin-navbar-contribute" : "Unisciti",
   "wikitolearnskin-navbar-tools" : "Strumenti",
   "wikitolearnskin-navbar-language-selector": "Lingua",
