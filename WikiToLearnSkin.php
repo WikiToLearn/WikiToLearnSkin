@@ -1279,9 +1279,12 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     }
 
     private function isJoinPage(){
-      if($this->getSkin()->getTitle()->getFullText() == wfMessage('wikitolearnskin-join-page'))
-        return true;
+      global $wgWikiToLearnSkinEnableJoinPage;
+      if($wgWikiToLearnSkinEnableJoinPage){
+        if($this->getSkin()->getTitle()->getFullText() == wfMessage('wikitolearnskin-join-page'))
+          return true;
 
-      return false;
+        return false;
+      }
     }
 }
