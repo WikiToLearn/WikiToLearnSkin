@@ -55,6 +55,12 @@
         display: inline;
         margin-right: 0.5rem;
         margin-bottom: 0;
+        .mw-headline{
+            display: inline;
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
     }
     
     h2+a{ //edit icon
