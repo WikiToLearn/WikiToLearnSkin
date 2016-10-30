@@ -15,7 +15,12 @@
         text-align: center;
     }
     .reason{
+
         display: flex;
+        
+        @include media-breakpoint-down(sm) {
+            display: block;
+        }
 
         background-color: white;
         border-radius: $border-radius;
@@ -25,6 +30,10 @@
         &__image{
             flex: 0 0 percentage(1/4);
             
+            @include media-breakpoint-down(sm) {
+                height: 10rem;
+            }
+
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -62,10 +71,9 @@
 }
 
 .page-join .create-account__content{
-    padding: $pages-home-content-padding;
         
     @include media-breakpoint-down(xs) {
-        @include make-container($gutter: 0)
+        @include make-container($gutter: 1rem)
     }
     @include media-breakpoint-up(sm) {
         @include make-container();
@@ -75,14 +83,13 @@
     
     padding-top: 3rem;
     padding-bottom: 3rem;
-
-    .create-account__subtext{
-        margin-bottom: 0.5rem;
-    }
-
     a{
         display: inline-block;
         width: 60%;
+        @include media-breakpoint-down(sm) {
+            width: 100%;
+        }
+
         padding: 0.5rem 3rem;
         background-color: $green;
         color: white;
@@ -108,12 +115,14 @@
         
     .steps{
         display: flex;
+
+        @include media-breakpoint-down(sm) {
+            display: block;
+        }
     }
 
     .step{
         
-        
-
         &__wrapper{
             margin: 1rem 0.5rem;
             box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
@@ -123,7 +132,7 @@
             position: relative;
             height: 100%;
         }
-
+        
         flex: 0 0 percentage(1/3);
 
 

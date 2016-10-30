@@ -621,6 +621,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               </div>
             </div>
             <div class="reason">
+              <div class="reason__image hidden-md-up" style="background-image:url(/skins/WikiToLearnSkin/images/join/teacher.png);"></div>
               <div class="reason__content">
                 <h2 class="reason__title"><?php echo $this->getMessage('wikitolearnskin-join-professor');?></h2>
                 <div class="reason__text">
@@ -630,7 +631,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                   <a href="<?php echo $this->getMessage('wikitolearnskin-join-professor-link');?>"><?php echo $this->getMessage('wikitolearnskin-join-read-more'); ?></a>
                 </div>
               </div>
-              <div class="reason__image" style="background-image:url(/skins/WikiToLearnSkin/images/join/teacher.png);"></div>
+              <div class="reason__image hidden-sm-down" style="background-image:url(/skins/WikiToLearnSkin/images/join/teacher.png);"></div>
             </div>
             <div class="reason">
               <div class="reason__image" style="background-image:url(/skins/WikiToLearnSkin/images/join/other.png);"></div>
