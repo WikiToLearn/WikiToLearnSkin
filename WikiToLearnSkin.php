@@ -622,7 +622,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               <div class="reason__content">
                 <h2 class="reason__title">Teacher</h2>
                 <div class="reason__text">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla libero fugit dolorem minus atque ea asperiores, dolor ipsum architecto dignissimos itaque, provident inventore nihil voluptatem quia ab molestiae hic reiciendis!
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, qui sed distinctio esse commodi impedit atque aliquam neque nisi corporis eum maxime, blanditiis, praesentium rerum laudantium cum quos totam provident.
                 </div>
               </div>
               <div class="reason__image" style="background-image:url(/skins/WikiToLearnSkin/images/join/teacher.png);"></div>
@@ -632,7 +632,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               <div class="reason__content">
                 <h2 class="reason__title">Other</h2>
                 <div class="reason__text">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla libero fugit dolorem minus atque ea asperiores, dolor ipsum architecto dignissimos itaque, provident inventore nihil voluptatem quia ab molestiae hic reiciendis!
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque saepe impedit labore illum assumenda, tempore distinctio. Placeat sit aspernatur tenetur ex officiis fugiat, eius quos ab, illo officia expedita? Doloribus.
                 </div>
               </div>
             </div>
@@ -641,6 +641,46 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         <section class="create-account">
           <div class="create-account__content">
           <a href="#">Create an account</a>
+          </div>
+        </section>
+        <section class="next-steps">
+          <div class="next-steps__content">
+            <h1>Next steps</h1>
+            <div class="steps">
+              <div class="step">
+                <div class="step__wrapper">
+                  <div class="step__image">
+                    <img src="/skins/WikiToLearnSkin/images/join/chat.png" alt="">
+                  </div>
+                  <div class="step__content">
+                    <h3>Chat with us</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt fuga at doloribus! Voluptates maiores aliquid velit officia amet doloremque necessitatibus. Similique dolorum fugiat, dolor suscipit? Omnis amet ullam pariatur. Excepturi.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step__wrapper">
+                  <div class="step__image">
+                    <img src="/skins/WikiToLearnSkin/images/join/chat.png" alt="">
+                  </div>
+                  <div class="step__content">
+                    <h3>Read the guide</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt fuga at doloribus! Voluptates maiores aliquid velit officia amet doloremque necessitatibus. Similique dolorum fugiat, dolor suscipit? Omnis amet ullam pariatur. Excepturi.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step__wrapper">
+                  <div class="step__image">
+                    <img src="/skins/WikiToLearnSkin/images/join/chat.png" alt="">
+                  </div>
+                  <div class="step__content">
+                    <h3>Follow us</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum maiores sequi totam suscipit fugit tempore debitis architecto, autem sapiente illum veritatis praesentium ad et enim laboriosam similique, assumenda a amet.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       </main>
