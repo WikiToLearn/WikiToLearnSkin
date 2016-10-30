@@ -80,7 +80,7 @@ class SkinWikiToLearnSkin extends SkinTemplate
         parent::setupSkinUserCss( $out );
         $out->addStyle("//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
         $out->addStyle("//fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700");
-        $out->addStyle("//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css");
+        $out->addStyle("//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css");
 
         $out->addModuleStyles( 'skin.wikitolearn' );
     }
@@ -692,7 +692,12 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                     <h3><?php echo $this->getMessage('wikitolearnskin-join-step-social-title'); ?></h3>
                     <p><?php echo $this->getMessage('wikitolearnskin-join-step-social-content', false); ?></p>
                   </div>
-                  <!--<a class="step__button" href="#"><?php echo $this->getMessage('wikitolearnskin-join-step-social-button-text'); ?></a>-->
+                  <div class="step__social-icons">
+                  <a href="https://facebook.com/WikiToLearn" class="fa fa-fw fa-facebook"></a>
+                  <a href="https://twitter.com/WikiToLearn" class="fa fa-fw fa-twitter"></a>
+                  <a href="https://telegram.me/WikiToLearnNews" class="fa fa-fw fa-telegram"></a>
+                  <a href="https://www.linkedin.com/company/wikitolearn" class="fa fa-fw fa-linkedin"></a>
+                  </div>
                 </div>
               </div>
             </div>
