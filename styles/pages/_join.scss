@@ -42,6 +42,14 @@
             font-size: 1.1rem;
             line-height: 1.5rem;
         }
+
+        &__more{
+            text-align: right;
+            a{
+                color: $green;
+                font-weight: 600;
+            }
+        }
     }
    
 }
