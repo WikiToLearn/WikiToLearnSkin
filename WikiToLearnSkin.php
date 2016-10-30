@@ -616,6 +616,9 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 <div class="reason__text">
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla libero fugit dolorem minus atque ea asperiores, dolor ipsum architecto dignissimos itaque, provident inventore nihil voluptatem quia ab molestiae hic reiciendis!
                 </div>
+                <div class="reason__more">
+                  <a href="#">Read More</a>
+                </div>
               </div>
             </div>
             <div class="reason">
@@ -623,6 +626,9 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 <h2 class="reason__title">Teacher</h2>
                 <div class="reason__text">
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, qui sed distinctio esse commodi impedit atque aliquam neque nisi corporis eum maxime, blanditiis, praesentium rerum laudantium cum quos totam provident.
+                </div>
+                <div class="reason__more">
+                  <a href="#">Read More</a>
                 </div>
               </div>
               <div class="reason__image" style="background-image:url(/skins/WikiToLearnSkin/images/join/teacher.png);"></div>
@@ -633,6 +639,9 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 <h2 class="reason__title">Other</h2>
                 <div class="reason__text">
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque saepe impedit labore illum assumenda, tempore distinctio. Placeat sit aspernatur tenetur ex officiis fugiat, eius quos ab, illo officia expedita? Doloribus.
+                </div>
+                <div class="reason__more">
+                  <a href="#">Read More</a>
                 </div>
               </div>
             </div>
