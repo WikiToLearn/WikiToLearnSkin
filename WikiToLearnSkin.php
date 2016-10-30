@@ -80,7 +80,7 @@ class SkinWikiToLearnSkin extends SkinTemplate
         parent::setupSkinUserCss( $out );
         $out->addStyle("//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
         $out->addStyle("//fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700");
-        $out->addStyle("//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css");
+        $out->addStyle("http://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css");
 
         $out->addModuleStyles( 'skin.wikitolearn' );
     }
