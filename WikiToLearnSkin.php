@@ -549,7 +549,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               <h4><?php echo $this->getMessage("wikitolearnskin-footer-tools"); ?></h4>
               <ul class="footer__tools-list">
                 <li>
-                  <a href="<?php echo $this->getMessage("wikitolearnskin-footer-tools-1-link"); ?>"><i class="fa fa-question-circle">&nbsp;</i><?php echo $this->getMessage("wikitolearnskin-navbar-tools-guide"); ?></a>
+                  <a href="<?php echo $this->getMessage("wikitolearnskin-navbar-tools-guide-link"); ?>"><i class="fa fa-question-circle">&nbsp;</i><?php echo $this->getMessage("wikitolearnskin-navbar-tools-guide"); ?></a>
                 </li>
                 <!--<li>
                   <a href="<?php echo wfMessage("wikitolearnskin-navbar-tools-createbook-link")->plain(); ?>"><i class="fa fa-book">&nbsp;</i><?php echo wfMessage("wikitolearnskin-navbar-tools-createbook"); ?></a>
