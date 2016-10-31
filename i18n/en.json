@@ -35,8 +35,8 @@
   "wikitolearnskin-navbar-language-selector": "Language",
   "wikitolearnskin-navbar-tools-chat" : "Chat",
   "wikitolearnskin-navbar-tools-chat-link" : "https://chat.wikitolearn.org",
-  "wikitolearnskin-navbar-tools-guide" : "User guides",
-  "wikitolearnskin-navbar-tools-guide-link" : "Manual",
+  "wikitolearnskin-navbar-tools-guide" : "User manual",
+  "wikitolearnskin-navbar-tools-guide-link" : "/Manual",
   "wikitolearnskin-navbar-tools-community-portal" : "Community portal",
   "wikitolearnskin-navbar-tools-community-portal-link" : "//meta.wikitolearn.org",
   "wikitolearnskin-navbar-tools-reports" : "Reports",
@@ -119,9 +119,9 @@
   "wikitolearnskin-join-step-account-content": "The first step in joining WikiTolearn is creating an account on the website. It's easy and essential for a new contributor.",
   "wikitolearnskin-join-step-account-button-text": "Create an account",
 
-  "wikitolearnskin-join-step-guide-title": "Read the guide",
+  "wikitolearnskin-join-step-guide-title": "Read the manual",
   "wikitolearnskin-join-step-guide-content": "We wrote a detailed and easy to read guide about the website. Please give it a look before contributing, so you can learn all the tips and tricks of WikiToLearn.",
-  "wikitolearnskin-join-step-guide-button-text": "Read now",
+  "wikitolearnskin-join-step-guide-button-text": "Read the manual",
   "wikitolearnskin-join-step-guide-button-link": "/Manual",
 
   "wikitolearnskin-join-step-chat-title": "Chat with us",
