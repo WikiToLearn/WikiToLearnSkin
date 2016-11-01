@@ -35,7 +35,7 @@
             h4 {
                 @include media-breakpoint-up(sm) {
                     padding-top: 2rem;
-                    padding-bottom: 2rem;                    
+                    padding-bottom: 2rem;
                 }
                 @include media-breakpoint-down(xl) {
                     font-size: $font-size-h4 - .1rem;
@@ -144,7 +144,7 @@
             li {
                 @include list-inline();
                 @include make-col-ready();
-                @include make-col(4);
+                @include make-col(3);
                 text-align: center;
                 padding: 0;
             }

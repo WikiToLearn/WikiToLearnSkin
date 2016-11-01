@@ -589,6 +589,9 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                   <a href="https://twitter.com/wikitolearn" class="fa fa-twitter fa-2x" aria-hidden="true"></a>
                 </li>
                 <li>
+                  <a href="https://telegram.me/WikiToLearnNews" class="fa fa-telegram fa-2x" aria-hidden="true"></a>
+                </li>
+                <li>
                   <a href="https://www.linkedin.com/company/wikitolearn" class="fa fa-linkedin fa-2x" aria-hidden="true"></a>
                 </li>
               </ul>
