@@ -409,11 +409,10 @@ main.page--article{
     //style for various kind of wikimages
     a.image{
         display: inline-block;
+        padding: 1rem;
         img{
             max-width: 100%;
             height: auto;
-            
-            padding: 1rem;
             box-shadow: 0 1px 3px rgba(0,0,0,0.2);
         }
     }
@@ -427,9 +426,9 @@ main.page--article{
         max-width: 100%;
         
         a.image{
+            padding: 0;
             img{
                 margin: 0;
-                padding: 0;
                 box-shadow: none;
             }
         }
