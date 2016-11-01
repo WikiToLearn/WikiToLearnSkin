@@ -151,7 +151,6 @@ body{
 
     //visual editor
     .ve-ui-overlay{
-        z-index: 5;
         font-size: 0.8em;
 
         & .oo-ui-fieldLayout-body{ //https://phabricator.kde.org/T3956
@@ -163,6 +162,9 @@ body{
         }
     }
     
+    .ve-ui-overlay-global{
+        z-index: 15;
+    }
     .ve-ui-toolbar-floating > .oo-ui-toolbar-bar {
         top: 3rem;
         z-index: 10;
