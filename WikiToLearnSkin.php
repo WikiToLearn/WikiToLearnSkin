@@ -242,10 +242,10 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownMobileLogin">
                   <a href="<?php echo $this->skin->makeSpecialUrl('UserLogin'); ?>" class="nav__link nav__link--login nav__link--hover-mwblue dropdown-item">
-                    <?php wfMessage( 'wikitolearnskin-navbar-login' ) ?>
+                    <?php echo wfMessage( 'wikitolearnskin-navbar-login' ) ?>
                   </a>
                   <a href="<?php echo $this->skin->makeSpecialUrl('CreateAccount'); ?>" class="nav__link nav__link--createaccount nav__link--hover-mwblue dropdown-item">
-                    <?php wfMessage( 'wikitolearnskin-navbar-createaccount' ) ?>
+                    <?php echo wfMessage( 'wikitolearnskin-navbar-createaccount' ) ?>
                   </a>
                 </div>
               </div>
