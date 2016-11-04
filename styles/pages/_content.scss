@@ -417,6 +417,19 @@ main.page--article{
         }
     }
     
+    // Override some default MediaWiki values and some built-in values to make tables mobile-friendly
+    table.wikitable{
+        display: block;
+        border-width: 0px !important;
+        max-width: 100%;
+        overflow: auto;
+        background-color transparent;
+        
+        tbody{
+            background-color: #eff0f1;
+        }
+    }
+    
     div.thumbinner{
         margin: 0.5rem;
         padding: 0.5rem;
