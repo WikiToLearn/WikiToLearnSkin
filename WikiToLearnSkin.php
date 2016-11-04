@@ -79,7 +79,6 @@ class SkinWikiToLearnSkin extends SkinTemplate
     {
         parent::setupSkinUserCss( $out );
         $out->addStyle("//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
-        $out->addStyle("//fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700");
         $out->addStyle("//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css");
 
         $out->addModuleStyles( 'skin.wikitolearn' );
@@ -174,9 +173,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           <div href="/" class="logo">
             <a href="/">
               <img class="logo__img" src="<?php echo $this->getImagePath("images/wikitolearn-logo.png") ?>">
-              <h1 class="logo__title">
-                <span class="text-wtl--red">wiki</span><span class="text-wtl--yellow">to</span><span class="text-wtl--green">learn</span>
-              </h1>
+              <img class="logo__text" src="<?php echo $this->getImagePath("images/name.svg") ?>">
             </a>
           </div>
           <nav class="nav">
