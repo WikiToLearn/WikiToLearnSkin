@@ -418,7 +418,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             <ul class="contributors__list">
               <?php
                 for ($i=1; $i < 7; $i++) { ?>
-                  <a href="<?php echo $this->getMessage("wikitolearnskin-contributors-$i-link"); ?>" rel="nofollow" class="contributors__item"><img src="<?php echo $this->getImagePath($this->getMessage("wikitolearnskin-contributors-$i-image")); ?>" alt=""></a>
+                  <a target="_blank" href="<?php echo $this->getMessage("wikitolearnskin-contributors-$i-link"); ?>" rel="nofollow" class="contributors__item"><img src="<?php echo $this->getImagePath($this->getMessage("wikitolearnskin-contributors-$i-image")); ?>" alt=""></a>
                 <?php } ?>
             </ul>
           </div>
@@ -920,7 +920,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             self::makeDisussionTool();
             if(!self::pageHasCategory("Broken PDF"))
               self::makeDownloadPageTool();
-            
+
             if($namespace === NS_USER && self::pageIsRootLevel()){
               echo '<div class="tool--divider"></div>';
               self::makeUserTools();
