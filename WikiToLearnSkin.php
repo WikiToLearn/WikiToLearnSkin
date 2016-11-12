@@ -174,6 +174,10 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             <a href="/">
               <img class="logo__img" src="<?php echo $this->getImagePath("images/wikitolearn-logo.png") ?>">
               <img class="logo__text" src="<?php echo $this->getImagePath("images/name.svg") ?>">
+              <?php
+                if($wiki_domain == "wikitolearn.vodka")
+                  echo "<span class='logo__subtitle'>dev</span>";
+              ?>
             </a>
           </div>
           <nav class="nav">
@@ -1056,6 +1060,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       if (array_key_exists('previous', $previousAndNext) ||
           array_key_exists('next', $previousAndNext)) {
         echo '<div class="article__navigation">';
+
         if (array_key_exists('previous', $previousAndNext)) {
           $previous = $previousAndNext['previous'];
           if($previous != NULL){

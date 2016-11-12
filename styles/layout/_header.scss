@@ -76,12 +76,16 @@
                 }
 
                 @include media-breakpoint-down(md) {
-                    height: 1.1rem;
+                    height: 1rem;
+                }
+            }
+
+            &__subtitle{
+                color: #424242;
+                @include media-breakpoint-down(md) {
+                    display: none;
                 }
 
-                @include media-breakpoint-between(md, lg) {
-                    height: 1.5rem;
-                }
             }
         }
 
