@@ -918,7 +918,9 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           } else {
             self::makeEditTool();
             self::makeDisussionTool();
-            self::makeDownloadPageTool();
+            if(!self::pageHasCategory("Broken PDF"))
+              self::makeDownloadPageTool();
+            
             if($namespace === NS_USER && self::pageIsRootLevel()){
               echo '<div class="tool--divider"></div>';
               self::makeUserTools();
