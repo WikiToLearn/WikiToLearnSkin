@@ -943,6 +943,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         echo '<div class="article__tools">';
           echo '<div id="tools_container">';
             self::makeEditAsWikitextTool();
+            self::makeAdvancedTools();
           echo '</div>';
         echo '</div>';
       }
