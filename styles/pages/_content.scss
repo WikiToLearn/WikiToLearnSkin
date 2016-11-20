@@ -527,6 +527,10 @@ main.page--article{
             margin-right: 0.5rem;
             &::before{
                 font-size: 1rem;
+                font: normal normal normal 14px/1 FontAwesome;
+                text-rendering: auto;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
                 content: "\f266";
             }
         }
