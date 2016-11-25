@@ -10,6 +10,9 @@
   "wikitolearnskin-footer-changes" : "Recent changes",
   "wikitolearnskin-footer-special-pages" : "Special pages",
   "wikitolearnskin-footer-academic" : "Academic institutions",
+  "wikitolearnskin-footer-license": "Copyright",
+  "wikitolearnskin-footer-license-link": "/Project:Copyright",
+
   "wikitolearnskin-footer-academic-link" : "//meta.wikitolearn.org/Academic_institutions",
   "wikitolearnskin-footer-chat-link": "https://chat.wikitolearn.org",
   "wikitolearnskin-footer-chat-text": "chat.wikitolearn.org",
