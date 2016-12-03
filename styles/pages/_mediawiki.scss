@@ -8,6 +8,10 @@ body{
         .mw-ui-container {
             display: flex;
 
+            @include media-breakpoint-down(sm) {
+                flex-direction: column;
+            }
+
             #userloginForm{
                 flex: 1;
                 float: none;
