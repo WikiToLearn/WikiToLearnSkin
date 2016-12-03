@@ -154,6 +154,12 @@ body{
     }
 
     //visual editor
+    .ve-init-mw-desktopArticleTarget {
+        font-size: 1rem;
+        @include media-breakpoint-down(md) {
+            font-size: .75rem;
+        }
+    }
     .ve-ui-overlay{
         font-size: 0.8em;
 
