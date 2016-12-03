@@ -7,6 +7,7 @@ var browserSync = require('browser-sync').create();
 
 var src = {
     sass: './styles/skin.scss',
+    fonts: './styles/fonts/*.scss',
     images: './images/**/*',
     js: './scripts/**/*.scss'
 };
@@ -22,7 +23,7 @@ function handleError(error) {
 gulp.task('sass', function() {
     var paths = [];
     paths.push("bower_components/");
-	return gulp.src(src.sass)
+	return gulp.src([src.sass, src.fonts])
 		.pipe(sass({
             includePaths: paths
         }))

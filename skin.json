@@ -19,13 +19,37 @@
         ]
     },
     "AutoloadClasses": {
-        "SkinWikiToLearnSkin": "WikiToLearnSkin.php"
+        "SkinWikiToLearnSkin": "WikiToLearnSkin.php",
+        "WikiToLearnSkinHooks": "WikiToLearnSkin.php"
+    },
+    "Hooks": {
+        "GetPreferences": [
+            "WikiToLearnSkinHooks::onGetPreferences"
+        ]
     },
     "ResourceModules": {
         "skin.wikitolearn": {
             "position": "top",
             "styles": {
                 "build/styles/skin.css": { "media": "screen" }
+            }
+        },
+        "computer-modern-bright.wikitolearnskin": {
+            "position": "top",
+            "styles": {
+                "build/styles/computer-modern-bright.css": { "media": "screen" }
+            }
+        },
+        "computer-modern-serif.wikitolearnskin": {
+            "position": "top",
+            "styles": {
+                "build/styles/computer-modern-serif.css": { "media": "screen" }
+            }
+        },
+        "computer-modern-sans-serif.wikitolearnskin": {
+            "position": "top",
+            "styles": {
+                "build/styles/computer-modern-sans-serif.css": { "media": "screen" }
             }
         },
         "skin.wikitolearn.js": {

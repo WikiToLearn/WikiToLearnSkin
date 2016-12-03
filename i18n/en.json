@@ -1,4 +1,7 @@
 {
+  "prefs-skin-font": "Font",
+  "prefs-skin-font-label": "Select the font to use",
+  "prefs-skin-font-default": "Default one",
   "skinname-wikitolearnskin": "WikiToLearn",
   "wikitolearnskin-desc": "Our hand-made skin, with many custom functionalities and improvements that allows you to browse WikiToLearn how it was meant to be.",
 

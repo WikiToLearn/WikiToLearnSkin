@@ -16,6 +16,33 @@ require_once("HelperFunctions.php");
  * @ingroup Skins
  */
 
+/**
+ * Add the skin configuration settings to Special:Preferences.
+ *
+ * @param $user Object: current User object
+ * @param $defaultPreferences Object: Preferences object
+ * @return Boolean: true
+ */
+class WikiToLearnSkinHooks
+{
+    public static function onGetPreferences( $user, &$defaultPreferences ) 
+    {
+        $defaultPreferences['skin-font'] = [
+            'label-message' => 'prefs-skin-font-label',
+            'type' => 'radio',
+            'options' => array(
+                wfMessage( 'prefs-skin-font-default' )->plain().' (Open Sans) ' => 'open-sans',
+                'Computer Modern Bright' => 'computer-modern-bright',
+                'Computer Modern Serif' => 'computer-modern-serif',
+                'Computer Modern Sans Serif' => 'computer-modern-sans-serif'
+            ),
+            'default' => $user->getOption( 'skin-font' ),
+            'section' => 'rendering/skin-font',
+            'help-message' => 'I wonder where would it appear'
+        ];
+        return true;
+    }
+}
 
 /**
  * SkinTemplate class for WikiToLearnSkin skin
@@ -78,6 +105,30 @@ class SkinWikiToLearnSkin extends SkinTemplate
     function setupSkinUserCss( OutputPage $out )
     {
         parent::setupSkinUserCss( $out );
+        global $wgUser;
+        if ($wgUser->getOption( 'skin-font' ) !== 'open-sans') {
+            // If one of Computer Modern fonts get selected, add the web fonts
+            $out->addStyle("//cdn.rawgit.com/dreampulse/computer-modern-web-font/master/fonts.css");
+            // Select which resource loader's module to load based on the selected preference
+            switch ($wgUser->getOption( 'skin-font' )) {
+                case 'computer-modern-bright':
+                    $out->addModuleStyles( 'computer-modern-bright.wikitolearnskin' );
+                    MWDebug::Log('Got Here');
+                    break;
+                case 'computer-modern-serif':
+                    $out->addModuleStyles( 'computer-modern-serif.wikitolearnskin' );
+                    break;
+                case 'computer-modern-sans-serif':
+                    $out->addModuleStyles( 'computer-modern-sans-serif.wikitolearnskin' );
+                    break;
+
+                default:
+                    $out->addModuleStyles( 'computer-modern-bright.wikitolearnskin' );
+                    break;
+            }
+        } else {
+                $out->addModuleStyles( 'open-sans.wikitolearnskin' );
+        }
         $out->addStyle("//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
         $out->addStyle("//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css");
 
@@ -139,6 +190,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             $this->executeJoinPage();
           } else {
             MWDebug::log('Generating Content page');
+            
             $this->executeContentPage();
           }
           $this->executeFooter();
