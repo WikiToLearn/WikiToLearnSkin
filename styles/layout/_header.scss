@@ -20,9 +20,14 @@
             @include make-container-max-widths();
         }
 
+        @include media-breakpoint-only(md) {
+            padding: 0;
+        }
+
         @include media-breakpoint-between(sm, md) {
             width: 90%;
             margin: 0 auto;
+
         }
 
         .logo{
@@ -252,8 +257,10 @@
                     }
                     // Reduce the level of indentation here
                     &.expanded-search {
-                        transition: width 0.6s ease;
-                        width: 20%;
+                        @include media-breakpoint-up(md) {
+                            transition: width 0.6s ease;
+                            width: 20%;
+                        }
                     }
 
                     &.collapsed-search {
