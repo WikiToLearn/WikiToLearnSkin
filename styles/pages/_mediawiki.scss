@@ -140,6 +140,12 @@ body{
         width: auto;
     }
 
+    .mw-content-ltr {
+        ul {
+            margin-bottom: 1rem;
+        }
+    }
+
     #mw-content-text{
         //this is to fix float:left on SSection
         //this is actually our fault
