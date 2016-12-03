@@ -329,7 +329,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                   </div>
                 </div>
               </div>
-              <div class="dropdown dropdown--notifications nav__link--hover-mwblue">
+              <div class="dropdown dropdown--notifications">
                 <a id="notifications" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="fa fa-bell"></i> <i class="fa fa-angle-down"></i>
                 </a>
@@ -350,7 +350,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 </div>
               </div>
             <?php } ?>
-            <div class="dropdown dropdown--languages dropdown--languages__desktop languages__<?php echo self::getAnonClass(); ?> nav__link--hover-mwblue">
+            <div class="dropdown dropdown--languages dropdown--languages__desktop languages__<?php echo self::getAnonClass(); ?>">
               <a class="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fa fa-globe"></i> <i class="fa fa-angle-down"></i>
               </a>
