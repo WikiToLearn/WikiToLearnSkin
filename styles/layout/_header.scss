@@ -24,7 +24,7 @@
             padding: 0;
         }
 
-        @include media-breakpoint-between(sm, md) {
+        @include media-breakpoint-only(md) {
             width: 90%;
             margin: 0 auto;
 
@@ -257,9 +257,12 @@
                     }
                     // Reduce the level of indentation here
                     &.expanded-search {
-                        @include media-breakpoint-up(md) {
+                        @include media-breakpoint-up(sm) {
                             transition: width 0.6s ease;
                             width: 20%;
+                        }
+                        @include media-breakpoint-only(sm) {
+                            font-size: .75rem;
                         }
                     }
 
@@ -276,6 +279,10 @@
                     @include media-breakpoint-down(xs) {
                         @include make-col-ready($gutter: 0);
                         @include make-col(2);
+                    }
+                    @include media-breakpoint-only(sm) {
+                        font-size: .75rem;
+                        padding: 0;
                     }
                 }
             }
