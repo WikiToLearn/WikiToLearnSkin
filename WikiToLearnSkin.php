@@ -36,7 +36,7 @@ class WikiToLearnSkinHooks
                 'Computer Modern Serif' => 'computer-modern-serif',
                 'Computer Modern Sans Serif' => 'computer-modern-sans-serif'
             ),
-            'default' => $user->getOption( 'skin-font' ),
+            'default' => 'open-sans',
             'section' => 'rendering/skin-font',
             'help-message' => 'I wonder where would it appear'
         ];
