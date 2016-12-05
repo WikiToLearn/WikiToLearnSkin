@@ -1,0 +1,144 @@
+.rating {
+    &__content {
+        // The rating box use the same style as the article content
+        @extend .article__content;
+
+        font-variant-caps: small-caps;
+        font-family: 'Open Sans', sans-serif;
+        margin-top: .75rem;
+        overflow: hidden;
+    }
+
+    &__left-content {
+        float:left;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    &__title-rate {
+        align-self: center;
+    }
+
+    &__stars {
+        // Simple CSS for UX pattern of rating stars :)
+        clear: both;
+        display: flex;
+        flex-direction: row-reverse;
+        float: left;
+        margin-bottom: .5rem;
+        text-align: center;
+
+        & > .rating__star:hover:before, .rating__star:hover ~ .rating__star:before {
+            content: "\2605";
+            position: absolute;
+        }
+    }
+
+    &__star {
+        font-size: 2.5rem;
+        display: inline-block;
+        position: relative;
+
+        &--colored {
+            &:before {
+                content: "\2605";
+                position: absolute;
+            }
+        }
+
+        &--one {
+            &, &:before {
+                color: $dark-red;
+            }
+        }
+        &--two {
+            &, &:before {
+                color: $red;
+            }
+        }
+        &--three {
+            &, &:before {
+                color: $yellow;
+            }
+        }
+        &--four {
+            &, &:before {
+                color: $green;
+            }
+        }
+        &--five {
+            &, &:before {
+                color: $dark-green;
+            }
+        }
+    }
+
+    &__more-stats {
+        color: $mwblue;
+        text-decoration: none;
+        display: inline-block;
+        padding: 1rem;
+        text-align: center;
+        width: 100%;
+
+        &:hover {
+            color: white;
+            text-decoration: none;
+            background-color: $mwblue;
+            transition: .3s ease-in color, background-color;
+        }
+    }
+
+    &__right-content {
+        float: right;
+    }
+
+    &__reliability {
+        font-size: 5rem;
+        text-align: center;
+
+        6--red {
+            color: $red;
+        }
+        &--yellow {
+            color: $yellow;
+        }
+        &--green {
+            color: $green;
+        }
+        &--dark-green {
+            color: $dark-green;
+        }
+
+    }
+
+    &__percent {
+        font-size: 3.5rem;
+    }
+
+    &__badges {
+        font-size: 3rem;
+    }
+
+    &__badge {
+        &--one {
+            color: lighten($bronze, 50%);
+        }
+        @at-root #{&}--one#{&}--colored {
+            color: $bronze;
+        }
+        &--two {
+            color: lighten($silver, 50%);
+        }
+        @at-root #{&}--two#{&}--colored {
+            color: $silver;
+        }
+        &--three {
+            color: lighten($gold, 50%);
+        }
+        @at-root #{&}--three#{&}--colored {
+            color: $gold;
+        }
+    }
+}

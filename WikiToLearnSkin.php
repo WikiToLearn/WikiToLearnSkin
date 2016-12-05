@@ -559,13 +559,56 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 </div> <!-- Here the real content begins -->
               </article>
               <?php self::executePreviousNext(); //build previos and next ?>
+              <?php self::executeWikiRating(); //mockup for wikirating ?>
             </div>
-            <?php self::executePageTools() //build the tools?>
+            <?php self::executePageTools(); //build the tools?>
           </div>
         </div>
 
       </main>
     <?php }
+
+    /**
+     * Function that displays ui of the wikirating
+     * @return [type] [description]
+     */
+    public function executeWikiRating()
+    {
+    ?>
+        <div class="rating__content">
+            <div class="rating__left-content">
+              <h2 class="rating__title-rate">
+                Rate this page
+              </h2>
+              <div class="rating__stars">
+                <!-- Notice that the order is reversed on purpose. -->
+                <span class="rating__star rating__star--five">☆</span>
+                <span class="rating__star rating__star--four">☆</span>
+                <span class="rating__star rating__star--three">☆</span>
+                <span class="rating__star rating__star--two">☆</span>
+                <span class="rating__star rating__star--one">☆</span>
+              </div>
+              <a href="#" class="rating__more-stats">More Stats 
+                <i class="fa fa-angle-down"></i>
+              </a>
+            </div>
+            <div class="rating__right-content">
+              <h2 class="rating__reliability rating__reliability--green">
+                <span class="rating__value">70</span>
+                <span class="rating__percent">%</span>
+              </h2>
+              <div class="rating__badges">
+                <!-- <i class="rating__badge fa fa-trophy"></i>
+                <i class="rating__badge fa fa-trophy"></i>
+                <i class="rating__badge fa fa-trophy"></i> -->
+                <span class="rating__badge rating__badge--one rating__badge--colored">🏆</span>
+                <span class="rating__badge rating__badge--two rating__badge--colored">🏆</span>
+                <span class="rating__badge rating__badge--three">🏆</span>
+              </div>
+            </div>
+        </div>
+    <?php
+    }
 
     public function executeFooter() {
       global $wiki, $wiki_domain;
