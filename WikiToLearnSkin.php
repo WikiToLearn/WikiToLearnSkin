@@ -576,35 +576,35 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     {
     ?>
         <div class="rating__content">
-            <div class="rating__left-content">
-              <h2 class="rating__title-rate">
-                Rate this page
-              </h2>
-              <div class="rating__stars">
-                <!-- Notice that the order is reversed on purpose. -->
-                <span class="rating__star rating__star--five">☆</span>
-                <span class="rating__star rating__star--four">☆</span>
-                <span class="rating__star rating__star--three">☆</span>
-                <span class="rating__star rating__star--two">☆</span>
-                <span class="rating__star rating__star--one">☆</span>
+            <div class="rating__row">
+              <div class="rating__left-content">
+                <h2 class="rating__title-rate">
+                  Rate this page
+                </h2>
+                <div class="rating__stars">
+                  <!-- Notice that the order is reversed on purpose. -->
+                  <span class="rating__star rating__star--five">☆</span>
+                  <span class="rating__star rating__star--four">☆</span>
+                  <span class="rating__star rating__star--three">☆</span>
+                  <span class="rating__star rating__star--two">☆</span>
+                  <span class="rating__star rating__star--one">☆</span>
+                </div>
+                <div class="rating__thank-you">
+                  Thank you for your vote!
+                </div>
               </div>
+              <div class="rating__right-content">
+                <h2 class="rating__title-rank">Stats</h2>
+                <h3 class="rating__rank rating__rank--green">
+                  <span class="rating__value"></span>
+                  <span class="rating__trophy"></span>
+                </h3>
+              </div>
+            </div>
+            <div class="rating__row">
               <a href="#" class="rating__more-stats">More Stats 
                 <i class="fa fa-angle-down"></i>
               </a>
-            </div>
-            <div class="rating__right-content">
-              <h2 class="rating__reliability rating__reliability--green">
-                <span class="rating__value">70</span>
-                <span class="rating__percent">%</span>
-              </h2>
-              <div class="rating__badges">
-                <!-- <i class="rating__badge fa fa-trophy"></i>
-                <i class="rating__badge fa fa-trophy"></i>
-                <i class="rating__badge fa fa-trophy"></i> -->
-                <span class="rating__badge rating__badge--one rating__badge--colored">🏆</span>
-                <span class="rating__badge rating__badge--two rating__badge--colored">🏆</span>
-                <span class="rating__badge rating__badge--three">🏆</span>
-              </div>
             </div>
         </div>
     <?php

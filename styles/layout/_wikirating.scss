@@ -6,14 +6,20 @@
         font-variant-caps: small-caps;
         font-family: 'Open Sans', sans-serif;
         margin-top: .75rem;
-        overflow: hidden;
+        visibility: hidden;
+    }
+
+    &__row {
+        @include make-row(0px);
+        display: flex;
+        justify-content: center;
     }
 
     &__left-content {
         float:left;
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
     }
 
     &__title-rate {
@@ -22,12 +28,12 @@
 
     &__stars {
         // Simple CSS for UX pattern of rating stars :)
-        clear: both;
         display: flex;
         flex-direction: row-reverse;
-        float: left;
         margin-bottom: .5rem;
-        text-align: center;
+        min-height: 5rem;
+        align-items: center;
+        cursor: pointer;
 
         & > .rating__star:hover:before, .rating__star:hover ~ .rating__star:before {
             content: "\2605";
@@ -36,15 +42,20 @@
     }
 
     &__star {
-        font-size: 2.5rem;
+        font-size: $font-size-h1;
         display: inline-block;
         position: relative;
+        transition: all .15s ease-in;
 
         &--colored {
             &:before {
                 content: "\2605";
                 position: absolute;
             }
+        }
+
+        &:hover {
+            font-size: 3rem;
         }
 
         &--one {
@@ -74,10 +85,25 @@
         }
     }
 
+    &__thank-you {
+        background-color: $green;
+        color: white;
+        padding: 1rem;
+        position: relative;
+        display: none;
+    }
+
+    &__dismiss {
+        position: absolute;
+        right: 3px;
+        top: 3px;
+    }
+
     &__more-stats {
         color: $mwblue;
         text-decoration: none;
         display: inline-block;
+        margin-top: 2rem;
         padding: 1rem;
         text-align: center;
         width: 100%;
@@ -91,12 +117,16 @@
     }
 
     &__right-content {
-        float: right;
+        display: flex;
+        flex-direction: column;
+        margin-left: 5rem;
     }
 
-    &__reliability {
-        font-size: 5rem;
+    &__rank {
+        margin-top: .5rem; // needed to fine align percenutal with stars
         text-align: center;
+        font-weight: 100;
+        font-size: $font-size-h1;
 
         6--red {
             color: $red;
@@ -110,15 +140,18 @@
         &--dark-green {
             color: $dark-green;
         }
-
-    }
-
-    &__percent {
-        font-size: 3.5rem;
     }
 
     &__badges {
         font-size: 3rem;
+    }
+
+    &__trophy {
+        // this is needed to fine align the badge with 
+        // the percentual value
+        font-size: 1.6rem;
+        position: relative;
+        bottom: 6px;
     }
 
     &__badge {
@@ -140,5 +173,17 @@
         @at-root #{&}--three#{&}--colored {
             color: $gold;
         }
+    }
+
+    &--visible {
+        display: block;
+        visibility: visible;
+        opacity: 1;
+        animation: toggle-visible 1s;
+    }
+
+    @keyframes toggle-visible {
+        0%   { opacity: 0 }
+        100% { opacity: 1 }
     }
 }
