@@ -67,6 +67,7 @@ class SkinWikiToLearnSkin extends SkinTemplate
         global $wiki_domain;
         parent::initPage( $out );
         $out->addMeta( 'viewport', 'width=device-width, initial-scale=1' );
+        $out->addMeta( 'http:X-UA-Compatible', 'IE=edge' );
         $out->addModules( 'skin.wikitolearn.js' );
         $out->addModules('ext.courseEditor.publish');
         if($out->getTitle()->isMainPage() ||
