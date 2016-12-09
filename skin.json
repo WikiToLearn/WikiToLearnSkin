@@ -31,7 +31,7 @@
         "skin.wikitolearn": {
             "position": "top",
             "styles": {
-                "build/styles/skin.css": { "media": "screen" }
+                "build/styles/skin.css": { "media": "all" }
             }
         },
         "computer-modern-bright.wikitolearnskin": {
