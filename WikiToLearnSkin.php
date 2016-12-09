@@ -421,6 +421,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 <?php echo "<a class='join-us__report' href=". $this->getMessage('wikitolearnskin-latest-report-link'). ">" . $this->getMessage('wikitolearnskin-latest-report-text') . "</a>"; ?>
                 </div>
                 <a href="//join.<?php echo $wiki_domain ."/" . $wiki ?>" class="join-us__link"><?php echo $this->getMessage('wikitolearnskin-join-us-button'); ?></a>
+              </div>
             </div>
           </div>
         </section>
