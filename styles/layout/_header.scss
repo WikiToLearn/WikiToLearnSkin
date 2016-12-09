@@ -6,6 +6,8 @@
     top: 0;
     width: 100%;
     z-index: 11;
+    //ie11 hack
+    flex-shrink: 0;
     
     &__wrapper{
 

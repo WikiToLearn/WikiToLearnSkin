@@ -1,6 +1,7 @@
 .footer {
     background-color: $black-secondary;
     width: 100%;
+    flex-shrink: 0;
     
     
     &__list {
