@@ -36,6 +36,7 @@
             padding: 0;
             padding-left: .5rem;
             padding-right: .5rem;
+            flex: 1;
 
             /*@include make-col-ready();
             @include make-col(4);
@@ -51,8 +52,8 @@
             a{
                 text-decoration: none;
                 // Ms Edge hack
-                display: inline-block;
-
+                //display: inline-block;
+                
                 &:hover{
                     text-decoration: none;
                 }
@@ -99,8 +100,6 @@
         }
 
         .nav {
-            flex: 1;
-
             color: $black;
             display: table-cell;
             float:none;

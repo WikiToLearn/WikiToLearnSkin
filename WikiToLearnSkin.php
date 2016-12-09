@@ -25,7 +25,7 @@ require_once("HelperFunctions.php");
  */
 class WikiToLearnSkinHooks
 {
-    public static function onGetPreferences( $user, &$defaultPreferences ) 
+    public static function onGetPreferences( $user, &$defaultPreferences )
     {
         $defaultPreferences['skin-font'] = [
             'label-message' => 'prefs-skin-font-label',
@@ -223,7 +223,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       global $wiki, $wiki_domain?>
       <header class="header">
         <div class="header__wrapper" >
-          <div href="/" class="logo">
+          <div class="logo">
             <a href="/">
               <img class="logo__img" src="<?php echo $this->getImagePath("images/wikitolearn-logo.png") ?>">
               <img class="logo__text" src="<?php echo $this->getImagePath("images/name.svg") ?>">
