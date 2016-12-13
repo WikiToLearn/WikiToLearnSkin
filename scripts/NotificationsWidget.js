@@ -1,6 +1,6 @@
 function NotificationsWidget () {
 
-  var unreadCounter, wrapperWidget,
+  var modelManager, unreadCounter, wrapperWidget,
   maxNotificationCount = mw.config.get( 'wgEchoMaxNotificationCount' ),
   echoApi = new mw.echo.api.EchoApi();
   this.$overlay = $('<div>');
@@ -10,17 +10,19 @@ function NotificationsWidget () {
   this.markAllReadButton = $('#mark-all-read-button');
 
   $('#notifications-view-all').attr('href', mw.util.getUrl( 'Special:Notifications' ));
-
   unreadCounter = new mw.echo.dm.UnreadNotificationCounter( echoApi, 'all', maxNotificationCount );
+  modelManager = new mw.echo.dm.ModelManager( unreadCounter, { type: [ 'message', 'alert' ] } );
 
-  this.model = new mw.echo.dm.NotificationsModel(
-    echoApi,
-    unreadCounter,
-    { type: 'all' }
+  this.controller = new mw.echo.Controller(
+		echoApi,
+		modelManager,
+		{
+			type: [ 'message', 'alert' ]
+		}
   );
 
-  notificationsWrapper = new mw.echo.ui.NotificationsWrapper( this.model, {
-    $overlay: this.$overlay
+  wrapperWidget = new mw.echo.ui.NotificationsWrapper( this.controller, modelManager, {
+		$overlay: this.$overlay
   } );
 
   // Events
@@ -28,26 +30,27 @@ function NotificationsWidget () {
     countChange: 'onUnreadCountChange'
   } );
 
-  this.model.connect( this, {
-			update: 'checkShowMarkAllRead'
-	} );
+  modelManager.connect( this, {
+    update: 'checkShowMarkAllRead'
+  } );
 
   var widget = this;
+
   this.markAllReadButton.click(function(){
     widget.onMarkAllReadButtonClick();
   });
 
   //Initialize
   $('#notifications-widget').append(
-    notificationsWrapper.$element,
+    wrapperWidget.$element,
     this.$overlay
   );
 
   // Populate notifications
-  notificationsWrapper.populate()
-    .then( this.model.updateSeenTime.bind( this.model, 'all' ) )
+  wrapperWidget.populate()
     .then( this.setDoneLoading.bind( this ) )
-		.then( this.setBadgeSeen.bind( this ) )
+    .then( this.controller.updateSeenTime.bind( this.controller ) )
+    .then( this.setBadgeSeen.bind( this ) )
     .then( this.checkShowMarkAllRead.bind( this ) );
 }
 
@@ -77,11 +80,15 @@ NotificationsWidget.prototype.isDoneLoading = function () {
 */
 NotificationsWidget.prototype.onUnreadCountChange = function ( count ) {
   var $badgeCounter = this.$badge;
-  if ( count > 0 ) {
-    $badgeCounter.text( count ).show();
-  } else {
-    $badgeCounter.hide();
-  }
+  this.count = this.controller.manager.getUnreadCounter().getCappedNotificationCount( count );
+	if ( this.count > 0 ) {
+		$badgeCounter.text(
+			mw.msg( 'echo-badge-count', mw.language.convertNumber( this.count ) )
+		).show();
+	} else {
+		$badgeCounter.hide();
+	}
+
   this.checkShowMarkAllRead();
 };
 
@@ -92,8 +99,8 @@ NotificationsWidget.prototype.onUnreadCountChange = function ( count ) {
 */
 NotificationsWidget.prototype.checkShowMarkAllRead = function () {
   this.markAllReadButton.toggle(
-    this.isDoneLoading() &&
-    this.model.unreadCounter.getCount() > 0
+		this.isDoneLoading() &&
+		this.controller.manager.hasLocalUnread()
   );
 };
 
@@ -101,7 +108,15 @@ NotificationsWidget.prototype.checkShowMarkAllRead = function () {
 * Respond to mark all read button click
 */
 NotificationsWidget.prototype.onMarkAllReadButtonClick = function () {
-  this.model.markAllRead();
+  var overlay = this,
+	numNotifications = this.controller.manager.getLocalUnread().length;
+	this.controller.markLocalNotificationsRead()
+		.then( function () {
+			overlay.confirmationWidget.setLabel(
+			  mw.msg( 'echo-mark-all-as-read-confirmation', numNotifications )
+		  );
+			overlay.confirmationWidget.showAnimated();
+    } );
 };
 
 /**
