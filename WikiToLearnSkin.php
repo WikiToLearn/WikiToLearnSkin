@@ -27,18 +27,18 @@ class WikiToLearnSkinHooks
 {
     public static function onGetPreferences( $user, &$defaultPreferences )
     {
+        $default_font = ($user->getOption( 'skin-font' )!== null) ? $user->getOption( 'skin-font' ) : 'open-sans' ;
         $defaultPreferences['skin-font'] = [
             'label-message' => 'prefs-skin-font-label',
             'type' => 'radio',
             'options' => array(
-                wfMessage( 'prefs-skin-font-default' )->plain().' (Open Sans) ' => 'open-sans',
+                'Default (Open Sans) ' => 'open-sans',
                 'Computer Modern Bright' => 'computer-modern-bright',
                 'Computer Modern Serif' => 'computer-modern-serif',
                 'Computer Modern Sans Serif' => 'computer-modern-sans-serif'
             ),
-            'default' => 'open-sans',
-            'section' => 'rendering/skin-font',
-            'help-message' => 'I wonder where would it appear'
+            'default' => $default_font,
+            'section' => 'rendering/skin-font'
         ];
         return true;
     }
