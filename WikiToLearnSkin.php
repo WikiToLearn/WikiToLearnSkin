@@ -430,9 +430,9 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
         <section class="testimonials">
           <div class="testimonials__content">
             <div class="testimonial">
-              <a class="testimonial__link" href="#">
+              <div class="testimonial__link">
                 <img class="testimonial__image" src="<?php echo $this->getImagePath( $this->getMessage('wikitolearnskin-testimonials-first-image-path') ); ?>" alt="<?php echo $this->getMessage('wikitolearnskin-testimonials-first-name'); ?>">
-              </a>
+              </div>
               <div class="testimonial__body">
                 <blockquote class="testimonial__quote">
                   <?php echo $this->getMessage('wikitolearnskin-testimonials-first-quote'); ?>
@@ -443,9 +443,9 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               </div>
             </div>
             <div class="testimonial">
-              <a class="testimonial__link" href="#">
+              <div class="testimonial__link">
                 <img class="testimonial__image" src="<?php echo $this->getImagePath( $this->getMessage('wikitolearnskin-testimonials-second-image-path') ); ?>" alt="<?php echo $this->getMessage('wikitolearnskin-testimonials-second-name'); ?>">
-              </a>
+              </div>
               <div class="testimonial__body">
                 <blockquote class="testimonial__quote">
                   <?php echo $this->getMessage('wikitolearnskin-testimonials-second-quote'); ?>
@@ -456,9 +456,9 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               </div>
             </div>
             <div class="testimonial">
-              <a class="testimonial__link" href="#">
+              <div class="testimonial__link">
                 <img class="testimonial__image" src="<?php echo $this->getImagePath( $this->getMessage('wikitolearnskin-testimonials-third-image-path') ); ?>" alt="<?php echo $this->getMessage('wikitolearnskin-testimonials-third-name'); ?>">
-              </a>
+              </div>
               <div class="testimonial__body">
                 <blockquote class="testimonial__quote">
                   <?php echo $this->getMessage('wikitolearnskin-testimonials-third-quote'); ?>
