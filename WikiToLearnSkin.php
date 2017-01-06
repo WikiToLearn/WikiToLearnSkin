@@ -313,6 +313,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                   <?php
                     $toolbar = $this->getPersonalTools();
                     unset($toolbar['notifications-alert']);
+                    unset($toolbar['notifications-notice']);
                     unset($toolbar['notifications-message']);
                     unset($toolbar['newmessages']);
                     foreach ( $toolbar as $key => $tool ) {
