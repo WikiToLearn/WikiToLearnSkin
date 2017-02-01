@@ -65,7 +65,22 @@ if [[ "$USE_DOCKER" -eq "1" ]] ; then
         mkdir node_modules
     fi
 
-    docker run \
+    {
+      cat <<EOF
+export MY_TMP_GROUP=node
+export MY_TMP_USER=node
+if getent group ! `id -g`
+then
+  groupadd --gid `id -g` \$MY_TMP_GROUP
+fi
+if getent passwd ! `id -u`
+then
+  useradd -d /tmp/ --uid "`id -u`" --gid "`id -g`" \$MY_TMP_USER
+fi
+su -s /bin/bash -c '/opt/makeSkin.sh' \`id -un `id -u`\`
+EOF
+exit
+    } | docker run -i \
       -e HOME=/tmp/ \
       --rm \
       -v wikitolearnskin-npm-home:/tmp/ \
@@ -79,7 +94,7 @@ if [[ "$USE_DOCKER" -eq "1" ]] ; then
       -v $(pwd)/gulpfile.js:/opt/gulpfile.js \
       -v $(pwd)/makeSkin.sh:/opt/makeSkin.sh \
       node:6 \
-      /bin/bash -c "groupadd --gid `id -g` node && useradd -d /tmp/ --uid "`id -u`" --gid "`id -g`" node && su -s /bin/bash -c '/opt/makeSkin.sh' node"
+      /bin/bash
 else
     echo "Running with system node"
     $NPM_COMMAND && $BOWER_COMMAND && $COMPILES_SASS_COMMAND
