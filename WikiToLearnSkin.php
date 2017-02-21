@@ -60,11 +60,14 @@ class SkinWikiToLearnSkin extends SkinTemplate
      * Otherwise you won't need this function and you can safely delete it.
      *
      * @param OutputPage $out
-     */
+     */ 
 
     public function initPage( OutputPage $out )
     {
         global $wiki_domain;
+        if (getenv('WTL_PRODUCTION') === 1) {
+          $out->addHeadItem( "script", "<script async src='//www.google-analytics.com/analytics.js'></script>" );
+        }
         parent::initPage( $out );
         $out->addMeta( 'viewport', 'width=device-width, initial-scale=1' );
         $out->addMeta( 'http:X-UA-Compatible', 'IE=edge' );
@@ -160,7 +163,9 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     public function execute()
     {
       //Declare useful variables for the whole template functions
-      global $wgOut, $wgRequest, $wgUser, $wgSupportedLanguages, $wiki_domain, $wiki;
+      global $wgOut, $wgRequest, $wgUser, $wgSupportedLanguages, $wiki_domain, 
+             $wiki, $wgPiwikURL, $wgPiwikIDSite, $wgGoogleAnalyticsAccount,
+             $wgGoogleAnalyticsAnonymizeIP;
       
       $this->skin = $this->getSkin();
       $this->namespaceId = $wgOut->getTitle()->getNamespace();
@@ -196,8 +201,13 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           }
           $this->executeFooter();
 
-          $this->printTrail(); ?>
+          if (getenv('WTL_PRODUCTION') == 0) {
+            setAnalytics(true, $wgPiwikURL, $wgPiwikIDSite, $wgGoogleAnalyticsAccount, 
+                         $wgGoogleAnalyticsAnonymizeIP); 
+          }
 
+          $this->printTrail(); 
+          ?>
           </body>
         </html>
     <?php }
@@ -1081,7 +1091,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       self::makeTool('#', $title, 'publishCourseButton', 'tool--black', 'fa-reply fa-rotate-45' );
     }
 
-     private function makeUndoPublishButton(){
+    private function makeUndoPublishButton(){
       $title = wfMessage('wikitolearnskin-undo-publish-course-tool')->text();
       self::makeTool('#', $title, 'undoPublishCourseButton', 'tool--black', 'fa-undo' );
     }
