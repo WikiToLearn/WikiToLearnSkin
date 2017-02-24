@@ -401,17 +401,7 @@ main.page--article{
         background-color: transparent;
     }
     
-    //style for various kind of wikimages
-    a.image{
-        display: inline-block;
-        padding: 1rem;
-        img{
-            max-width: 100%;
-            height: auto;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-        }
-    }
-    
+   
     // Override some default MediaWiki values and some built-in values to make tables mobile-friendly
     table.wikitable{
         display: block;
@@ -425,6 +415,16 @@ main.page--article{
         }
     }
     
+    //style for various kind of wikimages
+    a.image{
+        display: inline-block;
+        padding: 1rem;
+        img{
+            max-width: 100%;
+            height: auto;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+    }
     div.thumbinner{
         margin: 0.5rem;
         padding: 0.5rem;
@@ -441,7 +441,9 @@ main.page--article{
             }
         }
     }
-    
+	.thumb{
+		display: inline-block;
+    }
     .mw-userpage-userdoesnotexist{
         text-align: center;
     }
