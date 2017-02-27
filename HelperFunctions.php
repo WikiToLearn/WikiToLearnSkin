@@ -42,7 +42,7 @@ function getDisplayTitle($title, $fullTitle){
 function setAnalytics($piwik = true, $wgPiwikURL, $wgPiwikIDSite, $wgGoogleAnalyticsAccount, $wgGoogleAnalyticsAnonymizeIP)
 {
     if (isset($wgGoogleAnalyticsAccount) && !empty($wgGoogleAnalyticsAccount)) {
-        $wgGoogleAnalyticsAnonymizeIP = (isset($wgGoogleAnalytics) && !empty($wgGoogleAnalytics)) ? 
+        $wgGoogleAnalyticsAnonymizeIPString = (isset($wgGoogleAnalyticsAnonymizeIP) && !empty($wgGoogleAnalyticsAnonymizeIP)) ? 
         "ga('set', 'anonymizeIp', 'true') \n" : "ga('set', 'anonymizeIp', 'false') \n" ;
         ?>
         <script>
@@ -53,7 +53,7 @@ function setAnalytics($piwik = true, $wgPiwikURL, $wgPiwikIDSite, $wgGoogleAnaly
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
       ga('create', '<?php echo $wgGoogleAnalyticsAccount; ?>', 'auto');
-      <?php echo $wgGoogleAnalyticsAnonymizeIP; ?>
+      <?php echo $wgGoogleAnalyticsAnonymizeIPString; ?>
       ga('send', 'pageview');
 
       <?php if ($piwik) { ?> 
@@ -69,8 +69,8 @@ function setAnalytics($piwik = true, $wgPiwikURL, $wgPiwikIDSite, $wgGoogleAnaly
             var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
             g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
         })();
+        </script>
         <noscript><img src="//<?php echo $wgPiwikURL; ?>/piwik.php?idsite=<?php echo $wgPiwikIDSite ?>&amp;rec=1" style="border:0" alt="" /></noscript>
         <?php } ?>
-    </script>
     <?php }
 }
