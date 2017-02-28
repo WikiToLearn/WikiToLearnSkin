@@ -133,7 +133,6 @@ class SkinWikiToLearnSkin extends SkinTemplate
         } else {
                 $out->addModuleStyles( 'open-sans.wikitolearnskin' );
         }
-        //$out->addStyle("//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
         $out->addStyle("WikiToLearnSkin/bower_components/font-awesome/css/font-awesome.min.css");
 
         $out->addModuleStyles( 'skin.wikitolearn' );
