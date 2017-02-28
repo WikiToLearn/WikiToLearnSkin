@@ -212,18 +212,29 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
 
     public function executeCookies() {
       global $wiki_domain; ?>
-      <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
-      <script type="text/javascript">
-        window.cookieconsent_options = {
-          "message":"<?php echo wfMessage('wikitolearnskin-cookies-text'); ?>",
-          "dismiss":"<?php echo wfMessage('wikitolearnskin-cookies-dismiss'); ?>",
-          "learnMore":"<?php echo wfMessage('wikitolearnskin-cookies-learn-more'); ?>",
-          "link":null,
-          "theme":"light-bottom",
-          "domain": "<?php echo $wiki_domain ?>"
-        };
+      <link rel="stylesheet" type="text/css" href="skins/WikiToLearnSkin/bower_components/cookieconsent/build/cookieconsent.min.css">
+      <script type="text/javascript" src="skins/WikiToLearnSkin/bower_components/cookieconsent/build/cookieconsent.min.js" async></script>
+      <script>
+      window.addEventListener("load", function(){
+        window.cookieconsent.initialise({
+          "palette": {
+            "popup": {
+              "background": "#ffffff",
+              "text": "#333333"
+            },
+            "button": {
+              "background": "#69b140",
+              "text": "#ffffff"
+            }
+          },
+          "content": {
+            "message":"<?php echo wfMessage('wikitolearnskin-cookies-text'); ?>",
+            "dismiss":"<?php echo wfMessage('wikitolearnskin-cookies-dismiss'); ?>",
+            "learnMore":"<?php echo wfMessage('wikitolearnskin-cookies-learn-more'); ?>",
+            "domain": "<?php echo $wiki_domain ?>"
+          }
+        })});
       </script>
-      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.10/cookieconsent.min.js" async></script>
     <?php
     }
 
