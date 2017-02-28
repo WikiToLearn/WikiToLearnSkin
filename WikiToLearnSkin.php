@@ -112,7 +112,6 @@ class SkinWikiToLearnSkin extends SkinTemplate
         global $wgUser;
         if ($wgUser->getOption( 'skin-font' ) !== 'open-sans' && !empty($wgUser->getOption( 'skin-font' ))) {
             // If one of Computer Modern fonts get selected, add the web fonts
-            $out->addStyle("//cdn.rawgit.com/dreampulse/computer-modern-web-font/master/fonts.css");
             // Select which resource loader's module to load based on the selected preference
             switch ($wgUser->getOption( 'skin-font' )) {
                 case 'computer-modern-bright':
