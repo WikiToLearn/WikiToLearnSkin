@@ -69,8 +69,10 @@ function setAnalytics($piwik = true, $wgPiwikURL, $wgPiwikIDSite, $wgGoogleAnaly
             var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
             g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
         })();
+        <?php } ?>
         </script>
-        <noscript><img src="//<?php echo $wgPiwikURL; ?>/piwik.php?idsite=<?php echo $wgPiwikIDSite ?>&amp;rec=1" style="border:0" alt="" /></noscript>
+        <?php if ($piwik){ ?>
+            <noscript><img src="//<?php echo $wgPiwikURL; ?>/piwik.php?idsite=<?php echo $wgPiwikIDSite ?>&amp;rec=1" style="border:0" alt="" /></noscript>
         <?php } ?>
     <?php }
 }
