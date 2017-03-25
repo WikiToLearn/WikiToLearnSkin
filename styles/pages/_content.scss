@@ -1,5 +1,5 @@
 main.page--article{
-    
+
     padding-top: 5rem;
     padding-bottom: 2rem;
     min-height: 100vh;
@@ -8,7 +8,7 @@ main.page--article{
         padding-top: 3rem;
         padding-bottom: 1rem;
     }
-    
+
     .sitenotice__wrapper{
         margin-bottom: 1rem;
 
@@ -17,7 +17,7 @@ main.page--article{
             @include make-container-max-widths();
             padding: 0 2rem;
         }
-        
+
         @include media-breakpoint-down(xs) {
             padding: 0;
         }
@@ -37,12 +37,12 @@ main.page--article{
                 @include make-container-max-widths();
                 padding: 0 2rem;
             }
-            
+
             @include media-breakpoint-down(xs) {
                 padding: 0;
             }
         }
-        
+
         &__main{
             display: flex;
 
@@ -50,13 +50,13 @@ main.page--article{
                 display: block;
             }
         }
-        
+
         &__sheet{
             flex-grow: 2; //grow as much as possible
             flex-basis: 100%; //use all space, for real (this is to fix the bug about less than one line content)
             max-width: 100%;
         }
-        
+
         &__content{
             background-color: white;
             box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
@@ -67,7 +67,7 @@ main.page--article{
                 padding: 1rem;
             }
         }
-        
+
         &__navigation{
             margin-top: 0.75rem;
 
@@ -99,7 +99,7 @@ main.page--article{
             flex-grow: 1;
 
             padding-left: 1rem;
-            
+
             position: relative;
             max-width: 100%;
 
@@ -131,7 +131,7 @@ main.page--article{
                 position: relative;
                 text-align: center;
                 width: $toolSize;
-                
+
                 @include media-breakpoint-down(xs) {
                     width: 100%;
                     border-radius: 3rem;
@@ -155,7 +155,7 @@ main.page--article{
                 @mixin colorTool($color){
                     border: 2px solid $color;
                     color: $color;
-                    
+
                     @include media-breakpoint-down(xs) {
                         border: 1px solid $color;
                     }
@@ -174,7 +174,7 @@ main.page--article{
                             transition: all .1s linear;
                         }
                     }
-                    
+
                     &.active{
                         color: white;
                         background-color: $color;
@@ -204,10 +204,10 @@ main.page--article{
                 &--blue{
                     @include colorTool($mwblue);
                 }
-                
+
                 &__content{
                     position: absolute;
-                    
+
                     display: inline-block;
                     left: 0;
                     right: 0;
@@ -239,7 +239,7 @@ main.page--article{
             margin-bottom: 1rem;
         }
 
-        
+
 
         &__breadcrumb{
 
@@ -255,7 +255,7 @@ main.page--article{
                 padding: 0.25rem 1rem;
                 margin: 0;
                 text-align: left;
-                
+
                 @include media-breakpoint-down(xs) {
                     box-shadow: none;
                 }
@@ -332,7 +332,7 @@ main.page--article{
     @include media-breakpoint-down(xs) {
         font-size: .9rem;
     }
-    
+
     p:empty {
         display: none;
     }
@@ -366,7 +366,7 @@ main.page--article{
         max-width: 100%; //this will help mitigating out of bounds images by scaling them to fit the page
     }
 
-    
+
     //references
     .reference{
         a{
@@ -400,21 +400,20 @@ main.page--article{
     ol.references li:target, sup.reference:target{
         background-color: transparent;
     }
-    
-   
+
+
     // Override some default MediaWiki values and some built-in values to make tables mobile-friendly
     table.wikitable{
-        display: block;
         border-width: 0px !important;
         max-width: 100%;
         overflow: auto;
         background-color: transparent;
-        
+        margin: 0 auto;
         td{
             background-color: white;
         }
     }
-    
+
     //style for various kind of wikimages
     a.image{
         display: inline-block;
@@ -428,11 +427,11 @@ main.page--article{
     div.thumbinner{
         margin: 0.5rem;
         padding: 0.5rem;
-        
+
         box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 
         max-width: 100%;
-        
+
         a.image{
             padding: 0;
             img{
@@ -441,8 +440,9 @@ main.page--article{
             }
         }
     }
-	.thumb{
-		display: inline-block;
+    .thumb{
+        display: inline-block;
+        max-width: 100%;
     }
     .mw-userpage-userdoesnotexist{
         text-align: center;
@@ -473,10 +473,10 @@ main.page--article{
         background-color: #f8f8f8;
         border: 1px solid #eee;
         border-radius: $border-radius;
-        
+
         display: inline-block;
         padding: 1rem 1.5rem;
-        
+
         &.tochidden{
             padding: 0.5rem 1rem;
         }
@@ -491,7 +491,7 @@ main.page--article{
             }
 
         }
-        
+
         ul{
             list-style-type: none;
             padding-left: 0rem;
@@ -506,7 +506,7 @@ main.page--article{
             padding-left: 1.5rem;
         }
     }
-    
+
     h2:hover, h3:hover, h4:hover, h5:hover, h6:hover{
         .mw-editsection{
             visibility: visible;
