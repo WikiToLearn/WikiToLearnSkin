@@ -1,5 +1,5 @@
 body{
-    
+
     [class^="ve-"], [class^="oo-"], [class^="mw-"]{
         box-sizing: content-box;
     }
@@ -23,9 +23,9 @@ body{
             }
         }
     }
-    
+
     &.mw-special-Search{ //search page
-        
+
         .searchresults{
             margin: 1rem 0;
 
@@ -34,7 +34,7 @@ body{
             }
         }
 
-        
+
         #searchText{
             max-width: 100%;
             input.oo-ui-inputWidget-input{
@@ -48,7 +48,7 @@ body{
         }
 
         .mw-search-exists{
-            
+
             border-bottom: 1px solid silver;
             display: block;
             font-size: 2.5rem;
@@ -60,7 +60,7 @@ body{
                 font-weight: lighter;
             }
         }
-        
+
         .mw-search-results{
             padding-left: 0rem;
             display: block;
@@ -89,7 +89,7 @@ body{
         .mainLegend{
             display: none;
         }
-        
+
         table{
             margin-left: 1rem;
             tr .mw-label{
@@ -99,7 +99,7 @@ body{
                     margin-bottom: 0;
                 }
             }
-            
+
             label{
                 display: inline;
             }
@@ -113,7 +113,7 @@ body{
                 color: white;
                 outline: 0;
                 padding: .5em 2em;
-                
+
             }
         }
     }
@@ -151,7 +151,7 @@ body{
         //this is actually our fault
         //but as long as we don't change the SSection template
         //we have to deal with the issue like this
-        
+
         &::after{
             content: " ";
             clear: both;
@@ -177,7 +177,7 @@ body{
             display: inline-block;
         }
     }
-    
+
     .ve-ui-overlay-global{
         z-index: 15;
     }
@@ -204,7 +204,7 @@ body{
     }
 
     &.mw-special-Book{
-        
+
         #mw-collection-title-table{
             width: 100%;
         }
@@ -214,13 +214,13 @@ body{
                 text-align: left;
             }
         }
-        
+
         #coll-downloadbox{
             h2{
                 margin-top: 0;
             }
         }
-        
+
         #collectionListContainer{
             #collectionList{
                 padding-left: 0;
@@ -245,7 +245,7 @@ body{
             display: none;
         }
     }
-    
+
     .tdg-editscreen-main{
         &-helplink a .oo-ui-labelElement-label{
             color: $mwblue !important;
@@ -265,5 +265,9 @@ body{
         border-radius: $border-radius;
         text-align: center;
         color: white;
+    }
+
+    #mw-imagepage-reupload-link{
+        display: none;
     }
 }
