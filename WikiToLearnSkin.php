@@ -60,7 +60,7 @@ class SkinWikiToLearnSkin extends SkinTemplate
      * Otherwise you won't need this function and you can safely delete it.
      *
      * @param OutputPage $out
-     */ 
+     */
 
     public function initPage( OutputPage $out )
     {
@@ -79,7 +79,7 @@ class SkinWikiToLearnSkin extends SkinTemplate
           $out->addMeta("description", wfMessage('wikitolearnskin-meta-tag-description'));
           $out->addMeta("twitter:description", wfMessage('wikitolearnskin-meta-tag-description'));
           $this->addMetaProperty($out, "og:description", wfMessage('wikitolearnskin-meta-tag-description'));
-          
+
           $out->addMeta("twitter:title", "WikiToLearn - collaborative textbooks");
           $this->addMetaProperty($out, "og:title", "WikiToLearn - collaborative textbooks");
         }else{
@@ -88,7 +88,7 @@ class SkinWikiToLearnSkin extends SkinTemplate
           $this->addMetaProperty($out, "og:title", $displayTitle);
           $this->addMetaProperty($out, "og:type", "article");
         }
-        
+
         $this->addMetaProperty($out, "og:site_name", "WikiToLearn");
         $out->addMeta("twitter:card",'summary');
         $out->addMeta("twitter:site", '@WikiToLearn');
@@ -161,10 +161,10 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     public function execute()
     {
       //Declare useful variables for the whole template functions
-      global $wgOut, $wgRequest, $wgUser, $wgSupportedLanguages, $wiki_domain, 
+      global $wgOut, $wgRequest, $wgUser, $wgSupportedLanguages, $wiki_domain,
              $wiki, $wgPiwikURL, $wgPiwikIDSite, $wgGoogleAnalyticsAccount,
              $wgGoogleAnalyticsAnonymizeIP;
-      
+
       $this->skin = $this->getSkin();
       $this->namespaceId = $wgOut->getTitle()->getNamespace();
       $this->pageTitle = $wgOut->getTitle();
@@ -194,17 +194,17 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
             $this->executeJoinPage();
           } else {
             MWDebug::log('Generating Content page');
-            
+
             $this->executeContentPage();
           }
           $this->executeFooter();
 
           if (getenv('WTL_PRODUCTION') == 1) {
-            setAnalytics(true, $wgPiwikURL, $wgPiwikIDSite, $wgGoogleAnalyticsAccount, 
-                         $wgGoogleAnalyticsAnonymizeIP); 
+            setAnalytics(true, $wgPiwikURL, $wgPiwikIDSite, $wgGoogleAnalyticsAccount,
+                         $wgGoogleAnalyticsAnonymizeIP);
           }
 
-          $this->printTrail(); 
+          $this->printTrail();
           ?>
           </body>
         </html>
@@ -796,7 +796,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           <a href="<?php echo $this->skin->makeSpecialUrl('CreateAccount'); ?>"><?php echo $this->getMessage('wikitolearnskin-join-create-account'); ?></a>
           </div>
         </section>-->
-       
+
       </main>
     <?php }
     /*
@@ -1047,7 +1047,22 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       $editTools = $this->contentNavigation['views'];
       foreach ($editTools as $key => $toolAttributes) {
         if($key === "ve-edit"){
-          self::makeTool($toolAttributes['href'], $toolAttributes['text'], $toolAttributes['id'], "tool--red--filled", "fa-pencil" );
+          if($this->skin->getUser()->isAnon()) {
+            global $wgRequest;
+            $title = Title::newFromText('Special:UserLogin');
+            $pageName = $this->get('title');
+            $params = strstr($wgRequest->getRequestURL(), '?');
+            $returnTo = "returnto=" . $pageName;
+            if($params != ""){
+              $returnTo .= "&returntoquery=" . urlencode($params);
+            }
+            self::makeTool($title->getFullURL($returnTo),
+              $toolAttributes['text'],
+              "",
+              "tool--red--filled", "fa-pencil" );
+          } else {
+            self::makeTool($toolAttributes['href'], $toolAttributes['text'], $toolAttributes['id'], "tool--red--filled", "fa-pencil" );
+          }
         }
       }
     }
