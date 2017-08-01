@@ -341,7 +341,6 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                       //$personalToolsCount++;
                     }
                   ?>
-
                   <span class="dropdown-item languages__selector hidden-sm-up"><?php  ?></span>
                   <hr class="languages__divider hidden-sm-up"></hr>
                   <div class="languages--mobile hidden-sm-up">
@@ -388,34 +387,43 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
       global $wiki_domain, $wiki;
       ?>
       <main class="page page-home">
+        <!--
         <section class="title">
           <h1> <?php echo $this->getMessage('wikitolearnskin-home-claim', false); ?> </h1>
         </section>
-        <section class="departments">
-          <ul class="departments__content">
-            <?php
-            $departmentsCount = intval($this->getMessage("wikitolearnskin-departments-count"));
-            echo "<div class='departments__row'>";
-            for($i = 1; $i < ($departmentsCount+1); $i++){
-              self::makeDepartment(
-                $this->getMessage("wikitolearnskin-departments-$i-name"),
-                $this->getImagePath( $this->getMessage("wikitolearnskin-departments-$i-image") ),
-                $this->getMessage("wikitolearnskin-departments-$i-link"),
-                $this->getMessage("wikitolearnskin-departments-$i-status")
-              );
-              if($i==(round($departmentsCount/2)) && $departmentsCount>5){
-                echo "</div>";
-                echo "<div class='departments__row'>";
-              }
-            }
-            echo "</div>";
-            echo '<div class="clearfix"></div>';
-            ?>
-          </ul>
+        -->
+        <section class="howto">
+          <div class="howto__left">
+            <div class="howto__point" data-image-name="edit">
+              <div class="howto__title">
+                <i class="fa fa-pencil text-wtl--red"></i>
+                Scrivi, facendoti aiutare
+              </div>
+              <div class="howto__description">
+                Trasforma note e appunti in qualcosa di utile anche per gli altri. Fatti aiutare da colleghi e amici per assicurarti che ciò che scrivi sia chiaro e senza errori.
+              </div>
+            </div>
+            <div class="howto__point howto__point--faded" data-image-name="book">
+              <div class="howto__title">
+                <i class="fa fa-book text-wtl--yellow"></i> Crea libri dinamici
+              </div>
+              <div class="howto__description">
+                L’ultima versione di tutte le pagine è sempre scaricabile in PDF professionali. Questa funzione è comoda anche solo per delle note personali!
+              </div>
+            </div>
+            <div class="howto__point howto__point--faded" data-image-name="awards">
+              <div class="howto__title">
+                <i class="fa fa-star text-wtl--green"></i>
+                Ottieni riconoscimenti di qualità
+              </div>
+              <div class="howto__description">
+                Ogni libro che riceve una revisione da almeno due accademici riceve un badge speciale e viene distribuito a tutto il mondo.
+              </div>
+            </div>
+          </div>
+          <div class="howto__right">
+          </div>
         </section>
-        <!--<section class="join-us">
-
-        </section>-->
         <section class="media">
           <div class="media__content">
             <div class="media__videocolumn">
@@ -445,6 +453,28 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               </div>
             </div>
           </div>
+        </section>
+        <section class="departments">
+          <ul class="departments__content">
+            <?php
+            $departmentsCount = intval($this->getMessage("wikitolearnskin-departments-count"));
+            echo "<div class='departments__row'>";
+            for($i = 1; $i < ($departmentsCount+1); $i++){
+              self::makeDepartment(
+                $this->getMessage("wikitolearnskin-departments-$i-name"),
+                $this->getImagePath( $this->getMessage("wikitolearnskin-departments-$i-image") ),
+                $this->getMessage("wikitolearnskin-departments-$i-link"),
+                $this->getMessage("wikitolearnskin-departments-$i-status")
+              );
+              if($i==(round($departmentsCount/2)) && $departmentsCount>5){
+                echo "</div>";
+                echo "<div class='departments__row'>";
+              }
+            }
+            echo "</div>";
+            echo '<div class="clearfix"></div>';
+            ?>
+          </ul>
         </section>
         <section class="testimonials">
           <div class="testimonials__content">

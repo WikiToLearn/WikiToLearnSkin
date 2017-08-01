@@ -65,7 +65,8 @@
                 "scripts/app.js",
                 "scripts/multitool.js",
                 "scripts/floatingTools.js",
-                "scripts/visualEditor.js"
+                "scripts/visualEditor.js",
+                "scripts/home.js"
             ],
             "dependencies": [
                 "oojs-ui",

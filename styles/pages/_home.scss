@@ -1,8 +1,8 @@
 .title {
-    
+
     background-color: #f8f8fb;
     padding: $pages-home-content-padding;
-    
+
 
     @include media-breakpoint-up(sm) {
         @include make-container();
@@ -27,12 +27,44 @@
     }
 }
 
+.steps {
+    display: flex;
+
+    @include make-container();
+    @include media-breakpoint-up(sm) {
+        @include make-container-max-widths();
+    }
+
+    .step {
+        flex: 1;
+        text-align: center;
+        margin-bottom: 1rem;
+        .fa {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            background-color: white;
+            width: 8rem;
+            height: 8rem;
+            border-radius: 50%;
+            box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
+            margin-bottom: 0.5rem;
+        }
+    }
+}
 .departments {
     background-color: #f8f8fb;
 
+    &__title {
+        text-align: center;
+        font-weight: lighter;
+        margin-bottom: 1rem;
+    }
+
     &__content {
         list-style: none;
-        
+
         @include make-container();
         @include media-breakpoint-up(sm) {
             @include make-container-max-widths();
@@ -44,7 +76,7 @@
             flex-basis: 100%;
         }
     }
-    
+
     &__row{
         @include media-breakpoint-up(sm) {
             display: flex;
@@ -113,7 +145,7 @@
 }
 
 .join-us {
-    
+
     &__content{
         position: relative;
         background-color: white;
@@ -122,7 +154,7 @@
         padding: 1.5rem 2rem;
         min-height: 100%;
     }
-    
+
     &__text{
         margin: 0;
         padding: 0;
@@ -159,7 +191,7 @@
         font-size: $pages-home-join-us-link-font-size;
         padding: 0.5rem 0;
         text-align: center;
-        
+
         position: absolute; //stick to bottom
         bottom: 1.6rem;
         left: 2rem;
@@ -167,7 +199,7 @@
         @include media-breakpoint-down(md) {
             font-size: $pages-home-join-us-link-font-size - .2rem;
         }
-        
+
 
         &:hover, &:focus {
             color: white;
@@ -185,12 +217,12 @@
 }
 
 .media {
-    
+    margin-top: 2rem;
     background-color: #f8f8fb;
 
     &__content{
         padding: $pages-home-content-padding;
-        
+
         @include media-breakpoint-down(xs) {
             @include make-container($gutter: 0)
         }
@@ -198,26 +230,28 @@
             @include make-container();
             @include make-container-max-widths();
         }
-        
+
         display: block;
         @include media-breakpoint-up(lg) {
             display: flex;
         }
+
+        padding-top: 0;
     }
-    
+
     &__videocolumn{
         @include media-breakpoint-up(lg) {
             flex: 0 0 percentage(2/3);
         }
     }
-    
+
     &__videowrapper{
         @include aspect-ratio(16, 9);
         border-radius: $border-radius;
         overflow: hidden;
         position: relative;
         box-shadow: rgba(0,0,0,0.1) 0px 1px 3px; // TODO: remove hard coded values
-        
+
     }
 
     &__video {
@@ -249,13 +283,13 @@
     background-color: white;
     position: relative;
     box-shadow: 0 1px 3px rgba(0,0,0,0.15);
-    
+
     &__content{
         @include make-container();
         @include media-breakpoint-up(sm) {
             @include make-container-max-widths();
         }
-        
+
         padding: $pages-home-content-padding;
         text-align: center;
     }
@@ -273,7 +307,7 @@
     padding-right: 0;
 
     background-color: white;
-    
+
     @include make-col-ready();
     @include make-col(12);
     @include media-breakpoint-up(md) {
@@ -304,7 +338,7 @@
 
     &__quote {
         @extend .blockquote;
-        
+
         font-size: 1rem;
         border-left-color: $green;
         border-left-width: 2px;
@@ -327,7 +361,7 @@
 }
 
 .contributors{
-    
+
     &__content{
         @include make-container();
         @include media-breakpoint-up(sm) {
@@ -349,7 +383,7 @@
         list-style: none;
         padding: 0;
         text-align: center;
-        
+
         @include clearfix;
         @include media-breakpoint-up(sm) {
             max-width: 40%;
@@ -359,7 +393,7 @@
             margin-bottom: 2rem;
         }
     }
-    
+
     &__item {
         padding: .5rem;
 
@@ -377,7 +411,7 @@
 }
 
 .sponsors {
-   
+
     &__list {
         display: block;
         list-style: none;
@@ -399,5 +433,44 @@
 
     .clearfix {
         padding-bottom: 3rem
+    }
+}
+
+.howto {
+    display: flex;
+    margin-bottom: 2rem;
+
+    &__left {
+        background-color: white;
+        position: relative;
+        padding: 2rem 5rem;
+        padding-right: 0;
+        flex: 0 0 50%;
+        z-index: 10;
+    }
+
+    &__right {
+        position: relative;
+        background: url(/skins/WikiToLearnSkin/images/angle.svg) no-repeat left -5px, url(/skins/WikiToLearnSkin/images/edit.png) no-repeat right center;
+        background-size: auto 110%, cover;
+        flex: 0 0 50%;
+    }
+
+    &__point {
+        margin-bottom: 1rem;
+        cursor: pointer;
+
+        &--faded {
+            opacity: 0.5;
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+
+    &__title {
+        font-size: 1.75rem;
+        font-weight: normal;
     }
 }
