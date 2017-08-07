@@ -1304,7 +1304,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
     */
     private function makeTool($href, $title, $id, $classes, $icon) {
       ?>
-      <a <?php if($id !== NULL){ echo ('id="' . $id . '"'); }?> title="<?php echo $title ?>" class="tool <?php echo $classes?>" href="<?php echo $href ?>">
+      <a <?php if($id !== NULL){ echo ('id="' . $id . '"'); }?>  class="tool <?php echo $classes?>" href="<?php echo $href ?>" data-balloon="<? echo $title ?>" data-balloon-pos="left">
           <div class="tool__content">
             <i class="tool__icon fa <?php echo $icon ?> fa-fw"></i> <span class="tool__title"><? echo $title ?></span>
           </div>
