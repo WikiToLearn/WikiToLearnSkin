@@ -92,8 +92,8 @@ class SkinWikiToLearnSkin extends SkinTemplate
         $this->addMetaProperty($out, "og:site_name", "WikiToLearn");
         $out->addMeta("twitter:card",'summary');
         $out->addMeta("twitter:site", '@WikiToLearn');
-        $out->addMeta("twitter:image", "http://www." . $wiki_domain . "/wikitolearn.jpg");
-        $this->addMetaProperty($out, "og:image", "http://www." . $wiki_domain . "/wikitolearn.jpg");
+        $out->addMeta("twitter:image", "http://www." . $wiki_domain . "/assets/v1/img/wikitolearn.jpg");
+        $this->addMetaProperty($out, "og:image", "http://www." . $wiki_domain . "/assets/v1/img/wikitolearn.jpg");
         $this->addMetaProperty($out, "og:image:width", "500");
         $this->addMetaProperty($out, "og:image:height", "500");
     }
