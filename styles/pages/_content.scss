@@ -95,6 +95,13 @@ main.page--article{
            }
         }
 
+        &__info {
+            background-color: white;
+            margin: 1rem 0rem;
+            padding: 2rem 4rem;
+            box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
+        }
+
         &__tools{
             flex-grow: 1;
 

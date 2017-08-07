@@ -437,8 +437,11 @@
 }
 
 .howto {
-    display: flex;
-    margin-bottom: 2rem;
+
+    &__content {
+        display: flex;
+        margin-bottom: 2rem;
+    }
 
     &__left {
         background-color: white;
