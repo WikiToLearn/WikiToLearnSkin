@@ -27,32 +27,6 @@
     }
 }
 
-.steps {
-    display: flex;
-
-    @include make-container();
-    @include media-breakpoint-up(sm) {
-        @include make-container-max-widths();
-    }
-
-    .step {
-        flex: 1;
-        text-align: center;
-        margin-bottom: 1rem;
-        .fa {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            background-color: white;
-            width: 8rem;
-            height: 8rem;
-            border-radius: 50%;
-            box-shadow: rgba(0,0,0,0.1) 0px 1px 3px;
-            margin-bottom: 0.5rem;
-        }
-    }
-}
 .departments {
     background-color: #f8f8fb;
 
@@ -145,7 +119,6 @@
 }
 
 .join-us {
-
     &__content{
         position: relative;
         background-color: white;
@@ -300,6 +273,7 @@
         margin-top: 1.5rem;
     }
 }
+
 .testimonial {
     @extend .media;
 
@@ -360,7 +334,7 @@
     }
 }
 
-.contributors{
+.contributors {
 
     &__content{
         @include make-container();
@@ -440,7 +414,12 @@
 
     &__content {
         display: flex;
+
         margin-bottom: 2rem;
+
+        @include media-breakpoint-down(md) {
+            display: block;
+        }
     }
 
     &__left {
@@ -450,6 +429,10 @@
         padding-right: 0;
         flex: 0 0 50%;
         z-index: 10;
+
+        @include media-breakpoint-down(md) {
+            padding: 2rem;
+        }
     }
 
     &__right {
@@ -457,23 +440,35 @@
         background: url(/skins/WikiToLearnSkin/images/angle.svg) no-repeat left -5px, url(/skins/WikiToLearnSkin/images/edit.png) no-repeat right center;
         background-size: auto 110%, cover;
         flex: 0 0 50%;
+
+        @include media-breakpoint-down(md) {
+            display: none;
+        }
     }
 
     &__point {
         margin-bottom: 1rem;
         cursor: pointer;
 
-        &--faded {
-            opacity: 0.5;
+        @include media-breakpoint-up(lg) {
+            &--faded {
+                opacity: 0.5;
 
-            &:hover {
-                opacity: 0.8;
+                &:hover {
+                    opacity: 0.8;
+                }
             }
         }
+
     }
 
     &__title {
         font-size: 1.75rem;
         font-weight: normal;
+
+        @include media-breakpoint-down(md) {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
     }
 }
