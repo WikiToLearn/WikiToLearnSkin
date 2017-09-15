@@ -76,9 +76,9 @@ class SkinWikiToLearnSkin extends SkinTemplate
         if($out->getTitle()->isMainPage() ||
           $this->getSkin()->getTitle()->getFullText() == wfMessage('wikitolearnskin-join-page') //join page
         ){
-          $out->addMeta("description", wfMessage('wikitolearnskin-meta-tag-description'));
-          $out->addMeta("twitter:description", wfMessage('wikitolearnskin-meta-tag-description'));
-          $this->addMetaProperty($out, "og:description", wfMessage('wikitolearnskin-meta-tag-description'));
+          $out->addMeta("description", wfMessage('wikitolearnskin-meta-tag-description')->escaped());
+          $out->addMeta("twitter:description", wfMessage('wikitolearnskin-meta-tag-description')->escaped());
+          $this->addMetaProperty($out, "og:description", wfMessage('wikitolearnskin-meta-tag-description')->escaped());
 
           $out->addMeta("twitter:title", "WikiToLearn - collaborative textbooks");
           $this->addMetaProperty($out, "og:title", "WikiToLearn - collaborative textbooks");
@@ -99,6 +99,8 @@ class SkinWikiToLearnSkin extends SkinTemplate
     }
 
     private function addMetaProperty($out, $property, $content){
+      $property = htmlspecialchars($property);
+      $content = htmlspecialchars($content);
       $out->addHeadItem($property, "<meta property='$property' content='$content'/>");
     }
     /**
@@ -351,11 +353,11 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               </div>
               <div class="dropdown dropdown--notifications">
                 <a id="notifications" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="fa fa-bell"></i> <i class="fa fa-angle-down"></i>
+                  <i class="fa fa-bell"></i> <span class="badge-count" class="badge" style="display:none;"> <i class="fa fa-angle-down"></i>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="notifications">
                   <div class="dropdown-header">
-                    <span class="dropdown--notifications__notifications-count"><?php echo wfMessage('notifications') ?>&nbsp;<span id="badge-count" class="badge" style="display:none;"></span></span>
+                    <span class="dropdown--notifications__notifications-count"><?php echo wfMessage('notifications') ?>&nbsp;<span class="badge-count" class="badge" style="display:none;"></span></span>
                     <span>
                       <a href="#" id="mark-all-read-button" style="display:none;"><?php echo wfMessage('echo-mark-all-as-read') ?></a>
                     </span>
@@ -420,27 +422,28 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               <div class="howto__point" data-image-name="edit">
                 <div class="howto__title">
                   <i class="fa fa-pencil text-wtl--red"></i>
-                  Scrivi, facendoti aiutare
+                  <?php echo $this->getMessage('wikitolearnskin-home-howto-edit-title'); ?>
                 </div>
                 <div class="howto__description">
-                  Trasforma note e appunti in qualcosa di utile anche per gli altri. Fatti aiutare da colleghi e amici per assicurarti che ciò che scrivi sia chiaro e senza errori.
+                  <?php echo $this->getMessage('wikitolearnskin-home-howto-edit-description'); ?>
                 </div>
               </div>
               <div class="howto__point howto__point--faded" data-image-name="book">
                 <div class="howto__title">
-                  <i class="fa fa-book text-wtl--yellow"></i> Crea libri dinamici
+                  <i class="fa fa-book text-wtl--yellow"></i> 
+                  <?php echo $this->getMessage('wikitolearnskin-home-howto-book-title'); ?>
                 </div>
                 <div class="howto__description">
-                  L’ultima versione di tutte le pagine è sempre scaricabile in PDF professionali. Questa funzione è comoda anche solo per delle note personali!
+                  <?php echo $this->getMessage('wikitolearnskin-home-howto-book-description'); ?>
                 </div>
               </div>
               <div class="howto__point howto__point--faded" data-image-name="awards">
                 <div class="howto__title">
                   <i class="fa fa-star text-wtl--green"></i>
-                  Ottieni riconoscimenti di qualità
+                    <?php echo $this->getMessage('wikitolearnskin-home-howto-awards-title'); ?>
                 </div>
                 <div class="howto__description">
-                  Ogni libro che riceve una revisione da almeno due accademici riceve un badge speciale e viene distribuito a tutto il mondo.
+                  <?php echo $this->getMessage('wikitolearnskin-home-howto-awards-description'); ?>
                 </div>
               </div>
             </div>

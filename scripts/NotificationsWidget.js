@@ -6,7 +6,7 @@ function NotificationsWidget () {
   this.$overlay = $('<div>');
   this.count = 0;
   this.doneLoading = false;
-  this.$badge = $('#badge-count');
+  this.$badge = $('.badge-count');
   this.markAllReadButton = $('#mark-all-read-button');
 
   $('#notifications-view-all').attr('href', mw.util.getUrl( 'Special:Notifications' ));
