@@ -249,7 +249,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               <img class="logo__img" src="<?php echo $this->getImagePath("images/wikitolearn-logo.png") ?>">
               <img class="logo__text" src="<?php echo $this->getImagePath("images/name.svg") ?>">
               <?php
-                if($wiki_domain == "wikitolearn.vodka")
+                if (strpos($wiki_domain, 'wikitolearn-test.org') !== false)
                   echo "<span class='logo__subtitle'>dev</span>";
               ?>
             </a>
@@ -430,7 +430,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
               </div>
               <div class="howto__point howto__point--faded" data-image-name="book">
                 <div class="howto__title">
-                  <i class="fa fa-book text-wtl--yellow"></i> 
+                  <i class="fa fa-book text-wtl--yellow"></i>
                   <?php echo $this->getMessage('wikitolearnskin-home-howto-book-title'); ?>
                 </div>
                 <div class="howto__description">

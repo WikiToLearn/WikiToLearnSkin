@@ -38,7 +38,7 @@ gulp.task('watch', ['sass'], function () {
 
 gulp.task('browser-sync', function() {
     browserSync.init({
-        proxy: "it.tuttorotto.biz"
+        proxy: "it.local.wikitolearn-test.org"
     });
 
     gulp.watch("WikiToLearnSkin.php").on('change', browserSync.reload);
