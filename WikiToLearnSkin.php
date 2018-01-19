@@ -214,8 +214,8 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
 
     public function executeCookies() {
       global $wiki_domain; ?>
-      <link rel="stylesheet" type="text/css" href="skins/WikiToLearnSkin/bower_components/cookieconsent/build/cookieconsent.min.css">
-      <script type="text/javascript" src="skins/WikiToLearnSkin/bower_components/cookieconsent/build/cookieconsent.min.js" async></script>
+      <link rel="stylesheet" type="text/css" href="/skins/WikiToLearnSkin/bower_components/cookieconsent/build/cookieconsent.min.css">
+      <script type="text/javascript" src="/skins/WikiToLearnSkin/bower_components/cookieconsent/build/cookieconsent.min.js" async></script>
       <script>
       window.addEventListener("load", function(){
         window.cookieconsent.initialise({
