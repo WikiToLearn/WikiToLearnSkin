@@ -35,16 +35,20 @@ docker run -i \
   -v $(pwd)/gulpfile.js:/opt/gulpfile.js \
   node:8 \
   /bin/bash <<EOF
-export MY_TMP_GROUP=node
-export MY_TMP_USER=node
-if getent group ! `id -g`
+set -e
+set -x
+export MY_TMP_GROUP=node-tmp
+export MY_TMP_USER=node-tmp
+if [[ \$(getent group `id -g` | wc -c) -eq 0 ]]
 then
   groupadd --gid `id -g` \$MY_TMP_GROUP
 fi
-if getent passwd ! `id -u`
+if [[ \$(getent passwd `id -u` | wc -c) -eq 0 ]]
 then
   useradd -d /tmp/ --uid "`id -u`" --gid "`id -g`" \$MY_TMP_USER
 fi
 cd /opt/
+getent group  `id -g`
+getent passwd `id -u`
 su -s /bin/bash -c 'npm install && node_modules/bower/bin/bower install && node_modules/gulp/bin/gulp.js sass' \`id -un `id -u`\`
 EOF
