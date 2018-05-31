@@ -12,6 +12,15 @@ else
 fi
 cd "$HACKING_DIR"
 
+for dir in bower_components build node_modules scripts styles
+do
+  test ! -d $dir && mkdir $dir
+done
+for file in package.json bower.json gulpfile.js
+do
+  test ! -f $file && touch $file
+done
+
 docker run -i \
   -e HOME=/tmp/ \
   --rm \
@@ -24,7 +33,6 @@ docker run -i \
   -v $(pwd)/scripts:/opt/scripts \
   -v $(pwd)/styles:/opt/styles \
   -v $(pwd)/gulpfile.js:/opt/gulpfile.js \
-  -v $(pwd)/makeSkin.sh:/opt/makeSkin.sh \
   node:8 \
   /bin/bash <<EOF
 export MY_TMP_GROUP=node
