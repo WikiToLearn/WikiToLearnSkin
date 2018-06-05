@@ -647,6 +647,9 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
                 <li>
                   <a href="<?php echo $this->getMessage("wikitolearnskin-footer-license-link"); ?>"><i class="fa fa-copyright">&nbsp;</i><?php echo $this->getMessage("wikitolearnskin-footer-license"); ?></a>
                 </li>
+                <li>
+                  <a href="<?php echo "//www." . $wiki_domain . "/privacy.html" ?>"><i class="fa fa-copyright">&nbsp;</i><?php echo $this->getMessage("wikitolearnskin-footer-privacy-policy"); ?></a>
+                </li>
               </ul>
               <h4 class="footer__second-heading"><?php echo $this->getMessage('wikitolearnskin-footer-hosted-by'); ?></h4>
               <ul class="footer__second-list">
