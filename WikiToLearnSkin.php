@@ -202,7 +202,7 @@ class WikiToLearnSkinTemplate extends BaseTemplate {
           $this->executeFooter();
 
           if (getenv('WTL_PRODUCTION') == 1) {
-            setAnalytics(true, $wgPiwikURL, $wgPiwikIDSite, $wgGoogleAnalyticsAccount,
+            setAnalytics($piwik = false, $wgPiwikURL, $wgPiwikIDSite, $wgGoogleAnalyticsAccount,
                          $wgGoogleAnalyticsAnonymizeIP);
           }
 
