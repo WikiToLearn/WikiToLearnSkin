@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/WikiToLearn/WikiToLearnSkin#readme",
   "dependencies": {
-    "bower": "^1.7.9",
+    "bower": "^1.8.8",
     "browser": "^0.2.6",
     "browser-sync": "^2.17.0",
     "gulp": "^3.9.1",
